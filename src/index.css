@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,750;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-orange: #E55B13;
+  --color-paper-light: #FAF9F6;
+  --color-paper-dark: #1A1A1A;
+  --color-paper-border: #E5E5E1;
+  --color-paper-card: #F8F7F2;
+}
+
+/* Base custom classes for seamless UX and accessibility */
+@layer base {
+  body {
+    background-color: var(--color-paper-light);
+    color: var(--color-paper-dark);
+    font-family: var(--font-sans);
+    @apply antialiased selection:bg-brand-orange/15 selection:text-brand-orange;
+  }
+}
+
+/* Custom fade effects for view switching */
+.view-enter {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3D Editorial Page Turning Mechanics */
+@media (min-width: 768px) {
+  .book-container {
+    perspective: 2000px;
+    transform-style: preserve-3d;
+  }
+  
+  .book-layout {
+    transform-style: preserve-3d;
+  }
+
+  .page-base {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .flipping-page-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    will-change: transform, z-index;
+  }
+
+  .flipping-page-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+
+  .flipping-page-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Keyframe Animations for Page 1 (Flips 10% to 45% of Scroll) */
+  @keyframes flip-page-1 {
+    0%, 10% {
+      transform: rotateY(0deg);
+      z-index: 30;
+    }
+    27.5% {
+      z-index: 30;
+    }
+    27.6% {
+      z-index: 10;
+    }
+    45%, 100% {
+      transform: rotateY(-180deg);
+      z-index: 10;
+    }
+  }
+
+  /* Shadow Keyframes for Page 1 */
+  @keyframes shadow-page-1 {
+    0%, 10% {
+      opacity: 0;
+    }
+    27.5% {
+      opacity: 0.8;
+    }
+    45%, 100% {
+      opacity: 0;
+    }
+  }
+
+  /* Keyframe Animations for Page 2 (Flips 50% to 85% of Scroll) */
+  @keyframes flip-page-2 {
+    0%, 50% {
+      transform: rotateY(0deg);
+      z-index: 25;
+    }
+    67.5% {
+      z-index: 25;
+    }
+    67.6% {
+      z-index: 12;
+    }
+    85%, 100% {
+      transform: rotateY(-180deg);
+      z-index: 12;
+    }
+  }
+
+  /* Shadow Keyframes for Page 2 */
+  @keyframes shadow-page-2 {
+    0%, 50% {
+      opacity: 0;
+    }
+    67.5% {
+      opacity: 0.8;
+    }
+    85%, 100% {
+      opacity: 0;
+    }
+  }
+
+  /* Scroll timeline attachment helper classes */
+  @supports (animation-timeline: scroll()) {
+    .native-flip-1 {
+      animation: flip-page-1 linear;
+      animation-timeline: scroll(root);
+    }
+    .native-shadow-1 {
+      animation: shadow-page-1 linear;
+      animation-timeline: scroll(root);
+    }
+    .native-flip-2 {
+      animation: flip-page-2 linear;
+      animation-timeline: scroll(root);
+    }
+    .native-shadow-2 {
+      animation: shadow-page-2 linear;
+      animation-timeline: scroll(root);
+    }
+  }
+
+  /* Graceful fallback calculations using single CSS variable --scroll-progress */
+  @supports not (animation-timeline: scroll()) {
+    .native-flip-1 {
+      transform: rotateY(calc(clamp(0, (var(--scroll-progress) - 0.1) / 0.35, 1) * -180deg));
+      z-index: calc(var(--scroll-progress) < 0.275 ? 30 : 10);
+    }
+    .native-shadow-1 {
+      opacity: calc(sin(clamp(0, (var(--scroll-progress) - 0.1) / 0.35, 1) * 3.14159) * 0.8);
+    }
+    .native-flip-2 {
+      transform: rotateY(calc(clamp(0, (var(--scroll-progress) - 0.5) / 0.35, 1) * -180deg));
+      z-index: calc(var(--scroll-progress) < 0.675 ? 25 : 12);
+    }
+    .native-shadow-2 {
+      opacity: calc(sin(clamp(0, (var(--scroll-progress) - 0.5) / 0.35, 1) * 3.14159) * 0.8);
+    }
+  }
+}
+
+/* --- High-Conversion CRO Utilities & Hardware Acceleration --- */
+
+/* 1. Content Visibility for Below-the-fold components */
+.content-visibility-below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 450px;
+}
+
+/* 2. Hardware-accelerated transitions */
+.hardware-accel {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* 3. Skeleton Shimmer Background Sweep Keyframes */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(229, 229, 225, 0.4) 25%,
+    rgba(180, 180, 180, 0.45) 50%,
+    rgba(229, 229, 225, 0.4) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 1.4s infinite linear;
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 4. Desktop-only Interactive Destination card hover translates */
+@media (hover: hover) {
+  .hover-elevate-card {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+  }
+  .hover-elevate-card:hover {
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #E55B13;
+  }
+  .hover-elevate-card:hover .check-deals-btn {
+    opacity: 1 !important;
+    transform: translateY(0) translateZ(0) !important;
+  }
+}
+
+/* 5. Mobile-first instant touch responsiveness, strips layout animation overlays */
+@media (hover: none) {
+  .hover-elevate-card {
+    transition: background-color 0.15s ease, transform 0.1s ease;
+  }
+  /* Instant tactile click states instead of hovering translate lag */
+  .hover-elevate-card:active {
+    transform: scale(0.98);
+    background-color: rgba(229, 91, 19, 0.05);
+    border-color: #E55B13;
+  }
+}
+
+/* 6. Active search focus field scales */
+.search-widget-field {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease;
+}
+.search-widget-field:focus-within {
+  transform: scale(1.01) translateZ(0);
+  border-color: #E55B13 !important;
+  box-shadow: 0 4px 20px -2px rgba(229, 91, 19, 0.12);
+}
+

@@ -1,0 +1,12 @@
+# ⚡ robots.txt for BookMeThat (https://bookmethat.com)
+# Core Web Vitals Static Engine Optimized
+
+User-agent: *
+Allow: /
+
+# Prevent indexing of non-crawlable dev/internal services block if any
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemaps Location Link
+Sitemap: https://bookmethat.com/sitemap.xml

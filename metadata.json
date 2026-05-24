@@ -1,0 +1,6 @@
+{
+  "name": "BookMeThat",
+  "description": "Premium global travel booking comparison & affiliate recommendation engine optimized for semantic SEO, high conversion, and full compliance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
