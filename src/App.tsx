@@ -266,7 +266,7 @@ export default function App() {
                     https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80 800w,
                     https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80 1200w"
             sizes="(max-width: 768px) 100vw, 50vw"
-            alt="Sunny static coastal beach transit layout" 
+            alt="Scenic coastal beach view illustrating seamless travel deals and direct bookings" 
             class="hero-optimized-image"
             decoding="async" 
             loading="eager"
@@ -291,7 +291,7 @@ export default function App() {
                 src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80" 
                 decoding="async"
                 loading="lazy"
-                alt="Tokyo Digital Connectivity Hub"
+                alt="Tokyo city street view representing high-speed local eSIM connectivity"
                 class="deal-thumb"
               >
               <div class="deal-cost-bubble">From $4.50</div>
@@ -315,7 +315,7 @@ export default function App() {
                 src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80" 
                 decoding="async"
                 loading="lazy"
-                alt="European coastal car transit"
+                alt="Driving a rental hatchback car along the beautiful Costa Brava coastline"
                 class="deal-thumb"
               >
               <div class="deal-cost-bubble">$0 Deposit</div>
@@ -1117,7 +1117,7 @@ body {
                                 ? "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80"
                                 : "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80"
                             }
-                            alt={item.name}
+                            alt={`${item.name} - best travel deals for ${item.category}`}
                             decoding="async"
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
