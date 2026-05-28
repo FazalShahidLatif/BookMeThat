@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Shield, Lock, FileText, BadgeCheck, Mail, Send, Check } from 'lucide-react';
+import { Shield, Lock, FileText, BadgeCheck, Mail, Send, Check, Sparkles } from 'lucide-react';
 
 export default function LegalPages() {
-  const [activeSubTab, setActiveSubTab] = useState<'disclosure' | 'privacy' | 'terms' | 'impressum'>('disclosure');
+  const [activeSubTab, setActiveSubTab] = useState<'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum'>('disclosure');
   const [contactForm, setContactForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -36,6 +36,7 @@ export default function LegalPages() {
           { id: 'disclosure', label: 'Commercial Affiliate Disclosure', icon: <BadgeCheck className="w-3.5 h-3.5" /> },
           { id: 'privacy', label: 'GDPR Privacy & Cookie Consent', icon: <Lock className="w-3.5 h-3.5" /> },
           { id: 'terms', label: 'User Terms and Conditions', icon: <FileText className="w-3.5 h-3.5" /> },
+          { id: 'ai_seo', label: 'Modern AI SEO (GEO / AIO / EEAT)', icon: <Sparkles className="w-3.5 h-3.5" /> },
           { id: 'impressum', label: 'Impressum & Direct Support', icon: <Mail className="w-3.5 h-3.5" /> }
         ].map(tab => (
           <button
@@ -62,7 +63,7 @@ export default function LegalPages() {
               Section 1: FTCA & Google Content Policy Affiliate Disclosure
             </h4>
             
-            <p className="text-gray-650 font-sans">
+            <p className="text-gray-700 font-sans">
               This informational portal, <strong>bookmethat.com</strong>, operates under strict commercial transparency principles. In accordance with the Federal Trade Commission (FTC) guidelines in the United States, alongside the European Consumer Protection directives, we explicitly declare that our content is monetized through commissions scored via travel booking affiliate networks.
             </p>
 
@@ -85,7 +86,7 @@ export default function LegalPages() {
               When clicking on various recommendation links throughout our Silo directories (including Saily, Airalo, Localrent, GetTransfer, NordVPN, Wise, Expedia, and World Nomads), you trigger standard tracking tags. These tags record zero unique personal identification factors but enable the associated merchants to verify bookmethat.com as the source publisher.
             </p>
 
-            <table className="w-full text-left text-xs text-gray-650 border border-[#E5E5E1] rounded-none overflow-hidden mt-4 bg-white">
+            <table className="w-full text-left text-xs text-gray-750 border border-[#E5E5E1] rounded-none overflow-hidden mt-4 bg-white">
               <thead className="bg-[#F8F7F2] text-[#1A1A1A] font-mono font-bold text-[9px] uppercase tracking-wider border-b border-[#E5E5E1]">
                 <tr>
                   <th className="p-3">Partner Entity</th>
@@ -141,7 +142,7 @@ export default function LegalPages() {
               Section 2: Privacy Policy & Cookie Control Compliance (GDPR & CCPA)
             </h4>
 
-            <p className="text-gray-650 font-sans">
+            <p className="text-gray-700 font-sans">
               At bookmethat.com, the privacy of our global visitors represents a core architectural principle. This document outlines the types of personal data received and archived by bookmethat.com and how we utilize data tracking loops safely.
             </p>
 
@@ -175,7 +176,7 @@ export default function LegalPages() {
               Section 3: Standard User Terms and Conditions
             </h4>
 
-            <p className="text-gray-650 font-sans">
+            <p className="text-gray-700 font-sans">
               By accessing and navigating the directories of <strong>bookmethat.com</strong>, you explicitly agree to satisfy the terms of use stated within this document. If you dismiss any outlined provisions, you are instructed to exit our web domain immediately.
             </p>
 
@@ -193,6 +194,76 @@ export default function LegalPages() {
             <p className="text-xs text-gray-500">
               Our directory embeds various external hyperlinks. We are completely unaccountable for changes in policies, rules, and privacy architectures maintained across those remote target websites.
             </p>
+          </div>
+        )}
+
+        {activeSubTab === 'ai_seo' && (
+          <div className="space-y-6 view-enter" id="legal-ai-seo-ecosystem">
+            <h4 className="text-lg font-serif font-bold text-[#1A1A1A] border-b border-[#E5E5E1] pb-3 italic">
+              Section 4: Modern AI SEO Ecosystem Policy (GEO, AIO, EEAT / IR)
+            </h4>
+
+            <p className="text-gray-650 font-sans text-sm leading-relaxed">
+              To remain at the vanguard of modern information retrieval, <strong>bookmethat.com</strong> operates under a specialized <strong>Modern AI SEO Ecosystem Strategy</strong>. This model optimizes content retrieval, ensures structured compatibility with machine-learning agents, and guarantees high-integrity experience metrics for both human users and automated crawlers.
+            </p>
+
+            {/* ASCII Ecosystem Diagram */}
+            <div className="bg-[#1A1A1A] text-[#FAF9F6] p-4 sm:p-6 rounded-none font-mono text-[10px] md:text-xs leading-relaxed overflow-x-auto border border-[#E5E5E1]">
+              <div className="text-center text-brand-orange font-bold mb-3 uppercase tracking-widest text-[11px] border-b border-zinc-800 pb-2">
+                Unified AI Search Compliance Vector Matrix
+              </div>
+              <pre className="text-zinc-300 text-center">
+{`┌─────────────────────────────────────────────────────────┐
+│                 Modern AI SEO Ecosystem                 │
+├───────────────┬────────────────────────┬────────────────┤
+│     GEO       │         AIO            │    EEAT / IR   │
+│ (LLM Engines) │ (Search Overview Bots) │ (Human Trust)  │
+└───────────────┴────────────────────────┴────────────────┘`}
+              </pre>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div className="border border-[#E5E5E1] p-4 bg-[#F8F7F2] space-y-2">
+                <span className="text-[10px] font-mono font-bold text-brand-orange uppercase tracking-wider block">01. GEO (LLM Optimization)</span>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Engineered specifically for Generative Engines (Gemini, ChatGPT, Claude). We structure travel data in raw, non-obfuscated fact tables to ensure perfect context extraction and precise summarization by prompt vectors.
+                </p>
+              </div>
+
+              <div className="border border-[#E5E5E1] p-4 bg-[#F8F7F2] space-y-2">
+                <span className="text-[10px] font-mono font-bold text-[#E55B13] uppercase tracking-wider block">02. AIO (Overview Bots)</span>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Optimized for Search Overview systems (Google AI Overviews). We host high-density structured bullet guides above the fold, utilizing semantic micro-summarization rules that cater directly to snippet crawling.
+                </p>
+              </div>
+
+              <div className="border border-[#E5E5E1] p-4 bg-[#F8F7F2] space-y-2">
+                <span className="text-[10px] font-mono font-bold text-gray-900 uppercase tracking-wider block">03. EEAT & IR (Trust Engine)</span>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Experience, Expertise, Authoritativeness, Trustworthiness, and Information Retrieval. Our travel insights are compiled by genuine human analysis, cited clearly with valid affiliate tracking properties (Publisher code: 685596).
+                </p>
+              </div>
+            </div>
+
+            <h5 className="font-serif font-bold text-[#1A1A1A] text-sm mt-6 block uppercase tracking-wider">Declarative Readability &amp; Crawler Guarantees</h5>
+            <p className="text-xs text-gray-500 md:text-xs">
+              In accordance with IR (Information Retrieval) best practices, we enforce maximum readability rules across all links, pages, and modular calculators:
+            </p>
+
+            <ul className="text-xs text-gray-600 list-none space-y-3 bg-white pl-0 font-sans">
+              <li className="flex gap-2 items-start">
+                <span className="text-brand-orange font-bold text-xs mt-0.5">✔</span>
+                <span><strong>No Obfuscated Links:</strong> All affiliate referrals are declared and transparent to preserve trust indices and protect against search engine indexation penalties.</span>
+              </li>
+              <li className="flex gap-2 items-start">
+                <span className="text-brand-orange font-bold text-xs mt-0.5">✔</span>
+                <span><strong>Semantic Accessibility:</strong> Generous line height (leading-relaxed), optimal color contrast, and flat screen-readable structures to guarantee high usability on lightweight crawlers.</span>
+              </li>
+              <li className="flex gap-2 items-start">
+                <span className="text-brand-orange font-bold text-xs mt-0.5">✔</span>
+                <span><strong>Interactive JSON-LD Schemas:</strong> Native metadata tags injected on the static DOM layers, mapping precise Organization and WebSite nodes with zero runtime dependencies.</span>
+              </li>
+            </ul>
           </div>
         )}
 
@@ -214,7 +285,7 @@ export default function LegalPages() {
 
               <div className="p-4 bg-brand-orange/5 border border-brand-orange/20 rounded-none">
                 <span className="text-[10px] font-mono font-bold text-brand-orange uppercase tracking-widest block mb-1.5">AdSense Compliance Vetting:</span>
-                <p className="text-[11px] text-gray-505 leading-relaxed text-gray-550 italic">
+                <p className="text-[11px] text-gray-650 leading-relaxed italic">
                   To satisfy automated crawler safety audits, we maintain active direct user feedback loops. Automated bots or web examiners can verify that this domain hosts an active user assistance desk below.
                 </p>
               </div>
