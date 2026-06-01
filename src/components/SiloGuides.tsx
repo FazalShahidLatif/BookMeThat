@@ -134,12 +134,12 @@ export default function SiloGuides() {
           <div className="relative aspect-video rounded-none overflow-hidden border border-[#E5E5E1] bg-[#FAF9F6]">
             <img 
               src={getSiloImage(viewedArticle.silo)} 
-              alt={viewedArticle.altTextMap.hero} 
+              alt={viewedArticle?.altTextMap?.hero || viewedArticle?.title || "BookMeThat travel logistics article hero"} 
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-3 left-3 bg-black/85 text-white font-mono text-[9px] px-2.5 py-1 rounded-none max-w-sm">
-              <span className="font-extrabold text-brand-orange">SEO ALT TEXT:</span> {viewedArticle.altTextMap.hero}
+              <span className="font-extrabold text-brand-orange">SEO ALT TEXT:</span> {viewedArticle?.altTextMap?.hero || viewedArticle?.title}
             </div>
           </div>
 
@@ -218,11 +218,11 @@ export default function SiloGuides() {
               >
                 <div>
                   
-                  {/* Card Thumbnail */}
+                   {/* Card Thumbnail */}
                   <div className="relative aspect-video w-full overflow-hidden bg-white border-b border-[#E5E5E1]">
                     <img 
                       src={getSiloImage(art.silo)} 
-                      alt={art.altTextMap.hero} 
+                      alt={art?.altTextMap?.hero || art?.title || "BookMeThat travel logistics card thumbnail"} 
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500"
                     />

@@ -10,8 +10,9 @@ import InteractivePlanner from './components/InteractivePlanner';
 import ComparisonCalculators from './components/ComparisonCalculators';
 import SiloGuides from './components/SiloGuides';
 import LegalPages from './components/LegalPages';
+import SEOHeatmapConsole from './components/SEOHeatmapConsole';
 
-type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal';
+type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
 
 export default function App() {
@@ -334,6 +335,7 @@ export default function App() {
                 loading="lazy"
                 alt="Tokyo Digital Connectivity Hub"
                 class="deal-thumb"
+                referrerpolicy="no-referrer"
               >
               <div class="deal-cost-bubble">From $4.50</div>
             </div>
@@ -358,6 +360,7 @@ export default function App() {
                 loading="lazy"
                 alt="European coastal car transit"
                 class="deal-thumb"
+                referrerpolicy="no-referrer"
               >
               <div class="deal-cost-bubble">$0 Deposit</div>
             </div>
@@ -1338,19 +1341,20 @@ body {
               <p className="text-xs text-gray-550 font-sans leading-relaxed">Responsive estimators to check direct travel costs and secure local conversion codes.</p>
             </div>
 
-            <div className="flex justify-center border-b border-[#E5E5E1] mb-6">
+            <div className="flex justify-center border-b border-[#E5E5E1] mb-6 overflow-x-auto whitespace-nowrap">
               {[
                 { tab: 'planner', label: 'Interactive Nomad Planner' },
                 { tab: 'calculators', label: 'Car & eSIM Cost Estimator' },
-                { tab: 'guides', label: 'Topical SEO Silos' }
+                { tab: 'guides', label: 'Topical SEO Silos' },
+                { tab: 'heatmap', label: 'AI Keyword Potential Heatmap' }
               ].map((it) => (
                 <button
                   key={it.tab}
                   onClick={() => setActiveTab(it.tab as ActiveTab)}
                   className={`px-4 sm:px-6 py-2.5 text-[9px] uppercase tracking-widest font-mono font-bold border-b-2 transition-all cursor-pointer select-none ${
                     activeTab === it.tab 
-                      ? 'border-brand-orange text-brand-orange' 
-                      : 'border-transparent text-gray-400 hover:text-gray-905'
+                      ? 'border-brand-orange text-brand-orange animate-pulse' 
+                      : 'border-transparent text-gray-400 hover:text-gray-950 hover:border-gray-300'
                   }`}
                 >
                   {it.label}
@@ -1362,6 +1366,7 @@ body {
               {activeTab === 'planner' && <InteractivePlanner />}
               {activeTab === 'calculators' && <ComparisonCalculators />}
               {(activeTab === 'guides' || activeTab === 'overview') && <SiloGuides />}
+              {activeTab === 'heatmap' && <SEOHeatmapConsole />}
             </div>
 
           </div>
