@@ -21,9 +21,6 @@ export default function App() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [showCodeExporter, setShowCodeExporter] = useState(true); // Defaults open for developer convenience
-  const [currentExporterTab, setCurrentExporterTab] = useState<'html' | 'css' | 'js'>('html');
-  const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
   const [legalTab, setLegalTab] = useState<'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum'>('disclosure');
 
   // Search Widget inputs
@@ -122,14 +119,6 @@ export default function App() {
         behavior: 'smooth'
       });
     }
-  };
-
-  const handleCopyCode = (text: string, type: string) => {
-    navigator.clipboard.writeText(text);
-    setCopyFeedback(type);
-    setTimeout(() => {
-      setCopyFeedback(null);
-    }, 2000);
   };
 
   const handleBookingSearch = (e: React.FormEvent) => {
@@ -716,15 +705,6 @@ body {
 
           {/* Action Core CTAs */}
           <div className="flex items-center gap-2">
-            <button 
-              onClick={() => setShowCodeExporter(!showCodeExporter)}
-              className="flex items-center gap-1.5 text-[9px] uppercase tracking-widest font-mono font-bold bg-[#1A1A1A] text-white px-3 py-1.5 hover:bg-brand-orange transition select-none cursor-pointer border border-[#1A1A1A]"
-              aria-label="Toggle Vercel developer template sandbox viewer"
-            >
-              <Code className="w-3.5 h-3.5" /> 
-              {showCodeExporter ? 'Hide Codes' : 'Pages Blueprint'}
-            </button>
-            
             <div className="hidden lg:flex items-center gap-1.5 text-[9px] font-mono font-bold text-brand-orange bg-brand-orange/5 px-2 py-1 border border-brand-orange/20 select-none">
               <Zap className="w-3 h-3 animate-pulse text-brand-orange" /> Edge Deploy OK: 685596
             </div>
@@ -754,81 +734,6 @@ body {
           </div>
         )}
       </header>
-
-      {/* 2. DYNAMIC STATIC BINDING EXPORTER COMPONENT (With Copy Capabilities) */}
-      {showCodeExporter && (
-        <div className="bg-[#1A1A1A] text-[#FAF9F6] font-mono border-b border-zinc-800 z-30 transition-all shadow-2xl">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-6 border-b border-zinc-800">
-              <div>
-                <span className="text-[10px] text-brand-orange tracking-widest uppercase font-bold px-2 py-0.5 border border-brand-orange/30 bg-brand-orange/10 rounded">
-                  Cloudflare Pages & Vercel Static Deploy Kit
-                </span>
-                <div className="text-xl font-serif font-bold tracking-tight text-white mt-2 italic">Jamstack Production Files</div>
-                <p className="text-xs text-zinc-400 mt-1">
-                  Ready-to-deploy static blueprints featuring lazy loading hydration, CSS logical properties, and a pulsing CTA under 5KB total footprint.
-                </p>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { id: 'html', label: '1. Index.html (Semantic)' },
-                  { id: 'css', label: '2. Styles.css (Logical)' },
-                  { id: 'js', label: '3. App.js (ES6 Module)' }
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => setCurrentExporterTab(item.id as 'html' | 'css' | 'js')}
-                    className={`px-3 py-1.5 text-xs font-bold border rounded transition-all select-none cursor-pointer ${
-                      currentExporterTab === item.id 
-                        ? 'bg-white text-zinc-900 border-white' 
-                        : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-700'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative mt-6 rounded bg-zinc-950 border border-zinc-900 p-4">
-              <div className="absolute right-4 top-4 z-10">
-                <button
-                  onClick={() => handleCopyCode(
-                    currentExporterTab === 'html' ? templateHTML : currentExporterTab === 'css' ? templateCSS : templateJS,
-                    currentExporterTab
-                  )}
-                  className="flex items-center gap-1.5 text-xs text-zinc-400 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded hover:text-white hover:border-zinc-700 select-none cursor-pointer"
-                  title="Copy static code file structure"
-                >
-                  {copyFeedback === currentExporterTab ? (
-                    <span className="flex items-center gap-1 text-emerald-400 font-bold">
-                      <Check className="w-3.5 h-3.5" /> Copied File Successfully!
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-1">
-                      <Copy className="w-3.5 h-3.5" /> Copy Code Block
-                    </span>
-                  )}
-                </button>
-              </div>
-
-              <div className="overflow-x-auto max-h-[300px] text-normal font-mono text-[11px] leading-relaxed text-zinc-300 antialiased p-1">
-                <pre>
-                  {currentExporterTab === 'html' && templateHTML}
-                  {currentExporterTab === 'css' && templateCSS}
-                  {currentExporterTab === 'js' && templateJS}
-                </pre>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 mt-4 text-[10px] text-zinc-500">
-              <Terminal className="w-3.5 h-3.5 text-brand-orange" />
-              <span>Deploy these file nodes onto Vercel / Cloudflare with zero overhead configuration. Clean static deployment ready.</span>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* 3. CORE INTERACTIVE LAB WORKSPACE */}
       <main id="main-content" className="flex-grow">
