@@ -280,7 +280,7 @@ export default function App() {
         <a href="#hero" class="drawer-item">Carrier Lookup</a>
         <a href="#destinations" class="drawer-item">Affiliate Directories</a>
         <a href="#reviews" class="drawer-item">Independent Proof</a>
-        <a href="https://bookmethat.com/compliance" class="drawer-item font-mono font-bold">FTC Node Disclosure</a>
+        <a href="https://bookmethat.com/compliance" target="_blank" rel="noopener noreferrer" class="drawer-item font-mono font-bold">FTC Node Disclosure</a>
       </nav>
       <div class="drawer-footer">
         <p>CDN Edge Host Live: ID-685596</p>
