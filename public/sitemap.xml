@@ -3,8 +3,50 @@
   <!-- Main Platform Entrypoint -->
   <url>
     <loc>https://bookmethat.com/</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <!-- FTC & Regulatory Compliance Desk -->
+  <url>
+    <loc>https://bookmethat.com/compliance</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- GDPR Privacy Consent & Cookie Controls -->
+  <url>
+    <loc>https://bookmethat.com/privacy</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Terms and Services of Use -->
+  <url>
+    <loc>https://bookmethat.com/terms</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Modern AI SEO Ecosystem Matrix Policy -->
+  <url>
+    <loc>https://bookmethat.com/ai-seo</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- eSIM & Connection Directories -->
+  <url>
+    <loc>https://bookmethat.com/connectivity</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Car Hire and Cost Estimators -->
+  <url>
+    <loc>https://bookmethat.com/transport</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

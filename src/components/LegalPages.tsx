@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Shield, Lock, FileText, BadgeCheck, Mail, Send, Check, Sparkles } from 'lucide-react';
 
-export default function LegalPages() {
-  const [activeSubTab, setActiveSubTab] = useState<'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum'>('disclosure');
+interface LegalPagesProps {
+  defaultTab?: 'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum';
+}
+
+export default function LegalPages({ defaultTab }: LegalPagesProps) {
+  const [activeSubTab, setActiveSubTab] = useState<'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum'>(defaultTab || 'disclosure');
   const [contactForm, setContactForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (defaultTab) {
+      setActiveSubTab(defaultTab);
+    }
+  }, [defaultTab]);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();

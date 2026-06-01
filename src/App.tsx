@@ -23,6 +23,7 @@ export default function App() {
   const [showCodeExporter, setShowCodeExporter] = useState(true); // Defaults open for developer convenience
   const [currentExporterTab, setCurrentExporterTab] = useState<'html' | 'css' | 'js'>('html');
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
+  const [legalTab, setLegalTab] = useState<'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum'>('disclosure');
 
   // Search Widget inputs
   const [widgetDestination, setWidgetDestination] = useState('');
@@ -63,6 +64,46 @@ export default function App() {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(scrollTimeout);
     };
+  }, []);
+
+  // Routing and deep link parsing on mount or popstate to prevent any 404/page errors
+  useEffect(() => {
+    const handleUrlRouting = () => {
+      const path = window.location.pathname.toLowerCase();
+      
+      if (path.includes('compliance')) {
+        setLegalTab('disclosure');
+        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+      } else if (path.includes('privacy')) {
+        setLegalTab('privacy');
+        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+      } else if (path.includes('terms') || path.includes('service')) {
+        setLegalTab('terms');
+        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+      } else if (path.includes('ai_seo') || path.includes('ai-seo')) {
+        setLegalTab('ai_seo');
+        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+      } else if (path.includes('about') || path.includes('disclosure')) {
+        setLegalTab('disclosure');
+        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+      } else if (path.includes('contact') || path.includes('impressum') || path.includes('support')) {
+        setLegalTab('impressum');
+        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+      } else if (path.includes('connectivity') || path.includes('esim')) {
+        setActiveTab('guides');
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path.includes('transport') || path.includes('cars')) {
+        setActiveTab('calculators');
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      }
+    };
+
+    // Run custom routing on load
+    handleUrlRouting();
+    
+    // Also attach to popstate events for complete back-button compatibility
+    window.addEventListener('popstate', handleUrlRouting);
+    return () => window.removeEventListener('popstate', handleUrlRouting);
   }, []);
 
   const handleSectionScroll = (elementId: string) => {
@@ -1338,7 +1379,7 @@ body {
             </p>
             
             <div className="text-left border border-[#E5E5E1] bg-[#F8F7F2] p-4 sm:p-5 text-xs max-h-[300px] overflow-y-auto font-sans leading-relaxed">
-              <LegalPages />
+              <LegalPages defaultTab={legalTab} />
             </div>
           </div>
         </section>
@@ -1362,18 +1403,18 @@ body {
             <div className="md:col-span-3 space-y-2">
               <h4 className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">AdSense & SEO Silos</h4>
               <ul className="space-y-1.5 text-xs text-gray-650 text-gray-600 font-sans">
-                <li><button onClick={() => { handleSectionScroll('core-calculators'); setActiveTab('guides'); }} className="hover:text-brand-orange transition cursor-pointer text-left focus:outline-none select-none">eSIM & Connection Directories</button></li>
-                <li><button onClick={() => { handleSectionScroll('core-calculators'); setActiveTab('calculators'); }} className="hover:text-brand-orange transition cursor-pointer text-left focus:outline-none select-none">Car Rentals Cost Comparers</button></li>
-                <li><button onClick={() => { handleSectionScroll('hero'); }} className="hover:text-brand-orange transition cursor-pointer text-left focus:outline-none select-none font-bold">Launch Carrier Router</button></li>
+                <li><a href="/connectivity" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('guides'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">eSIM & Connection Directories</a></li>
+                <li><a href="/transport" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('calculators'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">Car Rentals Cost Comparers</a></li>
+                <li><a href="/" onClick={(e) => { e.preventDefault(); handleSectionScroll('hero'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none font-bold">Launch Carrier Router</a></li>
               </ul>
             </div>
 
             <div className="md:col-span-3 space-y-2">
               <h4 className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">Compliance Links</h4>
               <ul className="space-y-1.5 text-xs text-gray-600 font-sans">
-                <li><button onClick={() => handleSectionScroll('compliance-desk')} className="hover:text-brand-orange transition cursor-pointer text-left focus:outline-none font-bold select-none text-gray-600">FTC Affiliate Disclosures</button></li>
-                <li><button onClick={() => handleSectionScroll('compliance-desk')} className="hover:text-brand-orange transition cursor-pointer text-left focus:outline-none select-none text-gray-600">GDPR Cookie Consent</button></li>
-                <li><button onClick={() => handleSectionScroll('compliance-desk')} className="hover:text-brand-orange transition cursor-pointer text-left focus:outline-none select-none text-gray-600">Terms and Services of Use</button></li>
+                <li><a href="/compliance" onClick={(e) => { e.preventDefault(); setLegalTab('disclosure'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block font-bold select-none text-gray-600">FTC Affiliate Disclosures</a></li>
+                <li><a href="/privacy" onClick={(e) => { e.preventDefault(); setLegalTab('privacy'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none text-gray-600">GDPR Cookie Consent</a></li>
+                <li><a href="/terms" onClick={(e) => { e.preventDefault(); setLegalTab('terms'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none text-gray-600">Terms and Services of Use</a></li>
               </ul>
             </div>
 
