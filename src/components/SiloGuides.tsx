@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ARTICLES } from '../data/articles';
 import { Article } from '../types';
 import { 
@@ -7,10 +7,20 @@ import {
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
 
-export default function SiloGuides({ onViewArticle }: { onViewArticle?: (art: Article | null) => void }) {
+export default function SiloGuides({ 
+  onViewArticle,
+  initialArticle = null
+}: { 
+  onViewArticle?: (art: Article | null) => void;
+  initialArticle?: Article | null;
+}) {
   const [selectedSilo, setSelectedSilo] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [viewedArticle, setViewedArticle_local] = useState<Article | null>(null);
+  const [viewedArticle, setViewedArticle_local] = useState<Article | null>(initialArticle);
+
+  useEffect(() => {
+    setViewedArticle_local(initialArticle);
+  }, [initialArticle]);
 
   const setViewedArticle = (art: Article | null) => {
     setViewedArticle_local(art);

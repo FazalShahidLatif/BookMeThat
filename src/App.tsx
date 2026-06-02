@@ -169,31 +169,89 @@ export default function App() {
   useEffect(() => {
     const handleUrlRouting = () => {
       const path = window.location.pathname.toLowerCase();
-      
+      const searchParams = new URLSearchParams(window.location.search);
+      const articleQuery = searchParams.get('article') || searchParams.get('p');
+      const tabQuery = searchParams.get('tab');
+
+      // Check if there is a direct match for any of our article slugs in path or query parameters
+      const matchedArticle = ARTICLES.find(art => 
+        path.includes(art.slug.toLowerCase()) || 
+        (articleQuery && articleQuery.toLowerCase() === art.slug.toLowerCase()) ||
+        (articleQuery && articleQuery.toLowerCase() === art.id.toLowerCase())
+      );
+
+      if (matchedArticle) {
+        setActiveTab('guides');
+        setActiveArticle(matchedArticle);
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+        return;
+      }
+
+      // Check standard tabs in query params
+      if (tabQuery) {
+        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm'];
+        if (allowedTabs.includes(tabQuery as ActiveTab)) {
+          setActiveTab(tabQuery as ActiveTab);
+          setActiveArticle(null);
+          setTimeout(() => handleSectionScroll('core-calculators'), 300);
+          return;
+        }
+      }
+
+      // Traditional subpages support via pathname direct matching
       if (path.includes('compliance')) {
+        setActiveTab('legal');
         setLegalTab('disclosure');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('compliance-desk'), 300);
       } else if (path.includes('privacy')) {
+        setActiveTab('legal');
         setLegalTab('privacy');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('compliance-desk'), 300);
       } else if (path.includes('terms') || path.includes('service')) {
+        setActiveTab('legal');
         setLegalTab('terms');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('compliance-desk'), 300);
       } else if (path.includes('ai_seo') || path.includes('ai-seo')) {
+        setActiveTab('legal');
         setLegalTab('ai_seo');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('compliance-desk'), 300);
       } else if (path.includes('about') || path.includes('disclosure')) {
+        setActiveTab('legal');
         setLegalTab('disclosure');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('compliance-desk'), 300);
       } else if (path.includes('contact') || path.includes('impressum') || path.includes('support')) {
+        setActiveTab('legal');
         setLegalTab('impressum');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('compliance-desk'), 300);
       } else if (path.includes('connectivity') || path.includes('esim')) {
         setActiveTab('guides');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
       } else if (path.includes('transport') || path.includes('cars')) {
         setActiveTab('calculators');
+        setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path.includes('planner')) {
+        setActiveTab('planner');
+        setActiveArticle(null);
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path.includes('heatmap')) {
+        setActiveTab('heatmap');
+        setActiveArticle(null);
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path.includes('utm')) {
+        setActiveTab('utm');
+        setActiveArticle(null);
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path === '/' || path === '' || path.includes('index')) {
+        setActiveTab('overview');
+        setActiveArticle(null);
       }
     };
 
@@ -204,6 +262,66 @@ export default function App() {
     window.addEventListener('popstate', handleUrlRouting);
     return () => window.removeEventListener('popstate', handleUrlRouting);
   }, []);
+
+  // Synchronize state changes back to window pathname and trigger canonical links
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    let path = '/';
+
+    if (activeArticle) {
+      path = `/${activeArticle.slug}`;
+    } else {
+      switch (activeTab) {
+        case 'overview':
+          path = '/';
+          break;
+        case 'planner':
+          path = '/planner';
+          break;
+        case 'calculators':
+          path = '/transport';
+          break;
+        case 'guides':
+          path = '/connectivity';
+          break;
+        case 'legal':
+          if (legalTab === 'privacy') path = '/privacy';
+          else if (legalTab === 'terms') path = '/terms';
+          else if (legalTab === 'ai_seo') path = '/ai-seo';
+          else if (legalTab === 'impressum') path = '/contact';
+          else path = '/compliance';
+          break;
+        case 'heatmap':
+          path = '/heatmap';
+          break;
+        case 'utm':
+          path = '/utm';
+          break;
+        default:
+          path = '/';
+      }
+    }
+
+    // Dynamic state push to keep browser URL correct without reloading the page
+    const currentPath = window.location.pathname;
+    if (currentPath.toLowerCase() !== path.toLowerCase()) {
+      window.history.pushState(null, '', path);
+    }
+
+    // Dynamic Canonical tag updater with absolute bookmethat.com address pairing
+    const canonicalBase = 'https://bookmethat.com';
+    const canonicalUrl = canonicalBase + (path === '/' ? '' : path);
+    
+    let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalUrl);
+
+  }, [activeTab, activeArticle, legalTab]);
 
   const handleSectionScroll = (elementId: string) => {
     setMobileMenuOpen(false);
@@ -1389,7 +1507,7 @@ body {
               {activeTab === 'planner' && <InteractivePlanner />}
               {activeTab === 'calculators' && <ComparisonCalculators />}
               {(activeTab === 'guides' || activeTab === 'overview') && (
-                <SiloGuides onViewArticle={(art) => setActiveArticle(art)} />
+                <SiloGuides onViewArticle={(art) => setActiveArticle(art)} initialArticle={activeArticle} />
               )}
               {activeTab === 'heatmap' && <SEOHeatmapConsole />}
               {activeTab === 'utm' && <UtmAdsenseConsole />}
