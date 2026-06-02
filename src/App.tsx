@@ -14,8 +14,9 @@ import LegalPages from './components/LegalPages';
 import SEOHeatmapConsole from './components/SEOHeatmapConsole';
 import UtmAdsenseConsole from './components/UtmAdsenseConsole';
 import TravelFAQConsole from './components/TravelFAQConsole';
+import TravelQuizWidget from './components/TravelQuizWidget';
 
-type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq';
+type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
 
 export default function App() {
@@ -194,7 +195,7 @@ export default function App() {
 
       // Check standard tabs in query params
       if (tabQuery) {
-        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm', 'faq'];
+        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm', 'faq', 'quiz'];
         if (allowedTabs.includes(tabQuery as ActiveTab)) {
           setActiveTab(tabQuery as ActiveTab);
           setActiveArticle(null);
@@ -258,6 +259,10 @@ export default function App() {
         setActiveTab('faq');
         setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path.includes('quiz') || path.includes('challenge')) {
+        setActiveTab('quiz');
+        setActiveArticle(null);
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
       } else if (path === '/' || path === '' || path.includes('index')) {
         setActiveTab('overview');
         setActiveArticle(null);
@@ -309,6 +314,9 @@ export default function App() {
           break;
         case 'faq':
           path = '/faq';
+          break;
+        case 'quiz':
+          path = '/challenge';
           break;
         default:
           path = '/';
@@ -988,6 +996,31 @@ body {
                   Bypass costly travel brokers. Secure wholesale-direct eSIM cell connectivity, premium scooter/car rentals, delayed flight cash-backs, and attraction passes with active promotion codes verified in real time.
                 </p>
 
+                {/* 60-Second Challenge Callout Banner for Enhanced Engagement */}
+                <div className="bg-white border-l-4 border-brand-orange p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm border-y border-r border-[#E5E5E1]">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
+                      <span className="text-[9px] font-mono font-bold tracking-wider uppercase text-brand-orange">Interactive Diagnostic Challenge</span>
+                    </div>
+                    <h5 className="text-xs font-bold font-serif italic text-gray-950 leading-tight">
+                      Are you a smart traveler? Take the 60S Nomad IQ Test
+                    </h5>
+                    <p className="text-[10px] text-gray-550 font-sans leading-normal">
+                      Read real scenarios to spot hidden carrier markup charges and secure a special secret coupon code.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setActiveTab('quiz');
+                      setTimeout(() => handleSectionScroll('core-calculators'), 100);
+                    }}
+                    className="bg-[#1A1A1A] hover:bg-brand-orange text-white text-[9px] font-mono font-bold uppercase py-2.5 px-4 whitespace-nowrap self-start sm:self-center cursor-pointer transition-colors"
+                  >
+                    Play 60S Challenge &rarr;
+                  </button>
+                </div>
+
                 <div className="h-[1px] bg-[#E5E5E1]" />
 
                 <div className="flex flex-wrap gap-x-6 gap-y-2 text-[9px] font-mono text-gray-500 uppercase tracking-wider">
@@ -1500,7 +1533,8 @@ body {
                 { tab: 'guides', label: 'Topical SEO Silos' },
                 { tab: 'heatmap', label: 'AI Keyword Potential Heatmap' },
                 { tab: 'utm', label: 'AdSense & UTM Tracker' },
-                { tab: 'faq', label: 'FAQ Intelligence' }
+                { tab: 'faq', label: 'FAQ Intelligence' },
+                { tab: 'quiz', label: 'Nomad IQ Challenge (60s)' }
               ].map((it) => (
                 <button
                   key={it.tab}
@@ -1525,6 +1559,7 @@ body {
               {activeTab === 'heatmap' && <SEOHeatmapConsole />}
               {activeTab === 'utm' && <UtmAdsenseConsole />}
               {activeTab === 'faq' && <TravelFAQConsole />}
+              {activeTab === 'quiz' && <TravelQuizWidget />}
             </div>
 
           </div>
