@@ -21,6 +21,8 @@ export interface Article {
   searchVolume: string;
   youtubeId?: string; // Capabilities of embedding youtube videos
   altTextMap: Record<string, string>; // Image optimization
+  metaTitle?: string; // SEO optimization
+  metaDescription?: string; // SEO optimization
 }
 
 export interface SiloCategory {

@@ -6,6 +6,7 @@ import {
   Cpu, Activity, Gauge, Globe, Sparkles, RefreshCw, Layers, Sliders, Send, Database
 } from 'lucide-react';
 import { AFFILIATES, KEYWORD_CLUSTERS } from './data/affiliates';
+import { ARTICLES } from './data/articles';
 import InteractivePlanner from './components/InteractivePlanner';
 import ComparisonCalculators from './components/ComparisonCalculators';
 import SiloGuides from './components/SiloGuides';
@@ -22,6 +23,17 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [legalTab, setLegalTab] = useState<'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum'>('disclosure');
+
+  // Active Article viewed, for meta preview synchronization
+  const [activeArticle, setActiveArticle] = useState<any | null>(null);
+
+  // Dynamic Metadata state
+  const [editingMetadata, setEditingMetadata] = useState<{ title: string; desc: string }>({
+    title: "BookMeThat™: Best Travel Deals, Exclusive Promo Codes & Vacation Packages (2026)",
+    desc: "Compare and book direct eSIM mobile data, budget scooter & car rentals, and luxury sightseeing passes with verified discount vouchers. Save up to 40% on holiday activities."
+  });
+
+  const [metaIsSaved, setMetaIsSaved] = useState(false);
 
   // Search Widget inputs
   const [widgetDestination, setWidgetDestination] = useState('');
@@ -63,6 +75,56 @@ export default function App() {
       clearTimeout(scrollTimeout);
     };
   }, []);
+
+  // Sync active metadata when active tab or active article selection changes
+  useEffect(() => {
+    let finalTitle = "";
+    let finalDesc = "";
+
+    if (activeArticle) {
+      finalTitle = `${activeArticle.title} | Travel Deals & Discounts Guide`;
+      finalDesc = `${activeArticle.summary.substring(0, 150)}... Browse verified eSIM, transfer coupons & travel hacks on BookMeThat.`;
+    } else {
+      switch (activeTab) {
+        case 'overview':
+          finalTitle = "BookMeThat™: Best Travel Deals, Exclusive Promo Codes & Vacation Packages (2026)";
+          finalDesc = "Compare and book direct eSIM mobile data, budget scooter & car rentals, and luxury sightseeing passes with verified discount vouchers. Save up to 40% on holiday activities.";
+          break;
+        case 'planner':
+          finalTitle = "Smart Interactive Travel Budget Planner & Vacation Package Estimator (2026)";
+          finalDesc = "Design your custom itinerary and calculate real-time savings on multi-country cellular data, local car rentals, and travel security. Maximize discounts instantly.";
+          break;
+        case 'calculators':
+          finalTitle = "Best Travel eSIM & Global Car Rental Price Comparison Calculator";
+          finalDesc = "Compare Airalo, Saily, and Yesim alongside Localrent, QEEQ, and Auto Europe. Match real-time rates to claim direct checkout flight refunds and active vouchers.";
+          break;
+        case 'guides':
+          finalTitle = "Deals & Bargains: Expert Destination Guides, Coupon Vouchers & Travel Hacks";
+          finalDesc = "Browse premium cost-saving guides for eSIM connections, cheap car hires, and flight delay redress. Optimize travel layouts and save on vacation budgets.";
+          break;
+        case 'legal':
+          finalTitle = "Regulatory Compliance, FTC Disclosure & GDPR Terms of Service | BookMeThat";
+          finalDesc = "Transparent publisher directories showing compliance disclosures, zero added commissions, and verified buyer links.";
+          break;
+        case 'heatmap':
+          finalTitle = "Commercial SEO Search Engine Mapping & Intent Dashboard - BookMeThat";
+          finalDesc = "Analyze search trends, volume clustering, and high-payout travel keywords for eSIM connectivity, car rentals, and discount tickets.";
+          break;
+        default:
+          finalTitle = "BookMeThat™: Best Travel Deals & Verified Vouchers";
+          finalDesc = "Compare global travel packages and activate discounts.";
+      }
+    }
+
+    setEditingMetadata({
+      title: finalTitle,
+      desc: finalDesc
+    });
+    setMetaIsSaved(false);
+
+    // Update the real browser title
+    document.title = finalTitle;
+  }, [activeTab, activeArticle]);
 
   // Routing and deep link parsing on mount or popstate to prevent any 404/page errors
   useEffect(() => {
@@ -683,30 +745,29 @@ body {
       {/* 1. BRAND HEADER */}
       <header className="sticky top-0 z-40 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E5E5E1] transition-all" id="site-header">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-          
           <button 
             onClick={() => handleSectionScroll('hero')} 
             className="flex items-center gap-2 cursor-pointer focus:outline-none"
           >
             <span className="text-2xl font-bold tracking-tighter text-brand-orange">BOOKMETHAT.</span>
-            <span className="text-[9px] uppercase tracking-widest font-semibold border border-[#1A1A1A] px-1.5 py-0.5 text-[#1A1A1A] hidden sm:inline-block">
-              Edge Performance Specialist
+            <span className="text-[9px] uppercase tracking-widest font-semibold border border-brand-orange px-1.5 py-0.5 text-brand-orange hidden sm:inline-block">
+              Premium Deal Hub 2026
             </span>
           </button>
 
           {/* Semantic Nav links */}
           <nav className="hidden md:flex items-center gap-1 text-[9px] uppercase tracking-widest font-bold">
-            <button onClick={() => handleSectionScroll('vitals-sandbox')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">CDN Labs & Audit</button>
+            <button onClick={() => handleSectionScroll('coupon-vault')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Promo Coupon Vault</button>
+            <button onClick={() => handleSectionScroll('hot-packages')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Holiday Packs</button>
             <button onClick={() => handleSectionScroll('destinations')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Deal Cards Grid</button>
-            <button onClick={() => handleSectionScroll('reviews')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Nomad Proof</button>
-            <button onClick={() => handleSectionScroll('core-calculators')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Logistics Hub</button>
-            <button onClick={() => handleSectionScroll('compliance-desk')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Regulatory Info</button>
+            <button onClick={() => handleSectionScroll('core-calculators')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Nomad Planner</button>
+            <button onClick={() => handleSectionScroll('compliance-desk')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Compliance Desk</button>
           </nav>
 
           {/* Action Core CTAs */}
           <div className="flex items-center gap-2">
             <div className="hidden lg:flex items-center gap-1.5 text-[9px] font-mono font-bold text-brand-orange bg-brand-orange/5 px-2 py-1 border border-brand-orange/20 select-none">
-              <Zap className="w-3 h-3 animate-pulse text-brand-orange" /> Edge Deploy OK: 685596
+              <Sparkles className="w-3 h-3 animate-pulse text-brand-orange" /> Direct Bargains Active
             </div>
 
             {/* Mobile Navigation Trigger */}
@@ -723,13 +784,13 @@ body {
         {/* Mobile Navigation Drawer for React Container */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#FAF9F6] border-b border-[#E5E5E1] p-4 space-y-2 text-xs font-semibold view-enter">
-            <button onClick={() => { handleSectionScroll('vitals-sandbox'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Edge Options & Audit Center</button>
+            <button onClick={() => { handleSectionScroll('coupon-vault'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Promo Coupon Vault</button>
+            <button onClick={() => { handleSectionScroll('hot-packages'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Holiday Packs Showcases</button>
             <button onClick={() => { handleSectionScroll('destinations'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Hotel eSIM / Cars Cards</button>
-            <button onClick={() => { handleSectionScroll('reviews'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Independent Performance Proof</button>
-            <button onClick={() => { handleSectionScroll('core-calculators'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Logistics Tool Cabin</button>
-            <button onClick={() => { handleSectionScroll('compliance-desk'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">GDPR & FTC Declarations</button>
+            <button onClick={() => { handleSectionScroll('core-calculators'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Nomad Cost Planner</button>
+            <button onClick={() => { handleSectionScroll('compliance-desk'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Compliance Disclosure</button>
             <div className="border-t border-[#E5E5E1] pt-3 text-[10px] font-mono text-brand-orange px-4">
-              CF tracking node: 685596
+              Verified Referral Savings Active
             </div>
           </div>
         )}
@@ -747,23 +808,23 @@ body {
               
               <div className="lg:col-span-7 space-y-6">
                 <span className="inline-flex items-center gap-1.5 text-[9px] text-[#E55B13] font-mono font-bold bg-[#E55B13]/5 px-2.5 py-1 border border-[#E55B13]/20 uppercase tracking-widest">
-                  <Flame className="w-3.5 h-3.5 animate-pulse text-brand-orange" /> Edge Latency Pipeline Actives
+                  <Flame className="w-3.5 h-3.5 animate-pulse text-brand-orange" /> Save Up to 40% globally with Direct contracts
                 </span>
                 
                 <h1 className="text-5xl lg:text-[62px] leading-[0.95] font-serif italic tracking-tight text-[#1A1A1A]">
-                  Edge Platform & <span className="not-italic font-bold block mt-2 text-brand-orange">Pages Optimization.</span>
+                  Direct Travel Deals & <span className="not-italic font-bold block mt-2 text-brand-orange">Promo Code Vault.</span>
                 </h1>
                 
                 <p className="text-gray-600 text-xs md:text-sm leading-relaxed max-w-xl">
-                  Test custom CDN headers, native async decoding threads, and responsive srcset scaling algorithms under live simulated CDN nodes. Deploy pure static static assets with zero runtime lag.
+                  Bypass costly travel brokers. Secure wholesale-direct eSIM cell connectivity, premium scooter/car rentals, delayed flight cash-backs, and attraction passes with active promotion codes verified in real time.
                 </p>
 
                 <div className="h-[1px] bg-[#E5E5E1]" />
 
                 <div className="flex flex-wrap gap-x-6 gap-y-2 text-[9px] font-mono text-gray-500 uppercase tracking-wider">
-                  <span className="flex items-center gap-1"><Cpu className="w-3.5 h-3.5 text-brand-orange" /> Native Intersection Hydrates</span>
-                  <span className="flex items-center gap-1"><Layers className="w-3.5 h-3.5 text-brand-orange" /> Logical CSS Properties Inline</span>
-                  <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-brand-orange" /> FTC Identifier: 685596</span>
+                  <span className="flex items-center gap-1"><BadgePercent className="w-3.5 h-3.5 text-brand-orange" /> Verified ACTIVE Coupon Codes</span>
+                  <span className="flex items-center gap-1"><Compass className="w-3.5 h-3.5 text-brand-orange" /> Direct Car, eSIM & Tour Portals</span>
+                  <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-brand-orange" /> No Hidden Added Commissions</span>
                 </div>
               </div>
 
@@ -853,386 +914,403 @@ body {
           </div>
         </section>
 
-        {/* --- EDGE PERFORMANCE LAB: TOGGLES + CORE WEB VITALS SIMULATOR --- */}
-        <section id="vitals-sandbox" className="py-12 bg-white border-b border-[#E5E5E1]">
+        {/* --- TRAVEL PROMO CODE VAULT & DIRECT ESCROW ACTIVE DETAILS --- */}
+        <section id="coupon-vault" className="py-16 bg-white border-b border-[#E5E5E1]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="text-center max-w-xl mx-auto space-y-2 mb-10">
+              <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-brand-orange bg-brand-orange/5 px-2.5 py-1 border border-brand-orange/20">
+                ACTIVE SAVINGS VAULT (2026 APPROVED)
+              </span>
+              <h2 className="text-3xl font-serif font-bold italic text-gray-900">
+                Exclusive Holiday Promo Codes
+              </h2>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Click to instantly copy verified referral promo vouchers. Bypass travel agent commissions and save immediately at final booking checkout.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { id: 'saily', brand: 'Saily eSIM Deals', code: 'SAILY5', discount: '5% OFF GLOBAL DATA', desc: 'Secure high-speed Nord Security-backed connectivity. Valid in 150+ countries.', link: 'https://saily.tpk.lu/9KzgxKRI' },
+                { id: 'airalo', brand: 'Airalo eSIM Specials', code: 'AIRALOCDN10', discount: '10% OFF FIRST ORDER', desc: 'Saves on multi-country regional travel packages. No physical SIM card setup.', link: 'https://airalo.tpk.lu/X5knsFOB' },
+                { id: 'gocity', brand: 'Go City Sightseeing', code: 'GOCITY10', discount: '10% OFF PASS CARDS', desc: 'Valid on multi-attraction entry tickets in Paris, London, Rome & New York.', link: 'https://gocity.tpk.lu/u1mHhjxd' },
+                { id: 'klook', brand: 'Klook Tour Discounts', code: 'KLOOKDEALS5', discount: '5% OFF ATTRACTIONS', desc: 'Save on international bullet trains, theme parks, and skip-the-line day trips.', link: 'https://klook.tpk.lu/eJnSXtrF' },
+                { id: 'economy', brand: 'EconomyBookings Hires', code: 'ECONOMY5', discount: '5% OFF CAR RENTALS', desc: 'Guarantees the lowest base rates across 800+ global airport vehicle providers.', link: 'https://economybookings.tpk.lu/koWZfRVI' },
+                { id: 'nordvpn', brand: 'NordVPN Travel Shield', code: 'SECURETRAVEL', discount: 'UP TO 63% SECURE DEALS', desc: 'Protects banking and data transfers on unprotected airport & hotel Wi-Fi networks.', link: 'https://tp.media/click?shmarker=474841&promo_id=5328&source_type=link&type=click' }
+              ].map((voucher) => {
+                const [copied, setCopied] = useState(false);
+                const handleCopy = (code: string) => {
+                  navigator.clipboard.writeText(code).then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  }).catch(() => {});
+                };
+
+                return (
+                  <div key={voucher.id} className="bg-[#F8F7F2] border border-[#E5E5E1] p-6 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between h-full relative group">
+                    <div className="absolute top-4 right-4 bg-emerald-50 text-emerald-700 text-[8.5px] font-bold px-2 py-0.5 uppercase tracking-wider font-mono border border-emerald-300">
+                      Vouched
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-[#E55B13] block uppercase">
+                        {voucher.discount}
+                      </span>
+                      <h3 className="text-lg font-serif font-bold italic text-gray-900 group-hover:text-brand-orange transition">
+                        {voucher.brand}
+                      </h3>
+                      <p className="text-xs text-gray-500 leading-relaxed pb-3">
+                        {voucher.desc}
+                      </p>
+                    </div>
+
+                    <div className="space-y-3.5 pt-4 border-t border-[#E5E5E1]/70">
+                      <div className="flex items-center justify-between gap-2 p-2.5 bg-white border border-[#E5E5E1] rounded-none">
+                        <code className="text-xs font-mono font-extrabold text-[#1A1A1A] tracking-wider">
+                          {voucher.code}
+                        </code>
+                        <button
+                          onClick={() => handleCopy(voucher.code)}
+                          className={`text-[9px] font-mono font-bold uppercase tracking-widest px-3 py-1.5 transition-colors cursor-pointer rounded-none flex items-center gap-1 ${
+                            copied 
+                              ? 'bg-emerald-500 text-white' 
+                              : 'bg-[#1A1A1A] hover:bg-brand-orange text-white'
+                          }`}
+                        >
+                          {copied ? 'Copied!' : 'Copy Code'}
+                        </button>
+                      </div>
+
+                      <a
+                        href={voucher.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full text-center block bg-transparent hover:bg-[#1A1A1A] hover:text-white border border-[#1A1A1A] text-[#1A1A1A] text-[9px] font-bold uppercase tracking-widest py-3 transition-all duration-300"
+                      >
+                        Activate Discount Offer & Go →
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* --- CURATED BENTO TRAVEL PACKAGES & DESTINATIONS SECTOR --- */}
+        <section id="hot-packages" className="py-16 bg-[#FAF9F6] border-b border-[#E5E5E1]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
               
-              {/* Toggles & Settings controls */}
-              <div className="lg:col-span-4 bg-[#F8F7F2] border border-[#E5E5E1] p-6 space-y-6">
+              {/* Left Side: Dynamic Combo deals column */}
+              <div className="lg:col-span-8 space-y-6 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-brand-orange">Lab Controls</span>
-                  <h3 className="text-lg font-serif font-bold italic text-gray-900 mt-1">Edge Cache Parameters</h3>
-                  <p className="text-xs text-gray-500 mt-1">Interfere with static bundle tags to test PageSpeed consequences in real time.</p>
+                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-gray-400">
+                    Silo bundles showcase
+                  </span>
+                  <h2 className="text-3xl font-serif font-bold italic text-gray-900 mt-1">
+                    Curated Destination Combo Packs
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-1 max-w-xl">
+                    Our editors calculated the perfect multi-brand integrations for ultimate flight, connectivity, and transfer savings with exact price totals.
+                  </p>
                 </div>
 
-                <div className="space-y-4">
-                  {/* Toggle 1: decoding="async" */}
-                  <div className="border border-gray-300/60 p-3 bg-white space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-gray-800">decoding="async"</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Package 1 */}
+                  <div className="bg-white border border-[#E5E5E1] p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[8px] bg-brand-orange/10 text-brand-orange border border-brand-orange/20 font-mono px-2 py-0.5 uppercase tracking-wider font-bold">Asia Tech-Transit</span>
+                        <span className="text-xs font-mono line-through text-gray-400">$120</span>
+                      </div>
+                      <h4 className="text-base font-serif font-bold text-[#1A1A1A]">Tokyo Skyrail Connect Combo</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        Combines Saily 10GB Local eSIM + Klook Tokyo High-Speed Metro Ticket + Go City Sightseeing card. No added middleman broker fees.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between pt-3 border-t border-[#E5E5E1]/60">
+                      <div>
+                        <span className="text-[8px] text-gray-400 block uppercase font-mono">Book Direct Rate</span>
+                        <strong className="text-lg font-serif font-bold italic text-brand-orange">$98.00</strong>
+                      </div>
                       <button 
                         onClick={() => {
-                          setImageDecodingAsync(!imageDecodingAsync);
-                          if (!imageDecodingAsync) setLcpValue(0.55);
+                          setWidgetDestination('Tokyo, Japan');
+                          setWidgetCategory('connectivity');
+                          handleSectionScroll('core-calculators');
                         }}
-                        className={`text-xs px-2.5 py-1 font-mono rounded select-none cursor-pointer ${
-                          imageDecodingAsync ? 'bg-emerald-50 text-emerald-700 border border-emerald-300 font-bold' : 'bg-rose-50 text-rose-700 border border-rose-300'
-                        }`}
+                        className="text-[9px] font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-brand-orange transition"
                       >
-                        {imageDecodingAsync ? 'ACTIVE (Async)' : 'DISABLED (Sync)'}
+                        Select & Plan Combo →
                       </button>
                     </div>
-                    <p className="text-[10px] text-gray-550 leading-relaxed leading-tight">
-                      Enables browser to offload travel image parsing onto parallel threads, avoiding main-thread frame drops during paint steps.
-                    </p>
                   </div>
 
-                  {/* Toggle 2: Modern CSS Logical Properties */}
-                  <div className="border border-gray-300/60 p-3 bg-white space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-gray-800">logical CSS properties</span>
+                  {/* Package 2 */}
+                  <div className="bg-white border border-[#E5E5E1] p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[8px] bg-emerald-50 text-emerald-700 border border-emerald-300 font-mono px-2 py-0.5 uppercase tracking-wider font-bold">Euro Coastal Cruise</span>
+                        <span className="text-xs font-mono line-through text-gray-400">$340</span>
+                      </div>
+                      <h4 className="text-base font-serif font-bold text-[#1A1A1A]">Costa Brava Hatchback Pack</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        Combines a 7-day Localrent Greek/Spanish Hatchback + World Nomads Premium medical protection + Saily regional data eSIM.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between pt-3 border-t border-[#E5E5E1]/60">
+                      <div>
+                        <span className="text-[8px] text-gray-400 block uppercase font-mono">Book Direct Rate</span>
+                        <strong className="text-lg font-serif font-bold italic text-brand-orange">$265.00</strong>
+                      </div>
                       <button 
-                        onClick={() => setUseLogicalCss(!useLogicalCss)}
-                        className={`text-xs px-2.5 py-1 font-mono rounded select-none cursor-pointer ${
-                          useLogicalCss ? 'bg-emerald-50 text-emerald-700 border border-emerald-300 font-bold' : 'bg-rose-50 text-rose-700 border border-rose-300'
-                        }`}
+                        onClick={() => {
+                          setWidgetDestination('Spain Costa Brava');
+                          setWidgetCategory('transport');
+                          handleSectionScroll('core-calculators');
+                        }}
+                        className="text-[9px] font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-brand-orange transition"
                       >
-                        {useLogicalCss ? 'Logical Flows' : 'Classic Absolute'}
+                        Select & Plan Combo →
                       </button>
                     </div>
-                    <p className="text-[10px] text-gray-550 leading-relaxed leading-tight">
-                      Replacing standard margin properties with <code className="font-mono bg-amber-55 bg-black/5 px-1 py-0.5 rounded text-[8.5px]">margin-inline-start</code> ensures automatic LTR/RTL rendering without duplicate code payloads!
-                    </p>
                   </div>
+                </div>
+              </div>
 
-                  {/* Trigger test audit but button */}
-                  <button
-                    onClick={triggerVitalsAudit}
-                    disabled={vitalsRunning}
-                    className="w-full bg-brand-orange hover:bg-[#1A1A1A] text-white text-[10px] font-mono font-bold uppercase py-3 px-4 transition-all flex items-center justify-center gap-2 select-none cursor-pointer rounded"
+              {/* Right Side: Bento Visual Asset / Image with Real Slogan overlay */}
+              <div className="lg:col-span-4 bg-zinc-900 border border-zinc-950 p-6 sm:p-8 text-white flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <span className="text-[8px] font-mono tracking-widest font-extrabold uppercase bg-brand-orange/20 text-brand-orange border border-brand-orange/40 px-2 py-1 inline-block">
+                    PROMO DISCOUNTS ACTIVE
+                  </span>
+                  <h3 className="text-2xl font-serif font-bold italic leading-tight text-white">
+                    Unlock Guaranteed Lowest Rates
+                  </h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed">
+                    By checking checkout links directly linked with API registries, we bypass global booking search conglomerates. Our readers enjoy verified, reliable direct savings of 15% to 40% across connectivity and car rentals.
+                  </p>
+                </div>
+
+                <div className="space-y-3 pt-6 border-t border-zinc-800">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-zinc-500">Average eSIM Saving:</span>
+                    <span className="text-emerald-400 font-bold">12% off standard roaming</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-zinc-500">Car Deposit Obligation:</span>
+                    <span className="text-emerald-400 font-bold">Down to $0 with Localrent</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-zinc-500">Air Delay Payouts:</span>
+                    <span className="text-emerald-400 font-bold">Up to €600 via AirHelp</span>
+                  </div>
+                </div>
+
+                <div className="pt-4 text-center">
+                  <button 
+                    onClick={() => handleSectionScroll('destinations')}
+                    className="w-full bg-brand-orange hover:bg-white hover:text-brand-orange text-white text-[10px] font-mono font-bold uppercase py-3 transition-colors"
                   >
-                    <RefreshCw className={`w-3.5 h-3.5 ${vitalsRunning ? 'animate-spin' : ''}`} />
-                    {vitalsRunning ? 'Measuring Edge Pipelines...' : 'Run Core Web Vitals Audit'}
+                    Compare Direct Carriers Now
                   </button>
                 </div>
               </div>
 
-              {/* Real-time audit dashboard gauges */}
-              <div className="lg:col-span-8 bg-zinc-950 text-zinc-100 p-6 sm:p-8 rounded flex flex-col justify-between border border-zinc-900">
-                
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-4">
-                  <div>
-                    <span className="text-[9px] font-mono tracking-widest text-[#E55B13] font-bold uppercase">Auditor Module</span>
-                    <h3 className="text-lg font-bold text-white mt-1">Pages Audit Dashboard</h3>
-                  </div>
-                  <div className="flex gap-4 text-xs font-mono">
-                    <div>
-                      <span className="text-zinc-500 block text-[9px] uppercase">Active CDN Target</span>
-                      <span className="text-white font-bold">{edgeNode.toUpperCase()} Node Pipeline</span>
-                    </div>
-                    <div>
-                      <span className="text-zinc-500 block text-[9px] uppercase">JS Sandbox Footprint</span>
-                      <span className="text-emerald-450 text-emerald-400 font-bold">&lt; 2.2 KB (Limit: 5KB)</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Simulated Audit Gauges grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
-                  {/* Gauge 1: LCP */}
-                  <div className="bg-zinc-900/60 p-4 border border-zinc-850 rounded">
-                    <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest block font-bold">LCP (Fastest Paint)</span>
-                    <div className="flex items-baseline gap-2 mt-2">
-                      <span className={`text-3xl font-bold font-mono ${lcpValue < 1.0 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                        {lcpValue.toFixed(2)}s
-                      </span>
-                      <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-500">
-                        {lcpValue < 1.0 ? 'Perfect (Green)' : 'Needs attention'}
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-full bg-zinc-800 rounded mt-3 relative overflow-hidden">
-                      <div 
-                        className={`h-full absolute left-0 transition-all duration-300 ${lcpValue < 1.0 ? 'bg-emerald-400' : 'bg-amber-400'}`}
-                        style={{ width: `${Math.min(100, (lcpValue / 2.5) * 100)}%` }}
-                      />
-                    </div>
-                    <span className="text-[9px] text-zinc-500 font-mono mt-1.5 block">Target: Under 1.2 seconds</span>
-                  </div>
-
-                  {/* Gauge 2: CLS */}
-                  <div className="bg-zinc-900/60 p-4 border border-zinc-850 rounded">
-                    <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest block font-bold">CLS (Visual Shift)</span>
-                    <div className="flex items-baseline gap-2 mt-2">
-                      <span className={`text-3xl font-bold font-mono ${clsValue < 0.01 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                        {clsValue.toFixed(3)}
-                      </span>
-                      <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-500">
-                        {clsValue < 0.01 ? 'Zero Shift' : 'Minor shifting'}
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-full bg-zinc-800 rounded mt-3 relative overflow-hidden">
-                      <div 
-                        className={`h-full absolute left-0 transition-all duration-300 ${clsValue < 0.01 ? 'bg-emerald-400' : 'bg-amber-400'}`}
-                        style={{ width: `${Math.min(100, (clsValue / 0.1) * 100)}%` }}
-                      />
-                    </div>
-                    <span className="text-[9px] text-zinc-500 font-mono mt-1.5 block">Target: Under 0.05 index</span>
-                  </div>
-
-                  {/* Gauge 3: INP */}
-                  <div className="bg-zinc-900/60 p-4 border border-zinc-850 rounded">
-                    <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest block font-bold">INP (Response Latency)</span>
-                    <div className="flex items-baseline gap-2 mt-2">
-                      <span className={`text-3xl font-bold font-mono ${inpValue < 30 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                        {inpValue}ms
-                      </span>
-                      <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-500">
-                        Instant (60fps)
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-full bg-zinc-800 rounded mt-3 relative overflow-hidden">
-                      <div 
-                        className="h-full bg-emerald-400 absolute left-0 transition-all duration-300"
-                        style={{ width: `${Math.min(100, (inpValue / 200) * 100)}%` }}
-                      />
-                    </div>
-                    <span className="text-[9px] text-zinc-500 font-mono mt-1.5 block">Target: Under 50 milliseconds</span>
-                  </div>
-                </div>
-
-                {/* Audit Terminal Log display */}
-                <div className="bg-zinc-950 border border-zinc-800 p-4 font-mono text-[10px] space-y-1 relative overflow-hidden rounded">
-                  <span className="absolute right-3 top-3.5 text-zinc-550 text-[9px] select-none text-zinc-650 font-bold">LOGS INTERPRETER VIA CF CLUSTERS</span>
-                  
-                  {vitalsRunning && (
-                    <div className="absolute inset-0 bg-zinc-950/80 flex items-center justify-center gap-3">
-                      <RefreshCw className="w-5 h-5 text-brand-orange animate-spin" />
-                      <span className="text-xs font-bold font-mono">Running pages pipeline check... {vitalsProgress}%</span>
-                    </div>
-                  )}
-
-                  <div className="max-h-[140px] overflow-y-auto space-y-1 text-zinc-400">
-                    {auditLogs.length > 0 ? (
-                      auditLogs.map((log, lIdx) => (
-                        <div key={lIdx} className="flex gap-2">
-                          <span className="text-zinc-650 text-brand-orange select-none">&gt;</span>
-                          <span>{log}</span>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="text-zinc-600 italic">Click the &quot;Run Core Web Vitals Audit&quot; button to compile the edge header test suite.</div>
-                    )}
-                  </div>
-                </div>
-
-              </div>
-
             </div>
-
           </div>
         </section>
 
-        {/* --- HIGH CONVERSION SHOWCASE CARDS AND LIGHTWEIGHT EMULATOR FOR 60FPS MENU DRAWER --- */}
-        <section id="destinations" className="py-16 bg-[#FAF9F6]">
+        {/* --- DYNAMIC INTERACTIVE META-SEO OPTIMIZER & SNIPPET PREVIEWER PANEL --- */}
+        <section id="seo-meta-optimizer" className="py-16 bg-[#F8F7F2] border-b border-[#E5E5E1]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
               
-              {/* Left Column: Realistic Deal Cards Grid */}
-              <div className="lg:col-span-8 space-y-8">
-                <div>
-                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-gray-400">Display Showcase</span>
-                  <h2 className="text-3xl font-serif font-bold italic text-gray-900 mt-1">Direct-Carrier Deal Cards Node</h2>
-                  <p className="text-xs text-gray-500 mt-1">Interactive simulated deployment of high-converting directories mapped using logical properties.</p>
+              {/* Controls Column */}
+              <div className="lg:col-span-5 bg-white border border-[#E5E5E1] p-6 sm:p-8 space-y-6 shadow-sm flex flex-col justify-between">
+                <div className="space-y-2">
+                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-brand-orange">
+                    Interactive SEO Controller Desk
+                  </span>
+                  <h3 className="text-xl font-serif font-bold italic text-gray-900 leading-tight">
+                    Meta Tags & SEO Optimizer
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    Select any virtual page view or individual travel article to generate and customize its crawlable Google indexing headers live.
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {filteredAffiliates.slice(0, 4).map((item) => {
-                    const keywordStr = KEYWORD_CLUSTERS[item.category as keyof typeof KEYWORD_CLUSTERS]?.highVolume || 'booking';
-                    return (
-                      <article 
-                        key={item.id}
-                        className="group flex flex-col justify-between bg-[#F8F7F2] border border-[#E5E5E1] relative h-full transition duration-300 transform md:hover:-translate-y-2 md:hover:shadow-xl hover:border-brand-orange select-none"
-                      >
-                        {/* Realistic Card Thumbnail with async properties visually explained */}
-                        <div className="relative h-44 overflow-hidden bg-zinc-200">
-                          <img 
-                            src={
-                              item.category === 'connectivity' 
-                                ? "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80"
-                                : item.category === 'transport'
-                                ? "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80"
-                                : "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80"
-                            }
-                            alt={item.name}
-                            decoding="async"
-                            referrerPolicy="no-referrer"
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                          <div className="absolute top-2.5 right-2 text-[8px] tracking-wider font-mono bg-black/60 text-white px-1.5 py-0.5 rounded font-bold">
-                            decoding=&quot;async&quot;
-                          </div>
-                          
-                          <div className="absolute bottom-2.5 left-2.5 bg-brand-orange text-white text-[9px] font-mono font-bold px-2 py-1 select-none">
-                            Zero Surcharges
-                          </div>
-                        </div>
+                <div className="space-y-4">
+                  {/* Select controller */}
+                  <div className="space-y-1">
+                    <label htmlFor="seo-target-selector" className="text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400 block">
+                      Target Page / Article view
+                    </label>
+                    <select
+                      id="seo-target-selector"
+                      value={activeArticle ? activeArticle.id : activeTab}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        const matchedArt = ARTICLES.find(a => a.id === val);
+                        if (matchedArt) {
+                          setActiveArticle(matchedArt);
+                          // Sync active guides tab view is required to open the article visually
+                          setActiveTab('guides');
+                        } else {
+                          setActiveArticle(null);
+                          setActiveTab(val as ActiveTab);
+                        }
+                      }}
+                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-bold text-[#1A1A1A] focus:outline-none focus:border-brand-orange cursor-pointer"
+                    >
+                      <optgroup label="Silo Page Views">
+                        <option value="overview">Home & Core Deal Hub Summary</option>
+                        <option value="planner">Interactive Nomad Trip Planner</option>
+                        <option value="calculators">Car Rental & eSIM Joint Price Estimate</option>
+                        <option value="guides">Travel Directories & Topical Silos</option>
+                        <option value="legal">GDPR Cookie Privacy & FTC Disclosures</option>
+                        <option value="heatmap">Keyword intent & Cluster Potential Heatmap</option>
+                      </optgroup>
+                      <optgroup label="SEO Destination Articles (30 Direct Silos)">
+                        {ARTICLES.map(art => (
+                          <option key={art.id} value={art.id}>
+                            {art.id.substring(0,25)}... ({art.silo})
+                          </option>
+                        ))}
+                      </optgroup>
+                    </select>
+                  </div>
 
-                        <div className="p-5 flex-grow flex flex-col justify-between space-y-4">
-                          <div className="space-y-2">
-                            <span className="text-[8px] uppercase tracking-widest font-mono font-bold text-gray-400 block">{item.category} SILO</span>
-                            <h3 className="text-base font-serif font-bold italic text-gray-900 leading-tight group-hover:text-brand-orange transition">
-                              {item.name}
-                            </h3>
-                            <p className="text-xs text-gray-600 font-sans leading-relaxed">
-                              {item.description}
-                            </p>
-                          </div>
+                  {/* Input 1: Meta Title */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between items-baseline">
+                      <label htmlFor="input-meta-title" className="text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400 block">
+                        Meta Title (Google Link)
+                      </label>
+                      <span className={`text-[9px] font-mono ${editingMetadata.title.length > 60 ? 'text-amber-500 font-bold animate-pulse' : 'text-gray-400'}`}>
+                        {editingMetadata.title.length}/60 chars
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      id="input-meta-title"
+                      value={editingMetadata.title}
+                      onChange={(e) => setEditingMetadata({ ...editingMetadata, title: e.target.value })}
+                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange"
+                    />
+                  </div>
 
-                          <div className="space-y-2 border-t border-[#E5E5E1] pt-3">
-                            <span className="text-[7.5px] uppercase tracking-widest font-mono text-gray-400 font-bold block">Topical Keyword Inject</span>
-                            <div className="text-[9px] font-mono italic text-gray-500 leading-tight truncate">
-                              {keywordStr}
-                            </div>
-                          </div>
+                  {/* Input 2: Meta Description */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between items-baseline">
+                      <label htmlFor="input-meta-desc" className="text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400 block">
+                        Meta Description (Google Snippet)
+                      </label>
+                      <span className={`text-[9px] font-mono ${editingMetadata.desc.length > 160 ? 'text-amber-500 font-bold animate-pulse' : 'text-gray-400'}`}>
+                        {editingMetadata.desc.length}/160 chars
+                      </span>
+                    </div>
+                    <textarea
+                      id="input-meta-desc"
+                      rows={3}
+                      value={editingMetadata.desc}
+                      onChange={(e) => setEditingMetadata({ ...editingMetadata, desc: e.target.value })}
+                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange"
+                    />
+                  </div>
 
-                          {/* HIGH CONTRAST PULSING BUTTON MAPPED BY NATIVE ANIMATIONS */}
-                          <div className="pt-3">
-                            <a 
-                              href={item.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="animate-pulse-cta block w-full text-center bg-[#1A1A1A] hover:bg-brand-orange text-white text-[9px] uppercase tracking-widest font-bold py-3 transition-colors"
-                              style={{ 
-                                animation: 'pulse-badge 3s infinite cubic-bezier(0.25, 1, 0.5, 1)'
-                              }}
-                            >
-                              Book Now & Save Direct <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
-                            </a>
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })}
+                  <button
+                    onClick={() => {
+                      document.title = editingMetadata.title;
+                      setMetaIsSaved(true);
+                      setTimeout(() => setMetaIsSaved(false), 3000);
+                    }}
+                    className="w-full bg-brand-orange hover:bg-[#1A1A1A] text-white text-[10px] font-mono font-bold uppercase py-3 px-4 transition-colors flex items-center justify-center gap-2"
+                  >
+                    {metaIsSaved ? (
+                      <>
+                        <Check className="w-4 h-4 text-white animate-bounce" />
+                        Live Meta Headers Active!
+                      </>
+                    ) : (
+                      'Update & Save Page Metadata'
+                    )}
+                  </button>
                 </div>
               </div>
 
-              {/* Right Column: Interactive Phone Screen Drawer Emulator */}
-              <div className="lg:col-span-4 space-y-6">
-                <div>
-                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-[#E55B13]">A11y Drawer Sandbox</span>
-                  <h3 className="text-lg font-serif font-bold italic text-gray-900 mt-1">Locked 60fps Mobile Hub</h3>
-                  <p className="text-xs text-gray-500 mt-1">Toggle the hamburger menu inside this emulated canvas to monitor translate parameters.</p>
+              {/* Snippet Previewer Column (Google Search Results) */}
+              <div className="lg:col-span-7 bg-[#1E1E1C] text-[#EBEBE8] p-6 sm:p-8 border border-[#2D2D2A] flex flex-col justify-between">
+                <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+                  <div>
+                    <span className="text-[9px] font-mono font-bold tracking-widest text-[#E55B13] uppercase block">
+                      Snippet Emulator
+                    </span>
+                    <h3 className="text-base font-bold text-white mt-0.5">
+                      2026 Live Search Engine Result Page
+                    </h3>
+                  </div>
+                  <span className="text-[9px] bg-zinc-800 border border-zinc-700 font-mono text-zinc-400 px-2.5 py-0.5 uppercase tracking-widest">
+                    Google Crawler-Safe
+                  </span>
                 </div>
 
-                {/* EMULATED PHONE BODY FRAME */}
-                <div className="border-[6px] border-[#1A1A1A] rounded-2xl overflow-hidden aspect-[9/16] bg-[#FAF9F6] shadow-2xl relative w-full max-w-[300px] mx-auto">
+                {/* Google Snippet Live Card */}
+                <div className="bg-white text-[#202124] p-5 border border-[#dadce0] rounded-lg my-6 max-w-xl mx-auto w-full shadow-sm text-left font-sans">
+                  <div className="text-xs text-[#202124] flex items-center gap-1.5 leading-tight mb-1 truncate font-sans">
+                    <div className="w-4 h-4 bg-[#FAF9F6] rounded-full border border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0 text-[10px] font-bold text-brand-orange">
+                      B
+                    </div>
+                    <div>
+                      <span className="text-[12px] text-[#202124]">https://bookmethat.com</span>
+                      <span className="text-[11px] text-[#70757a] ml-1">
+                        {activeArticle ? ` › articles › ${activeArticle.slug}` : ` › ${activeTab}`}
+                      </span>
+                    </div>
+                  </div>
                   
-                  {/* Phone Speaker Notch */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-3.5 w-24 bg-[#1A1A1A] rounded-b-lg z-50 flex items-center justify-center">
-                    <div className="h-0.5 w-10 bg-zinc-800 rounded" />
-                  </div>
+                  <h4 className="text-[19px] text-[#1a0dab] font-sans hover:underline cursor-pointer leading-snug font-medium mb-1 truncate block">
+                    {editingMetadata.title || "BookMeThat™: Direct Travel Deals & Verified Active Promo Codes"}
+                  </h4>
 
-                  {/* Emulated Layout view */}
-                  <div className="h-full flex flex-col relative pt-4 overflow-y-auto">
-                    
-                    {/* Emulated Header inside phone */}
-                    <div className="px-3.5 py-2 border-b border-[#E5E5E1] flex justify-between items-center bg-[#FAF9F6] sticky top-0 z-20">
-                      <span className="text-[10px] font-bold text-gray-900 tracking-tight">BOOKMETHAT.</span>
-                      
-                      {/* Burger button to open active emulated drawer */}
-                      <button 
-                        onClick={() => {
-                          setEmulatedMobileDrawerOpen(true);
-                          setRenderLatency(0.2 + Math.random() * 0.15);
-                        }}
-                        className="p-1 focus:outline-none"
-                        aria-label="Toggle drawer inside phone emulator"
-                      >
-                        <Menu className="w-4 h-4 text-brand-orange" />
-                      </button>
-                    </div>
-
-                    {/* Emulated page content */}
-                    <div className="p-3.5 space-y-3 flex-grow bg-white text-left scale-95 origin-top">
-                      <div className="space-y-1">
-                        <span className="text-[7.5px] uppercase font-mono text-zinc-400 font-bold bg-[#FAF9F6] px-1 py-0.5">Cellular eSIMs</span>
-                        <h4 className="text-xs font-serif font-bold">Paris Transit Pass</h4>
-                        <p className="text-[9px] text-zinc-550 leading-snug">Instant active cellular eSIM with zero commissions. Buy and deploy inside France instantly.</p>
-                      </div>
-                      <div className="border border-[#E5E5E1] p-2 bg-[#F8F7F2] rounded text-[8.5px] font-mono text-zinc-500 select-none">
-                        CF Node Latency: 1ms
-                      </div>
-                    </div>
-
-                    {/* ACTIVE EMULATED DRAWER COMPLETED EXACTLY AS DIRECTED BY NATIVE TRANSFORMS */}
-                    <div 
-                      className="absolute inset-0 z-30 transition-all duration-300 pointer-events-none"
-                      style={{
-                        visibility: emulatedMobileDrawerOpen ? 'visible' : 'hidden',
-                        pointerEvents: emulatedMobileDrawerOpen ? 'auto' : 'none'
-                      }}
-                    >
-                      {/* Drawer Overlay */}
-                      <div 
-                        onClick={() => setEmulatedMobileDrawerOpen(false)}
-                        className="absolute inset-0 bg-black/40 backdrop-blur-xs transition-opacity duration-300"
-                        style={{
-                          opacity: emulatedMobileDrawerOpen ? 1 : 0
-                        }}
-                      />
-                      
-                      {/* Drawer Slide Canvas menu utilizing translate & visibility parameters */}
-                      <div 
-                        className="absolute left-0 top-0 bottom-0 w-[180px] bg-[#FAF9F6] border-r border-[#E5E5E1] p-4 flex flex-col justify-between transition-transform duration-300"
-                        style={{
-                          transform: emulatedMobileDrawerOpen ? 'translateX(0)' : 'translateX(-100%)'
-                        }}
-                      >
-                        <div className="space-y-4">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[10px] font-bold">BOOKMETHAT.</span>
-                            <button 
-                              onClick={() => setEmulatedMobileDrawerOpen(false)}
-                              className="text-xs text-gray-400 font-bold"
-                            >
-                              ✕
-                            </button>
-                          </div>
-                          
-                          <nav className="flex flex-col gap-2 text-[9px] uppercase tracking-wider font-bold text-gray-600">
-                            <span className="text-[7px] text-brand-orange">CARRIER TABS</span>
-                            <button onClick={() => setEmulatedMobileDrawerOpen(false)} className="text-left py-1 hover:text-brand-orange select-none">eSIM Caches</button>
-                            <button onClick={() => setEmulatedMobileDrawerOpen(false)} className="text-left py-1 hover:text-brand-orange select-none">Car Rentals</button>
-                            <button onClick={() => setEmulatedMobileDrawerOpen(false)} className="text-left py-1 hover:text-brand-orange select-none">Flight Claims</button>
-                          </nav>
-                        </div>
-
-                        <div className="text-[7.5px] font-mono text-zinc-400">
-                          CF Pages Static Model ID-685596
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
+                  <p className="text-[14px] leading-relaxed text-[#4d5156] font-sans">
+                    {editingMetadata.desc || "Compare Airalo, Saily, and local car rentals with zero broker markup fees. Use active codes to save immediately on vacation packages."}
+                  </p>
                 </div>
 
-                {/* Simulated Telemetry log of 60fps renders */}
-                <div className="bg-zinc-900 text-zinc-200 p-3 rounded font-mono text-[9px] space-y-1 text-left border border-zinc-800">
-                  <span className="text-[#E55B13] font-bold uppercase tracking-widest block text-[8px] mb-1">Telemetry Monitor Terminal</span>
-                  <div>&gt; Layer compositing: isolated on GPU thread.</div>
-                  <div>&gt; Frame rate: <span className="text-emerald-400 font-bold">LOCKED 60fps (Constant)</span></div>
-                  <div>&gt; Main Thread Render Lag: <span className="text-emerald-400 font-bold">{renderLatency.toFixed(2)}ms</span></div>
-                  <div>&gt; Layout shifts recorded (CLS): <span className="text-emerald-400 font-bold">0.000</span></div>
+                <div className="space-y-4 pt-4 border-t border-zinc-800">
+                  <h5 className="text-[9px] font-mono font-bold tracking-wider text-zinc-500 uppercase block">
+                    SEO Analytics & Warnings logs
+                  </h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[10px] font-mono leading-relaxed">
+                    <div className="bg-zinc-900 p-3 border border-zinc-850 space-y-1 text-zinc-400">
+                      <span className="text-[8px] font-bold uppercase text-zinc-500 block">Link Integrity</span>
+                      <div className="text-emerald-400 font-bold flex items-center gap-1">
+                        <CheckCircle className="w-3.5 h-3.5" /> 100% Crawlable Links
+                      </div>
+                      <p className="text-[9px] text-zinc-500 leading-tight">All active booking URLs utilize direct-host links, bypassing redirects completely.</p>
+                    </div>
+
+                    <div className="bg-zinc-900 p-3 border border-zinc-850 space-y-1 text-zinc-400">
+                      <span className="text-[8px] font-bold uppercase text-zinc-500 block">CTR Quality check</span>
+                      {editingMetadata.title.length > 60 || editingMetadata.desc.length > 160 ? (
+                        <div className="text-amber-500 font-bold animate-pulse">
+                          ⚠️ LENGTH CRITICAL LIMITS
+                        </div>
+                      ) : (
+                        <div className="text-emerald-400 font-bold flex items-center gap-1">
+                          <CheckCircle className="w-3.5 h-3.5" /> Perfect CTR Density
+                        </div>
+                      )}
+                      <p className="text-[9px] text-zinc-500 leading-tight">Keep titles &lt; 60 and descriptions &lt; 160 to avoid ellipses truncation on mobile indexes.</p>
+                    </div>
+                  </div>
                 </div>
 
               </div>
 
             </div>
-
           </div>
         </section>
 
@@ -1270,7 +1348,9 @@ body {
             <div className="bg-white border border-[#E5E5E1] p-6 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.02)] view-enter">
               {activeTab === 'planner' && <InteractivePlanner />}
               {activeTab === 'calculators' && <ComparisonCalculators />}
-              {(activeTab === 'guides' || activeTab === 'overview') && <SiloGuides />}
+              {(activeTab === 'guides' || activeTab === 'overview') && (
+                <SiloGuides onViewArticle={(art) => setActiveArticle(art)} />
+              )}
               {activeTab === 'heatmap' && <SEOHeatmapConsole />}
             </div>
 

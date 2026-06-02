@@ -7,10 +7,15 @@ import {
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
 
-export default function SiloGuides() {
+export default function SiloGuides({ onViewArticle }: { onViewArticle?: (art: Article | null) => void }) {
   const [selectedSilo, setSelectedSilo] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [viewedArticle, setViewedArticle] = useState<Article | null>(null);
+  const [viewedArticle, setViewedArticle_local] = useState<Article | null>(null);
+
+  const setViewedArticle = (art: Article | null) => {
+    setViewedArticle_local(art);
+    if (onViewArticle) onViewArticle(art);
+  };
 
   // Search filter matching title, keywords, content, and silo
   const filteredArticles = ARTICLES.filter(art => {

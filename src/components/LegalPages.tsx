@@ -287,7 +287,7 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
                 <div className="space-y-3 text-xs text-gray-500 leading-relaxed font-sans">
                   <p><strong>Registry Domain:</strong> bookmethat.com</p>
                   <p><strong>Hosting Architecture:</strong> Vercel Serverless Hosting Network</p>
-                  <p><strong>CDN Delivery Node:</strong> Cloudflare Global Edge Network</p>
+                  <p><strong>Global Content Delivery Network:</strong> Cloudflare Global Edge Network</p>
                   <p><strong>Associated Registry Email:</strong> accts.pak@gmail.com</p>
                   <p><strong>Corporate Base Location:</strong> Global Travel Affiliate Syndicate</p>
                 </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, BarChart2, DollarSign, TrendingUp, HelpCircle, ShieldAlert, CheckCircle, RefreshCw, Layers } from 'lucide-react';
 
-interface KeywordNode {
+interface KeywordCluster {
   keyword: string;
   silo: 'connectivity' | 'transport' | 'booking' | 'utility';
   volume: number;
@@ -12,7 +12,7 @@ interface KeywordNode {
   affiliateProvider: string;
 }
 
-const HEATMAP_KEYWORDS: KeywordNode[] = [
+const HEATMAP_KEYWORDS: KeywordCluster[] = [
   // connectivity
   { keyword: 'best travel eSIM card for tourists 2026', silo: 'connectivity', volume: 12000, kd: 34, cpc: 2.10, conversionRate: 4.8, intent: 'Transactional', affiliateProvider: 'Saily / Airalo' },
   { keyword: 'Saily eSIM speed test results international latency', silo: 'connectivity', volume: 4500, kd: 18, cpc: 1.85, conversionRate: 5.2, intent: 'Commercial', affiliateProvider: 'Saily ESM' },
@@ -179,7 +179,7 @@ export default function SEOHeatmapConsole() {
                   <th className="p-3">Difficulty (KD)</th>
                   <th className="p-3">Search Volume</th>
                   <th className="p-3">Est. Conversion</th>
-                  <th className="p-3">Intent Node</th>
+                  <th className="p-3">User Search Intent</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#E5E5E1]">
