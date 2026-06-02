@@ -13,8 +13,9 @@ import SiloGuides from './components/SiloGuides';
 import LegalPages from './components/LegalPages';
 import SEOHeatmapConsole from './components/SEOHeatmapConsole';
 import UtmAdsenseConsole from './components/UtmAdsenseConsole';
+import TravelFAQConsole from './components/TravelFAQConsole';
 
-type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm';
+type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
 
 export default function App() {
@@ -149,6 +150,10 @@ export default function App() {
           finalTitle = "AdSense Optimization, Traffic Tracking & UTM Parameter Builder | BookMeThat";
           finalDesc = "Audit your website for Google AdSense compliance, parse inbound UTM reference queries, and build safe outbound affiliate links with rel rules.";
           break;
+        case 'faq':
+          finalTitle = "Travel & eSIM Intelligence FAQ Helpdesk - BookMeThat";
+          finalDesc = "Get verified answers to highly searched long-tail travel questions, eSIM hotspot rules, EU261 compensations, and cardless car rentals.";
+          break;
         default:
           finalTitle = "BookMeThat™: Best Travel Deals & Verified Vouchers";
           finalDesc = "Compare global travel packages and activate discounts.";
@@ -189,7 +194,7 @@ export default function App() {
 
       // Check standard tabs in query params
       if (tabQuery) {
-        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm'];
+        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm', 'faq'];
         if (allowedTabs.includes(tabQuery as ActiveTab)) {
           setActiveTab(tabQuery as ActiveTab);
           setActiveArticle(null);
@@ -249,6 +254,10 @@ export default function App() {
         setActiveTab('utm');
         setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path.includes('faq')) {
+        setActiveTab('faq');
+        setActiveArticle(null);
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
       } else if (path === '/' || path === '' || path.includes('index')) {
         setActiveTab('overview');
         setActiveArticle(null);
@@ -297,6 +306,9 @@ export default function App() {
           break;
         case 'utm':
           path = '/utm';
+          break;
+        case 'faq':
+          path = '/faq';
           break;
         default:
           path = '/';
@@ -1487,7 +1499,8 @@ body {
                 { tab: 'calculators', label: 'Car & eSIM Cost Estimator' },
                 { tab: 'guides', label: 'Topical SEO Silos' },
                 { tab: 'heatmap', label: 'AI Keyword Potential Heatmap' },
-                { tab: 'utm', label: 'AdSense & UTM Tracker' }
+                { tab: 'utm', label: 'AdSense & UTM Tracker' },
+                { tab: 'faq', label: 'FAQ Intelligence' }
               ].map((it) => (
                 <button
                   key={it.tab}
@@ -1511,6 +1524,7 @@ body {
               )}
               {activeTab === 'heatmap' && <SEOHeatmapConsole />}
               {activeTab === 'utm' && <UtmAdsenseConsole />}
+              {activeTab === 'faq' && <TravelFAQConsole />}
             </div>
 
           </div>

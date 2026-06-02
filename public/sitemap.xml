@@ -48,6 +48,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Travel & eSIM Search Intelligence FAQ Helpdesk -->
+  <url>
+    <loc>https://bookmethat.com/faq</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- FTC Compliance Desk -->
   <url>
     <loc>https://bookmethat.com/compliance</loc>
