@@ -12,13 +12,48 @@ import ComparisonCalculators from './components/ComparisonCalculators';
 import SiloGuides from './components/SiloGuides';
 import LegalPages from './components/LegalPages';
 import SEOHeatmapConsole from './components/SEOHeatmapConsole';
+import UtmAdsenseConsole from './components/UtmAdsenseConsole';
 
-type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap';
+type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('overview');
+  const [activeTab, setActiveTab ] = useState<ActiveTab>('overview');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+
+  useEffect(() => {
+    try {
+      const consent = localStorage.getItem('gdpr_consent_status');
+      if (!consent) {
+        const timer = setTimeout(() => {
+          setShowCookieBanner(true);
+        }, 1500);
+        return () => clearTimeout(timer);
+      }
+    } catch (e) {
+      // safe fallback
+    }
+  }, []);
+
+  const handleAcceptAllCookies = () => {
+    try {
+      const updatedConsent = { necessary: true, analytics: true, marketing: true };
+      localStorage.setItem('gdpr_consent_status', JSON.stringify(updatedConsent));
+      
+      // Simulate Google Consent Mode v2 registration
+      if (typeof window !== 'undefined') {
+        (window as any).gtag?.('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
+    } catch (e) {}
+    setShowCookieBanner(false);
+  };
+
   const [isScrolling, setIsScrolling] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -109,6 +144,10 @@ export default function App() {
         case 'heatmap':
           finalTitle = "Commercial SEO Search Engine Mapping & Intent Dashboard - BookMeThat";
           finalDesc = "Analyze search trends, volume clustering, and high-payout travel keywords for eSIM connectivity, car rentals, and discount tickets.";
+          break;
+        case 'utm':
+          finalTitle = "AdSense Optimization, Traffic Tracking & UTM Parameter Builder | BookMeThat";
+          finalDesc = "Audit your website for Google AdSense compliance, parse inbound UTM reference queries, and build safe outbound affiliate links with rel rules.";
           break;
         default:
           finalTitle = "BookMeThat™: Best Travel Deals & Verified Vouchers";
@@ -1329,7 +1368,8 @@ body {
                 { tab: 'planner', label: 'Interactive Nomad Planner' },
                 { tab: 'calculators', label: 'Car & eSIM Cost Estimator' },
                 { tab: 'guides', label: 'Topical SEO Silos' },
-                { tab: 'heatmap', label: 'AI Keyword Potential Heatmap' }
+                { tab: 'heatmap', label: 'AI Keyword Potential Heatmap' },
+                { tab: 'utm', label: 'AdSense & UTM Tracker' }
               ].map((it) => (
                 <button
                   key={it.tab}
@@ -1352,6 +1392,7 @@ body {
                 <SiloGuides onViewArticle={(art) => setActiveArticle(art)} />
               )}
               {activeTab === 'heatmap' && <SEOHeatmapConsole />}
+              {activeTab === 'utm' && <UtmAdsenseConsole />}
             </div>
 
           </div>
@@ -1431,6 +1472,43 @@ body {
 
         </div>
       </footer>
+
+      {/* GDPR FLOATING COOKIE CONSENT BANNER (REQUIRED FOR ADSENSE COMPLIANCE) */}
+      {showCookieBanner && (
+        <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-md bg-white border-2 border-brand-orange p-4 sm:p-5 shadow-[0_12px_40px_rgba(229,91,19,0.15)] z-50 view-enter" id="gdpr-cookie-banner">
+          <div className="space-y-3">
+            <div className="flex gap-2 items-center text-[#E55B13]">
+              <Shield className="w-4 h-4 shrink-0" />
+              <h4 className="font-serif font-bold text-xs">EU User Consent Management Mode v2</h4>
+            </div>
+            
+            <p className="text-[10px] text-gray-650 leading-normal font-sans">
+              To keep our travel research free, BookMeThat, AdSense, and verified partners use tracking cookies to build customized mobile search index listings. Please permit standard analytical cookies.
+            </p>
+
+            <div className="flex justify-between items-center gap-2 pt-1 font-sans">
+              <button
+                onClick={() => {
+                  try {
+                    localStorage.setItem('gdpr_consent_status', JSON.stringify({ necessary: true, analytics: false, marketing: false }));
+                  } catch (e) {}
+                  setShowCookieBanner(false);
+                }}
+                className="text-[9px] font-mono font-bold text-gray-450 hover:text-gray-800 underline uppercase tracking-wider cursor-pointer bg-transparent border-0"
+              >
+                Reject Non-Core
+              </button>
+
+              <button
+                onClick={handleAcceptAllCookies}
+                className="bg-brand-orange hover:bg-[#c94d0e] text-white text-[9px] font-mono px-4 py-2 font-bold uppercase tracking-widest cursor-pointer transition transform active:scale-95"
+              >
+                Accept Optimal Cookies
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
