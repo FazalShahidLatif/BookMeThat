@@ -28,7 +28,7 @@ export default function ComparisonCalculators() {
         perGb: sailyPrice / dataGbs,
         badge: 'Lowest Budget Price',
         bgColor: 'border-teal-400 bg-teal-50/20',
-        url: 'https://saily.tpk.lu/YotfJL64'
+        url: 'https://saily.tpk.lu/9KzgxKRI'
       },
       {
         id: 'airalo',
@@ -37,7 +37,7 @@ export default function ComparisonCalculators() {
         perGb: airaloPrice / dataGbs,
         badge: 'Recommended Traveler Pick',
         bgColor: 'border-indigo-400 bg-indigo-50/20',
-        url: 'https://airalo.com/affiliate/bookmethat'
+        url: 'https://airalo.tpk.lu/X5knsFOB'
       },
       {
         id: 'yesim',
@@ -319,7 +319,7 @@ export default function ComparisonCalculators() {
                     <ExternalLink className="w-2.5 h-2.5" />
                   </a>
                   <a 
-                    href="https://qeeq.tpk.lu/e9DVpQH9"
+                    href="https://qeeq.tpk.lu/nAGGDc6e"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="py-2.5 px-2 bg-[#1A1A1A] hover:bg-brand-orange text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1 transition-all"

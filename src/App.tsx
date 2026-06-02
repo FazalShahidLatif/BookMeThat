@@ -334,7 +334,7 @@ export default function App() {
               <p>Direct LTE/5G local profile routing on local cellular towers. Skip active premium roaming taxes entirely.</p>
               
               <!-- HIGH CONTRAST PULSING BUTTON -->
-              <a href="https://saily.tpk.lu/YotfJL64" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
+              <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
                 Book Now & Save Direct <span class="arrow-shape">→</span>
               </a>
             </div>
