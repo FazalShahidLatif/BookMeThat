@@ -35,9 +35,30 @@ export default function InteractivePlanner() {
 
   const getPartner = (id: string) => AFFILIATES.find(p => p.id === id);
 
+  const getLocalizedTag = (dest: string, partnerId: string) => {
+    const d = dest.toLowerCase().trim();
+    if (partnerId === 'saily' || partnerId === 'airalo' || partnerId === 'yesim') {
+      if (d.includes('japan') || d.includes('tokyo')) return '🇯🇵 SoftBank / Docomo local 5G lines pre-registered! ';
+      if (d.includes('italy') || d.includes('rome')) return '🇮🇹 WINDTRE & Vodafone local 5G profiles routed! ';
+      if (d.includes('spain') || d.includes('madrid')) return '🇪🇸 Orange-ES / Movistar hyper-speed carriers active! ';
+      if (d.includes('montenegro')) return '🇲🇪 One / T-Mobile local Montenegrin data nodes active! ';
+      if (d.includes('uk') || d.includes('london') || d.includes('united kingdom')) return '🇬🇧 EE & O2 ultra-speed cellular towers mapped! ';
+      if (d.includes('usa') || d.includes('america') || d.includes('new york')) return '🇺🇸 T-Mobile / Verizon ultra-wideband carriers active! ';
+      if (d.includes('thailand') || d.includes('bangkok')) return '🇹🇭 AIS & TrueMove high-speed networks active! ';
+    } else if (partnerId === 'localrent' || partnerId === 'gettransfer' || partnerId === 'getrentacar' || partnerId === 'economy') {
+      if (d.includes('montenegro')) return '🇲🇪 Tivat & Podgorica Airport direct cash rental nodes. ';
+      if (d.includes('spain')) return '🇪🇸 Alicante, Malaga, and Costa Brava regional fleet pre-cached. ';
+      if (d.includes('italy')) return '🇮🇹 Rome Fiumicino & Milan Malpensa direct supplier keys. ';
+      if (d.includes('georgia')) return '🇬🇪 Tbilisi, Batumi, and Kutaisi direct local fleet depots. ';
+      if (d.includes('turkey') || d.includes('istanbul')) return '🇹🇷 Istanbul & Antalya airport pre-approved booking. ';
+    }
+    return '';
+  };
+
   // Recommendations generator purely based on user profiles to maximize target clicks
   const getCustomRecommendations = () => {
     const recs = [];
+    const dest = inputs.destination;
     
     // 1. eSIM selection
     if (inputs.needsSim) {
@@ -45,19 +66,19 @@ export default function InteractivePlanner() {
         const p = getPartner('saily');
         if (p) recs.push({
           ...p,
-          customReason: 'Optimized for budget travel. Nord Security-backed Saily delivers the lowest data-entry price for short getaways.'
+          customReason: getLocalizedTag(dest, 'saily') + 'Optimized for budget travel. Nord Security-backed Saily delivers the lowest data-entry price for short getaways.'
         });
       } else if (inputs.budget === 'premium') {
         const p = getPartner('yesim');
         if (p) recs.push({
           ...p,
-          customReason: 'Uncapped unlimited travel data with built-in VPN. Perfect for heavy streaming and professional nomad work.'
+          customReason: getLocalizedTag(dest, 'yesim') + 'Uncapped unlimited travel data with built-in VPN. Perfect for heavy streaming and professional nomad work.'
         });
       } else {
         const p = getPartner('airalo');
         if (p) recs.push({
           ...p,
-          customReason: 'The absolute gold standard. Provides local network backup hops across 200+ regions for guaranteed stability.'
+          customReason: getLocalizedTag(dest, 'airalo') + 'The absolute gold standard. Provides local network backup hops across 200+ regions for guaranteed stability.'
         });
       }
     }
@@ -68,20 +89,20 @@ export default function InteractivePlanner() {
         const p = getPartner('getrentacar');
         if (p) recs.push({
           ...p,
-          customReason: 'Enables direct user bidding. Compare local peer-to-peer agencies to secure the absolute lowest rental deals.'
+          customReason: getLocalizedTag(dest, 'getrentacar') + 'Enables direct user bidding. Compare local peer-to-peer agencies to secure the absolute lowest rental deals.'
         });
       } else if (inputs.budget === 'premium') {
         const p = getPartner('gettransfer');
         if (p) recs.push({
           ...p,
-          customReason: 'Skip driving entirely to travel in absolute luxury. Hire background-vetted chauffeurs via transparent bidding.'
+          customReason: getLocalizedTag(dest, 'gettransfer') + 'Skip driving entirely to travel in absolute luxury. Hire background-vetted chauffeurs via transparent bidding.'
         });
       } else {
         // Check destination or general
         const p = getPartner('localrent');
         if (p) recs.push({
           ...p,
-          customReason: 'Excellent value option. Secure exact vehicle models from trusted local suppliers with low cash-only deposits.'
+          customReason: getLocalizedTag(dest, 'localrent') + 'Excellent value option. Secure exact vehicle models from trusted local suppliers with low cash-only deposits.'
         });
       }
     }
@@ -153,9 +174,21 @@ export default function InteractivePlanner() {
               value={inputs.destination}
               onChange={handleInputChange}
               required
-              placeholder="e.g., Montenegro, Spain, Bali"
+              placeholder="e.g., Montenegro, Spain, Japan"
               className="w-full px-4 py-2.5 rounded-none border border-[#E5E5E1] bg-white text-sm text-[#1A1A1A] focus:outline-none focus:ring-1 focus:ring-brand-orange/20 focus:border-brand-orange transition"
             />
+            <div className="flex flex-wrap gap-1.5 mt-1.5" id="presets-container">
+              {['Japan', 'Italy', 'Spain', 'Montenegro', 'Thailand', 'United Kingdom', 'USA'].map((dest) => (
+                <button
+                  key={dest}
+                  type="button"
+                  onClick={() => setInputs(prev => ({ ...prev, destination: dest }))}
+                  className="text-[9px] font-mono font-semibold border border-[#E5E5E1] hover:border-brand-orange hover:text-brand-orange bg-white px-2 py-0.5 text-gray-650 transition cursor-pointer select-none rounded-sm"
+                >
+                  +{dest}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div>

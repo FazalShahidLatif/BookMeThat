@@ -15,6 +15,7 @@ import SEOHeatmapConsole from './components/SEOHeatmapConsole';
 import UtmAdsenseConsole from './components/UtmAdsenseConsole';
 import TravelFAQConsole from './components/TravelFAQConsole';
 import TravelQuizWidget from './components/TravelQuizWidget';
+import VoucherCard from './components/VoucherCard';
 
 type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
@@ -169,6 +170,29 @@ export default function App() {
 
     // Update the real browser title
     document.title = finalTitle;
+
+    // Dynamically update standard SEO meta tags in the DOM for search indexing engines
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', finalDesc);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = finalDesc;
+      document.head.appendChild(meta);
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', finalTitle);
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', finalDesc);
+
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', finalTitle);
+
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', finalDesc);
   }, [activeTab, activeArticle]);
 
   // Routing and deep link parsing on mount or popstate to prevent any 404/page errors
@@ -274,7 +298,31 @@ export default function App() {
     
     // Also attach to popstate events for complete back-button compatibility
     window.addEventListener('popstate', handleUrlRouting);
-    return () => window.removeEventListener('popstate', handleUrlRouting);
+
+    const handleSitemapNav = (e: any) => {
+      const { tab, slug, sub } = e.detail;
+      if (tab) {
+        setActiveTab(tab);
+        if (slug) {
+          const matched = ARTICLES.find(art => art.slug === slug);
+          if (matched) {
+            setActiveArticle(matched);
+            setTimeout(() => handleSectionScroll('core-calculators'), 300);
+          }
+        } else {
+          setActiveArticle(null);
+        }
+        if (sub) {
+          setLegalTab(sub);
+        }
+      }
+    };
+    window.addEventListener('bookmethatNav', handleSitemapNav);
+
+    return () => {
+      window.removeEventListener('popstate', handleUrlRouting);
+      window.removeEventListener('bookmethatNav', handleSitemapNav);
+    };
   }, []);
 
   // Synchronize state changes back to window pathname and trigger canonical links
@@ -340,6 +388,65 @@ export default function App() {
       document.head.appendChild(link);
     }
     link.setAttribute('href', canonicalUrl);
+
+    // Dynamic Article and Website JSON-LD Schema injection for indexing bots
+    const existingSchema = document.getElementById('bookmethat-dynamic-routing-schema');
+    if (existingSchema) {
+      existingSchema.remove();
+    }
+
+    try {
+      const schemaScript = document.createElement('script');
+      schemaScript.id = 'bookmethat-dynamic-routing-schema';
+      schemaScript.type = 'application/ld+json';
+      
+      let schemaJson: any;
+      if (activeArticle) {
+        schemaJson = {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": activeArticle.title,
+          "description": activeArticle.summary,
+          "image": "https://bookmethat.com/favicon.png",
+          "url": canonicalUrl,
+          "datePublished": "2026-06-02",
+          "dateModified": "2026-06-04",
+          "author": {
+            "@type": "Organization",
+            "name": "BookMeThat Nomadic Team"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "BookMeThat",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://bookmethat.com/favicon.png"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+          }
+        };
+      } else {
+        schemaJson = {
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          "name": "BookMeThat",
+          "url": canonicalBase,
+          "logo": "https://bookmethat.com/favicon.png",
+          "description": "Premium programmatic travel routing, verified eSIM coupons, local direct car rent connections, and delayed flight compensation claiming portals with zero markups.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Global"
+          }
+        };
+      }
+      schemaScript.innerHTML = JSON.stringify(schemaJson);
+      document.head.appendChild(schemaScript);
+    } catch (err) {
+      console.warn("Schema injection failed", err);
+    }
 
   }, [activeTab, activeArticle, legalTab]);
 
@@ -1139,62 +1246,9 @@ body {
                 { id: 'klook', brand: 'Klook Tour Discounts', code: 'KLOOKDEALS5', discount: '5% OFF ATTRACTIONS', desc: 'Save on international bullet trains, theme parks, and skip-the-line day trips.', link: 'https://klook.tpk.lu/eJnSXtrF' },
                 { id: 'economy', brand: 'EconomyBookings Hires', code: 'ECONOMY5', discount: '5% OFF CAR RENTALS', desc: 'Guarantees the lowest base rates across 800+ global airport vehicle providers.', link: 'https://economybookings.tpk.lu/koWZfRVI' },
                 { id: 'nordvpn', brand: 'NordVPN Travel Shield', code: 'SECURETRAVEL', discount: 'UP TO 63% SECURE DEALS', desc: 'Protects banking and data transfers on unprotected airport & hotel Wi-Fi networks.', link: 'https://tp.media/click?shmarker=474841&promo_id=5328&source_type=link&type=click' }
-              ].map((voucher) => {
-                const [copied, setCopied] = useState(false);
-                const handleCopy = (code: string) => {
-                  navigator.clipboard.writeText(code).then(() => {
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
-                  }).catch(() => {});
-                };
-
-                return (
-                  <div key={voucher.id} className="bg-[#F8F7F2] border border-[#E5E5E1] p-6 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between h-full relative group">
-                    <div className="absolute top-4 right-4 bg-emerald-50 text-emerald-700 text-[8.5px] font-bold px-2 py-0.5 uppercase tracking-wider font-mono border border-emerald-300">
-                      Vouched
-                    </div>
-                    
-                    <div className="space-y-3">
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-[#E55B13] block uppercase">
-                        {voucher.discount}
-                      </span>
-                      <h3 className="text-lg font-serif font-bold italic text-gray-900 group-hover:text-brand-orange transition">
-                        {voucher.brand}
-                      </h3>
-                      <p className="text-xs text-gray-500 leading-relaxed pb-3">
-                        {voucher.desc}
-                      </p>
-                    </div>
-
-                    <div className="space-y-3.5 pt-4 border-t border-[#E5E5E1]/70">
-                      <div className="flex items-center justify-between gap-2 p-2.5 bg-white border border-[#E5E5E1] rounded-none">
-                        <code className="text-xs font-mono font-extrabold text-[#1A1A1A] tracking-wider">
-                          {voucher.code}
-                        </code>
-                        <button
-                          onClick={() => handleCopy(voucher.code)}
-                          className={`text-[9px] font-mono font-bold uppercase tracking-widest px-3 py-1.5 transition-colors cursor-pointer rounded-none flex items-center gap-1 ${
-                            copied 
-                              ? 'bg-emerald-500 text-white' 
-                              : 'bg-[#1A1A1A] hover:bg-brand-orange text-white'
-                          }`}
-                        >
-                          {copied ? 'Copied!' : 'Copy Code'}
-                        </button>
-                      </div>
-
-                      <a
-                        href={voucher.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full text-center block bg-transparent hover:bg-[#1A1A1A] hover:text-white border border-[#1A1A1A] text-[#1A1A1A] text-[9px] font-bold uppercase tracking-widest py-3 transition-all duration-300"
-                      >
-                        Activate Discount Offer & Go →
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
+              ].map((voucher) => (
+                <VoucherCard key={voucher.id} voucher={voucher} />
+              ))}
             </div>
           </div>
         </section>
