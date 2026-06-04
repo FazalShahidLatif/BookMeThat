@@ -368,7 +368,7 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
             <div className="mt-8 border-t border-[#E5E5E1] pt-6" id="sitemap-dashboard-card">
               <h5 className="font-serif font-bold text-[#1A1A1A] text-sm mb-3 uppercase tracking-wider block">Indexable HTML Sitemap &amp; Link Distribution Matrix</h5>
               <p className="text-xs text-gray-500 mb-4 font-sans leading-relaxed">
-                The index below provides static crawling vectors for search crawler bots (Googlebot, Bingbot, LLM Agent Scrapers) to discover and index BookMeThat's commercial silos, setup tools, and deep travel guides.
+                The index below provides static crawling vectors for approved organic search indices (such as Bingbot and Applebot) to discover and index BookMeThat's commercial silos, setup tools, and deep travel guides, with a zero-tolerance block enforced on all artificial intelligence and LLM scrapers.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
