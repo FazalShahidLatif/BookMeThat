@@ -385,7 +385,11 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
                   { name: 'AdSense CTR Tracking & UTM Builder', path: '/utm', tab: 'utm' },
                   { name: 'Commercial SEO Heatmap & Volume Dashboard', path: '/heatmap', tab: 'heatmap' },
                   { name: 'Travel & eSIM Intelligence FAQ Desk', path: '/faq', tab: 'faq' },
-                  { name: 'Nomadic Speed Quiz Challenge', path: '/challenge', tab: 'quiz' }
+                  { name: 'Nomadic Speed Quiz Challenge', path: '/challenge', tab: 'quiz' },
+                  { name: 'Best Regional eSIM for Southeast Asia Roaming', path: '/best-regional-esim-southeast-asia-saily-tour', tab: 'guides', slug: 'best-regional-esim-southeast-asia-saily-tour' },
+                  { name: 'How to Withdraw Foreign Currency Cash with Zero Fees', path: '/how-to-withdraw-foreign-currency-cash-with-zero-fees', tab: 'guides', slug: 'how-to-withdraw-foreign-currency-cash-with-zero-fees' },
+                  { name: 'Localrent Georgia Tbilisi Car Rental Reviews', path: '/localrent-georgia-tbilisi-car-rental-reviews-model', tab: 'guides', slug: 'localrent-georgia-tbilisi-car-rental-reviews-model' },
+                  { name: 'Expedia Discount Dynamic Bundling Algorithm Hacks', path: '/expedia-discount-dynamic-bundling-algorithm-hacks', tab: 'guides', slug: 'expedia-discount-dynamic-bundling-algorithm-hacks' }
                 ].map((item, idx) => (
                   <div key={idx} className="border border-[#E5E5E1] p-3 bg-white hover:border-brand-orange hover:shadow-xs transition">
                     <span className="text-[8px] font-mono text-gray-400 uppercase tracking-widest block font-bold mb-1">Index Node 0{idx+1}</span>
