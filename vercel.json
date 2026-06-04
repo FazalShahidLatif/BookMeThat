@@ -2,18 +2,6 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/compliance", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/compliance-desk", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/privacy", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/terms", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/disclosure", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/about", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/contact", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/ai-seo", "destination": "/#compliance-desk", "permanent": true },
-    { "source": "/connectivity", "destination": "/#core-calculators", "permanent": true },
-    { "source": "/transport", "destination": "/#core-calculators", "permanent": true }
-  ],
   "rewrites": [
     {
       "source": "/(favicon.png|sitemap.xml|robots.txt)",

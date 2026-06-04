@@ -247,6 +247,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://bookmethat.com/claiming-flight-reimbursement-us-dot-vs-eu261</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
 
   <!-- ==========================================
        SILO 4: UTILITY & SECURITY
@@ -289,6 +295,12 @@
   </url>
   <url>
     <loc>https://bookmethat.com/luggage-storage-radical-storage-guide</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bookmethat.com/wise-vs-revolut-multi-currency-travel-card-fees</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
