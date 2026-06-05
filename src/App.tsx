@@ -1682,8 +1682,12 @@ body {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-sans">
-            <p>
-              &copy; {new Date().getFullYear()} BookMeThat Ltd. Core Web Vitals Guaranteed Layout.
+            <p className="flex items-center flex-wrap gap-1">
+              <span>&copy; {new Date().getFullYear()} BookMeThat Ltd. Core Web Vitals Guaranteed Layout.</span>
+              <span className="text-gray-300">|</span>
+              <a href="https://saasskul.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand-orange font-medium underline decoration-brand-orange decoration-2">
+                Product of SAASSKUL
+              </a>
             </p>
             <div className="flex items-center gap-1.5 text-[11px] font-mono">
               <span>Primary Host Registered on:</span>
