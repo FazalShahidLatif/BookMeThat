@@ -55,33 +55,36 @@ async function startServer() {
       }
 
       const pathname = req.path.toLowerCase().replace(/^\/+|\/+$/g, ""); // strip slashes
-      let title = "Best Travel eSIM Deals, Direct Car Rentals, & Flight Delay Compensation | BookMeThat™";
-      let description = "Save on your next adventure with zero broker markups. Instantly compare verified travel eSIM promo codes (Saily, Airalo, Drimsim), wholesale car rentals (Localrent, EconomyBookings, Auto Europe), luggage storage, and legal flight delay compensation advocates.";
+      const normalizedPath = req.path === "/" ? "" : req.path.replace(/\/+$/, "");
+      const canonicalUrl = `https://bookmethat.com${normalizedPath}`;
+
+      let title = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
+      let description = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
 
       if (pathname === "planner") {
-        title = "Smart Interactive Travel Budget Planner & Vacation Package Estimator (2026)";
-        description = "Design your custom itinerary and calculate real-time savings on multi-country cellular data, local car rentals, and travel security. Maximize discounts instantly.";
+        title = "Travel Budget Planner & Vacation Estimator | BookMeThat";
+        description = "Design a custom travel itinerary and calculate real-time savings on regional cellular data, car rentals, and airport transfers.";
       } else if (pathname === "transport" || pathname === "calculators") {
-        title = "Best Travel eSIM & Global Car Rental Price Comparison Calculator";
-        description = "Compare Airalo, Saily, and Yesim alongside Localrent, QEEQ, and Auto Europe. Match real-time rates to claim direct checkout flight refunds and active vouchers.";
+        title = "Travel eSIM & Rental Car Price Comparison | BookMeThat";
+        description = "Compare Saily, Airalo, and Yesim eSIM rates alongside Localrent, QEEQ, and Auto Europe car hires. Save on real-world travel costs.";
       } else if (pathname === "connectivity" || pathname === "guides") {
-        title = "Deals & Bargains: Expert Destination Guides, Coupon Vouchers & Travel Hacks";
-        description = "Browse premium cost-saving guides for eSIM connections, cheap car hires, and flight delay redress. Optimize travel layouts and save on vacation budgets.";
-      } else if (pathname === "legal" || pathname === "compliance" || pathname === "privacy" || pathname === "terms") {
-        title = "Regulatory Compliance, FTC Disclosure & GDPR Terms of Service | BookMeThat";
-        description = "Transparent publisher directories showing compliance disclosures, zero added commissions, and verified buyer links.";
+        title = "Travel eSIM Guides, Rental Hacks & Coupons | BookMeThat";
+        description = "Browse expert destination guides and coupon vouchers for travel eSIM connections, cheap car rentals, and flight delay compensation.";
+      } else if (pathname === "legal" || pathname === "compliance" || pathname === "privacy" || pathname === "terms" || pathname === "disclosure" || pathname === "contact") {
+        title = "Regulatory Compliance & GDPR Terms of Service | BookMeThat";
+        description = "Publisher terms, GDPR-compliant cookie agreements, FTC affiliate disclosures, and privacy policies for BookMeThat services.";
       } else if (pathname === "heatmap") {
-        title = "Commercial SEO Search Engine Mapping & Intent Dashboard - BookMeThat";
-        description = "Analyze search trends, volume clustering, and high-payout travel keywords for eSIM connectivity, car rentals, and discount tickets.";
+        title = "SEO Keyword Mapping & Search Volume Insights | BookMeThat";
+        description = "Analyze commercial search query volumes, clustering trends, and CPC payout margins for top-tier travel and connectivity topics.";
       } else if (pathname === "utm") {
-        title = "AdSense Optimization, Traffic Tracking & UTM Parameter Builder | BookMeThat";
-        description = "Audit your website for Google AdSense compliance, parse inbound UTM reference queries, and build safe outbound affiliate links with rel rules.";
+        title = "Compliance UTM Generator & AdSense Audit | BookMeThat";
+        description = "Parse inbound queries, audit AdSense compliance states, and construct safe outbound travel affiliate links using rel properties.";
       } else if (pathname === "faq") {
-        title = "Travel & eSIM Intelligence FAQ Helpdesk - BookMeThat";
-        description = "Get verified answers to highly searched long-tail travel questions, eSIM hotspot rules, EU261 compensations, and cardless car rentals.";
+        title = "eSIM hotspot guides & EU261 Delay Comp FAQ | BookMeThat";
+        description = "Verified answers to highly searched travel questions, dynamic regional cellular rates, and cardless rental deposits.";
       } else if (pathname === "quiz" || pathname === "challenge") {
-        title = "Nomadic Speed Quiz Challenge & Travel Trivia | BookMeThat";
-        description = "Test your digital nomad knowledge and travel trivia. Answer connectivity, transport, and travel cost questions under pressure.";
+        title = "Nomad Speed Quiz Challenge & Travel Trivia | BookMeThat";
+        description = "Test your digital traveler wisdom. Solve connectivity, car rental, and flight delay restitution answers under pressure.";
       } else {
         const matchedArticle = ARTICLES.find(art => 
           pathname.includes(art.slug.toLowerCase()) || 
@@ -89,7 +92,7 @@ async function startServer() {
         );
         if (matchedArticle) {
           title = `${matchedArticle.metaTitle || matchedArticle.title} | Travel Deals & Discounts Guide`;
-          description = `${(matchedArticle.metaDescription || matchedArticle.summary).substring(0, 160)}... Browse verified eSIM, transfer coupons & travel hacks on BookMeThat.`;
+          description = `${(matchedArticle.metaDescription || matchedArticle.summary).substring(0, 155)}`;
         }
       }
 
@@ -102,8 +105,10 @@ async function startServer() {
       html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="description" content="${description}" />`);
       html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:title" content="${title}" />`);
       html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:description" content="${description}" />`);
+      html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:url" content="${canonicalUrl}" />`);
       html = html.replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:title" content="${title}" />`);
       html = html.replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:description" content="${description}" />`);
+      html = html.replace(/<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:url" content="${canonicalUrl}" />`);
 
       res.status(200).set({ "Content-Type": "text/html" }).end(html);
     } catch (e) {

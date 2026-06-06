@@ -120,45 +120,49 @@ export default function App() {
     let finalDesc = "";
 
     if (activeArticle) {
-      finalTitle = `${activeArticle.title} | Travel Deals & Discounts Guide`;
-      finalDesc = `${activeArticle.summary.substring(0, 150)}... Browse verified eSIM, transfer coupons & travel hacks on BookMeThat.`;
+      finalTitle = `${activeArticle.metaTitle || activeArticle.title} | Travel Deals & Discounts Guide`;
+      finalDesc = `${(activeArticle.metaDescription || activeArticle.summary).substring(0, 155)}`;
     } else {
       switch (activeTab) {
         case 'overview':
-          finalTitle = "BookMeThat™: Best Travel Deals, Exclusive Promo Codes & Vacation Packages (2026)";
-          finalDesc = "Compare and book direct eSIM mobile data, budget scooter & car rentals, and luxury sightseeing passes with verified discount vouchers. Save up to 40% on holiday activities.";
+          finalTitle = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
+          finalDesc = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
           break;
         case 'planner':
-          finalTitle = "Smart Interactive Travel Budget Planner & Vacation Package Estimator (2026)";
-          finalDesc = "Design your custom itinerary and calculate real-time savings on multi-country cellular data, local car rentals, and travel security. Maximize discounts instantly.";
+          finalTitle = "Travel Budget Planner & Vacation Estimator | BookMeThat";
+          finalDesc = "Design a custom travel itinerary and calculate real-time savings on regional cellular data, car rentals, and airport transfers.";
           break;
         case 'calculators':
-          finalTitle = "Best Travel eSIM & Global Car Rental Price Comparison Calculator";
-          finalDesc = "Compare Airalo, Saily, and Yesim alongside Localrent, QEEQ, and Auto Europe. Match real-time rates to claim direct checkout flight refunds and active vouchers.";
+          finalTitle = "Travel eSIM & Rental Car Price Comparison | BookMeThat";
+          finalDesc = "Compare Saily, Airalo, and Yesim eSIM rates alongside Localrent, QEEQ, and Auto Europe car hires. Save on real-world travel costs.";
           break;
         case 'guides':
-          finalTitle = "Deals & Bargains: Expert Destination Guides, Coupon Vouchers & Travel Hacks";
-          finalDesc = "Browse premium cost-saving guides for eSIM connections, cheap car hires, and flight delay redress. Optimize travel layouts and save on vacation budgets.";
+          finalTitle = "Travel eSIM Guides, Rental Hacks & Coupons | BookMeThat";
+          finalDesc = "Browse expert destination guides and coupon vouchers for travel eSIM connections, cheap car rentals, and flight delay compensation.";
           break;
         case 'legal':
-          finalTitle = "Regulatory Compliance, FTC Disclosure & GDPR Terms of Service | BookMeThat";
-          finalDesc = "Transparent publisher directories showing compliance disclosures, zero added commissions, and verified buyer links.";
+          finalTitle = "Regulatory Compliance & GDPR Terms of Service | BookMeThat";
+          finalDesc = "Publisher terms, GDPR-compliant cookie agreements, FTC affiliate disclosures, and privacy policies for BookMeThat services.";
           break;
         case 'heatmap':
-          finalTitle = "Commercial SEO Search Engine Mapping & Intent Dashboard - BookMeThat";
-          finalDesc = "Analyze search trends, volume clustering, and high-payout travel keywords for eSIM connectivity, car rentals, and discount tickets.";
+          finalTitle = "SEO Keyword Mapping & Search Volume Insights | BookMeThat";
+          finalDesc = "Analyze commercial search query volumes, clustering trends, and CPC payout margins for top-tier travel and connectivity topics.";
           break;
         case 'utm':
-          finalTitle = "AdSense Optimization, Traffic Tracking & UTM Parameter Builder | BookMeThat";
-          finalDesc = "Audit your website for Google AdSense compliance, parse inbound UTM reference queries, and build safe outbound affiliate links with rel rules.";
+          finalTitle = "Compliance UTM Generator & AdSense Audit | BookMeThat";
+          finalDesc = "Parse inbound queries, audit AdSense compliance states, and construct safe outbound travel affiliate links using rel properties.";
           break;
         case 'faq':
-          finalTitle = "Travel & eSIM Intelligence FAQ Helpdesk - BookMeThat";
-          finalDesc = "Get verified answers to highly searched long-tail travel questions, eSIM hotspot rules, EU261 compensations, and cardless car rentals.";
+          finalTitle = "eSIM hotspot guides & EU261 Delay Comp FAQ | BookMeThat";
+          finalDesc = "Verified answers to highly searched travel questions, dynamic regional cellular rates, and cardless rental deposits.";
+          break;
+        case 'quiz':
+          finalTitle = "Nomad Speed Quiz Challenge & Travel Trivia | BookMeThat";
+          finalDesc = "Test your digital traveler wisdom. Solve connectivity, car rental, and flight delay restitution answers under pressure.";
           break;
         default:
-          finalTitle = "BookMeThat™: Best Travel Deals & Verified Vouchers";
-          finalDesc = "Compare global travel packages and activate discounts.";
+          finalTitle = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
+          finalDesc = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
       }
     }
 
@@ -388,6 +392,16 @@ export default function App() {
       document.head.appendChild(link);
     }
     link.setAttribute('href', canonicalUrl);
+
+    // Keep Open Graph and Twitter URL properties aligned with canonical to prevent trailing slash mismatch
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', canonicalUrl);
+    }
+    const twUrl = document.querySelector('meta[name="twitter:url"]');
+    if (twUrl) {
+      twUrl.setAttribute('content', canonicalUrl);
+    }
 
     // Dynamic Article and Website JSON-LD Schema injection for indexing bots
     const existingSchema = document.getElementById('bookmethat-dynamic-routing-schema');
