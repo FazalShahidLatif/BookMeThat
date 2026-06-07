@@ -267,7 +267,11 @@ export default function App() {
         setActiveTab('guides');
         setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
-      } else if (path.includes('transport') || path.includes('cars')) {
+      } else if (path.includes('flights') || path.includes('flight')) {
+        setActiveTab('guides');
+        setActiveArticle(null);
+        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+      } else if (path.includes('transport') || path.includes('car-rental') || path.includes('car-rentals') || path.includes('cars')) {
         setActiveTab('calculators');
         setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
@@ -346,17 +350,17 @@ export default function App() {
           path = '/planner';
           break;
         case 'calculators':
-          path = '/transport';
+          path = '/car-rental';
           break;
         case 'guides':
-          path = '/connectivity';
+          path = '/esim';
           break;
         case 'legal':
           if (legalTab === 'privacy') path = '/privacy';
           else if (legalTab === 'terms') path = '/terms';
           else if (legalTab === 'ai_seo') path = '/ai-seo';
           else if (legalTab === 'impressum') path = '/contact';
-          else path = '/compliance';
+          else path = '/about';
           break;
         case 'heatmap':
           path = '/heatmap';
@@ -629,7 +633,7 @@ export default function App() {
         <a href="#hero" class="drawer-item">Carrier Lookup</a>
         <a href="#destinations" class="drawer-item">Affiliate Directories</a>
         <a href="#reviews" class="drawer-item">Independent Proof</a>
-        <a href="https://bookmethat.com/compliance" target="_blank" rel="noopener noreferrer" class="drawer-item font-mono font-bold">FTC Node Disclosure</a>
+        <a href="https://bookmethat.com/about" target="_blank" rel="noopener noreferrer" class="drawer-item font-mono font-bold">FTC Node Disclosure</a>
       </nav>
       <div class="drawer-footer">
         <p>CDN Edge Host Live: ID-685596</p>
@@ -1259,7 +1263,7 @@ body {
                 { id: 'gocity', brand: 'Go City Sightseeing', code: 'GOCITY10', discount: '10% OFF PASS CARDS', desc: 'Valid on multi-attraction entry tickets in Paris, London, Rome & New York.', link: 'https://gocity.tpk.lu/u1mHhjxd' },
                 { id: 'klook', brand: 'Klook Tour Discounts', code: 'KLOOKDEALS5', discount: '5% OFF ATTRACTIONS', desc: 'Save on international bullet trains, theme parks, and skip-the-line day trips.', link: 'https://klook.tpk.lu/eJnSXtrF' },
                 { id: 'economy', brand: 'EconomyBookings Hires', code: 'ECONOMY5', discount: '5% OFF CAR RENTALS', desc: 'Guarantees the lowest base rates across 800+ global airport vehicle providers.', link: 'https://economybookings.tpk.lu/koWZfRVI' },
-                { id: 'nordvpn', brand: 'NordVPN Travel Shield', code: 'SECURETRAVEL', discount: 'UP TO 63% SECURE DEALS', desc: 'Protects banking and data transfers on unprotected airport & hotel Wi-Fi networks.', link: 'https://tp.media/click?shmarker=474841&promo_id=5328&source_type=link&type=click' }
+                { id: 'nordvpn', brand: 'NordVPN Travel Shield', code: 'SECURETRAVEL', discount: 'UP TO 63% SECURE DEALS', desc: 'Protects banking and data transfers on unprotected airport & hotel Wi-Fi networks.', link: 'https://tp.media/r?marker=474841&p=5328' }
               ].map((voucher) => (
                 <VoucherCard key={voucher.id} voucher={voucher} />
               ))}
@@ -1668,9 +1672,9 @@ body {
 
             <div className="md:col-span-3 space-y-2">
               <h4 className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">AdSense & SEO Silos</h4>
-              <ul className="space-y-1.5 text-xs text-gray-650 text-gray-600 font-sans">
-                <li><a href="/connectivity" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('guides'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">eSIM & Connection Directories</a></li>
-                <li><a href="/transport" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('calculators'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">Car Rentals Cost Comparers</a></li>
+              <ul className="space-y-1.5 text-xs text-gray-600 font-sans">
+                <li><a href="/esim" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('guides'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">eSIM & Connection Directories</a></li>
+                <li><a href="/car-rental" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('calculators'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">Car Rentals Cost Comparers</a></li>
                 <li><a href="/" onClick={(e) => { e.preventDefault(); handleSectionScroll('hero'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none font-bold">Launch Carrier Router</a></li>
               </ul>
             </div>
@@ -1678,7 +1682,7 @@ body {
             <div className="md:col-span-3 space-y-2">
               <h4 className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">Compliance Links</h4>
               <ul className="space-y-1.5 text-xs text-gray-600 font-sans">
-                <li><a href="/compliance" onClick={(e) => { e.preventDefault(); setLegalTab('disclosure'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block font-bold select-none text-gray-600">FTC Affiliate Disclosures</a></li>
+                <li><a href="/about" onClick={(e) => { e.preventDefault(); setLegalTab('disclosure'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block font-bold select-none text-gray-600">FTC Affiliate Disclosures</a></li>
                 <li><a href="/privacy" onClick={(e) => { e.preventDefault(); setLegalTab('privacy'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none text-gray-600">GDPR Cookie Consent</a></li>
                 <li><a href="/terms" onClick={(e) => { e.preventDefault(); setLegalTab('terms'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none text-gray-600">Terms and Services of Use</a></li>
               </ul>

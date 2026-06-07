@@ -1,0 +1,12 @@
+# SEO Robots Configuration for BookMeThat
+# File Path: public/robots.txt
+# 
+# DESCRIPTION:
+# Informs search engine spiders (Googlebot, Bingbot, etc.) which paths are indexable
+# and points them directly to our uncompressed native XML Sitemap endpoint.
+
+User-agent: *
+Allow: /
+
+# Canonical reference to the dynamic App Router sitemap
+Sitemap: https://bookmethat.com/sitemap.xml

@@ -64,15 +64,21 @@ async function startServer() {
       if (pathname === "planner") {
         title = "Travel Budget Planner & Vacation Estimator | BookMeThat";
         description = "Design a custom travel itinerary and calculate real-time savings on regional cellular data, car rentals, and airport transfers.";
-      } else if (pathname === "transport" || pathname === "calculators") {
+      } else if (pathname === "transport" || pathname === "calculators" || pathname === "car-rental" || pathname === "car-rentals") {
         title = "Travel eSIM & Rental Car Price Comparison | BookMeThat";
         description = "Compare Saily, Airalo, and Yesim eSIM rates alongside Localrent, QEEQ, and Auto Europe car hires. Save on real-world travel costs.";
-      } else if (pathname === "connectivity" || pathname === "guides") {
+      } else if (pathname === "connectivity" || pathname === "guides" || pathname === "esim") {
         title = "Travel eSIM Guides, Rental Hacks & Coupons | BookMeThat";
         description = "Browse expert destination guides and coupon vouchers for travel eSIM connections, cheap car rentals, and flight delay compensation.";
-      } else if (pathname === "legal" || pathname === "compliance" || pathname === "privacy" || pathname === "terms" || pathname === "disclosure" || pathname === "contact") {
+      } else if (pathname === "flights" || pathname === "flight") {
+        title = "Flight Delay Comp & Passenger Rights | BookMeThat";
+        description = "Secure flight compensations, claim delayed luggage payouts, and browse strategic airline delay regulations direct with legal advocates.";
+      } else if (pathname === "legal" || pathname === "compliance" || pathname === "privacy" || pathname === "terms" || pathname === "disclosure" || pathname === "about") {
         title = "Regulatory Compliance & GDPR Terms of Service | BookMeThat";
         description = "Publisher terms, GDPR-compliant cookie agreements, FTC affiliate disclosures, and privacy policies for BookMeThat services.";
+      } else if (pathname === "contact" || pathname === "impressum") {
+        title = "Contact & Impressum Desk | BookMeThat";
+        description = "Get in contact with the BookMeThat nomadic editorial team directly for partnership, support, or privacy inquiries.";
       } else if (pathname === "heatmap") {
         title = "SEO Keyword Mapping & Search Volume Insights | BookMeThat";
         description = "Analyze commercial search query volumes, clustering trends, and CPC payout margins for top-tier travel and connectivity topics.";
