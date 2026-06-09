@@ -1341,8 +1341,8 @@ export const ARTICLES: Article[] = [
       'cheap bundled vacation packages code'
     ],
     searchVolume: '4,100/mo',
-    metaTitle: 'Expedia Discount Dynamic Bundling Algorithm Hacks: Save Now',
-    metaDescription: 'Crack the math behind vacation booking portals. Learn how combining lodging, car hires, and flights triggers major dynamic discounts up to 20% off.',
+    metaTitle: 'Expedia Package Hacks: How to Save 20% on Trips',
+    metaDescription: 'Unlock hidden vacation discounts. Learn how bundling flights and hotel stays triggers automatic 20% savings on Expedia.',
     altTextMap: {
       hero: 'Dynamic booking window showing dynamic bundle discount indicators next to hotel lodging checkout pages.'
     },
