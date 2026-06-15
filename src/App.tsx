@@ -16,8 +16,9 @@ import UtmAdsenseConsole from './components/UtmAdsenseConsole';
 import TravelFAQConsole from './components/TravelFAQConsole';
 import TravelQuizWidget from './components/TravelQuizWidget';
 import VoucherCard from './components/VoucherCard';
+import AIFlightStayPlanner from './components/AIFlightStayPlanner';
 
-type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz';
+type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz' | 'flightsRooms';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
 
 export default function App() {
@@ -128,6 +129,10 @@ export default function App() {
           finalTitle = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
           finalDesc = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
           break;
+        case 'flightsRooms':
+          finalTitle = "AI Flight Booker & Hotel Reservations | BookMeThat";
+          finalDesc = "Instantly plan your domestic and international routes with dynamic AI optimizations. Compare wholesale flight options and Expedia hotel room stays.";
+          break;
         case 'planner':
           finalTitle = "Travel Budget Planner & Vacation Estimator | BookMeThat";
           finalDesc = "Design a custom travel itinerary and calculate real-time savings on regional cellular data, car rentals, and airport transfers.";
@@ -223,7 +228,7 @@ export default function App() {
 
       // Check standard tabs in query params
       if (tabQuery) {
-        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm', 'faq', 'quiz'];
+        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm', 'faq', 'quiz', 'flightsRooms'];
         if (allowedTabs.includes(tabQuery as ActiveTab)) {
           setActiveTab(tabQuery as ActiveTab);
           setActiveArticle(null);
@@ -268,7 +273,7 @@ export default function App() {
         setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
       } else if (path.includes('flights') || path.includes('flight')) {
-        setActiveTab('guides');
+        setActiveTab('flightsRooms');
         setActiveArticle(null);
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
       } else if (path.includes('transport') || path.includes('car-rental') || path.includes('car-rentals') || path.includes('cars')) {
@@ -345,6 +350,9 @@ export default function App() {
       switch (activeTab) {
         case 'overview':
           path = '/';
+          break;
+        case 'flightsRooms':
+          path = '/flights';
           break;
         case 'planner':
           path = '/planner';
@@ -1600,6 +1608,7 @@ body {
 
             <div className="flex justify-center border-b border-[#E5E5E1] mb-6 overflow-x-auto whitespace-nowrap">
               {[
+                { tab: 'flightsRooms', label: 'AI Routes & Stays (Expedia)' },
                 { tab: 'planner', label: 'Interactive Nomad Planner' },
                 { tab: 'calculators', label: 'Car & eSIM Cost Estimator' },
                 { tab: 'guides', label: 'Topical SEO Silos' },
@@ -1623,6 +1632,7 @@ body {
             </div>
 
             <div className="bg-white border border-[#E5E5E1] p-6 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.02)] view-enter">
+              {activeTab === 'flightsRooms' && <AIFlightStayPlanner />}
               {activeTab === 'planner' && <InteractivePlanner />}
               {activeTab === 'calculators' && <ComparisonCalculators />}
               {(activeTab === 'guides' || activeTab === 'overview') && (
