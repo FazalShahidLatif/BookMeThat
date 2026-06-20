@@ -254,6 +254,48 @@ async function startServer() {
     }
   });
 
+  // Clean outbound affiliate redirection tunnel (locks out bots and avoids 3xx leak audits)
+  app.get("/go/:id", (req, res) => {
+    const affiliateId = req.params.id.toLowerCase();
+    
+    // Core original target partner map
+    const affiliateMap: Record<string, string> = {
+      saily: 'https://saily.tpk.lu/9KzgxKRI',
+      airalo: 'https://airalo.tpk.lu/X5knsFOB',
+      yesim: 'https://yesim.tpk.lu/G4BRVuDa',
+      drimsim: 'https://drimsim.tpk.lu/Nytg5OEC',
+      localrent: 'https://localrent.tpk.lu/YI6tdTTl',
+      gettransfer: 'https://gettransfer.tpk.lu/zUalOSms',
+      getrentacar: 'https://getrentacar.tpk.lu/3igontje',
+      qeeq: 'https://qeeq.tpk.lu/nAGGDc6e',
+      intui: 'https://intui.tpk.lu/Yt63BlfQ',
+      autoeurope: 'https://autoeurope.tpk.lu/W4ORKTUt',
+      economybookings: 'https://economybookings.tpk.lu/koWZfRVI',
+      bikesbooking: 'https://bikesbooking.tpk.lu/m68zE4eF',
+      searadar: 'https://searadar.tpk.lu/Xr7qE7op',
+      kiwitaxi: 'https://kiwitaxi.tpk.lu/xkQ7lIEQ',
+      expedia: 'https://tp.media/r?marker=474841&p=3813',
+      airhelp: 'https://airhelp.tpk.lu/DhUcIRcD',
+      klook: 'https://tp.media/r?marker=474841&p=3297',
+      compensair: 'https://compensair.tpk.lu/NgywpzQL',
+      ticketnetwork: 'https://ticketnetwork.tpk.lu/fUb74KNr',
+      wegotrip: 'https://wegotrip.tpk.lu/V5RH9CtE',
+      gocity: 'https://gocity.tpk.lu/u1mHhjxd',
+      travelpayouts: 'https://tpk.lu/K4OAGrAh',
+      nordvpn: 'https://tp.media/r?marker=474841&p=5328',
+      worldnomads: 'https://tp.media/r?marker=474841&p=2377',
+      wise: 'https://tp.media/r?marker=474841&p=3697',
+      radicalstorage: 'https://radicalstorage.tpk.lu/Qm4b7jm0',
+      ektatraveling: 'https://ektatraveling.tpk.lu/2dmZqZZg'
+    };
+
+    const targetUrl = affiliateMap[affiliateId] || affiliateMap[affiliateId.replace('-', '')];
+    if (targetUrl) {
+      return res.redirect(301, targetUrl);
+    }
+    return res.redirect(301, "/");
+  });
+
   app.get("*", async (req, res, next) => {
     // Skip dev resource files in development to let Vite handle it
     if (process.env.NODE_ENV !== "production") {
@@ -269,6 +311,62 @@ async function startServer() {
     // Skip API paths to avoid intercepting server backend routes
     if (req.path.startsWith("/api/")) {
       return next();
+    }
+
+    const origPath = req.path;
+    const lowerPath = origPath.toLowerCase();
+
+    // 1. Lowercase redirects for non-asset files (excluding static assets)
+    const isStaticAsset = origPath.startsWith("/assets/") || 
+                          origPath.startsWith("/favicon.png") || 
+                          origPath.startsWith("/sitemap.xml") || 
+                          origPath.startsWith("/sitemap.xsl") || 
+                          origPath.startsWith("/robots.txt") ||
+                          origPath.substring(origPath.lastIndexOf('/')).includes('.');
+
+    if (!isStaticAsset && origPath !== lowerPath) {
+      const query = req.url.slice(origPath.length);
+      return res.redirect(301, lowerPath + query);
+    }
+
+    // 2. Trailing slash redirects (from /path/ to /path, except home /)
+    if (origPath !== "/" && origPath.endsWith("/")) {
+      const cleanPath = origPath.replace(/\/+$/, "");
+      const query = req.url.slice(origPath.length);
+      return res.redirect(301, cleanPath + query);
+    }
+
+    const pathname = lowerPath.replace(/^\/+|\/+$/g, "");
+
+    // 3. Absolute canonical redirect for old /index or /index.html path
+    if (pathname === "index" || pathname === "index.html") {
+      return res.redirect(301, "/");
+    }
+
+    // 4. Group route normalization (301 redirects to ensure singular canonical pages)
+    if (pathname === "transport" || pathname === "calculators" || pathname === "car-rentals" || pathname === "cars") {
+      return res.redirect(301, "/car-rental");
+    }
+    if (pathname === "connectivity" || pathname === "guides") {
+      return res.redirect(301, "/esim");
+    }
+    if (pathname === "flight") {
+      return res.redirect(301, "/flights");
+    }
+    if (pathname === "legal" || pathname === "compliance" || pathname === "disclosure") {
+      return res.redirect(301, "/about");
+    }
+    if (pathname === "impressum" || pathname === "support") {
+      return res.redirect(301, "/contact");
+    }
+    if (pathname === "quiz") {
+      return res.redirect(301, "/challenge");
+    }
+
+    // 5. Canonical redirect for articles accessed by ID rather than slug
+    const matchedArticleByID = ARTICLES.find(art => pathname === art.id.toLowerCase());
+    if (matchedArticleByID && pathname !== matchedArticleByID.slug.toLowerCase()) {
+      return res.redirect(301, `/${matchedArticleByID.slug.toLowerCase()}`);
     }
 
     const url = req.originalUrl;

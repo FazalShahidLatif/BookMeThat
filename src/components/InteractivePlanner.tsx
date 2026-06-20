@@ -344,7 +344,7 @@ export default function InteractivePlanner() {
 
                   <div className="flex items-center gap-2 pt-2">
                     <a 
-                      href={partner.url}
+                      href={`/go/${partner.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 py-2.5 px-3 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-none text-[10px] uppercase font-bold tracking-wider text-center flex items-center justify-center gap-1 transition"
@@ -354,11 +354,11 @@ export default function InteractivePlanner() {
                     </a>
                     <button
                       type="button"
-                      onClick={() => handleCopyLink(partner.url)}
+                      onClick={() => handleCopyLink(`https://bookmethat.com/go/${partner.id}`)}
                       className="px-2.5 py-2 hover:bg-white text-gray-500 border border-[#E5E5E1] rounded-none text-[10px] uppercase tracking-wider font-semibold flex items-center justify-center cursor-pointer transition"
                       title="Copy Affiliate Referral Link"
                     >
-                      {copiedLink === partner.url ? 'Copied!' : 'Copy Link'}
+                      {copiedLink === `https://bookmethat.com/go/${partner.id}` ? 'Copied!' : 'Copy Link'}
                     </button>
                   </div>
                 </div>

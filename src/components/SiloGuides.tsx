@@ -7,6 +7,55 @@ import {
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
 
+export function cleanAffiliateContentLinks(html: string): string {
+  if (!html) return html;
+  
+  let cleaned = html;
+  
+  const rules = [
+    { regex: /https?:\/\/(?:www\.)?saily\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/saily" },
+    { regex: /https?:\/\/(?:www\.)?airalo\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/airalo" },
+    { regex: /https?:\/\/(?:www\.)?yesim\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/yesim" },
+    { regex: /https?:\/\/(?:www\.)?drimsim\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/drimsim" },
+    { regex: /https?:\/\/(?:www\.)?localrent\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/localrent" },
+    { regex: /https?:\/\/(?:www\.)?gettransfer\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/gettransfer" },
+    { regex: /https?:\/\/(?:www\.)?getrentacar\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/getrentacar" },
+    { regex: /https?:\/\/(?:www\.)?qeeq\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/qeeq" },
+    { regex: /https?:\/\/(?:www\.)?intui\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/intui" },
+    { regex: /https?:\/\/(?:www\.)?autoeurope\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/autoeurope" },
+    { regex: /https?:\/\/(?:www\.)?economybookings\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/economybookings" },
+    { regex: /https?:\/\/(?:www\.)?bikesbooking\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/bikesbooking" },
+    { regex: /https?:\/\/(?:www\.)?searadar\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/searadar" },
+    { regex: /https?:\/\/(?:www\.)?kiwitaxi\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/kiwitaxi" },
+    { regex: /https?:\/\/(?:www\.)?airhelp\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/airhelp" },
+    { regex: /https?:\/\/(?:www\.)?compensair\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/compensair" },
+    { regex: /https?:\/\/(?:www\.)?ticketnetwork\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/ticketnetwork" },
+    { regex: /https?:\/\/(?:www\.)?wegotrip\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/wegotrip" },
+    { regex: /https?:\/\/(?:www\.)?gocity\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/gocity" },
+    { regex: /https?:\/\/(?:www\.)?radicalstorage\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/radicalstorage" },
+    { regex: /https?:\/\/(?:www\.)?ektatraveling\.tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/ektatraveling" },
+    { regex: /https?:\/\/tpk\.lu\/[a-zA-Z0-9_-]+/gi, replacement: "/go/travelpayouts" },
+    
+    // travelpayouts tp.media redirect formats (p=ID or promo_id=ID)
+    { regex: /https?:\/\/tp\.media\/[rq]\?marker=\d+&p=3813/gi, replacement: "/go/expedia" },
+    { regex: /https?:\/\/tp\.media\/[rq]\?marker=\d+&p=3297/gi, replacement: "/go/klook" },
+    { regex: /https?:\/\/tp\.media\/[rq]\?marker=\d+&p=5328/gi, replacement: "/go/nordvpn" },
+    { regex: /https?:\/\/tp\.media\/[rq]\?marker=\d+&p=2377/gi, replacement: "/go/worldnomads" },
+    { regex: /https?:\/\/tp\.media\/[rq]\?marker=\d+&p=3697/gi, replacement: "/go/wise" },
+    { regex: /https?:\/\/tp\.media\/click\?shmarker=\d+&promo_id=3813\S*/gi, replacement: "/go/expedia" },
+    { regex: /https?:\/\/tp\.media\/click\?shmarker=\d+&promo_id=3297\S*/gi, replacement: "/go/klook" },
+    { regex: /https?:\/\/tp\.media\/click\?shmarker=\d+&promo_id=5328\S*/gi, replacement: "/go/nordvpn" },
+    { regex: /https?:\/\/tp\.media\/click\?shmarker=\d+&promo_id=2377\S*/gi, replacement: "/go/worldnomads" },
+    { regex: /https?:\/\/tp\.media\/click\?shmarker=\d+&promo_id=3697\S*/gi, replacement: "/go/wise" }
+  ];
+
+  for (const rule of rules) {
+    cleaned = cleaned.replace(rule.regex, rule.replacement);
+  }
+
+  return cleaned;
+}
+
 export default function SiloGuides({ 
   onViewArticle,
   initialArticle = null
@@ -161,7 +210,7 @@ export default function SiloGuides({
           {/* HTML Long Form SEO Content */}
           <div 
             className="prose prose-slate max-w-none prose-sm leading-relaxed text-gray-700 space-y-5"
-            dangerouslySetInnerHTML={{ __html: viewedArticle.content }}
+            dangerouslySetInnerHTML={{ __html: cleanAffiliateContentLinks(viewedArticle.content) }}
           />
 
           {/* YouTube Responsive Embed */}

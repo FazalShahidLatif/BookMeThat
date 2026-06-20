@@ -118,6 +118,7 @@ User-agent: Bingbot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /go/
 
 User-agent: Adidxpublisher
 Allow: /
@@ -127,12 +128,14 @@ User-agent: Applebot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /go/
 
 # Allow standard Googlebot for primary visibility
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /go/
 
 User-agent: Mediapartners-Google
 Allow: /
@@ -144,6 +147,7 @@ Allow: /
 User-agent: *
 Disallow: /api/
 Disallow: /admin/
+Disallow: /go/
 Allow: /
 
 # Sitemaps Location Link

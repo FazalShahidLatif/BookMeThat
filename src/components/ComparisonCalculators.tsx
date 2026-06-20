@@ -28,7 +28,7 @@ export default function ComparisonCalculators() {
         perGb: sailyPrice / dataGbs,
         badge: 'Lowest Budget Price',
         bgColor: 'border-teal-400 bg-teal-50/20',
-        url: 'https://saily.tpk.lu/9KzgxKRI'
+        url: '/go/saily'
       },
       {
         id: 'airalo',
@@ -37,7 +37,7 @@ export default function ComparisonCalculators() {
         perGb: airaloPrice / dataGbs,
         badge: 'Recommended Traveler Pick',
         bgColor: 'border-indigo-400 bg-indigo-50/20',
-        url: 'https://airalo.tpk.lu/X5knsFOB'
+        url: '/go/airalo'
       },
       {
         id: 'yesim',
@@ -46,7 +46,7 @@ export default function ComparisonCalculators() {
         perGb: yesimPrice / dataGbs,
         badge: 'Heavy Data / Unlimited Options',
         bgColor: 'border-slate-300 bg-slate-50/40',
-        url: 'https://yesim.tpk.lu/G4BRVuDa'
+        url: '/go/yesim'
       }
     ];
   };
