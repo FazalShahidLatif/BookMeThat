@@ -196,7 +196,7 @@ export const ARTICLES: Article[] = [
       <ul>
         <li>📱 eSIM (above) — sorted</li>
         <li>🏨 <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold font-mono">Hotels in Rome, Florence, Venice from $80/night →</a></li>
-        <li>🎟️ <a href="https://klook.tpk.lu/eJnSXtrF" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold font-mono">Skip-the-line Colosseum tickets (from $45) →</a></li>
+        <li>🎟️ <a href="https://tp.media/r?marker=474841&p=3297" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold font-mono">Skip-the-line Colosseum tickets (from $45) →</a></li>
         <li>🚗 <a href="https://economybookings.tpk.lu/koWZfRVI" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold font-mono">Rent a car in Italy from $30/day →</a></li>
         <li>🛡️ <a href="https://tp.media/click?shmarker=474841&promo_id=5328&source_type=link&type=click" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold font-mono">Travel insurance from $1.50/day (covers flight delays too) →</a></li>
       </ul>
@@ -1078,14 +1078,14 @@ export const ARTICLES: Article[] = [
       <p>To maximize your itinerary savings, choose a ticket platform aligned with your travel goals:</p>
       <ul>
         <li><strong><a href="https://gocity.tpk.lu/u1mHhjxd" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Go City Passes</a>:</strong> Perfect for high-density sightseeing in metro hubs like Rome, London, New York, or Paris. Buying their All-Inclusive or Explorer Pass simplifies budgeting, capping entry costs and saving up to 50% off standard admission. Use code <strong>GOCITY10</strong> at checkout to unlock an extra 10% discount on any major city pass.</li>
-        <li><strong><a href="https://klook.tpk.lu/eJnSXtrF" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Klook Experience Pass</a>:</strong> The undisputed champion for travel across Asia and major theme parks worldwide (such as Disneyland or Universal Studios). Klook bundles high-speed train tickets like Japan's Shinkansen, local pocket Wi-Fi, and unique day tours into super flexible formats. New users can redeem coupon code <strong>NEWKLOOK5</strong> for an instant 5% off their first booking.</li>
+        <li><strong><a href="https://tp.media/r?marker=474841&p=3297" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Klook Experience Pass</a>:</strong> The undisputed champion for travel across Asia and major theme parks worldwide (such as Disneyland or Universal Studios). Klook bundles high-speed train tickets like Japan's Shinkansen, local pocket Wi-Fi, and unique day tours into super flexible formats. New users can redeem coupon code <strong>NEWKLOOK5</strong> for an instant 5% off their first booking.</li>
         <li><strong><a href="https://wegotrip.tpk.lu/V5RH9CtE" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">WeGoTrip Audio Guides</a>:</strong> Ready to dig deeper? WeGoTrip bundles skip-the-line museum tickets with native, self-paced audio guides narrated by expert curators. Perfect for exploring places like the Louvre, Vatican, or Uffizi Gallery without paying expensive tour guides.</li>
       </ul>
 
       <h2>Recommended Sightseeing Destinational Blueprints</h2>
       <ol>
-        <li><strong>London Explorer:</strong> Combine Tower of London and Westminster Abbey on <a href="https://gocity.tpk.lu/u1mHhjxd" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Go City London</a>, then book a classic day trip to stonehenge via <a href="https://klook.tpk.lu/eJnSXtrF" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Klook</a>.</li>
-        <li><strong>Tokyo Theme Parks:</strong> Secure your direct Tokyo Disney Resort entry ticket via <a href="https://klook.tpk.lu/eJnSXtrF" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Klook Japan</a> for direct smartphone scanning at the entrance gates.</li>
+        <li><strong>London Explorer:</strong> Combine Tower of London and Westminster Abbey on <a href="https://gocity.tpk.lu/u1mHhjxd" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Go City London</a>, then book a classic day trip to stonehenge via <a href="https://tp.media/r?marker=474841&p=3297" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Klook</a>.</li>
+        <li><strong>Tokyo Theme Parks:</strong> Secure your direct Tokyo Disney Resort entry ticket via <a href="https://tp.media/r?marker=474841&p=3297" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Klook Japan</a> for direct smartphone scanning at the entrance gates.</li>
       </ol>
     `
   },

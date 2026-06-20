@@ -165,7 +165,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     id: 'klook',
     name: 'Klook Experience Pass',
     category: 'booking',
-    url: 'https://klook.tpk.lu/eJnSXtrF',
+    url: 'https://tp.media/r?marker=474841&p=3297',
     description: 'Massive travel platform offering discount passes to the world’s best theme parks, regional attractions, cultural tours, and high-speed rail lines.',
     benefits: ['Exclusive discount vouchers', 'Instant contactless digital passes', 'Access to global top attractions'],
     searchKeywords: ['cheap attraction tickets', 'Klook promo discount pass', 'book tours online'],
