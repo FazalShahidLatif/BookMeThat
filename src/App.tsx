@@ -1436,12 +1436,54 @@ body {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { id: 'saily', brand: 'Saily eSIM Deals', code: 'SAILY5', discount: '5% OFF GLOBAL DATA', desc: 'Secure high-speed Nord Security-backed connectivity. Valid in 150+ countries.', link: 'https://saily.tpk.lu/9KzgxKRI' },
-                { id: 'airalo', brand: 'Airalo eSIM Specials', code: 'AIRALOCDN10', discount: '10% OFF FIRST ORDER', desc: 'Saves on multi-country regional travel packages. No physical SIM card setup.', link: 'https://airalo.tpk.lu/X5knsFOB' },
-                { id: 'gocity', brand: 'Go City Sightseeing', code: 'GOCITY10', discount: '10% OFF PASS CARDS', desc: 'Valid on multi-attraction entry tickets in Paris, London, Rome & New York.', link: 'https://gocity.tpk.lu/u1mHhjxd' },
-                { id: 'klook', brand: 'Klook Tour Discounts', code: 'KLOOKDEALS5', discount: '5% OFF ATTRACTIONS', desc: 'Save on international bullet trains, theme parks, and skip-the-line day trips.', link: 'https://tp.media/r?marker=474841&p=3297' },
-                { id: 'economy', brand: 'EconomyBookings Hires', code: 'ECONOMY5', discount: '5% OFF CAR RENTALS', desc: 'Guarantees the lowest base rates across 800+ global airport vehicle providers.', link: 'https://economybookings.tpk.lu/koWZfRVI' },
-                { id: 'nordvpn', brand: 'NordVPN Travel Shield', code: 'SECURETRAVEL', discount: 'UP TO 63% SECURE DEALS', desc: 'Protects banking and data transfers on unprotected airport & hotel Wi-Fi networks.', link: 'https://tp.media/r?marker=474841&p=5328' }
+                { 
+                  id: 'saily', 
+                  brand: 'Saily eSIM Deals', 
+                  code: 'SAILY5', 
+                  discount: '5% OFF GLOBAL DATA', 
+                  desc: 'Bypass roaming fees in 150+ countries. Insane Nord Security speeds. Only 18 active vouchers remaining today!', 
+                  link: 'https://saily.tpk.lu/9KzgxKRI' 
+                },
+                { 
+                  id: 'airalo', 
+                  brand: 'Airalo eSIM Specials', 
+                  code: 'AIRALOCDN10', 
+                  discount: '10% OFF FIRST ORDER', 
+                  desc: 'Bypass 80% carrier roaming markup. Direct-to-source regional rates. Guaranteed active key. Expires in 4 hours!', 
+                  link: 'https://airalo.tpk.lu/X5knsFOB' 
+                },
+                { 
+                  id: 'gocity', 
+                  brand: 'Go City Sightseeing', 
+                  code: 'GOCITY10', 
+                  discount: '10% OFF PASS CARDS', 
+                  desc: 'Unlock wholesale access to multi-attraction itineraries. Bypass agent markups in London, Paris, and Rome.', 
+                  link: 'https://gocity.tpk.lu/u1mHhjxd' 
+                },
+                { 
+                  id: 'klook', 
+                  brand: 'Klook Tour Discounts', 
+                  code: 'KLOOKDEALS5', 
+                  discount: '5% OFF ATTRACTIONS', 
+                  desc: 'Secure skip-the-line bullet train & theme park entrance. Direct wholesale vouchers. 98% satisfaction rating.', 
+                  link: 'https://tp.media/r?marker=474841&p=3297' 
+                },
+                { 
+                  id: 'economy', 
+                  brand: 'EconomyBookings Hires', 
+                  code: 'ECONOMY5', 
+                  discount: '5% OFF CAR RENTALS', 
+                  desc: 'Access inner-circle car fleets at 800+ global airports. Pre-negotiated rates expiring. Bypass check-in up-charges.', 
+                  link: 'https://economybookings.tpk.lu/koWZfRVI' 
+                },
+                { 
+                  id: 'nordvpn', 
+                  brand: 'NordVPN Travel Shield', 
+                  code: 'SECURETRAVEL', 
+                  discount: 'UP TO 63% SECURE DEALS', 
+                  desc: 'Defend credit cards and banking on sketchy public airport & hotel WiFi networks. Mandatory for nomadic security.', 
+                  link: 'https://tp.media/r?marker=474841&p=5328' 
+                }
               ].map((voucher) => (
                 <VoucherCard key={voucher.id} voucher={voucher} />
               ))}

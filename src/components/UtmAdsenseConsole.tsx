@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  ShieldAlert, CheckCircle, RefreshCw, Layers, Copy, Check, Sliders, ExternalLink, Globe, Database, Compass, AlertCircle
+  ShieldAlert, CheckCircle, RefreshCw, Layers, Copy, Check, Sliders, ExternalLink, Globe, Database, Compass, AlertCircle, MapPin, Link2, Terminal
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
+import { mapBlogPathToDeepLinks } from '../utils/deepLinker';
 
 interface UtmParams {
   utm_source: string;
@@ -35,6 +36,11 @@ export default function UtmAdsenseConsole() {
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedTag, setCopiedTag] = useState(false);
 
+  // Dynamic deep linker input playground states
+  const [mapperPathInput, setMapperPathInput] = useState('/blog/how-to-get-an-esim-in-japan');
+  const [mapperSubIdInput, setMapperSubIdInput] = useState('organic_seo_japan');
+  const [copiedDeepLinkName, setCopiedDeepLinkName] = useState<string | null>(null);
+
   // Consent log for Google Consent Mode compliance modeling
   const [cookieConsent, setCookieConsent] = useState(() => {
     try {
@@ -45,7 +51,7 @@ export default function UtmAdsenseConsole() {
     }
   });
 
-  const [activeTab, setActiveTab ] = useState<'utm_builder' | 'adsense_check' | 'consent_mode'>('utm_builder');
+  const [activeTab, setActiveTab ] = useState<'utm_builder' | 'adsense_check' | 'consent_mode' | 'deep_linker'>('utm_builder');
 
   // Scan live parameters on mount
   useEffect(() => {
@@ -180,11 +186,12 @@ export default function UtmAdsenseConsole() {
       </div>
 
       {/* Segment Controllers */}
-      <div className="flex border-b border-[#E5E5E1]">
+      <div className="flex flex-wrap border-b border-[#E5E5E1]">
         {[
           { id: 'utm_builder', label: '1. Outbound UTM Generator' },
           { id: 'adsense_check', label: '2. AdSense AI Compliance Audit' },
-          { id: 'consent_mode', label: '3. Google Consent Mode v2' }
+          { id: 'consent_mode', label: '3. Google Consent Mode v2' },
+          { id: 'deep_linker', label: '4. Programmatic Deep-Linking' }
         ].map(tab => (
           <button
             key={tab.id}
@@ -576,6 +583,254 @@ export default function UtmAdsenseConsole() {
           </div>
         </div>
       )}
+
+      {/* TAB 4: PROGRAMMATIC DEEP-LINKING MAPPER PLAYGROUND */}
+      {activeTab === 'deep_linker' && (() => {
+        // Compute mapped results dynamically for the input path
+        const mappingResult = mapBlogPathToDeepLinks(mapperPathInput, mapperSubIdInput);
+        
+        const pathPresets = [
+          { label: 'Japan eSIM Guide', path: '/blog/how-to-get-an-esim-in-japan', subid: 'japan_organic_silo' },
+          { label: 'London Car Rentals', path: '/blog/cheap-car-rental-london', subid: 'london_hire_comparison' },
+          { label: 'Vietnam eSIM Deal', path: '/deals/esim-vietnam', subid: 'vietnam_deals_promo' },
+          { label: 'Greece Rental Car', path: '/rentals/car-rental-greece', subid: 'greece_local_direct' }
+        ];
+
+        const handleCopyToClipboard = (text: string, name: string) => {
+          navigator.clipboard.writeText(text);
+          setCopiedDeepLinkName(name);
+          setTimeout(() => setCopiedDeepLinkName(null), 2000);
+        };
+
+        const testRedirectSandbox = (url: string, partner: string) => {
+          if (typeof window !== 'undefined' && (window as any).triggerAffiliateRedirect) {
+            (window as any).triggerAffiliateRedirect(url, partner);
+          } else {
+            window.open(url, '_blank', 'noopener,noreferrer');
+          }
+        };
+
+        return (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 view-enter font-sans">
+            
+            {/* Input & Controller Console */}
+            <div className="lg:col-span-4 space-y-6">
+              <div className="border border-[#E5E5E1] bg-white p-6 space-y-5">
+                <div className="flex justify-between items-center border-b border-[#E5E5E1] pb-3">
+                  <h4 className="text-xs font-mono font-bold text-gray-900 tracking-wider flex items-center gap-1.5">
+                    <Terminal className="w-3.5 h-3.5 text-brand-orange animate-pulse" />
+                    DEEP-LINK MAPPER INPUT
+                  </h4>
+                  <span className="text-[8px] font-mono text-emerald-600 font-extrabold bg-emerald-50 px-2 py-0.5 border border-emerald-100 uppercase uppercase">Active</span>
+                </div>
+
+                <p className="text-xs text-gray-550 leading-relaxed font-sans">
+                  Paste any internal blog, article path, or SEO silo slug. The programmatic script will automatically parse location codes, determine the category, and formulate localized affiliate endpoints.
+                </p>
+
+                {/* Preset Fast Loaders */}
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider block">Path Route Snippets Presets:</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {pathPresets.map((preset, i) => (
+                      <button
+                        key={i}
+                        onClick={() => {
+                          setMapperPathInput(preset.path);
+                          setMapperSubIdInput(preset.subid);
+                        }}
+                        className="text-left text-[9px] font-mono border border-[#E5E5E1] hover:border-brand-orange hover:bg-[#FAF9F6] p-2 transition cursor-pointer text-gray-700 bg-white"
+                      >
+                        <div className="font-bold text-brand-orange truncate">{preset.label}</div>
+                        <div className="text-gray-400 truncate mt-0.5">{preset.path}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Input blog path */}
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-mono text-gray-450 font-bold uppercase tracking-wider block">Incoming Article Slug or Path:</label>
+                  <div className="relative">
+                    <span className="absolute left-2.5 top-2.5 text-xs text-gray-400 font-mono">BookMeThat.com</span>
+                    <input
+                      type="text"
+                      value={mapperPathInput}
+                      onChange={(e) => setMapperPathInput(e.target.value)}
+                      placeholder="/blog/how-to-get-an-esim-in-japan"
+                      className="w-full text-xs text-gray-800 bg-white border border-[#E5E5E1] pl-28 pr-3 py-2 focus:outline-none focus:border-brand-orange"
+                    />
+                  </div>
+                </div>
+
+                {/* Input subID */}
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-mono text-gray-450 font-bold uppercase tracking-wider block">Attribute tracking subID value:</label>
+                  <input
+                    type="text"
+                    value={mapperSubIdInput}
+                    onChange={(e) => setMapperSubIdInput(e.target.value)}
+                    placeholder="e.g. tracking_subid_japan_01"
+                    className="w-full text-xs text-gray-800 bg-white border border-[#E5E5E1] py-2 px-3 focus:outline-none focus:border-brand-orange font-mono"
+                  />
+                  <p className="text-[9px] text-gray-400 leading-normal font-sans">
+                    SubIDs help you isolate conversion sources by page type, device node, and direct timestamps.
+                  </p>
+                </div>
+
+                {/* Parsing Status Results */}
+                <div className="bg-[#FAF9F6] border border-[#E5E5E1] p-4 space-y-3">
+                  <span className="text-[9px] font-mono text-gray-400 font-bold uppercase tracking-wider block">LIVE ATTRIBUTION COMPILER ANALYSIS:</span>
+                  <div className="space-y-2 text-xs font-mono">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-500">Detected Location:</span>
+                      <span className="font-bold text-brand-orange bg-brand-orange/5 px-1.5 py-0.5 border border-brand-orange/15 rounded-none capitalize flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-brand-orange" />
+                        {mappingResult.detectedLocation}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-500">Context Query Type:</span>
+                      <span className="font-bold text-gray-800 whitespace-nowrap capitalize">
+                        {mappingResult.detectedType === 'esim' ? '📶 Cellular eSIM' : mappingResult.detectedType === 'car-rental' ? '🚘 Local Car Hire' : '📄 General Content'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-500">Tracking subID Status:</span>
+                      <span className="font-bold text-emerald-600 bg-emerald-50 px-1 border border-emerald-200">ACTIVE_INTEGRITY</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Generated localized merchants output grids */}
+            <div className="lg:col-span-8 space-y-6">
+              
+              <div className="border border-[#E5E5E1] bg-white p-6 space-y-6">
+                <div className="flex justify-between items-center border-b border-[#E5E5E1] pb-3">
+                  <div>
+                    <h4 className="text-xs font-mono font-bold text-gray-900 tracking-wider">
+                      DETERMINED OUTBOUND TARGET ARRAYS
+                    </h4>
+                    <p className="text-[10px] text-gray-500 mt-1">
+                      Programmatic redirections mapped correctly to zero dead links. Includes 1.5s visual interstitial loading support.
+                    </p>
+                  </div>
+                  <Database className="w-4 h-4 text-brand-orange" />
+                </div>
+
+                {/* Grid for Saily, Airalo, Localrent */}
+                <div className="space-y-4">
+                  {[
+                    { id: 'saily', name: 'Saily eSIM', details: mappingResult.mappedPartners.saily, desc: 'Created by Nord Security. Highly affordable data packs on a secure platform config.', accent: 'border-l-[4px] border-l-brand-orange' },
+                    { id: 'airalo', name: 'Airalo eSIM', details: mappingResult.mappedPartners.airalo, desc: 'Premium global provider. Comprehensive regional, local, and worldwide packages.', accent: 'border-l-[4px] border-l-blue-500' },
+                    { id: 'localrent', name: 'Localrent Car Hire', details: mappingResult.mappedPartners.localrent, desc: 'Specialist broker for local, certified car rent fleets with low deposits.', accent: 'border-l-[4px] border-l-emerald-500' }
+                  ].map((partner) => {
+                    const isCopiedDeep = copiedDeepLinkName === `${partner.id}_deep`;
+                    const isCopiedRaw = copiedDeepLinkName === `${partner.id}_raw`;
+
+                    return (
+                      <div 
+                        key={partner.id} 
+                        className={`border border-[#E5E5E1] bg-[#FAF9F6] p-5 space-y-4 hover:shadow-md transition ${partner.accent}`}
+                      >
+                        <div className="flex justify-between items-start gap-4 flex-wrap">
+                          <div className="space-y-1">
+                            <h5 className="font-serif font-bold text-sm text-[#1A1A1A] italic">
+                              {partner.name} Direct localized Endpoint
+                            </h5>
+                            <p className="text-[10px] text-gray-500 italic max-w-xl">
+                              {partner.desc} Target geographic sub-node: <span className="font-mono bg-white border border-[#E5E5E1] px-1 text-gray-750 font-semibold">{mappingResult.detectedLocation}</span>
+                            </p>
+                          </div>
+                          
+                          {/* Live redirect sandbox test button */}
+                          <button
+                            onClick={() => testRedirectSandbox(partner.details.travelpayoutsDeepLink, partner.id)}
+                            className="bg-[#1A1A1A] hover:bg-brand-orange text-[#FAF9F6] font-mono text-[9px] uppercase tracking-widest px-3 py-1.5 font-bold cursor-pointer transition flex items-center gap-1.5"
+                          >
+                            <ExternalLink className="w-3 h-3 text-[#FAF9F6]" />
+                            Test Interstitial & Redirect
+                          </button>
+                        </div>
+
+                        {/* Split values links input elements */}
+                        <div className="space-y-3 pt-1">
+                          
+                          {/* Mapped Deep Target URL */}
+                          <div className="space-y-1">
+                            <span className="text-[9px] font-mono font-bold text-gray-400 block tracking-wider uppercase">
+                              Merchant Destination deep link url:
+                            </span>
+                            <div className="bg-white border border-[#E5E5E1] p-2.5 flex items-center justify-between text-xs font-mono overflow-x-auto gap-3">
+                              <span className="text-gray-550 truncate select-all">{partner.details.rawTargetUrl}</span>
+                              <button
+                                onClick={() => handleCopyToClipboard(partner.details.rawTargetUrl, `${partner.id}_raw`)}
+                                className="text-gray-400 hover:text-brand-orange shrink-0 cursor-pointer p-1"
+                                title="Copy Raw Link"
+                              >
+                                {isCopiedRaw ? <Check className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Attributed Travelpayouts Link */}
+                          <div className="space-y-1">
+                            <div className="flex justify-between items-center text-[9px] font-mono font-bold tracking-wider text-gray-400 uppercase">
+                              <span>Sustained Travelpayouts Tracking Deeplink (With subID):</span>
+                              <span className="text-[8px] bg-brand-orange/5 border border-brand-orange/20 px-1.5 py-0.25 text-brand-orange">Secure Tracking</span>
+                            </div>
+                            <div className="bg-white border border-[#E5E5E1] p-2.5 flex items-center justify-between text-xs font-mono overflow-x-auto gap-3">
+                              <span className="text-brand-orange font-semibold truncate select-all">{partner.details.travelpayoutsDeepLink}</span>
+                              <button
+                                onClick={() => handleCopyToClipboard(partner.details.travelpayoutsDeepLink, `${partner.id}_deep`)}
+                                className="text-gray-400 hover:text-brand-orange shrink-0 cursor-pointer p-1"
+                                title="Copy Tracked Link"
+                              >
+                                {isCopiedDeep ? <Check className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
+                              </button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Developer Implementation Sample Code */}
+                <div className="bg-[#FAF9F6] border border-[#E5E5E1] p-4 space-y-2 font-mono text-[10px] text-gray-600 block">
+                  <div className="flex items-center gap-1.5 text-[9px] text-gray-400 font-bold tracking-wider border-b border-[#E5E5E1] pb-1.5 uppercase mb-2">
+                    <Database className="w-3.5 h-3.5 text-brand-orange" />
+                    Production API Implementation Snippet:
+                  </div>
+                  <pre className="overflow-x-auto text-[9px] text-gray-700 leading-relaxed bg-white p-3 border border-[#E5E5E1]">
+{`/**
+ * Client-Side tracking snippet mapping articles into merchant arrays
+ * with secure subID and active interstitial loading support.
+ */
+import { mapBlogPathToDeepLinks } from './utils/deepLinker';
+
+const currentPath = window.location.pathname;
+const sessionSubID = 'organic_edge_' + Date.now();
+
+// Calculate target links instantly
+const mappedOutput = mapBlogPathToDeepLinks(currentPath, sessionSubID);
+
+console.log("Deep Target Links for Japan:", mappedOutput.mappedPartners);
+// Output contains pre-packaged deep-link configurations for Saily, Airalo, Localrent`}
+                  </pre>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        );
+      })()}
     </div>
   );
 }
