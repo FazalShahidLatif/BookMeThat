@@ -97,6 +97,176 @@ export default function App() {
   // Simulated live feedback for emulator telemetry
   const [renderLatency, setRenderLatency] = useState(0.4); // ms
 
+  // --- OUTBOUND INTERSTITIAL & DYNAMIC SUBID TRACKING SYSTEM ---
+  const [redirectModal, setRedirectModal] = useState<{
+    isOpen: boolean;
+    partnerId: string;
+    partnerName: string;
+    targetUrl: string;
+    subId: string;
+    progress: number;
+    stepMessage: string;
+  }>({
+    isOpen: false,
+    partnerId: '',
+    partnerName: '',
+    targetUrl: '',
+    subId: '',
+    progress: 0,
+    stepMessage: ''
+  });
+
+  // Outbound affiliate link redirect interceptor with dynamic subIDs
+  const triggerAffiliateRedirect = (url: string, partnerId: string) => {
+    // 1. Locate partner metadata to personalize the screen
+    const foundPartner = AFFILIATES.find(p => p.id === partnerId.toLowerCase());
+    const partnerName = foundPartner ? foundPartner.name : (partnerId.charAt(0).toUpperCase() + partnerId.slice(1));
+
+    // 2. Synthesize tracking subID (context origin + simulated edge node + secure micro time)
+    const cleanOrigin = activeTab;
+    const cleanNode = edgeNode;
+    const timestamp = Date.now().toString().slice(-6);
+    const generatedSubId = `${cleanOrigin}_${cleanNode}_${timestamp}`;
+
+    // 3. Inject the dynamic SubID parameter into either outbound endpoint or clean proxy /go/:id
+    let finalUrl = url;
+    try {
+      if (finalUrl.startsWith('http')) {
+        const urlObj = new URL(finalUrl);
+        urlObj.searchParams.set('subid', generatedSubId);
+        finalUrl = urlObj.toString();
+      } else {
+        // Absolute path (/go/saily, etc.)
+        const separator = finalUrl.includes('?') ? '&' : '?';
+        finalUrl = `${finalUrl}${separator}subid=${generatedSubId}`;
+      }
+    } catch (e) {
+      const separator = finalUrl.includes('?') ? '&' : '?';
+      finalUrl = `${finalUrl}${separator}subid=${generatedSubId}`;
+    }
+
+    // 4. Activate the Interstitial anticipation state machine
+    setRedirectModal({
+      isOpen: true,
+      partnerId,
+      partnerName,
+      targetUrl: finalUrl,
+      subId: generatedSubId,
+      progress: 0,
+      stepMessage: "Querying localized partner database nodes..."
+    });
+  };
+
+  // Expose to window for components like VoucherCard that trigger redirects procedurally
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window as any).triggerAffiliateRedirect = triggerAffiliateRedirect;
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        try {
+          delete (window as any).triggerAffiliateRedirect;
+        } catch (e) {
+          (window as any).triggerAffiliateRedirect = undefined;
+        }
+      }
+    };
+  }, [activeTab, edgeNode]);
+
+  // Modal progress simulation loop
+  useEffect(() => {
+    if (!redirectModal.isOpen) return;
+
+    const startTime = Date.now();
+    const duration = 1500; // 1.5 seconds
+
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min(100, Math.round((elapsed / duration) * 100));
+      
+      let msg = "Syncing with Travelpayouts Direct Deal Vault...";
+      if (pct < 30) {
+        msg = "Sourcing direct promo code...";
+      } else if (pct < 60) {
+        msg = "Bypassing broker markups on wholesale rate...";
+      } else if (pct < 95) {
+        msg = "Applying active discount & locking user SubID...";
+      } else {
+        msg = `Redirecting securely via Active Node [${edgeNode.toUpperCase()}]...`;
+      }
+
+      setRedirectModal(prev => {
+        if (!prev.isOpen) return prev;
+        return {
+          ...prev,
+          progress: pct,
+          stepMessage: msg
+        };
+      });
+
+      if (elapsed >= duration) {
+        clearInterval(interval);
+        
+        // Modal complete - close and perform the safe outbound redirection
+        setTimeout(() => {
+          setRedirectModal(prev => {
+            if (prev.isOpen && prev.targetUrl) {
+              window.open(prev.targetUrl, '_blank', 'noopener,noreferrer');
+            }
+            return { ...prev, isOpen: false };
+          });
+        }, 150);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [redirectModal.isOpen, edgeNode]);
+
+  // Automatically capture all manual HTML and layout links pointing to /go/ redirection proxy
+  useEffect(() => {
+    const handleOutboundLinkClicks = (e: MouseEvent) => {
+      let currentEl = e.target as HTMLElement | null;
+      
+      // Traverse up to find potential Anchor targets
+      while (currentEl && currentEl.tagName !== 'A') {
+        currentEl = currentEl.parentElement;
+      }
+
+      if (currentEl && currentEl.tagName === 'A') {
+        const hrefValue = currentEl.getAttribute('href');
+        if (hrefValue && (hrefValue.startsWith('/go/') || hrefValue.includes('tpk.lu') || hrefValue.includes('tp.media'))) {
+          // If we are already running inside our redirection state, allow normal navigation
+          if (hrefValue.includes('subid=')) return;
+
+          e.preventDefault();
+          
+          // Synthesise partner name identifier
+          let extractedPartnerId = 'hotel';
+          if (hrefValue.startsWith('/go/')) {
+            extractedPartnerId = hrefValue.split('/go/')[1]?.split('?')[0] || 'hotel';
+          } else if (hrefValue.includes('saily')) {
+            extractedPartnerId = 'saily';
+          } else if (hrefValue.includes('airalo')) {
+            extractedPartnerId = 'airalo';
+          } else if (hrefValue.includes('yesim')) {
+            extractedPartnerId = 'yesim';
+          } else if (hrefValue.includes('localrent')) {
+            extractedPartnerId = 'localrent';
+          } else if (hrefValue.includes('economybookings')) {
+            extractedPartnerId = 'economybookings';
+          }
+          
+          triggerAffiliateRedirect(hrefValue, extractedPartnerId);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleOutboundLinkClicks);
+    return () => {
+      document.removeEventListener('click', handleOutboundLinkClicks);
+    };
+  }, [activeTab, edgeNode]);
+
   // Performance Optimization: Apply pointer-events: none during scrolling to prevent scroll-lag
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
@@ -1759,6 +1929,76 @@ body {
                 Accept Optimal Cookies
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* REDIRECT INTERSTITIAL LOADER CARD (ANTICIPATION BUILDER & SECURED SUBID INTEGRITY) */}
+      {redirectModal.isOpen && (
+        <div 
+          className="fixed inset-0 bg-[#0F0F0E]/80 backdrop-blur-md z-[100] flex items-center justify-center p-4 font-sans"
+          id="affiliate-redirect-modal"
+          aria-live="assertive"
+          role="dialog"
+        >
+          <div className="bg-white border-2 border-[#1A1A1A] max-w-md w-full p-8 shadow-[0_25px_60px_-15px_rgba(229,91,19,0.2)] relative text-center flex flex-col items-center space-y-6 animate-in fade-in zoom-in duration-200">
+            
+            {/* Active Edge Router Node Badge */}
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#1A1A1A] text-[#FAF9F6] font-mono text-[8.5px] uppercase tracking-widest px-3.5 py-1.5 border border-[#FAF9F6] flex items-center gap-1.5 whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Live Node: {edgeNode.toUpperCase()} API
+            </div>
+
+            {/* Glowing Icon Base */}
+            <div className="w-16 h-16 rounded-full bg-[#FAF9F6] border border-[#E5E5E1] flex items-center justify-center relative shadow-[0_4px_12px_rgba(0,0,0,0.03)] group">
+              <div className="absolute inset-0 rounded-full border border-brand-orange animate-ping opacity-25"></div>
+              <Sparkles className="w-7 h-7 text-[#E55B13] animate-pulse" />
+            </div>
+
+            {/* Dynamic Status Display */}
+            <div className="space-y-2">
+              <span className="text-[10px] tracking-widest uppercase text-gray-400 font-bold font-mono block">
+                Partner Negotiation Tunnel
+              </span>
+              <h3 className="text-xl font-serif font-bold italic text-[#1A1A1A]">
+                Sourcing {redirectModal.partnerName} Rates
+              </h3>
+              <p className="text-xs text-gray-550 leading-relaxed font-sans max-w-xs mx-auto">
+                Guaranteed direct checkout with zero broker markups. Applying active wholesale coupon codes.
+              </p>
+            </div>
+
+            {/* Simulated Live Action Steps */}
+            <div className="w-full bg-[#F8F7F2] border border-[#E5E5E1] p-3 text-[10px] font-mono text-left flex items-center justify-between gap-3 text-gray-650">
+              <div className="flex items-center gap-2 overflow-hidden">
+                <Terminal className="w-3.5 h-3.5 text-brand-orange shrink-0 animate-pulse" />
+                <span className="truncate">{redirectModal.stepMessage}</span>
+              </div>
+              <span className="text-brand-orange font-bold font-mono whitespace-nowrap">{redirectModal.progress}%</span>
+            </div>
+
+            {/* Precise Progress Bar */}
+            <div className="w-full h-1 bg-[#E5E5E1] relative overflow-hidden">
+              <div 
+                className="bg-brand-orange h-full transition-all duration-75 absolute left-0 top-0 bottom-0" 
+                style={{ width: `${redirectModal.progress}%` }}
+              >
+                <div className="absolute right-0 top-0 bottom-0 w-3 bg-white/40 blur-sm"></div>
+              </div>
+            </div>
+
+            {/* Micro Metadata Audit trail */}
+            <div className="w-full pt-4 border-t border-[#E5E5E1]/70 flex justify-between text-[8px] text-gray-400 font-mono tracking-wider gap-4">
+              <div className="text-left space-y-0.5 shrink-0">
+                <div>SOURCE: bookmethat/{activeTab}</div>
+                <div>SECURE TUNNEL TYPE: DIRECT_PARTNER</div>
+              </div>
+              <div className="text-right space-y-0.5 text-ellipsis overflow-hidden truncate">
+                <div className="truncate">SUBID: {redirectModal.subId}</div>
+                <div className="text-emerald-500 font-bold">STATUS: SAFE_AFFILIATE_LINK</div>
+              </div>
+            </div>
+
           </div>
         </div>
       )}

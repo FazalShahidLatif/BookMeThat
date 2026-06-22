@@ -28,8 +28,12 @@ export default function VoucherCard({ voucher }: VoucherCardProps) {
         console.warn("Failed to copy code to clipboard:", err);
       });
 
-    // 2. Open affiliate link in a new tab to plant conversion cookies
-    window.open(voucher.link, '_blank', 'noopener,noreferrer');
+    // 2. Open affiliate link in a new tab via global interceptor or direct fallback
+    if (typeof window !== 'undefined' && (window as any).triggerAffiliateRedirect) {
+      (window as any).triggerAffiliateRedirect(voucher.link, voucher.id);
+    } else {
+      window.open(voucher.link, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (

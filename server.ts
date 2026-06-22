@@ -289,8 +289,45 @@ async function startServer() {
       ektatraveling: 'https://ektatraveling.tpk.lu/2dmZqZZg'
     };
 
-    const targetUrl = affiliateMap[affiliateId] || affiliateMap[affiliateId.replace('-', '')];
+    let targetUrl = affiliateMap[affiliateId] || affiliateMap[affiliateId.replace('-', '')];
     if (targetUrl) {
+      const queryParams = req.query;
+      const subid = (queryParams.subid || queryParams.sub_id || '') as string;
+      
+      if (subid) {
+        try {
+          // If the link is an absolute URL, parse it to dynamically inject subID tracking
+          if (targetUrl.startsWith('http://') || targetUrl.startsWith('https://')) {
+            const parsedUrl = new URL(targetUrl);
+            const markerVal = parsedUrl.searchParams.get('marker');
+            const shmarkerVal = parsedUrl.searchParams.get('shmarker');
+
+            if (markerVal && !markerVal.includes('.')) {
+              parsedUrl.searchParams.set('marker', `${markerVal}.${subid}`);
+            } else if (shmarkerVal && !shmarkerVal.includes('.')) {
+              parsedUrl.searchParams.set('shmarker', `${shmarkerVal}.${subid}`);
+            } else {
+              // Standard subid parameter for other Travelpayouts / affiliate partner structures
+              parsedUrl.searchParams.set('subid', subid);
+            }
+            targetUrl = parsedUrl.toString();
+          } else {
+            // Simple fallback formatting
+            if (targetUrl.includes('?')) {
+              targetUrl += `&subid=${encodeURIComponent(subid)}`;
+            } else {
+              targetUrl += `?subid=${encodeURIComponent(subid)}`;
+            }
+          }
+        } catch (err) {
+          console.error("Failed to parse target URL for subid tracking injection:", err);
+          if (targetUrl.includes('?')) {
+            targetUrl += `&subid=${encodeURIComponent(subid)}`;
+          } else {
+            targetUrl += `?subid=${encodeURIComponent(subid)}`;
+          }
+        }
+      }
       return res.redirect(301, targetUrl);
     }
     return res.redirect(301, "/");
