@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Smartphone, Car, ExternalLink, HelpCircle, Check, Coins, ArrowRight } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
+import { AffiliateLink } from './AffiliateLink';
 
 export default function ComparisonCalculators() {
   // Calculator 1: eSIM Mobile Data Estimator
@@ -185,15 +186,13 @@ export default function ComparisonCalculators() {
                     <span className="font-bold text-[#1A1A1A]">${s.perGb.toFixed(2)}</span>
                   </div>
                   
-                  <a 
+                  <AffiliateLink 
                     href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="w-full py-2.5 px-3 bg-[#1A1A1A] hover:bg-brand-orange text-white rounded-none text-[10px] uppercase font-bold tracking-widest text-center flex items-center justify-center gap-1 transition-all"
                   >
                     <span>Activate Plan</span>
                     <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
+                  </AffiliateLink>
                 </div>
               </div>
             ))}
@@ -309,24 +308,20 @@ export default function ComparisonCalculators() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <a 
+                  <AffiliateLink 
                     href="https://localrent.tpk.lu/YI6tdTTl"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="py-2.5 px-3 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1 transition"
                   >
                     <span>Localrent Hire</span>
                     <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
-                  <a 
+                  </AffiliateLink>
+                  <AffiliateLink 
                     href="https://qeeq.tpk.lu/nAGGDc6e"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="py-2.5 px-2 bg-[#1A1A1A] hover:bg-brand-orange text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1 transition-all"
                   >
                     <span>Global QEEQ</span>
                     <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
+                  </AffiliateLink>
                 </div>
               </div>
             </div>
@@ -364,15 +359,13 @@ export default function ComparisonCalculators() {
                   <span className="text-2xl font-serif font-bold text-brand-orange">${transportEstimates.transfer.total.toFixed(2)}</span>
                 </div>
 
-                <a 
+                <AffiliateLink 
                   href="https://gettransfer.tpk.lu/zUalOSms"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1.5 transition"
                 >
                   <span>Submit bidding call to GetTransfer</span>
                   <ExternalLink className="w-3 h-3" />
-                </a>
+                </AffiliateLink>
               </div>
             </div>
 

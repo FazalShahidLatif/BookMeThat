@@ -17,6 +17,7 @@ import TravelFAQConsole from './components/TravelFAQConsole';
 import TravelQuizWidget from './components/TravelQuizWidget';
 import VoucherCard from './components/VoucherCard';
 import AIFlightStayPlanner from './components/AIFlightStayPlanner';
+import { AffiliateLink } from './components/AffiliateLink';
 
 type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz' | 'flightsRooms';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
@@ -876,9 +877,9 @@ export default function App() {
               <p>Direct LTE/5G local profile routing on local cellular towers. Skip active premium roaming taxes entirely.</p>
               
               <!-- HIGH CONTRAST PULSING BUTTON -->
-              <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
-                Book Now & Save Direct <span class="arrow-shape">→</span>
-              </a>
+              <AffiliateLink href="https://saily.tpk.lu/9KzgxKRI" className="book-now-cta-pulsing">
+                Book Now & Save Direct <span className="arrow-shape">→</span>
+              </AffiliateLink>
             </div>
           </article>
 
@@ -900,9 +901,9 @@ export default function App() {
               <h3>Costa Brava Hatchback</h3>
               <p>Rent exact model visually. Cash deposit acceptable directly at selected local airport terminals.</p>
               
-              <a href="https://localrent.tpk.lu/YI6tdTTl" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
-                Book Now & Save Direct <span class="arrow-shape">→</span>
-              </a>
+              <AffiliateLink href="https://localrent.tpk.lu/YI6tdTTl" className="book-now-cta-pulsing">
+                Book Now & Save Direct <span className="arrow-shape">→</span>
+              </AffiliateLink>
             </div>
           </article>
 

@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
 import { PlanningInput } from '../types';
+import { AffiliateLink } from './AffiliateLink';
 
 export default function InteractivePlanner() {
   const [inputs, setInputs] = useState<PlanningInput>({
@@ -343,15 +344,13 @@ export default function InteractivePlanner() {
                   </div>
 
                   <div className="flex items-center gap-2 pt-2">
-                    <a 
+                    <AffiliateLink 
                       href={`/go/${partner.id}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="flex-1 py-2.5 px-3 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-none text-[10px] uppercase font-bold tracking-wider text-center flex items-center justify-center gap-1 transition"
                     >
                       <span>Secure Best Offer</span>
                       <ExternalLink className="w-3 h-3" />
-                    </a>
+                    </AffiliateLink>
                     <button
                       type="button"
                       onClick={() => handleCopyLink(`https://bookmethat.com/go/${partner.id}`)}

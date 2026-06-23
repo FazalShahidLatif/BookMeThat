@@ -8,6 +8,7 @@ import {
 import { AFFILIATES } from '../data/affiliates';
 import { getOptimizedArticleImage } from '../utils/imageOptimizer';
 import OptimizedImage, { sanitizeToAltText } from './OptimizedImage';
+import { AffiliateLink } from './AffiliateLink';
 
 export function cleanAffiliateContentLinks(html: string): string {
   if (!html) return html;
@@ -352,16 +353,14 @@ export default function SiloGuides({
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {AFFILIATES.map(p => (
-            <a 
+            <AffiliateLink 
               key={p.id}
               href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-white hover:bg-brand-orange/5 border border-[#E5E5E1] hover:border-brand-orange p-3 rounded-none text-center transition group block"
             >
               <span className="text-[8px] font-mono text-gray-400 uppercase tracking-widest block mb-0.5 font-bold group-hover:text-brand-orange">{p.category}</span>
               <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-[#E55B13] block my-1">{p.name} →</span>
-            </a>
+            </AffiliateLink>
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   HelpCircle, Search, Layers, Clipboard, Check, Code, ExternalLink, Globe, Sparkles, Filter, ShieldCheck, CheckCircle
 } from 'lucide-react';
+import { AffiliateLink } from './AffiliateLink';
 
 interface FAQItem {
   id: string;
@@ -350,15 +351,13 @@ export default function TravelFAQConsole() {
                         </div>
                         
                         {faq.merchantRef && (
-                          <a 
+                          <AffiliateLink 
                             href={faq.merchantRef.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer nofollow sponsored" 
                             className="text-[9px] font-mono font-bold uppercase tracking-wider text-white bg-brand-orange hover:bg-[#c94d0e] px-3 py-1.5 transition flex items-center gap-1 shrink-0"
                           >
                             {faq.merchantRef.name}
                             <ExternalLink className="w-2.5 h-2.5 shrink-0" />
-                          </a>
+                          </AffiliateLink>
                         )}
                       </div>
                     </div>
