@@ -81,14 +81,14 @@ async function startServer() {
             class: isLux ? "Business Class" : "Standard Economy",
             estimatedPrice: flightAvg,
             savingsHack: "Airlines limit stand-alone ticket markdowns. Bundle your ticket inside Expedia's package system to hide individual pricing and trigger up to 20% discount.",
-            bookingUrl: "https://tp.media/r?marker=474841&p=3813"
+            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
           },
           {
             carrier: "Global Trans-Connect",
             class: "Premium Cabin",
             estimatedPrice: Math.round(flightAvg * 1.3),
             savingsHack: "Search for connecting flights via nearby smaller regional airports or trace routes on Expedia using a premium VPN to find localized currency pricing.",
-            bookingUrl: "https://tp.media/r?marker=474841&p=3813"
+            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
           }
         ],
         accommodationReservations: [
@@ -98,7 +98,7 @@ async function startServer() {
             type: budgetTier.toUpperCase() + " Comfort Standard",
             estimatedPricePerNight: stayAvg,
             conversionHook: "Redeem free member rewards on Expedia to lock down complimentary breakfast upgrades and free stay extensions.",
-            bookingUrl: "https://tp.media/r?marker=474841&p=3813"
+            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
           },
           {
             hotelName: isBud ? "Nomad Hive Co-Living Spaces" : isLux ? "Vanguard Luxury Boutique Hotel" : "Metropole Plaza & Suites",
@@ -106,7 +106,7 @@ async function startServer() {
             type: "Lifestyle Traveler Concept",
             estimatedPricePerNight: Math.round(stayAvg * 1.25),
             conversionHook: "Direct checkout coupon active. Combine flights + staying units in a single click-through cart to secure wholesale rates.",
-            bookingUrl: "https://tp.media/r?marker=474841&p=3813"
+            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
           }
         ],
         seoStrategyNotes: [
@@ -149,7 +149,7 @@ async function startServer() {
       - Budget Profile: ${budgetTier} (budget, midrange, luxury)
       - Traveling Party: ${occupants}
 
-      Create highly valuable, SEO-focused generative content targeting local conversion for flight and lodging searches. Specifically recommend using Expedia packages (URL: https://tp.media/r?marker=474841&p=3813) for flight & hotel bundling hacks. Align recommendations with other premium partners such as Saily/Airalo/Yesim eSIM, AirHelp/Compensair for delayed flight redress, and Localrent/QEEQ for ground car rentals.
+      Create highly valuable, SEO-focused generative content targeting local conversion for flight and lodging searches. Specifically recommend using Expedia packages (URL: https://tp.media/r?marker=685596&p=3813) for flight & hotel bundling hacks. Align recommendations with other premium partners such as Saily/Airalo/Yesim eSIM, AirHelp/Compensair for delayed flight redress, and Localrent/QEEQ for ground car rentals.
 
       Keep metadata titles strictly under 55 characters with high-CTR formulas focusing on savings and simple tricks. Keep meta descriptions strictly under 150 characters. Maintain human traveler style and avoid banned programmatic terms (Algorithm, Silo, Portal, Metrics, System, Optimized, Methodology, Dynamic Bundling).`;
 
@@ -274,17 +274,17 @@ async function startServer() {
       bikesbooking: 'https://bikesbooking.tpk.lu/m68zE4eF',
       searadar: 'https://searadar.tpk.lu/Xr7qE7op',
       kiwitaxi: 'https://kiwitaxi.tpk.lu/xkQ7lIEQ',
-      expedia: 'https://tp.media/r?marker=474841&p=3813',
+      expedia: 'https://tp.media/r?marker=685596&p=3813',
       airhelp: 'https://airhelp.tpk.lu/DhUcIRcD',
-      klook: 'https://tp.media/r?marker=474841&p=3297',
+      klook: 'https://tp.media/r?marker=685596&p=3297',
       compensair: 'https://compensair.tpk.lu/NgywpzQL',
       ticketnetwork: 'https://ticketnetwork.tpk.lu/fUb74KNr',
       wegotrip: 'https://wegotrip.tpk.lu/V5RH9CtE',
       gocity: 'https://gocity.tpk.lu/u1mHhjxd',
       travelpayouts: 'https://tpk.lu/K4OAGrAh',
-      nordvpn: 'https://tp.media/r?marker=474841&p=5328',
-      worldnomads: 'https://tp.media/r?marker=474841&p=2377',
-      wise: 'https://tp.media/r?marker=474841&p=3697',
+      nordvpn: 'https://tp.media/r?marker=685596&p=5328',
+      worldnomads: 'https://tp.media/r?marker=685596&p=2377',
+      wise: 'https://tp.media/r?marker=685596&p=3697',
       radicalstorage: 'https://radicalstorage.tpk.lu/Qm4b7jm0',
       ektatraveling: 'https://ektatraveling.tpk.lu/2dmZqZZg'
     };

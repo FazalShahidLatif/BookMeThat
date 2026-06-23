@@ -1466,7 +1466,7 @@ body {
                   code: 'KLOOKDEALS5', 
                   discount: '5% OFF ATTRACTIONS', 
                   desc: 'Secure skip-the-line bullet train & theme park entrance. Direct wholesale vouchers. 98% satisfaction rating.', 
-                  link: 'https://tp.media/r?marker=474841&p=3297' 
+                  link: 'https://tp.media/r?marker=685596&p=3297' 
                 },
                 { 
                   id: 'economy', 
@@ -1482,7 +1482,7 @@ body {
                   code: 'SECURETRAVEL', 
                   discount: 'UP TO 63% SECURE DEALS', 
                   desc: 'Defend credit cards and banking on sketchy public airport & hotel WiFi networks. Mandatory for nomadic security.', 
-                  link: 'https://tp.media/r?marker=474841&p=5328' 
+                  link: 'https://tp.media/r?marker=685596&p=5328' 
                 }
               ].map((voucher) => (
                 <VoucherCard key={voucher.id} voucher={voucher} />

@@ -86,7 +86,7 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
               </p>
               <ul className="text-xs font-mono text-[#1A1A1A] list-disc list-inside space-y-1 bg-white p-3 rounded-none border border-[#E5E5E1]">
                 <li>Primary Tracking Marker ID: <strong className="font-bold text-brand-orange">685596</strong></li>
-                <li>Secondary Widget Marker ID: <strong className="font-bold text-brand-orange">474841</strong></li>
+                <li>Secondary Widget Marker ID: <strong className="font-bold text-brand-orange">685596</strong></li>
                 <li>Target Registry Domain: <strong className="font-bold text-brand-orange">bookmethat.com</strong></li>
               </ul>
             </div>

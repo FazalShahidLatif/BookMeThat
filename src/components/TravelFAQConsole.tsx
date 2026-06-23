@@ -161,7 +161,7 @@ export default function TravelFAQConsole() {
       question: 'Does World Nomads travel insurance provide coverage for extreme active sports and adventure activities?',
       longTailKeyword: 'world nomads travel insurance extreme adventure sports',
       answer: 'Yes, World Nomads is explicitly designed for adventurous backpackers and remote digital nomads. Unlike standard low-cost policies which immediately exclude high-risk sports, World Nomads covers over 150 extreme activities, including scuba diving, mountain trekking up to 6,000m, snowboard/skiing, and white-water rafting. Always verify whether you require the "Standard Plan" or "Explorer Plan" depending on your target vertical to ensure maximum security.',
-      merchantRef: { name: 'Get World Nomads Insurance Pricing quote', url: 'https://tp.media/r?marker=474841&p=2377' }
+      merchantRef: { name: 'Get World Nomads Insurance Pricing quote', url: 'https://tp.media/r?marker=685596&p=2377' }
     }
   ];
 
