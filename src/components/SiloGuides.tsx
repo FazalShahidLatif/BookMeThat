@@ -6,6 +6,8 @@ import {
   ExternalLink, Calendar, BookOpen, Volume2, Trophy, Eye 
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
+import { getOptimizedArticleImage } from '../utils/imageOptimizer';
+import OptimizedImage, { sanitizeToAltText } from './OptimizedImage';
 
 export function cleanAffiliateContentLinks(html: string): string {
   if (!html) return html;
@@ -196,14 +198,17 @@ export default function SiloGuides({
 
           {/* Optimized Image with Alt Text markup visible */}
           <div className="relative aspect-video rounded-none overflow-hidden border border-[#E5E5E1] bg-[#FAF9F6]">
-            <img 
-              src={getSiloImage(viewedArticle.silo)} 
-              alt={viewedArticle?.altTextMap?.hero || viewedArticle?.title || "BookMeThat travel logistics article hero"} 
-              referrerPolicy="no-referrer"
+            <OptimizedImage 
+              src={viewedArticle.hero} 
+              silo={viewedArticle.silo}
+              articleId={viewedArticle.id}
+              promptDescription={viewedArticle?.altTextMap?.hero || viewedArticle?.title}
+              width={1200}
+              height={675}
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-3 left-3 bg-black/85 text-white font-mono text-[9px] px-2.5 py-1 rounded-none max-w-sm">
-              <span className="font-extrabold text-brand-orange">SEO ALT TEXT:</span> {viewedArticle?.altTextMap?.hero || viewedArticle?.title}
+              <span className="font-extrabold text-brand-orange">SEO ALT TEXT:</span> {sanitizeToAltText(viewedArticle?.altTextMap?.hero || viewedArticle?.title)}
             </div>
           </div>
 
@@ -284,10 +289,13 @@ export default function SiloGuides({
                   
                    {/* Card Thumbnail */}
                   <div className="relative aspect-video w-full overflow-hidden bg-white border-b border-[#E5E5E1]">
-                    <img 
-                      src={getSiloImage(art.silo)} 
-                      alt={art?.altTextMap?.hero || art?.title || "BookMeThat travel logistics card thumbnail"} 
-                      referrerPolicy="no-referrer"
+                    <OptimizedImage 
+                      src={art.hero} 
+                      silo={art.silo}
+                      articleId={art.id}
+                      promptDescription={art?.altTextMap?.thumbnail || art?.title}
+                      width={800}
+                      height={450}
                       className="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500"
                     />
                     <div className="absolute top-3 left-3 bg-[#E55B13] text-white font-mono text-[9px] px-2 py-0.5 rounded-none uppercase font-semibold tracking-wider">

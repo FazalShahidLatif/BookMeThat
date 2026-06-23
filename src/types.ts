@@ -20,6 +20,7 @@ export interface Article {
   longTailKeywords: string[];
   searchVolume: string;
   youtubeId?: string; // Capabilities of embedding youtube videos
+  hero?: string; // Descriptive text prompt for the article hero image
   altTextMap: Record<string, string>; // Image optimization
   metaTitle?: string; // SEO optimization
   metaDescription?: string; // SEO optimization
