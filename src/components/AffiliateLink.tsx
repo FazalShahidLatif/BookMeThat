@@ -64,7 +64,7 @@ export const AffiliateLink: React.FC<AffiliateLinkProps> = ({
     <a
       href={sanitizedUrl}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener noreferrer nofollow sponsored"
       onClick={handleClick}
       className={className}
       id={props.id}

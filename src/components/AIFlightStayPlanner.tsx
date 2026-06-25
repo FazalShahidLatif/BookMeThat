@@ -4,6 +4,7 @@ import {
   Globe, Award, Copy, Check, Info, Calendar, Users, DollarSign, Wallet, 
   MapPin, Search, ChevronRight, CheckCircle2, RefreshCw
 } from 'lucide-react';
+import { AffiliateLink } from './AffiliateLink';
 
 interface KeySpec {
   feature: string;
@@ -423,14 +424,12 @@ export default function AIFlightStayPlanner() {
                         </p>
                       </div>
 
-                      <a 
+                      <AffiliateLink 
                         href={deal.bookingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="w-full bg-[#3B82F6]/5 text-[#3B82F6] hover:bg-[#3B82F6]/10 text-center py-2 rounded text-xs tracking-wide font-mono font-black flex items-center justify-center gap-1 border border-[#3B82F6]/20 transition-all cursor-pointer"
                       >
                         Secure Flight on Expedia <ArrowRight className="w-3 h-3" />
-                      </a>
+                      </AffiliateLink>
                     </div>
                   ))}
                 </div>
@@ -476,14 +475,12 @@ export default function AIFlightStayPlanner() {
                         </p>
                       </div>
 
-                      <a 
+                      <AffiliateLink 
                         href={hotel.bookingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="w-full bg-[#10B981]/5 text-[#10B981] hover:bg-[#10B981]/10 text-center py-2 rounded text-xs tracking-wide font-mono font-black flex items-center justify-center gap-1 border border-[#10B981]/20 transition-all cursor-pointer"
                       >
                         Reserve Room on Expedia <ArrowRight className="w-3 h-3" />
-                      </a>
+                      </AffiliateLink>
                     </div>
                   ))}
                 </div>
