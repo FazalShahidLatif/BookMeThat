@@ -1459,7 +1459,7 @@ body {
                   code: 'GOCITY10', 
                   discount: '10% OFF PASS CARDS', 
                   desc: 'Unlock wholesale access to multi-attraction itineraries. Bypass agent markups in London, Paris, and Rome.', 
-                  link: 'https://gocity.tpk.lu/u1mHhjxd' 
+                  link: 'https://tp.media/r?marker=685596&p=3801' 
                 },
                 { 
                   id: 'klook', 

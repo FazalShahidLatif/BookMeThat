@@ -131,6 +131,19 @@ export function generateValidAffiliateUrl(
     case 'wise':
       return `https://tp.media/r?marker=${cleanMarker}&p=3697&subid=${cleanSubId}&campaign_id=164`;
 
+    case 'gocity':
+    case 'go city':
+      return `https://tp.media/r?marker=${cleanMarker}&p=3801&subid=${cleanSubId}`;
+
+    case 'radicalstorage':
+    case 'radical storage':
+      return `https://tp.media/r?marker=${cleanMarker}&p=3641&subid=${cleanSubId}`;
+
+    case 'ekta':
+    case 'ektatraveling':
+    case 'ekta traveling':
+      return `https://tp.media/r?marker=${cleanMarker}&p=3585&subid=${cleanSubId}`;
+
     default:
       // Fallback network safety route
       return `https://travelpayouts.com/?marker=${cleanMarker}`;
