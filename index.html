@@ -12,19 +12,22 @@
     <meta name="description" content="Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups." />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bookmethat.com/" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bookmethat.com" />
+    <meta property="og:url" content="https://www.bookmethat.com/" />
     <meta property="og:title" content="BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals" />
     <meta property="og:description" content="Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups." />
-    <meta property="og:image" content="https://bookmethat.com/favicon.png" />
+    <meta property="og:image" content="https://www.bookmethat.com/favicon.png" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://bookmethat.com" />
+    <meta name="twitter:url" content="https://www.bookmethat.com/" />
     <meta name="twitter:title" content="BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals" />
     <meta name="twitter:description" content="Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups." />
-    <meta name="twitter:image" content="https://bookmethat.com/favicon.png" />
+    <meta name="twitter:image" content="https://www.bookmethat.com/favicon.png" />
     <meta name="twitter:site" content="@BookMeThat" />
 
     <!-- JSON-LD Structured Data -->
@@ -33,11 +36,11 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "BookMeThat",
-        "url": "https://bookmethat.com/",
+        "url": "https://www.bookmethat.com/",
         "description": "BookMeThat is a premium travel affiliate & logistics comparison engine. Compare flight compensation advocates, local rental car providers, travel eSIM cards, and travel safety insurance networks with zero broker markup.",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://bookmethat.com/?q={search_term_string}",
+          "target": "https://www.bookmethat.com/?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }
@@ -47,8 +50,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "BookMeThat",
-        "url": "https://bookmethat.com/",
-        "logo": "https://bookmethat.com/favicon.png",
+        "url": "https://www.bookmethat.com/",
+        "logo": "https://www.bookmethat.com/favicon.png",
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "accts.pak@gmail.com",
@@ -79,7 +82,20 @@
 
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Fallback semantic structure for search engines and Javascript-disabled web crawlers to prevent H1 missing warnings -->
+      <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">
+        <h1>BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals</h1>
+        <p>Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.</p>
+        <nav>
+          <a href="/esim">Travel eSIMs</a>
+          <a href="/car-rental">Car Rentals</a>
+          <a href="/flights">Flight Claims</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

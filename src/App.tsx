@@ -564,8 +564,8 @@ export default function App() {
       window.history.pushState(null, '', path);
     }
 
-    // Dynamic Canonical tag updater with absolute bookmethat.com address pairing
-    const canonicalBase = 'https://bookmethat.com';
+    // Dynamic Canonical tag updater with absolute www.bookmethat.com address pairing
+    const canonicalBase = 'https://www.bookmethat.com';
     const canonicalUrl = canonicalBase + (path === '/' ? '' : path);
     
     let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
@@ -604,7 +604,7 @@ export default function App() {
           "@type": "Article",
           "headline": activeArticle.title,
           "description": activeArticle.summary,
-          "image": "https://bookmethat.com/favicon.png",
+          "image": "https://www.bookmethat.com/favicon.png",
           "url": canonicalUrl,
           "datePublished": "2026-06-02",
           "dateModified": "2026-06-04",
@@ -617,7 +617,7 @@ export default function App() {
             "name": "BookMeThat",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://bookmethat.com/favicon.png"
+              "url": "https://www.bookmethat.com/favicon.png"
             }
           },
           "mainEntityOfPage": {
@@ -631,7 +631,7 @@ export default function App() {
           "@type": "TravelAgency",
           "name": "BookMeThat",
           "url": canonicalBase,
-          "logo": "https://bookmethat.com/favicon.png",
+          "logo": "https://www.bookmethat.com/favicon.png",
           "description": "Premium programmatic travel routing, verified eSIM coupons, local direct car rent connections, and delayed flight compensation claiming portals with zero markups.",
           "address": {
             "@type": "PostalAddress",
