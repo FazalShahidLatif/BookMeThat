@@ -24,6 +24,15 @@ async function startServer() {
   // Support JSON request parsing
   app.use(express.json());
 
+  // Redirect non-www to www in production for SEO and canonicalization
+  app.use((req, res, next) => {
+    const host = req.headers.host;
+    if (host === "bookmethat.com") {
+      return res.redirect(301, `https://www.bookmethat.com${req.originalUrl}`);
+    }
+    next();
+  });
+
   let vite: any;
   if (process.env.NODE_ENV !== "production") {
     vite = await createViteServer({
@@ -418,7 +427,7 @@ async function startServer() {
 
       const pathname = req.path.toLowerCase().replace(/^\/+|\/+$/g, ""); // strip slashes
       const normalizedPath = req.path === "/" ? "" : req.path.replace(/\/+$/, "");
-      const canonicalUrl = `https://bookmethat.com${normalizedPath}`;
+      const canonicalUrl = `https://www.bookmethat.com${normalizedPath}`;
 
       let title = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
       let description = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
@@ -470,6 +479,7 @@ async function startServer() {
       html = html.replace(/<title>[\s\S]*?<\/title>/gi, `<title>${title}</title>`);
       
       // Update primary meta tags in the document head before sending
+      html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi, `<link rel="canonical" href="${canonicalUrl}" />`);
       html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="description" content="${description}" />`);
       html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:title" content="${title}" />`);
       html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:description" content="${description}" />`);

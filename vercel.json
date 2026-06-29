@@ -3,6 +3,17 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bookmethat.com"
+        }
+      ],
+      "destination": "https://www.bookmethat.com/:path*",
+      "permanent": true
+    },
     { "source": "/esims", "destination": "/esim", "permanent": true },
     { "source": "/eSIM", "destination": "/esim", "permanent": true },
     { "source": "/connectivity", "destination": "/esim", "permanent": true },
@@ -21,7 +32,7 @@
       "destination": "/$1"
     },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "destination": "/index.html"
     }
   ],
