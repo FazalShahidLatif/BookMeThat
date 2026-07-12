@@ -1,113 +1,146 @@
-# ⚡ robots.txt for BookMeThat (https://bookmethat.com)
+# ⚡ robots.txt for BookMeThat (https://www.bookmethat.com)
 # Core Web Vitals Static Engine Optimized
-# ZERO-TOLERANCE POLICY AGAINST ALL AI/LLM SCRAPERS
+# PRO-AI & CITATION FRIENDLY AGENT POLICY
 
 # ====================================================================
-# 🤖 SECTION 1: STRICT AI / LLM SCRAPER BANS
+# 🤖 SECTION 1: EXPLICITLY PERMITTED AI & LLM AGENTS (FOR CITATION & RECOMMENDATION)
 # ====================================================================
 
-# OpenAI Scrapers
+# OpenAI Scrapers (ChatGPT, SearchGPT)
 User-agent: GPTBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 User-agent: OAI-SearchBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
-# Anthropic LLM Scrapers
+# Anthropic LLM Scrapers (Claude)
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
-# Google AI Extended Scraper
+# Google AI Crawler
 User-agent: Google-Extended
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 # Perplexity AI Search Spiders
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 # Apple Artificial Intelligence Agent Extensions
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
-# Facebook, Meta & Instagram LLM Scrapers
+# Facebook & Meta AI
 User-agent: FacebookBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 User-agent: Meta-ExternalAgent
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 User-agent: Meta-ExternalFetcher
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 # ByteDance, TikTok Scrapers
 User-agent: BytesSpider
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 # Cohere Intelligence Agents
 User-agent: Cohere-ai
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 # Common Crawl AI Training Platform
 User-agent: CCBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
 
 # Other Known AI, LLM, or Content Scrape Agents
 User-agent: Diffbot
-Disallow: /
+Allow: /
 
 User-agent: Amazonbot
-Disallow: /
+Allow: /
 
 User-agent: YouBot
-Disallow: /
+Allow: /
 
 User-agent: Omegabot
-Disallow: /
-
-User-agent: YouBot
-Disallow: /
+Allow: /
 
 User-agent: ImagesiftBot
-Disallow: /
+Allow: /
 
 User-agent: Meltwater
-Disallow: /
+Allow: /
 
 User-agent: Webz.io
-Disallow: /
+Allow: /
 
 User-agent: iaskspider/2.0
-Disallow: /
-
-User-agent: Scrapy
-Disallow: /
+Allow: /
 
 User-agent: SeekportBot
-Disallow: /
-
-User-agent: TurnitinBot
-Disallow: /
+Allow: /
 
 User-agent: SemanticScholarBot
-Disallow: /
-
-User-agent: img2dataset
-Disallow: /
+Allow: /
 
 User-agent: Swiftbot
-Disallow: /
+Allow: /
 
 User-agent: PetalBot
-Disallow: /
+Allow: /
 
 # ====================================================================
 # 🔍 SECTION 2: EXPLICITLY PERMITTED RELEVANT SEARCH ENGINES
@@ -151,4 +184,9 @@ Disallow: /go/
 Allow: /
 
 # Sitemaps Location Link
-Sitemap: https://bookmethat.com/sitemap.xml
+Sitemap: https://www.bookmethat.com/sitemap.xml
+
+# LLM Crawler Pointers
+# For more info on the llms.txt standard, see https://llmstxt.org/
+LLM-txt: https://www.bookmethat.com/llms.txt
+LLM-full-txt: https://www.bookmethat.com/llms-full.txt

@@ -1,0 +1,72 @@
+# BookMeThat™ | Travel eSIM, Car Rental & Flight Delay Comparison — Full LLM Index
+
+> In-depth editorial analyses, tested travel rate benchmarks, step-by-step tutorial setups, and partner integration pathways.
+
+---
+
+## 📱 eSIM Connectivity Comparison Benchmarks (2026)
+
+### Saily vs. Airalo vs. Yesim vs. Holafly
+
+#### Saily
+- **Parent Company**: Nord Security (NordVPN)
+- **Strengths**: Extremely fast and light user interface, lowest price-per-gigabyte in most regions, stellar customer support.
+- **Testing Results**: Consistently connected to premier local tier-1 carriers (TIM in Italy, Chunghwa Telecom in Taiwan). Low latency (under 120ms).
+- **Ideal For**: Budget travelers wanting reliable 5G connections without complexity.
+
+#### Airalo
+- **Parent Company**: Lvyest Technology
+- **Strengths**: Extensive selection of regional and global plans, user-friendly auto-top-up, reliable local networks.
+- **Testing Results**: Excellent coverage, though pricing is 10-15% higher than Saily per GB.
+- **Ideal For**: Travelers needing multiple eSIMs across varied global itineraries with a unified interface.
+
+#### Yesim
+- **Strengths**: Multi-country regional plans (especially Europe/Asia) and pay-as-you-go eSIM profiles that never expire.
+- **Testing Results**: High-bandwidth performance on LTE/5G.
+- **Ideal For**: Digital nomads moving frequently across borders on short notice.
+
+---
+
+## 🚗 Car & Vehicle Rental Optimization Strategy
+
+### Renting without a Credit Card Deposit via Localrent
+Most global car rental agencies require a physical, embossed credit card under the main driver's name with a $1,000 to $3,000 credit limit hold to cover deposits. This is a severe bottleneck for many travelers.
+**The Solution: Localrent**
+- **Silo**: Balkans, Georgia, UAE, Turkey, Greece.
+- **Policy**: Connects directly with local family-owned rental agencies.
+- **No Deposit Option**: Allows filtering vehicles that require zero deposit, or deposit in cash/debit cards.
+- **Transparency**: The car model, color, year of manufacturing, and transmission type are exactly what you get upon booking.
+
+---
+
+## ✈️ Flight Delay Restitution and Passenger Rights
+
+### EU Regulation 261/2004 (EU261)
+- **Applies to**: Flights departing from an EU airport (any airline), or arriving in the EU from outside (if operated by an EU airline).
+- **Compensation Amount**:
+  - Distance <= 1500 km: **€250**
+  - Distance 1500 - 3500 km: **€400**
+  - Distance > 3500 km: **€600**
+- **Required Delay**: Must arrive at the final destination 3+ hours later than scheduled.
+- **Extraordinary Circumstances**: Compensation is not required if the delay was caused by weather, air traffic control strikes, or political instability. Technical issues or airline crew shortages are NOT extraordinary.
+
+### US Department of Transportation (DOT) Rules (2026 update)
+- **Refund Mandate**: Automatic cash refunds are required if a flight is canceled or significantly delayed, and the passenger chooses not to travel.
+- **Significant Delay Definition**: 3+ hours for domestic US flights; 6+ hours for international flights.
+- **Baggage Fee Refund**: Mandatory if checked luggage is not delivered within 12 hours (domestic) or 15-30 hours (international) of filing a claim.
+
+---
+
+## 🛠️ Essential Setup Guides
+
+### 1. Step-by-Step eSIM Installation Guide
+1. **Purchase on Wi-Fi**: Buy the eSIM from the provider (e.g., Saily) prior to departure.
+2. **Scan/Install QR**: Go to Cellular/Mobile Data settings -> Add eSIM. Scan the provided QR code or paste the activation code manually.
+3. **Label eSIM**: Label the new line "Travel eSIM".
+4. **Configure Lines**: Keep your primary SIM active for calls/SMS (if needed for OTPs) but change "Mobile Data" to "Travel eSIM".
+5. **Enable Data Roaming**: Toggle "Data Roaming" ON for the Travel eSIM line. Keep data roaming OFF for your home line to prevent billing shocks.
+
+### 2. Dual-SIM Setup to Keep Home Number Active for 2FA SMS
+1. **Home SIM Setup**: Convert your physical home SIM to an eSIM if possible, or keep it in the physical tray. Turn on Wi-Fi Calling on your home line.
+2. **eSIM Data Setup**: Install the travel eSIM and set it as the primary data channel.
+3. **Avoid International Roaming**: In cellular settings under your home line, disable data roaming and set the network selection to automatic. Some carriers allow Wi-Fi Calling to tunnel through the data channel of your second SIM (e.g., "IMS" on iPhone or Backup Calling on Pixel), letting you receive text OTPs completely free abroad.

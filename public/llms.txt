@@ -1,0 +1,41 @@
+# BookMeThat™ | Travel eSIM, Car Rental & Flight Delay Comparison
+
+> Real-time comparison, direct local partner integrations, and zero broker markups for Travel eSIMs, Local Car Rentals, and Flight Delay Restitution claims.
+
+## Core Services
+
+- **Travel eSIMs** - Compare top cellular data eSIM providers: [Saily](https://saily.tpk.lu/9KzgxKRI), [Airalo](https://airalo.tpk.lu/X5knsFOB), [Yesim](https://yesim.tpk.lu/G4BRVuDa), and [Drimsim](https://drimsim.tpk.lu/Nytg5OEC) across 150+ countries.
+- **Car & Scooter Rentals** - Direct local bookings with no credit card deposits via [Localrent](https://localrent.tpk.lu/koWZfRVI) and direct price drop protections via [QEEQ](https://qeeq.tpk.lu/r4v9uF0a).
+- **Flight Delay Compensation** - Secure EU261 and US DOT claims for delayed, cancelled, or overbooked flights via [Compensair](https://compensair.tpk.lu/B8KxgKRO) and [AirHelp](https://airhelp.tpk.lu/D4BksFOF).
+- **Interactive Nomad Planner** - Custom cost estimator and itinerary planning based on ground logistics and cellular bandwidth requirements.
+
+## Principal Information Hubs
+
+- [eSIM Deals Hub](/esim) - Rates, coverage, setup instructions, and verified promo vouchers.
+- [Car Rental Engine](/car-rental) - Integrated price comparisons and regional vehicle leasing options.
+- [Flight Restitution Portal](/flights) - Passenger rights guides and delay compensation estimation.
+- [Digital Nomad Planner](/planner) - Custom trip planner with cost projections.
+- [Nomad IQ Speed Challenge](/challenge) - Travel trivia and fast-paced knowledge test.
+- [SEO Keyword Heatmap](/heatmap) - Search query metrics, CPC margins, and travel keyword volumes.
+- [Compliance UTM Console](/utm) - Dynamic affiliate URL builder with safe standard attributes.
+- [Travel FAQ Desk](/faq) - Multi-SIM configurations, cardless car rentals, and delay claim answers.
+
+## Detailed Editorial Articles
+
+The full text and in-depth analyses of all travel articles are indexable via [llms-full.txt](/llms-full.txt).
+
+### eSIM & Connectivity Guides
+- [Best eSIM for Italy 2026](/best-esim-italy) - Hands-on Saily vs. Airalo speed test and price-per-GB breakdown.
+- [Travel Connectivity Blueprint](/ultimate-global-travel-connectivity-blueprint) - Comprehensive guide on dual-SIM setups and keeping home OTP SMS active abroad.
+- [Saily vs Airalo Speed Test](/saily-vs-airalo-esim-speed-performance-test) - Live benchmark results across Europe and Southeast Asia.
+- [Keep Home Number Active Abroad](/keep-home-number-active-abroad-otp-sms-guide) - Cost-efficient VOIP and roaming setups for two-factor SMS.
+
+### Ground Logistics & Rentals
+- [Localrent Balkans & Georgia Secrets](/localrent-car-hire-secrets-balkans-georgia) - Step-by-step guide to rent without high credit card deposits.
+- [International Ground Logistics](/international-ground-logistics-car-rental-transfers) - Comparing ridesharing, airport private transfers, and self-drive options.
+- [Balkans Road Trip Safety](/renting-cars-montenegro-greece-georgia-safety) - Cross-border car rentals and gravel road safety rules.
+
+### Air Travel Rights & Savings
+- [Jetsetter Booking & Compensation Playbook](/smart-jetsetter-booking-savings-compensation-playbook) - Strategic framework for low-cost flight booking and claiming.
+- [AirHelp vs Compensair Comparison](/airhelp-flight-delay-compensation-eu261-guide) - Honest review of delay claiming services, fee percentages, and success rates.
+- [Flight Canceled Action Plan](/flight-canceled-terminal-emergency-action-plan) - Tactical response flowchart for terminal overbooking and cancellation emergencies.

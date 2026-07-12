@@ -474,6 +474,11 @@ export default function App() {
       } else if (path === '/' || path === '' || path.includes('index')) {
         setActiveTab('overview');
         setActiveArticle(null);
+      } else {
+        // Fallback for completely unrecognized paths: redirect to home canonical to eliminate client-side soft 404s
+        setActiveTab('overview');
+        setActiveArticle(null);
+        window.history.replaceState(null, '', '/');
       }
     };
 
@@ -597,49 +602,219 @@ export default function App() {
       schemaScript.id = 'bookmethat-dynamic-routing-schema';
       schemaScript.type = 'application/ld+json';
       
-      let schemaJson: any;
+      const schemas: any[] = [];
+
+      // Always include general Organization schema
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://www.bookmethat.com/#organization",
+        "name": "BookMeThat",
+        "url": canonicalBase,
+        "logo": "https://www.bookmethat.com/favicon.png",
+        "sameAs": [],
+        "description": "Premium travel comparison engine matching top eSIM mobile connections, local direct car rentals, and flight delay compensation portals."
+      });
+
+      // Breadcrumb Schema for the active path
+      const breadcrumbList: any = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": canonicalBase
+          }
+        ]
+      };
+
       if (activeArticle) {
-        schemaJson = {
+        // Breadcrumb for Article
+        breadcrumbList.itemListElement.push({
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": `${canonicalBase}/esim`
+        });
+        breadcrumbList.itemListElement.push({
+          "@type": "ListItem",
+          "position": 3,
+          "name": activeArticle.title,
+          "item": canonicalUrl
+        });
+        schemas.push(breadcrumbList);
+
+        // Article Schema
+        schemas.push({
           "@context": "https://schema.org",
           "@type": "Article",
+          "@id": `${canonicalUrl}#article`,
           "headline": activeArticle.title,
           "description": activeArticle.summary,
           "image": "https://www.bookmethat.com/favicon.png",
           "url": canonicalUrl,
           "datePublished": "2026-06-02",
-          "dateModified": "2026-06-04",
+          "dateModified": "2026-06-12",
           "author": {
             "@type": "Organization",
             "name": "BookMeThat Nomadic Team"
           },
           "publisher": {
-            "@type": "Organization",
-            "name": "BookMeThat",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://www.bookmethat.com/favicon.png"
-            }
+            "@id": "https://www.bookmethat.com/#organization"
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": canonicalUrl
           }
-        };
+        });
       } else {
-        schemaJson = {
-          "@context": "https://schema.org",
-          "@type": "TravelAgency",
-          "name": "BookMeThat",
-          "url": canonicalBase,
-          "logo": "https://www.bookmethat.com/favicon.png",
-          "description": "Premium programmatic travel routing, verified eSIM coupons, local direct car rent connections, and delayed flight compensation claiming portals with zero markups.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "Global"
-          }
-        };
+        // Tab-specific breadcrumbs and extra schemas
+        if (activeTab === 'planner') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Nomad Planner",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else if (activeTab === 'calculators') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Car Rentals",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else if (activeTab === 'guides') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "eSIM Guides",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else if (activeTab === 'flightsRooms') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Flight Claims",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else if (activeTab === 'heatmap') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "SEO Heatmap",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else if (activeTab === 'utm') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "UTM Console",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else if (activeTab === 'faq') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "FAQ Helpdesk",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+
+          // FAQ Page Schema
+          schemas.push({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do I install a travel eSIM?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "To install a travel eSIM, purchase a plan on Wi-Fi before departure, scan the provided QR code in your phone's cellular settings (or paste the manual activation string), and label the line 'Travel eSIM'. Upon arrival at your destination, toggle the Travel eSIM line on and enable 'Data Roaming' for it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does EU261 flight delay compensation work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Under EU Regulation 261/2004, passengers are entitled to cash compensation of €250 to €600 if their flight arrives at its destination 3 or more hours late, unless the delay was caused by 'extraordinary circumstances' such as extreme weather or air traffic control strikes. Operational issues or crew scheduling are not extraordinary."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I rent a car without a credit card deposit?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, on platforms like Localrent, you can filter specifically for vehicle rental suppliers that offer 'No Deposit' terms or allow deposits to be paid with standard debit cards or in physical cash, completely bypassing the requirement for a major credit card."
+                }
+              }
+            ]
+          });
+        } else if (activeTab === 'quiz') {
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Nomad Quiz",
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else if (activeTab === 'legal') {
+          let pageName = "About";
+          if (legalTab === 'privacy') pageName = "Privacy Policy";
+          else if (legalTab === 'terms') pageName = "Terms of Service";
+          else if (legalTab === 'ai_seo') pageName = "AI SEO Matrix";
+          else if (legalTab === 'impressum') pageName = "Contact Desk";
+
+          breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            "position": 2,
+            "name": pageName,
+            "item": canonicalUrl
+          });
+          schemas.push(breadcrumbList);
+        } else {
+          // WebSite Schema for home overview
+          schemas.push({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://www.bookmethat.com/#website",
+            "name": "BookMeThat",
+            "url": canonicalBase,
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://www.bookmethat.com/esim?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          });
+          
+          schemas.push({
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "name": "BookMeThat",
+            "url": canonicalBase,
+            "logo": "https://www.bookmethat.com/favicon.png",
+            "description": "Premium programmatic travel routing, verified eSIM coupons, local direct car rent connections, and delayed flight compensation claiming portals with zero markups.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "Global"
+            }
+          });
+        }
       }
-      schemaScript.innerHTML = JSON.stringify(schemaJson);
+
+      schemaScript.innerHTML = JSON.stringify(schemas.length === 1 ? schemas[0] : schemas);
       document.head.appendChild(schemaScript);
     } catch (err) {
       console.warn("Schema injection failed", err);

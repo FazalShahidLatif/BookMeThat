@@ -27,7 +27,7 @@ async function startServer() {
   // Redirect non-www to www in production for SEO and canonicalization
   app.use((req, res, next) => {
     const host = req.headers.host;
-    if (host === "bookmethat.com") {
+    if (host && host.split(':')[0] === "bookmethat.com") {
       return res.redirect(301, `https://www.bookmethat.com${req.originalUrl}`);
     }
     next();
@@ -393,13 +393,13 @@ async function startServer() {
     if (pathname === "transport" || pathname === "calculators" || pathname === "car-rentals" || pathname === "cars") {
       return res.redirect(301, "/car-rental");
     }
-    if (pathname === "connectivity" || pathname === "guides") {
+    if (pathname === "connectivity" || pathname === "guides" || pathname === "esims") {
       return res.redirect(301, "/esim");
     }
     if (pathname === "flight") {
       return res.redirect(301, "/flights");
     }
-    if (pathname === "legal" || pathname === "compliance" || pathname === "disclosure") {
+    if (pathname === "legal" || pathname === "compliance" || pathname === "disclosure" || pathname === "about-us") {
       return res.redirect(301, "/about");
     }
     if (pathname === "impressum" || pathname === "support") {
@@ -408,11 +408,37 @@ async function startServer() {
     if (pathname === "quiz") {
       return res.redirect(301, "/challenge");
     }
+    if (pathname === "sitemap") {
+      return res.redirect(301, "/sitemap.xml");
+    }
 
     // 5. Canonical redirect for articles accessed by ID rather than slug
     const matchedArticleByID = ARTICLES.find(art => pathname === art.id.toLowerCase());
     if (matchedArticleByID && pathname !== matchedArticleByID.slug.toLowerCase()) {
       return res.redirect(301, `/${matchedArticleByID.slug.toLowerCase()}`);
+    }
+
+    // 6. 301 Redirect Fallback for completely unrecognized/invalid paths to avoid soft or hard 404s
+    const validStaticPaths = [
+      "",
+      "planner",
+      "car-rental",
+      "esim",
+      "flights",
+      "privacy",
+      "terms",
+      "ai-seo",
+      "about",
+      "contact",
+      "heatmap",
+      "utm",
+      "faq",
+      "challenge"
+    ];
+    const isArticle = ARTICLES.some(art => pathname === art.slug.toLowerCase());
+
+    if (!validStaticPaths.includes(pathname) && !isArticle) {
+      return res.redirect(301, "/");
     }
 
     const url = req.originalUrl;
