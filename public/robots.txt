@@ -188,5 +188,5 @@ Sitemap: https://www.bookmethat.com/sitemap.xml
 
 # LLM Crawler Pointers
 # For more info on the llms.txt standard, see https://llmstxt.org/
-LLM-txt: https://www.bookmethat.com/llms.txt
-LLM-full-txt: https://www.bookmethat.com/llms-full.txt
+# LLM-txt: https://www.bookmethat.com/llms.txt
+# LLM-full-txt: https://www.bookmethat.com/llms-full.txt
