@@ -129,12 +129,13 @@ export default function AIFlightStayPlanner() {
           <form onSubmit={handleGenerate} className="space-y-4 font-sans">
             {/* Departure */}
             <div className="space-y-1.5">
-              <label className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1.5">
+              <label htmlFor="planner-departure" className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-brand-orange" /> Outbound Departure
               </label>
               <div className="relative">
                 <input 
                   type="text" 
+                  id="planner-departure"
                   value={departureCity}
                   onChange={(e) => setDepartureCity(e.target.value)}
                   placeholder="e.g. Seattle, ORD, London"
@@ -147,12 +148,13 @@ export default function AIFlightStayPlanner() {
 
             {/* Destination */}
             <div className="space-y-1.5">
-              <label className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1.5">
+              <label htmlFor="planner-destination" className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1.5">
                 <Compass className="w-3.5 h-3.5 text-brand-orange" /> Target Destination
               </label>
               <div className="relative">
                 <input 
                   type="text" 
+                  id="planner-destination"
                   value={destinationCity}
                   onChange={(e) => setDestinationCity(e.target.value)}
                   placeholder="e.g. Tokyo, HNL, Berlin"
@@ -197,10 +199,11 @@ export default function AIFlightStayPlanner() {
             {/* Travel Month & Occupants */}
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">
-                <label className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1">
+                <label htmlFor="planner-travel-month" className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1">
                   <Calendar className="w-3 h-3 text-brand-orange" /> Month
                 </label>
                 <select 
+                  id="planner-travel-month"
                   value={travelMonth}
                   onChange={(e) => setTravelMonth(e.target.value)}
                   className="w-full text-xs font-bold bg-white border border-[#E5E5E1] p-2 rounded focus:outline-none focus:border-brand-orange"
@@ -212,10 +215,11 @@ export default function AIFlightStayPlanner() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1">
+                <label htmlFor="planner-occupants" className="text-xs uppercase tracking-wider font-mono font-bold text-gray-500 flex items-center gap-1">
                   <Users className="w-3 h-3 text-brand-orange" /> Party
                 </label>
                 <select 
+                  id="planner-occupants"
                   value={occupants}
                   onChange={(e) => setOccupants(e.target.value)}
                   className="w-full text-xs font-bold bg-white border border-[#E5E5E1] p-2 rounded focus:outline-none focus:border-brand-orange"

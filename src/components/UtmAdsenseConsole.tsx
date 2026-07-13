@@ -246,8 +246,9 @@ export default function UtmAdsenseConsole() {
 
               {/* Select Merchant */}
               <div className="space-y-1.5">
-                <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider block">Select Target Merchant / API Gateway:</label>
+                <label htmlFor="utm-merchant" className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider block">Select Target Merchant / API Gateway:</label>
                 <select
+                  id="utm-merchant"
                   value={selectedAffiliateId}
                   onChange={(e) => {
                     setSelectedAffiliateId(e.target.value);
@@ -264,9 +265,10 @@ export default function UtmAdsenseConsole() {
 
               {/* Custom deep Link option */}
               <div className="space-y-1.5">
-                <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider block">Or Paste Specific Booking Deep Link:</label>
+                <label htmlFor="utm-deep-link" className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider block">Or Paste Specific Booking Deep Link:</label>
                 <input
                   type="text"
+                  id="utm-deep-link"
                   placeholder="e.g. https://www.booking.com/hotel/it/rome..."
                   value={customDeepLink}
                   onChange={(e) => setCustomDeepLink(e.target.value)}
@@ -278,9 +280,10 @@ export default function UtmAdsenseConsole() {
               {/* Inputs */}
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Source:</label>
+                  <label htmlFor="utm-source" className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Source:</label>
                   <input
                     type="text"
+                    id="utm-source"
                     value={simSource}
                     onChange={(e) => setSimSource(e.target.value)}
                     placeholder="google / newsletter"
@@ -288,9 +291,10 @@ export default function UtmAdsenseConsole() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Medium:</label>
+                  <label htmlFor="utm-medium" className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Medium:</label>
                   <input
                     type="text"
+                    id="utm-medium"
                     value={simMedium}
                     onChange={(e) => setSimMedium(e.target.value)}
                     placeholder="cpc / organic-silo"
@@ -301,9 +305,10 @@ export default function UtmAdsenseConsole() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Campaign:</label>
+                  <label htmlFor="utm-campaign" className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Campaign:</label>
                   <input
                     type="text"
+                    id="utm-campaign"
                     value={simCampaign}
                     onChange={(e) => setSimCampaign(e.target.value)}
                     placeholder="italy_esim_2026"
@@ -311,9 +316,10 @@ export default function UtmAdsenseConsole() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Content (Ad/Para):</label>
+                  <label htmlFor="utm-content" className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">UTM Content (Ad/Para):</label>
                   <input
                     type="text"
+                    id="utm-content"
                     value={simContent}
                     onChange={(e) => setSimContent(e.target.value)}
                     placeholder="tested_esim_table"
@@ -323,9 +329,10 @@ export default function UtmAdsenseConsole() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider block">UTM Search Keyword (Term):</label>
+                <label htmlFor="utm-term" className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider block">UTM Search Keyword (Term):</label>
                 <input
                   type="text"
+                  id="utm-term"
                   value={simTerm}
                   onChange={(e) => setSimTerm(e.target.value)}
                   placeholder="best esim italy"

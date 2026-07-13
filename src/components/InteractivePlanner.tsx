@@ -166,11 +166,12 @@ export default function InteractivePlanner() {
       <div className="p-6 md:p-8 bg-[#FAF9F6]">
         <form onSubmit={handleCalculate} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div>
-            <label className="block text-[10px] font-mono tracking-wider uppercase text-gray-400 mb-2 font-bold">
+            <label htmlFor="interactive-destination" className="block text-[10px] font-mono tracking-wider uppercase text-gray-400 mb-2 font-bold">
               <MapPin className="w-3.5 h-3.5 inline mr-1 text-brand-orange" /> Destination
             </label>
             <input 
               type="text"
+              id="interactive-destination"
               name="destination"
               value={inputs.destination}
               onChange={handleInputChange}
@@ -193,11 +194,12 @@ export default function InteractivePlanner() {
           </div>
 
           <div>
-            <label className="block text-[10px] font-mono tracking-wider uppercase text-gray-400 mb-2 font-bold">
+            <label htmlFor="interactive-duration" className="block text-[10px] font-mono tracking-wider uppercase text-gray-400 mb-2 font-bold">
               <Calendar className="w-3.5 h-3.5 inline mr-1 text-brand-orange" /> Duration (Days)
             </label>
             <input 
               type="number"
+              id="interactive-duration"
               name="durationDays"
               value={inputs.durationDays}
               onChange={handleInputChange}
@@ -209,10 +211,11 @@ export default function InteractivePlanner() {
           </div>
 
           <div>
-            <label className="block text-[10px] font-mono tracking-wider uppercase text-gray-400 mb-2 font-bold">
+            <label htmlFor="interactive-budget" className="block text-[10px] font-mono tracking-wider uppercase text-gray-400 mb-2 font-bold">
               <DollarSign className="w-3.5 h-3.5 inline mr-1 text-brand-orange" /> Budget profile
             </label>
             <select
+              id="interactive-budget"
               name="budget"
               value={inputs.budget}
               onChange={handleInputChange}

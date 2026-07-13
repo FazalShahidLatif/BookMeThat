@@ -1398,6 +1398,14 @@ body {
   return (
     <div className={`min-h-screen bg-[#FAF9F6] flex flex-col font-sans text-[#1A1A1A] selection:bg-brand-orange/10 selection:text-brand-orange leading-normal ${isScrolling ? 'scrolling-active pointer-events-none' : ''}`} id="global-layout-root">
       
+      {/* Accessibility Skip Link */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-orange text-white px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider z-50 shadow-md border border-[#FAF9F6]"
+      >
+        Skip to main content
+      </a>
+      
       {/* 1. BRAND HEADER */}
       <header className="sticky top-0 z-40 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E5E5E1] transition-all" id="site-header">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
@@ -1814,7 +1822,7 @@ body {
                 <div className="space-y-4">
                   {/* Select controller */}
                   <div className="space-y-1">
-                    <label htmlFor="seo-target-selector" className="text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400 block">
+                    <label htmlFor="seo-target-selector" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-600 block">
                       Target Page / Article view
                     </label>
                     <select
@@ -1855,10 +1863,10 @@ body {
                   {/* Input 1: Meta Title */}
                   <div className="space-y-1">
                     <div className="flex justify-between items-baseline">
-                      <label htmlFor="input-meta-title" className="text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400 block">
+                      <label htmlFor="input-meta-title" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-600 block">
                         Meta Title (Google Link)
                       </label>
-                      <span className={`text-[9px] font-mono ${editingMetadata.title.length > 60 ? 'text-amber-500 font-bold animate-pulse' : 'text-gray-400'}`}>
+                      <span className={`text-[10px] font-mono ${editingMetadata.title.length > 60 ? 'text-amber-600 font-bold animate-pulse' : 'text-gray-500'}`}>
                         {editingMetadata.title.length}/60 chars
                       </span>
                     </div>
@@ -1867,17 +1875,17 @@ body {
                       id="input-meta-title"
                       value={editingMetadata.title}
                       onChange={(e) => setEditingMetadata({ ...editingMetadata, title: e.target.value })}
-                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange"
+                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange font-bold"
                     />
                   </div>
 
                   {/* Input 2: Meta Description */}
                   <div className="space-y-1">
                     <div className="flex justify-between items-baseline">
-                      <label htmlFor="input-meta-desc" className="text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400 block">
+                      <label htmlFor="input-meta-desc" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-600 block">
                         Meta Description (Google Snippet)
                       </label>
-                      <span className={`text-[9px] font-mono ${editingMetadata.desc.length > 160 ? 'text-amber-500 font-bold animate-pulse' : 'text-gray-400'}`}>
+                      <span className={`text-[10px] font-mono ${editingMetadata.desc.length > 160 ? 'text-amber-600 font-bold animate-pulse' : 'text-gray-500'}`}>
                         {editingMetadata.desc.length}/160 chars
                       </span>
                     </div>
@@ -1886,7 +1894,7 @@ body {
                       rows={3}
                       value={editingMetadata.desc}
                       onChange={(e) => setEditingMetadata({ ...editingMetadata, desc: e.target.value })}
-                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange"
+                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange font-bold"
                     />
                   </div>
 

@@ -112,12 +112,13 @@ export default function ComparisonCalculators() {
           {/* Sliders Block */}
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-[#F8F7F2] p-5 rounded-none border border-[#E5E5E1]">
-              <label className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-3 uppercase tracking-wider">
+              <label htmlFor="slider-data-gbs" className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-3 uppercase tracking-wider">
                 <span>Estimated Mobile Data:</span>
                 <span className="text-brand-orange font-mono font-bold">{dataGbs} GB</span>
               </label>
               <input 
                 type="range" 
+                id="slider-data-gbs"
                 min={1} 
                 max={50} 
                 value={dataGbs}
@@ -132,12 +133,13 @@ export default function ComparisonCalculators() {
             </div>
 
             <div className="bg-[#F8F7F2] p-5 rounded-none border border-[#E5E5E1]">
-              <label className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-3 uppercase tracking-wider">
+              <label htmlFor="slider-duration" className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-3 uppercase tracking-wider">
                 <span>Vacation Duration:</span>
                 <span className="text-brand-orange font-mono font-bold">{duration} Days</span>
               </label>
               <input 
                 type="range" 
+                id="slider-duration"
                 min={1} 
                 max={30} 
                 value={duration}
@@ -221,12 +223,13 @@ export default function ComparisonCalculators() {
           {/* Inputs Section */}
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-[#F8F7F2] p-5 rounded-none border border-[#E5E5E1]">
-              <label className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-2 uppercase tracking-wider">
+              <label htmlFor="slider-distance-km" className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-2 uppercase tracking-wider">
                 <span>Total Drive Distance:</span>
                 <span className="text-brand-orange font-mono font-bold">{distanceKm} KM</span>
               </label>
               <input 
                 type="range" 
+                id="slider-distance-km"
                 min={10} 
                 max={500} 
                 step={10}
@@ -242,12 +245,13 @@ export default function ComparisonCalculators() {
             </div>
 
             <div className="bg-[#F8F7F2] p-5 rounded-none border border-[#E5E5E1]">
-              <label className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-2 uppercase tracking-wider">
+              <label htmlFor="slider-rental-days" className="flex justify-between text-xs font-mono font-bold text-[#1A1A1A] mb-2 uppercase tracking-wider">
                 <span>Rental Duration:</span>
                 <span className="text-brand-orange font-mono font-bold">{rentalDays} Days</span>
               </label>
               <input 
                 type="range" 
+                id="slider-rental-days"
                 min={1} 
                 max={14} 
                 value={rentalDays}

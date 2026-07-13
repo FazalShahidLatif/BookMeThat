@@ -289,8 +289,10 @@ export default function TravelFAQConsole() {
 
         {/* Search Input */}
         <div className="lg:col-span-4 relative">
+          <label htmlFor="faq-search-input" className="sr-only">Search micro-queries</label>
           <input
             type="text"
+            id="faq-search-input"
             placeholder="Search micro-queries (e.g. 'Saily')..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
