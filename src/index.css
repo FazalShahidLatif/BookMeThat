@@ -189,8 +189,7 @@
 
 /* 1. Content Visibility for Below-the-fold components */
 .content-visibility-below-fold {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 450px;
+  content-visibility: visible;
 }
 
 /* 2. Hardware-accelerated transitions */

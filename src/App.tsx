@@ -1985,7 +1985,7 @@ body {
         </section>
 
         {/* --- UNIFIED USER CALCULATORS LAB CABINETS FROM CHECKPOINT 0 --- */}
-        <section id="core-calculators" className="py-14 bg-[#F8F7F2] border-b border-[#E5E5E1] content-visibility-below-fold">
+        <section id="core-calculators" className="py-14 bg-[#F8F7F2] border-b border-[#E5E5E1]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center max-w-xl mx-auto space-y-2 mb-8">
@@ -2036,7 +2036,7 @@ body {
         </section>
 
         {/* --- REGULATORY SHIELD MANDATES SECTION --- */}
-        <section id="compliance-desk" className="py-14 bg-white content-visibility-below-fold">
+        <section id="compliance-desk" className="py-14 bg-white">
           <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
             <span className="inline-flex items-center gap-1.5 text-[9px] text-gray-400 font-mono font-bold uppercase tracking-widest border border-gray-300 px-2.5 py-1">
               <Shield className="w-3.5 h-3.5 text-brand-orange" /> Legal Disclosures & Compliance Desk
