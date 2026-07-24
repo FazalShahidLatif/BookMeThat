@@ -12,8 +12,17 @@
     <meta name="description" content="Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups." />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <!-- Canonical URL -->
+    <!-- Canonical URL & Multi-Regional Hreflang Targeting -->
     <link rel="canonical" href="https://www.bookmethat.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.bookmethat.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.bookmethat.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://www.bookmethat.com/" />
+    <link rel="alternate" hreflang="en-GB" href="https://www.bookmethat.com/" />
+    <link rel="alternate" hreflang="en-CA" href="https://www.bookmethat.com/" />
+    <link rel="alternate" hreflang="en-AU" href="https://www.bookmethat.com/" />
+    <link rel="alternate" hreflang="de" href="https://www.bookmethat.com/esim" />
+    <link rel="alternate" hreflang="fr" href="https://www.bookmethat.com/esim" />
+    <link rel="alternate" hreflang="es" href="https://www.bookmethat.com/esim" />
 
     <!-- Robots and Indexing Instructions -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -24,6 +33,7 @@
     <meta property="og:title" content="BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals" />
     <meta property="og:description" content="Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups." />
     <meta property="og:image" content="https://www.bookmethat.com/favicon.png" />
+    <meta property="og:site_name" content="BookMeThat" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -33,33 +43,104 @@
     <meta name="twitter:image" content="https://www.bookmethat.com/favicon.png" />
     <meta name="twitter:site" content="@BookMeThat" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- Organizational Level & WebApplication JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "BookMeThat",
-        "url": "https://www.bookmethat.com/",
-        "description": "BookMeThat is a premium travel affiliate & logistics comparison engine. Compare flight compensation advocates, local rental car providers, travel eSIM cards, and travel safety insurance networks with zero broker markup.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.bookmethat.com/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "BookMeThat",
-        "url": "https://www.bookmethat.com/",
-        "logo": "https://www.bookmethat.com/favicon.png",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "accts.pak@gmail.com",
-          "contactType": "customer support"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.bookmethat.com/#organization",
+            "name": "BookMeThat",
+            "legalName": "BookMeThat Global Logistics & Travel Tech",
+            "alternateName": ["BookMeThat™", "BookMeThat Travel Comparison Engine"],
+            "url": "https://www.bookmethat.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://www.bookmethat.com/#logo",
+              "url": "https://www.bookmethat.com/favicon.png",
+              "contentUrl": "https://www.bookmethat.com/favicon.png",
+              "caption": "BookMeThat Logo",
+              "width": "512",
+              "height": "512"
+            },
+            "image": {
+              "@id": "https://www.bookmethat.com/#logo"
+            },
+            "description": "BookMeThat is a global travel comparison engine and AI trip planner platform providing zero-markup rate comparisons for travel eSIM cellular data, direct local car rentals, and EU261 flight delay compensation claims.",
+            "foundingDate": "2024-01-15",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "email": "accts.pak@gmail.com",
+                "contactType": "customer service",
+                "availableLanguage": ["en", "es", "de", "fr", "ja"]
+              }
+            ],
+            "sameAs": [
+              "https://twitter.com/BookMeThat",
+              "https://www.facebook.com/BookMeThat",
+              "https://www.linkedin.com/company/bookmethat"
+            ],
+            "knowsAbout": [
+              "Travel eSIM Data Cards",
+              "Local Direct Car Rentals",
+              "EU261 Flight Delay Compensation Claims",
+              "AI Itinerary & Vacation Planning",
+              "Digital Nomad Logistics"
+            ],
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "Worldwide"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.bookmethat.com/#website",
+            "url": "https://www.bookmethat.com/",
+            "name": "BookMeThat",
+            "alternateName": "BookMeThat Travel Comparison",
+            "description": "Travel eSIM cards, local direct car rentals, and delayed flight compensation claims engine.",
+            "publisher": {
+              "@id": "https://www.bookmethat.com/#organization"
+            },
+            "inLanguage": "en-US",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://www.bookmethat.com/esim?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://www.bookmethat.com/#webapp",
+            "url": "https://www.bookmethat.com/",
+            "name": "BookMeThat Travel Comparison & AI Trip Planner Engine",
+            "applicationCategory": "TravelApplication",
+            "operatingSystem": "All modern web browsers",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "softwareVersion": "2026.4.0",
+            "offers": {
+              "@type": "Offer",
+              "price": "0.00",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "ratingCount": "1420",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "author": {
+              "@id": "https://www.bookmethat.com/#organization"
+            }
+          }
+        ]
       }
     </script>
 

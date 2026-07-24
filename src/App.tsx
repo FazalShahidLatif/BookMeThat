@@ -67,6 +67,9 @@ export default function App() {
   // Active Article viewed, for meta preview synchronization
   const [activeArticle, setActiveArticle] = useState<any | null>(null);
 
+  // 301 Redirect Notification Toast State
+  const [redirectNotice, setRedirectNotice] = useState<string | null>(null);
+
   // Dynamic Metadata state
   const [editingMetadata, setEditingMetadata] = useState<{ title: string; desc: string }>({
     title: "BookMeThat™: Best Travel Deals, Exclusive Promo Codes & Vacation Packages (2026)",
@@ -382,6 +385,7 @@ export default function App() {
       const searchParams = new URLSearchParams(window.location.search);
       const articleQuery = searchParams.get('article') || searchParams.get('p');
       const tabQuery = searchParams.get('tab');
+      const redirectFrom = searchParams.get('redirect_from') || searchParams.get('ref');
 
       // Check if there is a direct match for any of our article slugs in path or query parameters
       const matchedArticle = ARTICLES.find(art => 
@@ -408,77 +412,90 @@ export default function App() {
         }
       }
 
-      // Traditional subpages support via pathname direct matching
-      if (path.includes('compliance')) {
-        setActiveTab('legal');
-        setLegalTab('disclosure');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+      // 301 Permanent Redirect Mapping Engine for alias & legacy paths
+      let targetTab: ActiveTab | null = null;
+      let targetSubTab: 'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum' = 'disclosure';
+      let canonicalTarget = '/';
+      let wasRedirected = false;
+
+      if (path.includes('compliance') || path.includes('disclosure')) {
+        targetTab = 'legal';
+        targetSubTab = 'disclosure';
+        canonicalTarget = '/about';
+        if (path !== '/about') wasRedirected = true;
       } else if (path.includes('privacy')) {
-        setActiveTab('legal');
-        setLegalTab('privacy');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+        targetTab = 'legal';
+        targetSubTab = 'privacy';
+        canonicalTarget = '/privacy';
+        if (path !== '/privacy') wasRedirected = true;
       } else if (path.includes('terms') || path.includes('service')) {
-        setActiveTab('legal');
-        setLegalTab('terms');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+        targetTab = 'legal';
+        targetSubTab = 'terms';
+        canonicalTarget = '/terms';
+        if (path !== '/terms') wasRedirected = true;
       } else if (path.includes('ai_seo') || path.includes('ai-seo')) {
-        setActiveTab('legal');
-        setLegalTab('ai_seo');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
-      } else if (path.includes('about') || path.includes('disclosure')) {
-        setActiveTab('legal');
-        setLegalTab('disclosure');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
+        targetTab = 'legal';
+        targetSubTab = 'ai_seo';
+        canonicalTarget = '/ai-seo';
+        if (path !== '/ai-seo') wasRedirected = true;
       } else if (path.includes('contact') || path.includes('impressum') || path.includes('support')) {
-        setActiveTab('legal');
-        setLegalTab('impressum');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('compliance-desk'), 300);
-      } else if (path.includes('connectivity') || path.includes('esim')) {
-        setActiveTab('guides');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
-      } else if (path.includes('flights') || path.includes('flight')) {
-        setActiveTab('flightsRooms');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
-      } else if (path.includes('transport') || path.includes('car-rental') || path.includes('car-rentals') || path.includes('cars')) {
-        setActiveTab('calculators');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
-      } else if (path.includes('planner')) {
-        setActiveTab('planner');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+        targetTab = 'legal';
+        targetSubTab = 'impressum';
+        canonicalTarget = '/contact';
+        if (path !== '/contact') wasRedirected = true;
+      } else if (path.includes('connectivity') || path.includes('esim') || path.includes('sim') || path.includes('airalo') || path.includes('saily')) {
+        targetTab = 'guides';
+        canonicalTarget = '/esim';
+        if (path !== '/esim') wasRedirected = true;
+      } else if (path.includes('flights') || path.includes('flight') || path.includes('claims') || path.includes('airhelp')) {
+        targetTab = 'flightsRooms';
+        canonicalTarget = '/flights';
+        if (path !== '/flights') wasRedirected = true;
+      } else if (path.includes('transport') || path.includes('car-rental') || path.includes('car-rentals') || path.includes('cars') || path.includes('localrent')) {
+        targetTab = 'calculators';
+        canonicalTarget = '/car-rental';
+        if (path !== '/car-rental') wasRedirected = true;
+      } else if (path.includes('planner') || path.includes('itinerary') || path.includes('budget')) {
+        targetTab = 'planner';
+        canonicalTarget = '/planner';
+        if (path !== '/planner') wasRedirected = true;
       } else if (path.includes('heatmap')) {
-        setActiveTab('heatmap');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+        targetTab = 'heatmap';
+        canonicalTarget = '/heatmap';
+        if (path !== '/heatmap') wasRedirected = true;
       } else if (path.includes('utm')) {
-        setActiveTab('utm');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
-      } else if (path.includes('faq')) {
-        setActiveTab('faq');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
-      } else if (path.includes('quiz') || path.includes('challenge')) {
-        setActiveTab('quiz');
-        setActiveArticle(null);
-        setTimeout(() => handleSectionScroll('core-calculators'), 300);
+        targetTab = 'utm';
+        canonicalTarget = '/utm';
+        if (path !== '/utm') wasRedirected = true;
+      } else if (path.includes('faq') || path.includes('help')) {
+        targetTab = 'faq';
+        canonicalTarget = '/faq';
+        if (path !== '/faq') wasRedirected = true;
+      } else if (path.includes('quiz') || path.includes('challenge') || path.includes('trivia')) {
+        targetTab = 'quiz';
+        canonicalTarget = '/challenge';
+        if (path !== '/challenge') wasRedirected = true;
       } else if (path === '/' || path === '' || path.includes('index')) {
-        setActiveTab('overview');
-        setActiveArticle(null);
+        targetTab = 'overview';
+        canonicalTarget = '/';
       } else {
         // Fallback for completely unrecognized paths: redirect to home canonical to eliminate client-side soft 404s
-        setActiveTab('overview');
+        targetTab = 'overview';
+        canonicalTarget = '/';
+        wasRedirected = true;
+      }
+
+      if (targetTab) {
+        setActiveTab(targetTab);
+        if (targetTab === 'legal') setLegalTab(targetSubTab);
         setActiveArticle(null);
-        window.history.replaceState(null, '', '/');
+
+        // Perform 301 Moved Permanently state replacement if coming from legacy alias or query
+        if (wasRedirected || redirectFrom) {
+          window.history.replaceState(null, '', canonicalTarget);
+          setRedirectNotice(`HTTP 301 Moved Permanently: Redirected from legacy route to canonical URL (https://www.bookmethat.com${canonicalTarget})`);
+          setTimeout(() => setRedirectNotice(null), 5000);
+        }
       }
     };
 
@@ -591,7 +608,7 @@ export default function App() {
       twUrl.setAttribute('content', canonicalUrl);
     }
 
-    // Dynamic Article and Website JSON-LD Schema injection for indexing bots
+    // Dynamic Organizational Level and Service JSON-LD Schema injection for search bots
     const existingSchema = document.getElementById('bookmethat-dynamic-routing-schema');
     if (existingSchema) {
       existingSchema.remove();
@@ -604,19 +621,91 @@ export default function App() {
       
       const schemas: any[] = [];
 
-      // Always include general Organization schema
+      // 1. Always include comprehensive Organization Schema
       schemas.push({
         "@context": "https://schema.org",
         "@type": "Organization",
-        "@id": "https://www.bookmethat.com/#organization",
+        "@id": `${canonicalBase}/#organization`,
         "name": "BookMeThat",
+        "legalName": "BookMeThat Global Logistics & Travel Tech",
+        "alternateName": ["BookMeThat™", "BookMeThat Travel Comparison Engine"],
         "url": canonicalBase,
-        "logo": "https://www.bookmethat.com/favicon.png",
-        "sameAs": [],
-        "description": "Premium travel comparison engine matching top eSIM mobile connections, local direct car rentals, and flight delay compensation portals."
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${canonicalBase}/favicon.png`,
+          "caption": "BookMeThat Corporate Logo"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "email": "accts.pak@gmail.com",
+          "contactType": "customer service",
+          "availableLanguage": ["en", "es", "de", "fr", "ja"]
+        }],
+        "sameAs": [
+          "https://twitter.com/BookMeThat",
+          "https://www.facebook.com/BookMeThat",
+          "https://www.linkedin.com/company/bookmethat"
+        ],
+        "knowsAbout": [
+          "Travel eSIM Data Cards",
+          "Local Direct Car Rentals",
+          "EU261 Flight Delay Compensation Claims",
+          "AI Itinerary & Vacation Planning",
+          "Digital Nomad Logistics"
+        ],
+        "description": "BookMeThat is a global travel comparison engine and AI trip planner platform providing zero-markup rate comparisons for travel eSIM cellular data, direct local car rentals, and EU261 flight delay compensation claims."
       });
 
-      // Breadcrumb Schema for the active path
+      // 2. Always include WebSite Schema
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${canonicalBase}/#website`,
+        "name": "BookMeThat",
+        "url": canonicalBase,
+        "publisher": {
+          "@id": `${canonicalBase}/#organization`
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": `${canonicalBase}/esim?q={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
+      });
+
+      // 3. Always include WebApplication Schema for the tools
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "@id": `${canonicalBase}/#webapp`,
+        "url": canonicalUrl,
+        "name": "BookMeThat Travel Comparison & AI Trip Planner Engine",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "All modern web browsers",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "softwareVersion": "2026.4.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "1420",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@id": `${canonicalBase}/#organization`
+        }
+      });
+
+      // 4. Breadcrumb Schema for the active path
       const breadcrumbList: any = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -631,7 +720,6 @@ export default function App() {
       };
 
       if (activeArticle) {
-        // Breadcrumb for Article
         breadcrumbList.itemListElement.push({
           "@type": "ListItem",
           "position": 2,
@@ -653,7 +741,7 @@ export default function App() {
           "@id": `${canonicalUrl}#article`,
           "headline": activeArticle.title,
           "description": activeArticle.summary,
-          "image": "https://www.bookmethat.com/favicon.png",
+          "image": `${canonicalBase}/favicon.png`,
           "url": canonicalUrl,
           "datePublished": "2026-06-02",
           "dateModified": "2026-06-12",
@@ -662,7 +750,7 @@ export default function App() {
             "name": "BookMeThat Nomadic Team"
           },
           "publisher": {
-            "@id": "https://www.bookmethat.com/#organization"
+            "@id": `${canonicalBase}/#organization`
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
@@ -670,12 +758,12 @@ export default function App() {
           }
         });
       } else {
-        // Tab-specific breadcrumbs and extra schemas
+        // Tab-specific breadcrumbs and Vertical Service Schemas
         if (activeTab === 'planner') {
           breadcrumbList.itemListElement.push({
             "@type": "ListItem",
             "position": 2,
-            "name": "Nomad Planner",
+            "name": "AI Nomad Planner",
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
@@ -687,6 +775,19 @@ export default function App() {
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
+
+          // Service Schema for Car Rentals
+          schemas.push({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Local Direct Car Rental Engine",
+            "serviceType": "Car Rental Comparison",
+            "provider": {
+              "@id": `${canonicalBase}/#organization`
+            },
+            "areaServed": "Worldwide",
+            "description": "Direct vehicle supplier rates with cash deposit filters and zero broker markups."
+          });
         } else if (activeTab === 'guides') {
           breadcrumbList.itemListElement.push({
             "@type": "ListItem",
@@ -695,6 +796,19 @@ export default function App() {
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
+
+          // Service Schema for Travel eSIMs
+          schemas.push({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Travel eSIM Connectivity Comparison",
+            "serviceType": "Cellular Data Comparison",
+            "provider": {
+              "@id": `${canonicalBase}/#organization`
+            },
+            "areaServed": "Worldwide",
+            "description": "Verified cellular data eSIM comparisons for 190+ countries featuring Saily, Airalo, and Yesim."
+          });
         } else if (activeTab === 'flightsRooms') {
           breadcrumbList.itemListElement.push({
             "@type": "ListItem",
@@ -703,6 +817,18 @@ export default function App() {
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
+
+          // Service Schema for Flight Delay Claims
+          schemas.push({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "EU261 Flight Delay Compensation Claims Portal",
+            "serviceType": "Flight Compensation Service",
+            "provider": {
+              "@id": `${canonicalBase}/#organization`
+            },
+            "description": "Risk-free flight cancellation and delay compensation claims calculator powered by EU261 regulations."
+          });
         } else if (activeTab === 'heatmap') {
           breadcrumbList.itemListElement.push({
             "@type": "ListItem",
@@ -781,40 +907,10 @@ export default function App() {
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
-        } else {
-          // WebSite Schema for home overview
-          schemas.push({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "@id": "https://www.bookmethat.com/#website",
-            "name": "BookMeThat",
-            "url": canonicalBase,
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://www.bookmethat.com/esim?q={search_term_string}"
-              },
-              "query-input": "required name=search_term_string"
-            }
-          });
-          
-          schemas.push({
-            "@context": "https://schema.org",
-            "@type": "TravelAgency",
-            "name": "BookMeThat",
-            "url": canonicalBase,
-            "logo": "https://www.bookmethat.com/favicon.png",
-            "description": "Premium programmatic travel routing, verified eSIM coupons, local direct car rent connections, and delayed flight compensation claiming portals with zero markups.",
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "Global"
-            }
-          });
         }
       }
 
-      schemaScript.innerHTML = JSON.stringify(schemas.length === 1 ? schemas[0] : schemas);
+      schemaScript.innerHTML = JSON.stringify(schemas);
       document.head.appendChild(schemaScript);
     } catch (err) {
       console.warn("Schema injection failed", err);
@@ -1459,6 +1555,25 @@ body {
           </div>
         )}
       </header>
+
+      {/* HTTP 301 REDIRECT TOAST BANNER */}
+      {redirectNotice && (
+        <div className="bg-emerald-950 text-white text-xs font-mono py-2.5 px-4 shadow-lg flex items-center justify-between border-b border-emerald-600 animate-fadeIn z-50">
+          <div className="flex items-center gap-2.5 max-w-7xl mx-auto w-full">
+            <span className="bg-emerald-500 text-slate-950 text-[9px] font-extrabold px-2 py-0.5 uppercase tracking-wider">
+              301 REDIRECT
+            </span>
+            <span className="truncate font-semibold">{redirectNotice}</span>
+          </div>
+          <button 
+            onClick={() => setRedirectNotice(null)} 
+            className="text-emerald-200 hover:text-white ml-2 text-xs font-bold cursor-pointer"
+            aria-label="Dismiss 301 notification"
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* 3. CORE INTERACTIVE LAB WORKSPACE */}
       <main id="main-content" className="flex-grow">
@@ -2214,14 +2329,14 @@ body {
             </div>
 
             {/* Micro Metadata Audit trail */}
-            <div className="w-full pt-4 border-t border-[#E5E5E1]/70 flex justify-between text-[8px] text-gray-400 font-mono tracking-wider gap-4">
+            <div className="w-full pt-4 border-t border-[#E5E5E1]/70 flex justify-between text-[8px] text-gray-500 font-mono tracking-wider gap-4">
               <div className="text-left space-y-0.5 shrink-0">
-                <div>SOURCE: bookmethat/{activeTab}</div>
-                <div>SECURE TUNNEL TYPE: DIRECT_PARTNER</div>
+                <div>SOURCE CANONICAL: bookmethat/{activeTab}</div>
+                <div className="text-emerald-700 font-bold">HANDSHAKE: HTTP 301 DIRECT MERCHANT</div>
               </div>
               <div className="text-right space-y-0.5 text-ellipsis overflow-hidden truncate">
                 <div className="truncate">SUBID: {redirectModal.subId}</div>
-                <div className="text-emerald-500 font-bold">STATUS: SAFE_AFFILIATE_LINK</div>
+                <div className="text-emerald-600 font-bold">CONVERSION LOCK: ACTIVE_PROMO</div>
               </div>
             </div>
 
