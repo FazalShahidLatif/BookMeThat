@@ -4,14 +4,14 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "bookmethat.com"
         }
       ],
-      "destination": "https://www.bookmethat.com/:path*",
+      "destination": "https://www.bookmethat.com/$1",
       "permanent": true
     },
     { "source": "/esims", "destination": "/esim", "permanent": true },
@@ -28,17 +28,21 @@
   ],
   "rewrites": [
     {
-      "source": "/(favicon.png|sitemap.xml|robots.txt)",
+      "source": "/(favicon.png|sitemap.xml|robots.txt|llms.txt|llms-full.txt)",
       "destination": "/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/((?!assets/|favicon.png|sitemap.xml|robots.txt|llms.txt|llms-full.txt).*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/(favicon.png|sitemap.xml|robots.txt)",
+      "source": "/(favicon.png|sitemap.xml|robots.txt|llms.txt|llms-full.txt)",
       "headers": [
         {
           "key": "Cache-Control",
