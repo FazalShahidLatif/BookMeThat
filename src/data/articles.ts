@@ -1358,7 +1358,7 @@ export const ARTICLES: Article[] = [
       <ul>
         <li>Compare stand-alone costs with dynamic packages inside separate browser incognito tabs.</li>
         <li>Always add hotel stay parameters, even if you only need the room for part of your vacation trip, to trigger package-level discounts.</li>
-        <li>For more strategies, read our <a href="/expedia-hotel-bundle-secret-unlocked" class="text-brand-orange hover:underline">Expedia Bundle Optimization Guides</a>.</li>
+        <li>For more strategies, read our <a href="/expedia-hotel-flight-cart-bundling-hacks" class="text-brand-orange hover:underline">Expedia Bundle Optimization Guides</a>.</li>
       </ul>
     `
   },

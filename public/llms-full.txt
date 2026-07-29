@@ -1,72 +1,122 @@
 # BookMeThat™ | Travel eSIM, Car Rental & Flight Delay Comparison — Full LLM Index
 
-> In-depth editorial analyses, tested travel rate benchmarks, step-by-step tutorial setups, and partner integration pathways.
+> In-depth editorial analyses, tested travel rate benchmarks, step-by-step tutorial setups, passenger rights blueprints, zero-fee cash withdrawal hacks, and partner integration pathways for AI search engines and agents.
 
 ---
 
-## 📱 eSIM Connectivity Comparison Benchmarks (2026)
+## 📱 eSIM Connectivity & Cellular Comparison Benchmarks (2026)
 
-### Saily vs. Airalo vs. Yesim vs. Holafly
+### Saily vs. Airalo vs. Yesim vs. Drimsim
+- **Saily (Nord Security)**: Fast, lightweight interface, lowest price-per-GB in Europe/Asia, top-tier local carrier connections (TIM Italy, Chunghwa Taiwan, Spark NZ). Low latency under 120ms.
+- **Airalo**: Extensive global/regional bundles, automatic top-ups, reliable tier-1 network coverage.
+- **Yesim**: Flexible multi-country regional plans and non-expiring pay-as-you-go data profiles.
+- **Drimsim**: True global plastic/eSIM pay-as-you-go per-MB billing without pre-purchased bundles.
 
-#### Saily
-- **Parent Company**: Nord Security (NordVPN)
-- **Strengths**: Extremely fast and light user interface, lowest price-per-gigabyte in most regions, stellar customer support.
-- **Testing Results**: Consistently connected to premier local tier-1 carriers (TIM in Italy, Chunghwa Telecom in Taiwan). Low latency (under 120ms).
-- **Ideal For**: Budget travelers wanting reliable 5G connections without complexity.
-
-#### Airalo
-- **Parent Company**: Lvyest Technology
-- **Strengths**: Extensive selection of regional and global plans, user-friendly auto-top-up, reliable local networks.
-- **Testing Results**: Excellent coverage, though pricing is 10-15% higher than Saily per GB.
-- **Ideal For**: Travelers needing multiple eSIMs across varied global itineraries with a unified interface.
-
-#### Yesim
-- **Strengths**: Multi-country regional plans (especially Europe/Asia) and pay-as-you-go eSIM profiles that never expire.
-- **Testing Results**: High-bandwidth performance on LTE/5G.
-- **Ideal For**: Digital nomads moving frequently across borders on short notice.
+### Dual-SIM Setup to Keep Home Number Active for 2FA SMS
+1. **Home SIM Configuration**: Keep domestic physical SIM or eSIM active for calls/SMS; turn on Wi-Fi Calling.
+2. **Travel eSIM Data Configuration**: Set Travel eSIM as primary Mobile Data line. Enable Data Roaming ONLY on Travel eSIM line.
+3. **Prevent Billing Shock**: Turn Data Roaming OFF on domestic line. Use IMS/Backup Calling to tunnel home OTP SMS over the Travel eSIM data connection for free.
 
 ---
 
 ## 🚗 Car & Vehicle Rental Optimization Strategy
 
 ### Renting without a Credit Card Deposit via Localrent
-Most global car rental agencies require a physical, embossed credit card under the main driver's name with a $1,000 to $3,000 credit limit hold to cover deposits. This is a severe bottleneck for many travelers.
-**The Solution: Localrent**
-- **Silo**: Balkans, Georgia, UAE, Turkey, Greece.
-- **Policy**: Connects directly with local family-owned rental agencies.
-- **No Deposit Option**: Allows filtering vehicles that require zero deposit, or deposit in cash/debit cards.
-- **Transparency**: The car model, color, year of manufacturing, and transmission type are exactly what you get upon booking.
+- **Regions**: Balkans (Montenegro, Albania), Georgia, UAE, Turkey, Greece, Armenia.
+- **Direct Local Fleet**: Connects directly with verified family-owned local rental providers.
+- **Deposit Flexibility**: Filter cars requiring zero deposit or accepting debit cards / cash deposits upon delivery.
+- **Guaranteed Model**: What you see is exact car year, color, transmission, and engine model delivered.
+
+### Price Drop Protection via QEEQ & GetTransfer Chauffeurs
+- **QEEQ**: Tracks reservation prices continuously and auto-rebooks if rental rates drop prior to pickup.
+- **GetTransfer**: Auction-based bidding system for private airport transfers and long-distance drivers.
 
 ---
 
 ## ✈️ Flight Delay Restitution and Passenger Rights
 
-### EU Regulation 261/2004 (EU261)
-- **Applies to**: Flights departing from an EU airport (any airline), or arriving in the EU from outside (if operated by an EU airline).
-- **Compensation Amount**:
-  - Distance <= 1500 km: **€250**
-  - Distance 1500 - 3500 km: **€400**
-  - Distance > 3500 km: **€600**
-- **Required Delay**: Must arrive at the final destination 3+ hours later than scheduled.
-- **Extraordinary Circumstances**: Compensation is not required if the delay was caused by weather, air traffic control strikes, or political instability. Technical issues or airline crew shortages are NOT extraordinary.
+### EU Regulation 261/2004 (EU261 / UK261)
+- **Eligibility**: Departures from EU/UK airports on any airline, or arrivals in EU/UK on EU/UK-flagged carriers.
+- **Payout Structure**:
+  - Flights under 1,500 km: **€250** ($270)
+  - Flights 1,500 km to 3,500 km: **€400** ($435)
+  - Flights over 3,500 km (delayed 4+ hours): **€600** ($650)
+- **Delays**: Required 3+ hour delay at final destination gate. Technical defects and crew shortages are NOT extraordinary circumstances.
 
-### US Department of Transportation (DOT) Rules (2026 update)
-- **Refund Mandate**: Automatic cash refunds are required if a flight is canceled or significantly delayed, and the passenger chooses not to travel.
-- **Significant Delay Definition**: 3+ hours for domestic US flights; 6+ hours for international flights.
-- **Baggage Fee Refund**: Mandatory if checked luggage is not delivered within 12 hours (domestic) or 15-30 hours (international) of filing a claim.
+### US Department of Transportation (DOT) Cash Refund Rules
+- **Automatic Refunds**: Mandatory cash refunds for canceled or significantly altered flights (3+ hours domestic, 6+ hours international) when passenger declines alternative flight.
+- **Baggage Fee Refunds**: Required if checked luggage is not delivered within 12 hours (domestic) or 15-30 hours (international).
+
+### Claim Assistance Providers: AirHelp vs Compensair
+- **AirHelp**: High enforcement success rate, legal representation in European courts, subscription flight protection options.
+- **Compensair**: Lower success commission rates (typically 25-30%), fast processing, cover both EU261 and Turkish SHY-PASS claims.
 
 ---
 
-## 🛠️ Essential Setup Guides
+## 💳 Foreign Exchange & Zero-Fee Cash Withdrawals
 
-### 1. Step-by-Step eSIM Installation Guide
-1. **Purchase on Wi-Fi**: Buy the eSIM from the provider (e.g., Saily) prior to departure.
-2. **Scan/Install QR**: Go to Cellular/Mobile Data settings -> Add eSIM. Scan the provided QR code or paste the activation code manually.
-3. **Label eSIM**: Label the new line "Travel eSIM".
-4. **Configure Lines**: Keep your primary SIM active for calls/SMS (if needed for OTPs) but change "Mobile Data" to "Travel eSIM".
-5. **Enable Data Roaming**: Toggle "Data Roaming" ON for the Travel eSIM line. Keep data roaming OFF for your home line to prevent billing shocks.
+### How to Withdraw Foreign Cash with Zero Fees
+1. **Multi-Currency Cards**: Use Wise or Revolut debit cards offering mid-market exchange rates without standard 3% bank foreign exchange markups.
+2. **Decline Dynamic Currency Conversion (DCC)**: When using an overseas ATM or card reader, ALWAYS select to be charged in the LOCAL CURRENCY (e.g., EUR, JPY, THB), NOT your home currency (USD/GBP/EUR). Selecting home currency triggers DCC markups of 6% to 14%.
+3. **Fee-Free ATM Networks**: Seek out partner ATMs (e.g., Schwab, Fidelity, or local non-fee bank ATMs like Schwab/Wise preferred partners).
 
-### 2. Dual-SIM Setup to Keep Home Number Active for 2FA SMS
-1. **Home SIM Setup**: Convert your physical home SIM to an eSIM if possible, or keep it in the physical tray. Turn on Wi-Fi Calling on your home line.
-2. **eSIM Data Setup**: Install the travel eSIM and set it as the primary data channel.
-3. **Avoid International Roaming**: In cellular settings under your home line, disable data roaming and set the network selection to automatic. Some carriers allow Wi-Fi Calling to tunnel through the data channel of your second SIM (e.g., "IMS" on iPhone or Backup Calling on Pixel), letting you receive text OTPs completely free abroad.
+---
+
+## 🛠️ Complete Article & Hub Path Registry (All Indexable URLs)
+
+- Main Homepage: `https://www.bookmethat.com/`
+- Nomad Itinerary Planner: `https://www.bookmethat.com/planner`
+- Car & Scooter Calculator: `https://www.bookmethat.com/car-rental`
+- eSIM Deals Hub: `https://www.bookmethat.com/esim`
+- Flight Delay Restitution: `https://www.bookmethat.com/flights`
+- AI Keyword Heatmap: `https://www.bookmethat.com/heatmap`
+- Compliance & UTM Builder: `https://www.bookmethat.com/utm`
+- Travel FAQ Desk: `https://www.bookmethat.com/faq`
+- Nomad IQ Challenge: `https://www.bookmethat.com/challenge`
+- About / FTC Compliance: `https://www.bookmethat.com/about`
+- Privacy Policy: `https://www.bookmethat.com/privacy`
+- Terms of Service: `https://www.bookmethat.com/terms`
+- AI SEO Matrix: `https://www.bookmethat.com/ai-seo`
+- Contact & Impressum: `https://www.bookmethat.com/contact`
+
+### Articles
+- `https://www.bookmethat.com/best-esim-italy`
+- `https://www.bookmethat.com/ultimate-global-travel-connectivity-blueprint`
+- `https://www.bookmethat.com/saily-vs-airalo-esim-speed-performance-test`
+- `https://www.bookmethat.com/yesim-mobile-deep-dive-review-unlimited-data`
+- `https://www.bookmethat.com/keep-home-number-active-abroad-otp-sms-guide`
+- `https://www.bookmethat.com/step-by-step-esim-installation-manual`
+- `https://www.bookmethat.com/cheap-regional-esim-southeat-asia-europe`
+- `https://www.bookmethat.com/drimsim-vs-airalo-saily-esim-roaming`
+- `https://www.bookmethat.com/best-regional-esim-southeast-asia-saily-tour`
+- `https://www.bookmethat.com/international-ground-logistics-car-rental-transfers`
+- `https://www.bookmethat.com/localrent-cars-review-no-credit-card-deposits`
+- `https://www.bookmethat.com/gettransfer-airport-chauffeurs-bidding-guide`
+- `https://www.bookmethat.com/qeeq-car-rental-price-drop-protection-secrets`
+- `https://www.bookmethat.com/renting-cars-montenegro-greece-georgia-safety`
+- `https://www.bookmethat.com/localrent-car-hire-secrets-balkans-georgia`
+- `https://www.bookmethat.com/localrent-georgia-tbilisi-car-rental-reviews-model`
+- `https://www.bookmethat.com/road-trip-budget-car-scooter-rental-comparison`
+- `https://www.bookmethat.com/smart-jetsetter-booking-savings-compensation-playbook`
+- `https://www.bookmethat.com/airhelp-flight-delay-compensation-eu261-guide`
+- `https://www.bookmethat.com/expedia-vacation-bundle-deals-and-hacks`
+- `https://www.bookmethat.com/flight-canceled-terminal-emergency-action-plan`
+- `https://www.bookmethat.com/passenger-rights-north-america-asia-pacific-flights`
+- `https://www.bookmethat.com/expedia-hotel-flight-cart-bundling-hacks`
+- `https://www.bookmethat.com/expedia-discount-dynamic-bundling-algorithm-hacks`
+- `https://www.bookmethat.com/save-sightseeing-klook-gocity-passes`
+- `https://www.bookmethat.com/flight-delay-compensation-compensair-airhelp`
+- `https://www.bookmethat.com/claiming-flight-reimbursement-us-dot-vs-eu261`
+- `https://www.bookmethat.com/digital-nomad-armor-banking-vpn-insurance-blueprint`
+- `https://www.bookmethat.com/wise-borderless-debit-card-review-forex-savings`
+- `https://www.bookmethat.com/nordvpn-travel-security-airport-wifi-geo-arbitrage`
+- `https://www.bookmethat.com/world-nomads-adventure-travel-insurance-unbiased-review`
+- `https://www.bookmethat.com/freelance-business-global-banking-while-traveling`
+- `https://www.bookmethat.com/luggage-storage-radical-storage-guide`
+- `https://www.bookmethat.com/wise-vs-revolut-multi-currency-travel-card-fees`
+- `https://www.bookmethat.com/how-to-withdraw-foreign-currency-cash-with-zero-fees`
+- `https://www.bookmethat.com/travelpayouts-rpm-masterclass`
+- `https://www.bookmethat.com/travelpayouts-operational-blueprint`
+- `https://www.bookmethat.com/travelpayouts-destination-guide`
+- `https://www.bookmethat.com/travelpayouts-tech-automation`
+- `https://www.bookmethat.com/travelpayouts-esim-growth-loop`

@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     {
@@ -28,21 +27,17 @@
   ],
   "rewrites": [
     {
-      "source": "/(favicon.png|sitemap.xml|robots.txt|llms.txt|llms-full.txt)",
+      "source": "/(favicon.png|sitemap.xml|sitemap.xsl|robots.txt|llms.txt|llms-full.txt)",
       "destination": "/$1"
     },
     {
-      "source": "/((?!assets/|favicon.png|sitemap.xml|robots.txt|llms.txt|llms-full.txt).*)",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/:path*",
       "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/(favicon.png|sitemap.xml|robots.txt|llms.txt|llms-full.txt)",
+      "source": "/(favicon.png|sitemap.xml|sitemap.xsl|robots.txt|llms.txt|llms-full.txt)",
       "headers": [
         {
           "key": "Cache-Control",

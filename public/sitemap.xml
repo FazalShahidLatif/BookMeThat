@@ -4,31 +4,39 @@
   <!-- Main Platform Entrypoint -->
   <url>
     <loc>https://www.bookmethat.com/</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Interactive Nomad Planner -->
   <url>
     <loc>https://www.bookmethat.com/planner</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Car & eSIM Cost Estimator -->
+  <!-- Car & Scooter Cost Estimator -->
   <url>
     <loc>https://www.bookmethat.com/car-rental</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Topical SEO Silos / Guides Hub -->
+  <!-- Travel eSIM Deals Hub -->
   <url>
     <loc>https://www.bookmethat.com/esim</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Flight Delay Compensation Portal -->
+  <url>
+    <loc>https://www.bookmethat.com/flights</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -36,7 +44,7 @@
   <!-- AI Keyword Potential Heatmap -->
   <url>
     <loc>https://www.bookmethat.com/heatmap</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -44,55 +52,55 @@
   <!-- AdSense & UTM Tracker -->
   <url>
     <loc>https://www.bookmethat.com/utm</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Travel & eSIM Search Intelligence FAQ Helpdesk -->
+  <!-- Travel FAQ Helpdesk -->
   <url>
     <loc>https://www.bookmethat.com/faq</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- 60-Second Nomad IQ Interactive Challenge -->
+  <!-- Nomad IQ Challenge -->
   <url>
     <loc>https://www.bookmethat.com/challenge</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- FTC Compliance Desk -->
+  <!-- About / FTC Compliance -->
   <url>
     <loc>https://www.bookmethat.com/about</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- GDPR Privacy Cookie Rules -->
+  <!-- Privacy Policy -->
   <url>
     <loc>https://www.bookmethat.com/privacy</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Terms and Services of Use -->
+  <!-- Terms of Service -->
   <url>
     <loc>https://www.bookmethat.com/terms</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Modern AI SEO Ecosystem Matrix Policy -->
+  <!-- AI SEO Ecosystem Matrix Policy -->
   <url>
     <loc>https://www.bookmethat.com/ai-seo</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -100,7 +108,7 @@
   <!-- Contact & Impressum Desk -->
   <url>
     <loc>https://www.bookmethat.com/contact</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -110,49 +118,61 @@
        ========================================== -->
   <url>
     <loc>https://www.bookmethat.com/best-esim-italy</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/ultimate-global-travel-connectivity-blueprint</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/saily-vs-airalo-esim-speed-performance-test</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/yesim-mobile-deep-dive-review-unlimited-data</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/keep-home-number-active-abroad-otp-sms-guide</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/step-by-step-esim-installation-manual</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/cheap-regional-esim-southeat-asia-europe</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/drimsim-vs-airalo-saily-esim-roaming</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/best-regional-esim-southeast-asia-saily-tour</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/travelpayouts-esim-growth-loop</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -162,37 +182,43 @@
        ========================================== -->
   <url>
     <loc>https://www.bookmethat.com/international-ground-logistics-car-rental-transfers</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/localrent-cars-review-no-credit-card-deposits</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/gettransfer-airport-chauffeurs-bidding-guide</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/qeeq-car-rental-price-drop-protection-secrets</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/renting-cars-montenegro-greece-georgia-safety</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/localrent-car-hire-secrets-balkans-georgia</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/localrent-georgia-tbilisi-car-rental-reviews-model</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -202,107 +228,143 @@
        ========================================== -->
   <url>
     <loc>https://www.bookmethat.com/smart-jetsetter-booking-savings-compensation-playbook</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/airhelp-flight-delay-compensation-eu261-guide</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/expedia-vacation-bundle-deals-and-hacks</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/flight-canceled-terminal-emergency-action-plan</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/passenger-rights-north-america-asia-pacific-flights</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/expedia-hotel-flight-cart-bundling-hacks</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/expedia-discount-dynamic-bundling-algorithm-hacks</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/save-sightseeing-klook-gocity-passes</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/flight-delay-compensation-compensair-airhelp</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/claiming-flight-reimbursement-us-dot-vs-eu261</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <!-- ==========================================
-       SILO 4: UTILITY & SECURITY
+       SILO 4: UTILITY, BANKING & SECURITY
        ========================================== -->
   <url>
     <loc>https://www.bookmethat.com/digital-nomad-armor-banking-vpn-insurance-blueprint</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/wise-borderless-debit-card-review-forex-savings</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/nordvpn-travel-security-airport-wifi-geo-arbitrage</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/world-nomads-adventure-travel-insurance-unbiased-review</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/freelance-business-global-banking-while-traveling</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/road-trip-budget-car-scooter-rental-comparison</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/luggage-storage-radical-storage-guide</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.bookmethat.com/wise-vs-revolut-multi-currency-travel-card-fees</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/how-to-withdraw-foreign-currency-cash-with-zero-fees</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/travelpayouts-rpm-masterclass</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/travelpayouts-operational-blueprint</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/travelpayouts-destination-guide</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/travelpayouts-tech-automation</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>

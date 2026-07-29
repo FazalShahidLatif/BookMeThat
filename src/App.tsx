@@ -408,16 +408,22 @@ export default function App() {
       const tabQuery = searchParams.get('tab');
       const redirectFrom = searchParams.get('redirect_from') || searchParams.get('ref');
 
-      // Check if there is a direct match for any of our article slugs in path or query parameters
+      // Check if there is a direct match for any of our article slugs or IDs in path or query parameters
       const matchedArticle = ARTICLES.find(art => 
         path.includes(art.slug.toLowerCase()) || 
-        (articleQuery && articleQuery.toLowerCase() === art.slug.toLowerCase()) ||
-        (articleQuery && articleQuery.toLowerCase() === art.id.toLowerCase())
+        path.includes(art.id.toLowerCase()) ||
+        (articleQuery && (articleQuery.toLowerCase() === art.slug.toLowerCase() || articleQuery.toLowerCase() === art.id.toLowerCase()))
       );
 
       if (matchedArticle) {
         setActiveTab('guides');
         setActiveArticle(matchedArticle);
+        const canonicalArticlePath = `/${matchedArticle.slug}`;
+        if (window.location.pathname.toLowerCase() !== canonicalArticlePath.toLowerCase()) {
+          window.history.replaceState(null, '', canonicalArticlePath);
+          setRedirectNotice(`HTTP 301 Moved Permanently: Redirected to canonical article URL (https://www.bookmethat.com${canonicalArticlePath})`);
+          setTimeout(() => setRedirectNotice(null), 5000);
+        }
         setTimeout(() => handleSectionScroll('core-calculators'), 300);
         return;
       }
