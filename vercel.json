@@ -12,19 +12,19 @@
         }
       ],
       "destination": "https://www.bookmethat.com/$1",
-      "permanent": true
+      "statusCode": 301
     },
-    { "source": "/esims", "destination": "/esim", "permanent": true },
-    { "source": "/eSIM", "destination": "/esim", "permanent": true },
-    { "source": "/connectivity", "destination": "/esim", "permanent": true },
-    { "source": "/car-rentals", "destination": "/car-rental", "permanent": true },
-    { "source": "/cars", "destination": "/car-rental", "permanent": true },
-    { "source": "/flight", "destination": "/flights", "permanent": true },
-    { "source": "/about-us", "destination": "/about", "permanent": true },
-    { "source": "/disclosure", "destination": "/about", "permanent": true },
-    { "source": "/impressum", "destination": "/contact", "permanent": true },
-    { "source": "/support", "destination": "/contact", "permanent": true },
-    { "source": "/sitemap", "destination": "/sitemap.xml", "permanent": true }
+    { "source": "/esims", "destination": "/esim", "statusCode": 301 },
+    { "source": "/eSIM", "destination": "/esim", "statusCode": 301 },
+    { "source": "/connectivity", "destination": "/esim", "statusCode": 301 },
+    { "source": "/car-rentals", "destination": "/car-rental", "statusCode": 301 },
+    { "source": "/cars", "destination": "/car-rental", "statusCode": 301 },
+    { "source": "/flight", "destination": "/flights", "statusCode": 301 },
+    { "source": "/about-us", "destination": "/about", "statusCode": 301 },
+    { "source": "/disclosure", "destination": "/about", "statusCode": 301 },
+    { "source": "/impressum", "destination": "/contact", "statusCode": 301 },
+    { "source": "/support", "destination": "/contact", "statusCode": 301 },
+    { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 301 }
   ],
   "rewrites": [
     {

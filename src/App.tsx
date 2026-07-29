@@ -3,7 +3,8 @@ import {
   Compass, Smartphone, Car, Shield, BadgePercent, BookOpen, 
   Settings, ExternalLink, Menu, X, ArrowRight, Zap, CheckCircle,
   Code, Copy, Eye, Star, Users, Flame, Clock, Terminal, Check,
-  Cpu, Activity, Gauge, Globe, Sparkles, RefreshCw, Layers, Sliders, Send, Database
+  Cpu, Activity, Gauge, Globe, Sparkles, RefreshCw, Layers, Sliders, Send, Database,
+  ChevronUp
 } from 'lucide-react';
 import { AFFILIATES, KEYWORD_CLUSTERS } from './data/affiliates';
 import { ARTICLES } from './data/articles';
@@ -60,6 +61,26 @@ export default function App() {
   };
 
   const [isScrolling, setIsScrolling] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [legalTab, setLegalTab] = useState<'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum'>('disclosure');
@@ -2342,6 +2363,18 @@ body {
 
           </div>
         </div>
+      )}
+
+      {/* FLOATING SCROLL TO TOP BUTTON */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-40 p-3.5 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-full shadow-[0_10px_25px_-5px_rgba(229,91,19,0.5)] transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/30 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 flex items-center justify-center group cursor-pointer animate-in fade-in zoom-in-75 duration-200"
+          aria-label="Scroll to top"
+          title="Scroll to top"
+        >
+          <ChevronUp className="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-0.5" />
+        </button>
       )}
 
     </div>
