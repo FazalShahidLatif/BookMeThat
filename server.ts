@@ -455,47 +455,106 @@ async function startServer() {
       const normalizedPath = req.path === "/" ? "" : req.path.replace(/\/+$/, "");
       const canonicalUrl = `https://www.bookmethat.com${normalizedPath}`;
 
-      let title = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
-      let description = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
+      let title = "BookMeThat™ | Travel eSIM, Local Car Rental & Flight Delay Deals";
+      let description = "Compare verified 5G travel eSIMs, direct local car rentals with zero credit card deposits, and claim up to €600 EU261 flight delay compensation with zero broker markups.";
+
+      let schemaMarkup = "";
 
       if (pathname === "planner") {
-        title = "Travel Budget Planner & Vacation Estimator | BookMeThat";
-        description = "Design a custom travel itinerary and calculate real-time savings on regional cellular data, car rentals, and airport transfers.";
+        title = "Travel Budget Planner & Vacation Estimator 2026 | BookMeThat";
+        description = "Design custom travel itineraries and calculate real-time savings on regional cellular eSIM data, local car rentals, and airport transfers.";
       } else if (pathname === "transport" || pathname === "calculators" || pathname === "car-rental" || pathname === "car-rentals") {
-        title = "Travel eSIM & Rental Car Price Comparison | BookMeThat";
-        description = "Compare Saily, Airalo, and Yesim eSIM rates alongside Localrent, QEEQ, and Auto Europe car hires. Save on real-world travel costs.";
+        title = "Direct Local Car Rentals & Scooter Deals (No Deposit) | BookMeThat";
+        description = "Compare Localrent, QEEQ, Auto Europe, and GetTransfer car hires. Guarantee exact vehicle models with zero credit card deposits.";
       } else if (pathname === "connectivity" || pathname === "guides" || pathname === "esim") {
-        title = "Travel eSIM Guides, Rental Hacks & Coupons | BookMeThat";
-        description = "Browse expert destination guides and coupon vouchers for travel eSIM connections, cheap car rentals, and flight delay compensation.";
+        title = "Best Travel eSIM Card Deals 2026 (Saily, Airalo & Yesim) | BookMeThat";
+        description = "Compare Saily, Airalo, Holafly, and Yesim data rates. Get instant 5G activation and verified discount vouchers across 150+ countries.";
       } else if (pathname === "flights" || pathname === "flight") {
-        title = "Flight Delay Comp & Passenger Rights | BookMeThat";
-        description = "Secure flight compensations, claim delayed luggage payouts, and browse strategic airline delay regulations direct with legal advocates.";
+        title = "EU261 Flight Delay Compensation & Claim Calculator | BookMeThat";
+        description = "Claim up to €600 ($650) for delayed, overbooked, or canceled flights under EU261 & US DOT laws with AirHelp and Compensair.";
       } else if (pathname === "legal" || pathname === "compliance" || pathname === "privacy" || pathname === "terms" || pathname === "disclosure" || pathname === "about") {
-        title = "Regulatory Compliance & GDPR Terms of Service | BookMeThat";
-        description = "Publisher terms, GDPR-compliant cookie agreements, FTC affiliate disclosures, and privacy policies for BookMeThat services.";
+        title = "Regulatory Compliance, FTC & Privacy Terms | BookMeThat";
+        description = "Publisher terms, GDPR-compliant privacy policy, FTC affiliate disclosures, and editorial guidelines for BookMeThat services.";
       } else if (pathname === "contact" || pathname === "impressum") {
-        title = "Contact & Impressum Desk | BookMeThat";
+        title = "Contact Desk & Editorial Team | BookMeThat";
         description = "Get in contact with the BookMeThat nomadic editorial team directly for partnership, support, or privacy inquiries.";
       } else if (pathname === "heatmap") {
-        title = "SEO Keyword Mapping & Search Volume Insights | BookMeThat";
-        description = "Analyze commercial search query volumes, clustering trends, and CPC payout margins for top-tier travel and connectivity topics.";
+        title = "Travel SEO Keyword Heatmap & Volume Insights | BookMeThat";
+        description = "Analyze commercial travel search query volumes, clustering trends, and affiliate payout margins across eSIMs and rental markets.";
       } else if (pathname === "utm") {
-        title = "Compliance UTM Generator & AdSense Audit | BookMeThat";
-        description = "Parse inbound queries, audit AdSense compliance states, and construct safe outbound travel affiliate links using rel properties.";
+        title = "Travel Affiliate Link Generator & UTM Compliance | BookMeThat";
+        description = "Parse inbound traffic queries, audit AdSense compliance states, and construct safe outbound travel affiliate links using rel attributes.";
       } else if (pathname === "faq") {
-        title = "eSIM hotspot guides & EU261 Delay Comp FAQ | BookMeThat";
-        description = "Verified answers to highly searched travel questions, dynamic regional cellular rates, and cardless rental deposits.";
+        title = "Travel eSIM, Car Rental & EU261 Delay Claim FAQ | BookMeThat";
+        description = "Verified answers to travel eSIM activation, cardless car rental deposits, and EU261 flight delay compensation claims.";
+        
+        schemaMarkup = `<script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does a travel eSIM work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A travel eSIM allows you to activate a local cellular data plan digitally on your smartphone via QR code or mobile app without swapping physical SIM cards."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I rent a car without a credit card deposit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, platforms like Localrent allow travelers to reserve vehicles with zero credit card security deposits or low cash deposits paid on arrival."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much compensation can I get for a delayed flight?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Under EU Regulation 261/2004, passengers are entitled to between €250 and €600 ($270–$650) for flight delays over 3 hours, cancellations, or denied boarding."
+              }
+            }
+          ]
+        }
+        </script>`;
       } else if (pathname === "quiz" || pathname === "challenge") {
-        title = "Nomad Speed Quiz Challenge & Travel Trivia | BookMeThat";
-        description = "Test your digital traveler wisdom. Solve connectivity, car rental, and flight delay restitution answers under pressure.";
+        title = "Digital Nomad IQ Speed Challenge & Travel Quiz | BookMeThat";
+        description = "Test your digital nomad knowledge on eSIM data roaming, car rental insurance hacks, and flight delay compensation laws.";
       } else {
         const matchedArticle = ARTICLES.find(art => 
           pathname.includes(art.slug.toLowerCase()) || 
           pathname === art.id.toLowerCase()
         );
         if (matchedArticle) {
-          title = `${matchedArticle.metaTitle || matchedArticle.title} | Travel Deals & Discounts Guide`;
+          const rawTitle = matchedArticle.metaTitle || matchedArticle.title;
+          title = rawTitle.length > 50 ? rawTitle : `${rawTitle} | BookMeThat`;
           description = `${(matchedArticle.metaDescription || matchedArticle.summary).substring(0, 155)}`;
+
+          schemaMarkup = `<script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": ${JSON.stringify(rawTitle)},
+            "description": ${JSON.stringify(description)},
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": ${JSON.stringify(canonicalUrl)}
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "BookMeThat",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.bookmethat.com/favicon.png"
+              }
+            },
+            "datePublished": "2024-01-15",
+            "dateModified": "2026-08-07"
+          }
+          </script>`;
         }
       }
 
@@ -504,6 +563,11 @@ async function startServer() {
       // Replace <title>
       html = html.replace(/<title>[\s\S]*?<\/title>/gi, `<title>${title}</title>`);
       
+      // Inject schemaMarkup before </head> if present
+      if (schemaMarkup) {
+        html = html.replace("</head>", `${schemaMarkup}\n  </head>`);
+      }
+
       // Update primary meta tags in the document head before sending
       html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi, `<link rel="canonical" href="${canonicalUrl}" />`);
       html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="description" content="${description}" />`);

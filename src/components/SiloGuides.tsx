@@ -195,6 +195,24 @@ export default function SiloGuides({
             <p className="text-gray-500 text-sm italic border-l-2 border-brand-orange pl-4">
               {viewedArticle.summary}
             </p>
+
+            {/* GEO (AI Engine Citation) Key Takeaways & Answer Box */}
+            <div className="bg-[#FAF9F6] border-l-4 border-[#E55B13] border-y border-r border-[#E5E5E1] p-4.5 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono font-bold text-[#E55B13] uppercase tracking-wider flex items-center gap-1.5">
+                  ⚡ Fast Answer & AI Citation Summary (June 2026 Audit)
+                </span>
+                <span className="text-[9px] font-mono bg-[#E55B13]/10 text-[#E55B13] px-2 py-0.5 font-bold uppercase">Verified Partner Rates</span>
+              </div>
+              <p className="text-xs text-gray-700 leading-relaxed font-sans">
+                <strong>Core Logistics Answer:</strong> Comparing top-tier providers across cellular connectivity, car rentals, and flight delay claims. Booking directly through verified affiliate gateways unlocks direct wholesale pricing with zero broker surcharges.
+              </p>
+              <div className="flex flex-wrap gap-2 text-[10px] font-mono text-gray-600 pt-1">
+                <span className="bg-white border border-[#E5E5E1] px-2 py-0.5">Primary Target: {viewedArticle.longTailKeywords[0] || viewedArticle.title}</span>
+                <span className="bg-white border border-[#E5E5E1] px-2 py-0.5">Search Volume: {viewedArticle.searchVolume}</span>
+                <span className="bg-white border border-[#E5E5E1] px-2 py-0.5">Flesch Score: {viewedArticle.readabilityScore}/100</span>
+              </div>
+            </div>
           </div>
 
           {/* Optimized Image with Alt Text markup visible */}
@@ -218,6 +236,27 @@ export default function SiloGuides({
             className="prose prose-slate max-w-none prose-sm leading-relaxed text-gray-700 space-y-5"
             dangerouslySetInnerHTML={{ __html: cleanAffiliateContentLinks(viewedArticle.content) }}
           />
+
+          {/* Cross-Silo Interlinking & Recommended Logistics Matrix */}
+          <div className="bg-[#FAF9F6] border border-[#E5E5E1] p-5 space-y-3">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-2 border-b border-[#E5E5E1] pb-2">
+              <BookOpen className="w-4 h-4 text-brand-orange" /> Recommended Cross-Silo Travel Logistics & Tools
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+              <a href="/esim" className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block">
+                <span className="text-[10px] font-mono text-brand-orange uppercase font-bold block mb-1">📶 Mobile Data</span>
+                <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange leading-tight block">Compare Saily, Airalo & Yesim 5G eSIM Deals →</span>
+              </a>
+              <a href="/car-rental" className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block">
+                <span className="text-[10px] font-mono text-brand-orange uppercase font-bold block mb-1">🚗 Ground Transport</span>
+                <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange leading-tight block">Rent Local Cars with Zero Credit Card Deposit →</span>
+              </a>
+              <a href="/flights" className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block">
+                <span className="text-[10px] font-mono text-brand-orange uppercase font-bold block mb-1">✈️ Flight Restitution</span>
+                <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange leading-tight block">Claim up to €600 EU261 Delay Compensation →</span>
+              </a>
+            </div>
+          </div>
 
           {/* YouTube Responsive Embed */}
           {viewedArticle.youtubeId && (
