@@ -635,7 +635,7 @@ export default function App() {
       twUrl.setAttribute('content', canonicalUrl);
     }
 
-    // Dynamic Organizational Level and Service JSON-LD Schema injection for search bots
+    // Dynamic route-level JSON-LD Schema injection for search bots (Breadcrumbs, Articles, Services, FAQ)
     const existingSchema = document.getElementById('bookmethat-dynamic-routing-schema');
     if (existingSchema) {
       existingSchema.remove();
@@ -648,91 +648,7 @@ export default function App() {
       
       const schemas: any[] = [];
 
-      // 1. Always include comprehensive Organization Schema
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": `${canonicalBase}/#organization`,
-        "name": "BookMeThat",
-        "legalName": "BookMeThat Global Logistics & Travel Tech",
-        "alternateName": ["BookMeThat™", "BookMeThat Travel Comparison Engine"],
-        "url": canonicalBase,
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${canonicalBase}/favicon.png`,
-          "caption": "BookMeThat Corporate Logo"
-        },
-        "contactPoint": [{
-          "@type": "ContactPoint",
-          "email": "accts.pak@gmail.com",
-          "contactType": "customer service",
-          "availableLanguage": ["en", "es", "de", "fr", "ja"]
-        }],
-        "sameAs": [
-          "https://twitter.com/BookMeThat",
-          "https://www.facebook.com/BookMeThat",
-          "https://www.linkedin.com/company/bookmethat"
-        ],
-        "knowsAbout": [
-          "Travel eSIM Data Cards",
-          "Local Direct Car Rentals",
-          "EU261 Flight Delay Compensation Claims",
-          "AI Itinerary & Vacation Planning",
-          "Digital Nomad Logistics"
-        ],
-        "description": "BookMeThat is a global travel comparison engine and AI trip planner platform providing zero-markup rate comparisons for travel eSIM cellular data, direct local car rentals, and EU261 flight delay compensation claims."
-      });
-
-      // 2. Always include WebSite Schema
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": `${canonicalBase}/#website`,
-        "name": "BookMeThat",
-        "url": canonicalBase,
-        "publisher": {
-          "@id": `${canonicalBase}/#organization`
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": `${canonicalBase}/esim?q={search_term_string}`
-          },
-          "query-input": "required name=search_term_string"
-        }
-      });
-
-      // 3. Always include WebApplication Schema for the tools
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "@id": `${canonicalBase}/#webapp`,
-        "url": canonicalUrl,
-        "name": "BookMeThat Travel Comparison & AI Trip Planner Engine",
-        "applicationCategory": "TravelApplication",
-        "operatingSystem": "All modern web browsers",
-        "browserRequirements": "Requires JavaScript. Requires HTML5.",
-        "softwareVersion": "2026.4.0",
-        "offers": {
-          "@type": "Offer",
-          "price": "0.00",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "1420",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@id": `${canonicalBase}/#organization`
-        }
-      });
-
-      // 4. Breadcrumb Schema for the active path
+      // 1. Breadcrumb Schema for the active path
       const breadcrumbList: any = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
