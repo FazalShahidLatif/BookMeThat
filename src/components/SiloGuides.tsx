@@ -360,10 +360,10 @@ export default function SiloGuides({
                 </div>
 
                 <div className="p-5 pt-0 flex items-center justify-between border-t border-[#E5E5E1] mt-3 bg-white group-hover:bg-[#FAF9F6]">
-                  <span className="text-[9px] font-mono text-gray-400">Readability Score: {art.readabilityScore}/100</span>
+                  <span className="text-[9.5px] font-mono text-gray-700 font-medium">Readability Score: {art.readabilityScore}/100</span>
                   <button
                     onClick={() => setViewedArticle(art)}
-                    className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E55B13] hover:text-[#c94d0e] flex items-center gap-1 cursor-pointer"
+                    className="min-h-[44px] text-[10.5px] font-mono font-extrabold uppercase tracking-widest text-[#B84200] hover:text-[#8C3200] flex items-center gap-1.5 cursor-pointer py-2 px-1"
                   >
                     <span>Read Guide</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -373,11 +373,11 @@ export default function SiloGuides({
             ))
           ) : (
             <div className="md:col-span-2 text-center py-12 bg-white rounded-none border border-[#E5E5E1] p-6">
-              <div className="w-12 h-12 border border-[#E5E5E1] text-brand-orange rounded-none flex items-center justify-center mx-auto mb-3 bg-[#FAF9F6]">
+              <div className="w-12 h-12 border border-[#E5E5E1] text-[#B84200] rounded-none flex items-center justify-center mx-auto mb-3 bg-[#FAF9F6]">
                 <BookOpen className="w-4 h-4" />
               </div>
               <h4 className="text-[#1A1A1A] font-serif font-bold text-sm">No items match your search</h4>
-              <p className="text-xs text-gray-450 mt-1">Try toggling to "All Silos" or refining search query keywords.</p>
+              <p className="text-xs text-gray-600 mt-1">Try toggling to "All Silos" or refining search query keywords.</p>
             </div>
           )}
         </div>
@@ -386,8 +386,8 @@ export default function SiloGuides({
       {/* Embedded Popular Merchants Quick Grid for Direct Clicks */}
       <div className="bg-[#F8F7F2] rounded-none border border-[#E5E5E1] p-6 md:p-8 space-y-6">
         <div>
-          <h4 className="text-xs font-mono tracking-widest uppercase text-gray-400 font-bold">Direct Tracking Gateways</h4>
-          <p className="text-xs text-gray-500 mt-1">Skip the articles and access secure affiliate booking portals directly:</p>
+          <h4 className="text-xs font-mono tracking-widest uppercase text-gray-800 font-extrabold">Direct Tracking Gateways</h4>
+          <p className="text-xs text-gray-700 mt-1">Skip the articles and access secure affiliate booking portals directly:</p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -395,10 +395,10 @@ export default function SiloGuides({
             <AffiliateLink 
               key={p.id}
               href={p.url}
-              className="bg-white hover:bg-brand-orange/5 border border-[#E5E5E1] hover:border-brand-orange p-3 rounded-none text-center transition group block"
+              className="bg-white hover:bg-brand-orange/5 border border-[#E5E5E1] hover:border-[#B84200] p-3.5 min-h-[64px] rounded-none text-center transition group flex flex-col justify-center items-center"
             >
-              <span className="text-[8px] font-mono text-gray-400 uppercase tracking-widest block mb-0.5 font-bold group-hover:text-brand-orange">{p.category}</span>
-              <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-[#E55B13] block my-1">{p.name} →</span>
+              <span className="text-[8.5px] font-mono text-gray-700 uppercase tracking-widest block mb-0.5 font-bold group-hover:text-[#B84200]">{p.category}</span>
+              <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-[#B84200] block my-1">{p.name} →</span>
             </AffiliateLink>
           ))}
         </div>

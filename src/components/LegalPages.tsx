@@ -29,15 +29,15 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
       {/* Visual Header */}
       <div className="bg-[#F8F7F2] p-6 md:p-8 flex items-center justify-between border-b border-[#E5E5E1] text-[#1A1A1A]">
         <div className="space-y-1">
-          <span className="text-[9px] font-mono tracking-widest text-[#E55B13] uppercase font-bold bg-brand-orange/5 border border-brand-orange/20 px-2.5 py-0.5 rounded-none">
+          <span className="text-[9px] font-mono tracking-widest text-[#B84200] uppercase font-bold bg-[#B84200]/10 border border-[#B84200]/30 px-2.5 py-0.5 rounded-none">
             Compliance Center
           </span>
           <h3 className="text-2xl font-serif font-bold italic text-[#1A1A1A] mt-2">Regulatory Disclosure & Compliance Core</h3>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-700 mt-1">
             AdSense-optimized, fully transparent terms, privacy rules, and affiliate disclosures for bookmethat.com.
           </p>
         </div>
-        <Shield className="w-8 h-8 text-brand-orange hidden sm:block" />
+        <Shield className="w-8 h-8 text-[#B84200] hidden sm:block" />
       </div>
 
       {/* Navigation Sub-menu */}
@@ -52,10 +52,10 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
           <button
             key={tab.id}
             onClick={() => setActiveSubTab(tab.id as any)}
-            className={`flex items-center gap-1.5 px-5 py-3.5 border-r border-[#E5E5E1] transition cursor-pointer whitespace-nowrap ${
+            className={`min-h-[44px] flex items-center gap-1.5 px-5 py-3.5 border-r border-[#E5E5E1] transition cursor-pointer whitespace-nowrap ${
               activeSubTab === tab.id 
-                ? 'bg-white text-brand-orange border-b-2 border-brand-orange font-bold' 
-                : 'text-gray-500 hover:bg-white/50'
+                ? 'bg-white text-[#B84200] border-b-2 border-[#B84200] font-bold' 
+                : 'text-gray-700 hover:bg-white/50 font-medium'
             }`}
           >
             {tab.icon}
@@ -77,26 +77,26 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
               This informational portal, <strong>bookmethat.com</strong>, operates under strict commercial transparency principles. In accordance with the Federal Trade Commission (FTC) guidelines in the United States, alongside the European Consumer Protection directives, we explicitly declare that our content is monetized through commissions scored via travel booking affiliate networks.
             </p>
 
-            <div className="bg-[#F8F7F2] border-l-2 border-brand-orange p-5 rounded-none space-y-2">
+            <div className="bg-[#F8F7F2] border-l-2 border-[#B84200] p-5 rounded-none space-y-2">
               <h5 className="font-serif font-bold text-[#1A1A1A] text-xs uppercase tracking-wide">
                 Key Partnership Affiliations & Verification References:
               </h5>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-700">
                 BookMeThat is a certified publisher in the <strong>Travelpayouts Affiliate Network</strong>. Our primary publisher tracking credentials are as follows:
               </p>
               <ul className="text-xs font-mono text-[#1A1A1A] list-disc list-inside space-y-1 bg-white p-3 rounded-none border border-[#E5E5E1]">
-                <li>Primary Tracking Marker ID: <strong className="font-bold text-brand-orange">685596</strong></li>
-                <li>Secondary Widget Marker ID: <strong className="font-bold text-brand-orange">685596</strong></li>
-                <li>Target Registry Domain: <strong className="font-bold text-brand-orange">bookmethat.com</strong></li>
+                <li>Primary Tracking Marker ID: <strong className="font-bold text-[#B84200]">685596</strong></li>
+                <li>Secondary Widget Marker ID: <strong className="font-bold text-[#B84200]">685596</strong></li>
+                <li>Target Registry Domain: <strong className="font-bold text-[#B84200]">bookmethat.com</strong></li>
               </ul>
             </div>
 
             <h5 className="font-serif font-bold text-[#1A1A1A] text-base mt-6">Declared Networks and Deep-link Channels</h5>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-700">
               When clicking on various recommendation links throughout our Silo directories (including Saily, Airalo, Drimsim, Localrent, EconomyBookings, Auto Europe, QEEQ, BikesBooking, GetTransfer, Searadar, Go City, Klook, Radical Storage, NordVPN, Wise, Ekta Traveling, World Nomads, Compensair, AirHelp, and Expedia), you trigger standard tracking tags. These tags record zero unique personal identification factors but enable the associated merchants to verify bookmethat.com as the source publisher.
             </p>
 
-            <table className="w-full text-left text-xs text-gray-750 border border-[#E5E5E1] rounded-none overflow-hidden mt-4 bg-white">
+            <table className="w-full text-left text-xs text-gray-800 border border-[#E5E5E1] rounded-none overflow-hidden mt-4 bg-white">
               <thead className="bg-[#F8F7F2] text-[#1A1A1A] font-mono font-bold text-[9px] uppercase tracking-wider border-b border-[#E5E5E1]">
                 <tr>
                   <th className="p-3">Partner Entity / Program</th>
@@ -109,115 +109,115 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Saily eSIM</td>
                   <td className="p-3">Travel eSIM Systems</td>
-                  <td className="p-3 font-mono text-brand-orange">saily.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">saily.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Airalo Marketplace</td>
                   <td className="p-3">Travel eSIM Systems</td>
-                  <td className="p-3 font-mono text-brand-orange">airalo.tpk.lu, airalo.com</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">airalo.tpk.lu, airalo.com</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Drimsim Universal SIM</td>
                   <td className="p-3">Pay-As-You-Go Cellular/Data</td>
-                  <td className="p-3 font-mono text-brand-orange">drimsim.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">drimsim.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Localrent</td>
                   <td className="p-3">Local Car Rentals</td>
-                  <td className="p-3 font-mono text-brand-orange">localrent.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">localrent.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">EconomyBookings</td>
                   <td className="p-3">Car Rental Aggregator</td>
-                  <td className="p-3 font-mono text-brand-orange">economybookings.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">economybookings.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Auto Europe</td>
                   <td className="p-3">Car Rental Broker</td>
-                  <td className="p-3 font-mono text-brand-orange">autoeurope.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">autoeurope.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">QEEQ</td>
                   <td className="p-3">Car Insurance & Rental Price Dropper</td>
-                  <td className="p-3 font-mono text-brand-orange">qeeq.tpk.lu, qeeq.com</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">qeeq.tpk.lu, qeeq.com</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">BikesBooking</td>
                   <td className="p-3">Scooter, Moped, and Bike Rentals</td>
-                  <td className="p-3 font-mono text-brand-orange">bikesbooking.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">bikesbooking.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">GetTransfer</td>
                   <td className="p-3">Private Chauffeurs & Transfers</td>
-                  <td className="p-3 font-mono text-brand-orange">gettransfer.tpk.lu, gettransfer.com</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">gettransfer.tpk.lu, gettransfer.com</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Searadar Yacht Charter</td>
                   <td className="p-3">Marinas & Bareboat Yacht Rentals</td>
-                  <td className="p-3 font-mono text-brand-orange">searadar.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">searadar.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Go City Passes</td>
                   <td className="p-3">Multi-Attraction Sightseeing Passes</td>
-                  <td className="p-3 font-mono text-brand-orange">gocity.tpk.lu, gocity.com</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">gocity.tpk.lu, gocity.com</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Klook Tours</td>
                   <td className="p-3">Activity, Tourism & Transit Booking</td>
-                  <td className="p-3 font-mono text-brand-orange">klook.tpk.lu, klook.com</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">klook.tpk.lu, klook.com</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Radical Storage</td>
                   <td className="p-3">Global Luggage Storage Network</td>
-                  <td className="p-3 font-mono text-brand-orange">radicalstorage.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">radicalstorage.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">NordVPN</td>
                   <td className="p-3">Digital Security & Data Encryption</td>
-                  <td className="p-3 font-mono text-brand-orange">nordvpn.com, tp.media</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">nordvpn.com, tp.media</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Wise borderless card</td>
                   <td className="p-3">Cross-Border Forex Billing</td>
-                  <td className="p-3 font-mono text-brand-orange">wise.com</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">wise.com</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Ekta Traveling</td>
                   <td className="p-3">Travel Medical Protection</td>
-                  <td className="p-3 font-mono text-brand-orange">ektatraveling.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">ektatraveling.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">World Nomads</td>
                   <td className="p-3">Adventure Travel Cover</td>
-                  <td className="p-3 font-mono text-brand-orange">worldnomads.com</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">worldnomads.com</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">Compensair</td>
                   <td className="p-3">Flight Delay Legal Claims</td>
-                  <td className="p-3 font-mono text-brand-orange">compensair.tpk.lu</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">compensair.tpk.lu</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-[#1A1A1A]">AirHelp</td>
                   <td className="p-3">Passenger Flight Delay Redress</td>
-                  <td className="p-3 font-mono text-brand-orange">airhelp.com, tp.media</td>
+                  <td className="p-3 font-mono text-[#B84200] font-bold">airhelp.com, tp.media</td>
                   <td className="p-3">30 Days Duration</td>
                 </tr>
                 <tr>

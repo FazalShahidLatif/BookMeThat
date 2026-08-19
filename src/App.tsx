@@ -104,6 +104,7 @@ export default function App() {
   const [widgetCategory, setWidgetCategory] = useState('connectivity');
   const [widgetDate, setWidgetDate] = useState('');
   const [widgetMessage, setWidgetMessage] = useState<string | null>(null);
+  const [couponCategory, setCouponCategory] = useState<string>('all');
 
   // --- EDGE AND PLAYBOOK REGULATION STATE NODES ---
   const [edgeNode, setEdgeNode] = useState<EdgeNode>('sfo');
@@ -1459,40 +1460,41 @@ body {
           </button>
 
           {/* Semantic Nav links */}
-          <nav className="hidden md:flex items-center gap-1 text-[9px] uppercase tracking-widest font-bold">
-            <button onClick={() => handleSectionScroll('coupon-vault')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Promo Coupon Vault</button>
-            <button onClick={() => handleSectionScroll('hot-packages')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Holiday Packs</button>
-            <button onClick={() => handleSectionScroll('destinations')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Deal Cards Grid</button>
-            <button onClick={() => handleSectionScroll('core-calculators')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Nomad Planner</button>
-            <button onClick={() => handleSectionScroll('compliance-desk')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Compliance Desk</button>
+          <nav className="hidden md:flex items-center gap-1 text-[9.5px] uppercase tracking-widest font-bold">
+            <button onClick={() => handleSectionScroll('coupon-vault')} className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none">Promo Coupon Vault</button>
+            <button onClick={() => handleSectionScroll('hot-packages')} className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none">Holiday Packs</button>
+            <button onClick={() => handleSectionScroll('destinations')} className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none">Deal Cards Grid</button>
+            <button onClick={() => handleSectionScroll('core-calculators')} className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none">Nomad Planner</button>
+            <button onClick={() => handleSectionScroll('compliance-desk')} className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none">Compliance Desk</button>
           </nav>
 
           {/* Action Core CTAs */}
           <div className="flex items-center gap-2">
-            <div className="hidden lg:flex items-center gap-1.5 text-[9px] font-mono font-bold text-brand-orange bg-brand-orange/5 px-2 py-1 border border-brand-orange/20 select-none">
-              <Sparkles className="w-3 h-3 animate-pulse text-brand-orange" /> Direct Bargains Active
+            <div className="hidden lg:flex items-center gap-1.5 text-[9px] font-mono font-bold text-[#B84200] bg-[#B84200]/10 px-2 py-1 border border-[#B84200]/30 select-none">
+              <Sparkles className="w-3 h-3 animate-pulse text-[#B84200]" /> Direct Bargains Active
             </div>
 
             {/* Mobile Navigation Trigger */}
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="md:hidden p-1.5 text-gray-700 hover:text-brand-orange transition focus:outline-none"
+              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-gray-800 hover:text-[#B84200] transition focus:outline-none cursor-pointer"
               title="Toggle Menu"
+              aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer for React Container */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#FAF9F6] border-b border-[#E5E5E1] p-4 space-y-2 text-xs font-semibold view-enter">
-            <button onClick={() => { handleSectionScroll('coupon-vault'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Promo Coupon Vault</button>
-            <button onClick={() => { handleSectionScroll('hot-packages'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Holiday Packs Showcases</button>
-            <button onClick={() => { handleSectionScroll('destinations'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Hotel eSIM / Cars Cards</button>
-            <button onClick={() => { handleSectionScroll('core-calculators'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Nomad Cost Planner</button>
-            <button onClick={() => { handleSectionScroll('compliance-desk'); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#F8F7F2] hover:text-brand-orange block transition">Compliance Disclosure</button>
-            <div className="border-t border-[#E5E5E1] pt-3 text-[10px] font-mono text-brand-orange px-4">
+          <div className="md:hidden bg-[#FAF9F6] border-b border-[#E5E5E1] p-4 space-y-1 text-xs font-semibold view-enter">
+            <button onClick={() => { handleSectionScroll('coupon-vault'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Promo Coupon Vault</button>
+            <button onClick={() => { handleSectionScroll('hot-packages'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Holiday Packs Showcases</button>
+            <button onClick={() => { handleSectionScroll('destinations'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Hotel eSIM / Cars Cards</button>
+            <button onClick={() => { handleSectionScroll('core-calculators'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Nomad Cost Planner</button>
+            <button onClick={() => { handleSectionScroll('compliance-desk'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Compliance Disclosure</button>
+            <div className="border-t border-[#E5E5E1] pt-3 text-[10px] font-mono text-[#B84200] font-bold px-4">
               Verified Referral Savings Active
             </div>
           </div>
@@ -1510,7 +1512,7 @@ body {
           </div>
           <button 
             onClick={() => setRedirectNotice(null)} 
-            className="text-emerald-200 hover:text-white ml-2 text-xs font-bold cursor-pointer"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center text-emerald-200 hover:text-white ml-2 text-xs font-bold cursor-pointer"
             aria-label="Dismiss 301 notification"
           >
             ✕
@@ -1529,29 +1531,29 @@ body {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7 space-y-6">
-                <span className="inline-flex items-center gap-1.5 text-[9px] text-[#E55B13] font-mono font-bold bg-[#E55B13]/5 px-2.5 py-1 border border-[#E55B13]/20 uppercase tracking-widest">
-                  <Flame className="w-3.5 h-3.5 animate-pulse text-brand-orange" /> Save Up to 40% globally with Direct contracts
+                <span className="inline-flex items-center gap-1.5 text-[9px] text-[#B84200] font-mono font-bold bg-[#B84200]/10 px-2.5 py-1 border border-[#B84200]/30 uppercase tracking-widest">
+                  <Flame className="w-3.5 h-3.5 animate-pulse text-[#B84200]" /> Save Up to 40% globally with Direct contracts
                 </span>
                 
                 <h1 className="text-5xl lg:text-[62px] leading-[0.95] font-serif italic tracking-tight text-[#1A1A1A]">
-                  Direct Travel Deals & <span className="not-italic font-bold block mt-2 text-brand-orange">Promo Code Vault.</span>
+                  Direct Travel Deals & <span className="not-italic font-bold block mt-2 text-[#B84200]">Promo Code Vault.</span>
                 </h1>
                 
-                <p className="text-gray-600 text-xs md:text-sm leading-relaxed max-w-xl">
+                <p className="text-gray-700 text-xs md:text-sm leading-relaxed max-w-xl">
                   Bypass costly travel brokers. Secure wholesale-direct eSIM cell connectivity, premium scooter/car rentals, delayed flight cash-backs, and attraction passes with active promotion codes verified in real time.
                 </p>
 
                 {/* 60-Second Challenge Callout Banner for Enhanced Engagement */}
-                <div className="bg-white border-l-4 border-brand-orange p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm border-y border-r border-[#E5E5E1]">
+                <div className="bg-white border-l-4 border-[#B84200] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm border-y border-r border-[#E5E5E1]">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
-                      <span className="text-[9px] font-mono font-bold tracking-wider uppercase text-brand-orange">Interactive Diagnostic Challenge</span>
+                      <span className="w-2 h-2 rounded-full bg-[#B84200] animate-ping" />
+                      <span className="text-[9px] font-mono font-bold tracking-wider uppercase text-[#B84200]">Interactive Diagnostic Challenge</span>
                     </div>
-                    <h5 className="text-xs font-bold font-serif italic text-gray-950 leading-tight">
+                    <h2 className="text-sm font-bold font-serif italic text-gray-950 leading-tight">
                       Are you a smart traveler? Take the 60S Nomad IQ Test
-                    </h5>
-                    <p className="text-[10px] text-gray-550 font-sans leading-normal">
+                    </h2>
+                    <p className="text-xs text-gray-700 font-sans leading-normal">
                       Read real scenarios to spot hidden carrier markup charges and secure a special secret coupon code.
                     </p>
                   </div>
@@ -1560,7 +1562,7 @@ body {
                       setActiveTab('quiz');
                       setTimeout(() => handleSectionScroll('core-calculators'), 100);
                     }}
-                    className="bg-[#1A1A1A] hover:bg-brand-orange text-white text-[9px] font-mono font-bold uppercase py-2.5 px-4 whitespace-nowrap self-start sm:self-center cursor-pointer transition-colors"
+                    className="min-h-[44px] inline-flex items-center justify-center bg-[#1A1A1A] hover:bg-[#B84200] text-white text-[9.5px] font-mono font-bold uppercase py-2.5 px-4 whitespace-nowrap self-start sm:self-center cursor-pointer transition-colors"
                   >
                     Play 60S Challenge &rarr;
                   </button>
@@ -1568,10 +1570,10 @@ body {
 
                 <div className="h-[1px] bg-[#E5E5E1]" />
 
-                <div className="flex flex-wrap gap-x-6 gap-y-2 text-[9px] font-mono text-gray-500 uppercase tracking-wider">
-                  <span className="flex items-center gap-1"><BadgePercent className="w-3.5 h-3.5 text-brand-orange" /> Verified ACTIVE Coupon Codes</span>
-                  <span className="flex items-center gap-1"><Compass className="w-3.5 h-3.5 text-brand-orange" /> Direct Car, eSIM & Tour Portals</span>
-                  <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-brand-orange" /> No Hidden Added Commissions</span>
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-[9.5px] font-mono text-gray-700 uppercase tracking-wider font-semibold">
+                  <span className="flex items-center gap-1"><BadgePercent className="w-3.5 h-3.5 text-[#B84200]" /> Verified ACTIVE Coupon Codes</span>
+                  <span className="flex items-center gap-1"><Compass className="w-3.5 h-3.5 text-[#B84200]" /> Direct Car, eSIM & Tour Portals</span>
+                  <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5 text-[#B84200]" /> No Hidden Added Commissions</span>
                 </div>
               </div>
 
@@ -1580,8 +1582,8 @@ body {
                 <div className="bg-white border border-[#E5E5E1] p-6 shadow-xl relative hardware-accel">
                   
                   <div className="mb-4">
-                    <h3 className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">Global CDN Node Simulator</h3>
-                    <h4 className="text-base font-serif font-bold italic mt-0.5 text-gray-900">Configure Local Router Edge</h4>
+                    <h2 className="text-[10px] font-mono font-bold text-gray-700 uppercase tracking-widest">Global CDN Node Simulator</h2>
+                    <h3 className="text-base font-serif font-bold italic mt-0.5 text-gray-900">Configure Local Router Edge</h3>
                   </div>
 
                   {/* CDN Target switcher */}
@@ -1590,14 +1592,14 @@ body {
                       <button
                         key={nodeId}
                         onClick={() => setEdgeNode(nodeId)}
-                        className={`p-2 border rounded flex flex-col items-center cursor-pointer text-center select-none transition-all ${
+                        className={`min-h-[44px] p-2 border rounded flex flex-col items-center justify-center cursor-pointer text-center select-none transition-all ${
                           edgeNode === nodeId
-                            ? 'bg-brand-orange border-brand-orange text-white font-bold'
-                            : 'bg-white border-gray-300 text-gray-700 hover:border-brand-orange'
+                            ? 'bg-[#B84200] border-[#B84200] text-white font-bold'
+                            : 'bg-white border-gray-300 text-gray-800 hover:border-[#B84200]'
                         }`}
                       >
                         <span className="text-[10px] font-bold block uppercase">{nodeId}</span>
-                        <span className="text-[7.5px] scale-90 font-mono tracking-tighter block mt-0.5 opacity-80">
+                        <span className="text-[8px] font-mono tracking-tighter block mt-0.5 opacity-90 font-semibold">
                           {edgeNodeLatencies[nodeId].ping}
                         </span>
                       </button>
@@ -1608,7 +1610,7 @@ body {
                     
                     {/* Destination Input Field */}
                     <div className="space-y-1 search-widget-field border border-[#E5E5E1] p-3 bg-[#FAF9F6]">
-                      <label htmlFor="widget-dest" className="block text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400">Search Transit Cache</label>
+                      <label htmlFor="widget-dest" className="block text-[9px] uppercase tracking-widest font-mono font-bold text-gray-700">Search Transit Cache</label>
                       <input 
                         type="text" 
                         id="widget-dest" 
@@ -1621,7 +1623,7 @@ body {
 
                     {/* Network type selector */}
                     <div className="space-y-1 search-widget-field border border-[#E5E5E1] p-3 bg-[#FAF9F6]">
-                      <label htmlFor="widget-cat" className="block text-[8.5px] uppercase tracking-widest font-mono font-bold text-gray-400">Affiliate Silos Category</label>
+                      <label htmlFor="widget-cat" className="block text-[9px] uppercase tracking-widest font-mono font-bold text-gray-700">Affiliate Silos Category</label>
                       <select 
                         id="widget-cat" 
                         value={widgetCategory}
@@ -1637,21 +1639,21 @@ body {
 
                     <button 
                       type="submit" 
-                      className="w-full bg-[#1A1A1A] hover:bg-brand-orange text-white text-[9px] uppercase font-bold tracking-widest py-3.5 transition-all focus:outline-none focus:ring-1 focus:ring-brand-orange cursor-pointer"
+                      className="w-full min-h-[44px] flex items-center justify-center bg-[#1A1A1A] hover:bg-[#B84200] text-white text-[9.5px] uppercase font-bold tracking-widest py-3.5 transition-all focus:outline-none focus:ring-1 focus:ring-[#B84200] cursor-pointer"
                     >
                       Scan Direct Bids Inside Cache
                     </button>
                   </form>
 
                   {widgetMessage && (
-                    <div className="mt-3.5 p-2.5 border border-brand-orange/20 bg-brand-orange/5 text-[9.5px] font-mono text-brand-orange animate-pulse">
+                    <div className="mt-3.5 p-2.5 border border-[#B84200]/30 bg-[#B84200]/10 text-[9.5px] font-mono text-[#B84200] font-bold">
                       {widgetMessage}
                     </div>
                   )}
 
-                  <div className="mt-4 pt-3.5 border-t border-[#E5E5E1] flex justify-between items-center text-[8.5px] font-mono text-gray-400">
+                  <div className="mt-4 pt-3.5 border-t border-[#E5E5E1] flex justify-between items-center text-[9px] font-mono text-gray-700 font-medium">
                     <span>HOST: {edgeNodeLatencies[edgeNode].pop}</span>
-                    <span className="text-emerald-500 font-bold">LATENCY: {edgeNodeLatencies[edgeNode].ping}</span>
+                    <span className="text-emerald-700 font-bold">LATENCY: {edgeNodeLatencies[edgeNode].ping}</span>
                   </div>
 
                 </div>
@@ -1664,71 +1666,175 @@ body {
         {/* --- TRAVEL PROMO CODE VAULT & DIRECT ESCROW ACTIVE DETAILS --- */}
         <section id="coupon-vault" className="py-16 bg-white border-b border-[#E5E5E1]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-xl mx-auto space-y-2 mb-10">
-              <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-brand-orange bg-brand-orange/5 px-2.5 py-1 border border-brand-orange/20">
-                ACTIVE SAVINGS VAULT (2026 APPROVED)
+            <div className="text-center max-w-2xl mx-auto space-y-3 mb-8">
+              <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-[#B84200] bg-[#B84200]/10 px-2.5 py-1 border border-[#B84200]/30">
+                ACTIVE TRAVELPAYOUTS SAVINGS VAULT (2026 VERIFIED)
               </span>
-              <h2 className="text-3xl font-serif font-bold italic text-gray-900">
-                Exclusive Holiday Promo Codes
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold italic text-gray-900">
+                Exclusive Holiday Promo Codes & Deals
               </h2>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Click to instantly copy verified referral promo vouchers. Bypass travel agent commissions and save immediately at final booking checkout.
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Click to instantly copy verified partner coupons and activate direct deals across eSIM data, rental cars, city passes, airport chauffeurs, and nomad security.
               </p>
+            </div>
+
+            {/* Category Filter Tabs */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+              {[
+                { id: 'all', label: 'All Deals (12)' },
+                { id: 'connectivity', label: 'eSIM & Data' },
+                { id: 'transport', label: 'Car Hire & Transfers' },
+                { id: 'passes', label: 'Passes & Tours' },
+                { id: 'utility', label: 'Security & Luggage' }
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setCouponCategory(tab.id)}
+                  className={`min-h-[44px] px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-wider transition cursor-pointer ${
+                    couponCategory === tab.id
+                      ? 'bg-[#1A1A1A] text-white border-2 border-[#1A1A1A]'
+                      : 'bg-[#F8F7F2] text-gray-800 hover:bg-[#EAE8DF] border-2 border-[#E5E5E1]'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { 
                   id: 'saily', 
-                  brand: 'Saily eSIM Deals', 
-                  code: 'SAILY5', 
-                  discount: '5% OFF GLOBAL DATA', 
-                  desc: 'Bypass roaming fees in 150+ countries. Insane Nord Security speeds. Only 18 active vouchers remaining today!', 
-                  link: 'https://saily.tpk.lu/9KzgxKRI' 
+                  brand: 'Saily eSIM Global Data', 
+                  category: 'eSIM & Data',
+                  code: 'TEE15', 
+                  discount: '15% OFF GLOBAL DATA', 
+                  desc: 'Bypass expensive roaming across 150+ countries. Powered by Nord Security with instant activation and ultra-fast 5G speeds.', 
+                  link: 'https://saily.tpk.lu/9KzgxKRI',
+                  validThrough: 'Verified Active 2026'
                 },
                 { 
                   id: 'airalo', 
-                  brand: 'Airalo eSIM Specials', 
-                  code: 'AIRALOCDN10', 
-                  discount: '10% OFF FIRST ORDER', 
-                  desc: 'Bypass 80% carrier roaming markup. Direct-to-source regional rates. Guaranteed active key. Expires in 4 hours!', 
-                  link: 'https://airalo.tpk.lu/X5knsFOB' 
+                  brand: 'Airalo Regional eSIMs', 
+                  category: 'eSIM & Data',
+                  code: 'NEWTOAIRALO15', 
+                  discount: '15% OFF FIRST ORDER', 
+                  desc: 'Save up to 85% on roaming across 200+ countries with local tier networks. Returning users can apply AIRALOESIM10 for 10% off.', 
+                  link: 'https://airalo.tpk.lu/X5knsFOB',
+                  validThrough: 'Verified Active 2026'
+                },
+                { 
+                  id: 'localrent', 
+                  brand: 'Localrent Car Hire', 
+                  category: 'Car Hire & Transfers',
+                  code: 'LOCALRENT10', 
+                  discount: 'UP TO 25% OFF DEALS', 
+                  desc: 'Direct car rentals from vetted local suppliers in Montenegro, Greece, Spain, Georgia & Turkey. $0 cash deposits available on-site.', 
+                  link: 'https://localrent.tpk.lu/G4vT6NUE',
+                  validThrough: 'Verified Active 2026'
                 },
                 { 
                   id: 'gocity', 
                   brand: 'Go City Sightseeing', 
-                  code: 'GOCITY10', 
-                  discount: '10% OFF PASS CARDS', 
-                  desc: 'Unlock wholesale access to multi-attraction itineraries. Bypass agent markups in London, Paris, and Rome.', 
-                  link: 'https://tp.media/r?marker=685596&p=3801' 
+                  category: 'Passes & Tours',
+                  code: 'TTTPOD25', 
+                  discount: 'UP TO 25% OFF PASSES', 
+                  desc: 'Unlock wholesale multi-attraction Explorer & All-Inclusive passes in London, Paris, Rome, New York, Tokyo, and Barcelona.', 
+                  link: 'https://tp.media/r?marker=685596&p=3801',
+                  validThrough: 'Verified Active 2026'
                 },
                 { 
                   id: 'klook', 
-                  brand: 'Klook Tour Discounts', 
-                  code: 'KLOOKDEALS5', 
-                  discount: '5% OFF ATTRACTIONS', 
-                  desc: 'Secure skip-the-line bullet train & theme park entrance. Direct wholesale vouchers. 98% satisfaction rating.', 
-                  link: 'https://tp.media/r?marker=685596&p=3297' 
+                  brand: 'Klook Tours & Rail', 
+                  category: 'Passes & Tours',
+                  code: 'THATMUMTRAVEL5KLOOK', 
+                  discount: 'UP TO 10% OFF TOURS', 
+                  desc: 'Skip-the-line tickets for bullet trains (Shinkansen), Disneyland, Universal Studios, and curated local day excursions.', 
+                  link: 'https://tp.media/r?marker=685596&p=3297',
+                  validThrough: 'Verified Active 2026'
+                },
+                { 
+                  id: 'qeeq', 
+                  brand: 'QEEQ Worldwide Rentals', 
+                  category: 'Car Hire & Transfers',
+                  code: 'IG2026', 
+                  discount: '8% OFF + $30 BUNDLE', 
+                  desc: 'Global car rentals with automated Price Drop Protection refund algorithm and free cancellation up to 48 hours before pickup.', 
+                  link: 'https://qeeq.tpk.lu/D7nSxEBA',
+                  validThrough: 'Verified Active 2026'
                 },
                 { 
                   id: 'economy', 
-                  brand: 'EconomyBookings Hires', 
+                  brand: 'EconomyBookings Car Fleet', 
+                  category: 'Car Hire & Transfers',
                   code: 'ECONOMY5', 
-                  discount: '5% OFF CAR RENTALS', 
-                  desc: 'Access inner-circle car fleets at 800+ global airports. Pre-negotiated rates expiring. Bypass check-in up-charges.', 
-                  link: 'https://economybookings.tpk.lu/koWZfRVI' 
+                  discount: '5% TO 30% OFF FLEET', 
+                  desc: 'Access discounted wholesale fleets across 800+ international airport hubs and railway stations with transparent insurance.', 
+                  link: 'https://economybookings.tpk.lu/koWZfRVI',
+                  validThrough: 'Verified Active 2026'
+                },
+                { 
+                  id: 'gettransfer', 
+                  brand: 'GetTransfer Chauffeurs', 
+                  category: 'Car Hire & Transfers',
+                  code: 'GETTRANSFER10', 
+                  discount: '10% OFF AIRPORT RIDES', 
+                  desc: 'Private airport transfers and intercity chauffeur trips via transparent driver bidding. Pay 30% less than taxi rank meters.', 
+                  link: 'https://gettransfer.tpk.lu/F5Vb9NEC',
+                  validThrough: 'Verified Active 2026'
+                },
+                { 
+                  id: 'radicalstorage', 
+                  brand: 'Radical Storage Network', 
+                  category: 'Security & Luggage',
+                  code: 'blog10', 
+                  discount: '10% OFF LUGGAGE DROP', 
+                  desc: 'Store luggage safely in 1,000+ global cities from just $4.90/£5 per day with £3,000 security guarantee and zero weight limits.', 
+                  link: 'https://radicalstorage.tpk.lu/6nK4jW4c',
+                  validThrough: 'Verified Active 2026'
                 },
                 { 
                   id: 'nordvpn', 
                   brand: 'NordVPN Travel Shield', 
+                  category: 'Security & Luggage',
                   code: 'SECURETRAVEL', 
-                  discount: 'UP TO 63% SECURE DEALS', 
-                  desc: 'Defend credit cards and banking on sketchy public airport & hotel WiFi networks. Mandatory for nomadic security.', 
-                  link: 'https://tp.media/r?marker=685596&p=5328' 
+                  discount: 'UP TO 68% OFF + 3 MO', 
+                  desc: 'Defend credit cards and banking on airport and hotel Wi-Fi networks. Switch IP locations to unlock regional flight discounts.', 
+                  link: 'https://tp.media/r?marker=685596&p=5328',
+                  validThrough: 'Verified Active 2026'
+                },
+                { 
+                  id: 'autoeurope', 
+                  brand: 'Auto Europe International', 
+                  category: 'Car Hire & Transfers',
+                  code: 'AUTUMN25', 
+                  discount: 'UP TO 25% OFF EUROPE', 
+                  desc: 'Compare Avis, Hertz, Europcar & Sixt at wholesale rates with 48h free cancellation and dedicated 24/7 multilingual support.', 
+                  link: 'https://autoeurope.tpk.lu/C5j78W4C',
+                  validThrough: 'Verified Active 2026'
+                },
+                { 
+                  id: 'airhelp', 
+                  brand: 'AirHelp Delay Recovery', 
+                  category: 'Security & Luggage',
+                  code: 'FLIGHTREDRESS', 
+                  discount: 'UP TO €600 CLAIM PAYOUT', 
+                  desc: 'Check delayed, cancelled, or overbooked flights in 2 minutes under EU261 & UK261 law. No win, no fee legal claims enforcement.', 
+                  link: 'https://airhelp.tpk.lu/O7W8mEaB',
+                  validThrough: 'Verified Active 2026'
                 }
-              ].map((voucher) => (
-                <VoucherCard key={voucher.id} voucher={voucher} />
-              ))}
+              ]
+                .filter(voucher => {
+                  if (couponCategory === 'all') return true;
+                  if (couponCategory === 'connectivity' && voucher.category === 'eSIM & Data') return true;
+                  if (couponCategory === 'transport' && voucher.category === 'Car Hire & Transfers') return true;
+                  if (couponCategory === 'passes' && voucher.category === 'Passes & Tours') return true;
+                  if (couponCategory === 'utility' && voucher.category === 'Security & Luggage') return true;
+                  return false;
+                })
+                .map((voucher) => (
+                  <VoucherCard key={voucher.id} voucher={voucher} />
+                ))}
             </div>
           </div>
         </section>
@@ -1741,13 +1847,13 @@ body {
               {/* Left Side: Dynamic Combo deals column */}
               <div className="lg:col-span-8 space-y-6 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-gray-400">
+                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-gray-700">
                     Silo bundles showcase
                   </span>
                   <h2 className="text-3xl font-serif font-bold italic text-gray-900 mt-1">
                     Curated Destination Combo Packs
                   </h2>
-                  <p className="text-xs text-gray-500 mt-1 max-w-xl">
+                  <p className="text-xs text-gray-700 mt-1 max-w-xl">
                     Our editors calculated the perfect multi-brand integrations for ultimate flight, connectivity, and transfer savings with exact price totals.
                   </p>
                 </div>
@@ -1757,18 +1863,18 @@ body {
                   <div className="bg-white border border-[#E5E5E1] p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-[8px] bg-brand-orange/10 text-brand-orange border border-brand-orange/20 font-mono px-2 py-0.5 uppercase tracking-wider font-bold">Asia Tech-Transit</span>
-                        <span className="text-xs font-mono line-through text-gray-400">$120</span>
+                        <span className="text-[8.5px] bg-[#B84200]/10 text-[#B84200] border border-[#B84200]/30 font-mono px-2 py-0.5 uppercase tracking-wider font-bold">Asia Tech-Transit</span>
+                        <span className="text-xs font-mono line-through text-gray-600">$120</span>
                       </div>
-                      <h4 className="text-base font-serif font-bold text-[#1A1A1A]">Tokyo Skyrail Connect Combo</h4>
-                      <p className="text-xs text-gray-500 leading-relaxed">
+                      <h3 className="text-base font-serif font-bold text-[#1A1A1A]">Tokyo Skyrail Connect Combo</h3>
+                      <p className="text-xs text-gray-700 leading-relaxed">
                         Combines Saily 10GB Local eSIM + Klook Tokyo High-Speed Metro Ticket + Go City Sightseeing card. No added middleman broker fees.
                       </p>
                     </div>
                     <div className="flex items-center justify-between pt-3 border-t border-[#E5E5E1]/60">
                       <div>
-                        <span className="text-[8px] text-gray-400 block uppercase font-mono">Book Direct Rate</span>
-                        <strong className="text-lg font-serif font-bold italic text-brand-orange">$98.00</strong>
+                        <span className="text-[8.5px] text-gray-700 block uppercase font-mono font-bold">Book Direct Rate</span>
+                        <strong className="text-lg font-serif font-bold italic text-[#B84200]">$98.00</strong>
                       </div>
                       <button 
                         onClick={() => {
@@ -1776,7 +1882,7 @@ body {
                           setWidgetCategory('connectivity');
                           handleSectionScroll('core-calculators');
                         }}
-                        className="text-[9px] font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-brand-orange transition"
+                        className="min-h-[44px] inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-[#B84200] transition py-2 px-1 cursor-pointer"
                       >
                         Select & Plan Combo →
                       </button>
@@ -1787,18 +1893,18 @@ body {
                   <div className="bg-white border border-[#E5E5E1] p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-[8px] bg-emerald-50 text-emerald-700 border border-emerald-300 font-mono px-2 py-0.5 uppercase tracking-wider font-bold">Euro Coastal Cruise</span>
-                        <span className="text-xs font-mono line-through text-gray-400">$340</span>
+                        <span className="text-[8.5px] bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono px-2 py-0.5 uppercase tracking-wider font-bold">Euro Coastal Cruise</span>
+                        <span className="text-xs font-mono line-through text-gray-600">$340</span>
                       </div>
-                      <h4 className="text-base font-serif font-bold text-[#1A1A1A]">Costa Brava Hatchback Pack</h4>
-                      <p className="text-xs text-gray-500 leading-relaxed">
+                      <h3 className="text-base font-serif font-bold text-[#1A1A1A]">Costa Brava Hatchback Pack</h3>
+                      <p className="text-xs text-gray-700 leading-relaxed">
                         Combines a 7-day Localrent Greek/Spanish Hatchback + World Nomads Premium medical protection + Saily regional data eSIM.
                       </p>
                     </div>
                     <div className="flex items-center justify-between pt-3 border-t border-[#E5E5E1]/60">
                       <div>
-                        <span className="text-[8px] text-gray-400 block uppercase font-mono">Book Direct Rate</span>
-                        <strong className="text-lg font-serif font-bold italic text-brand-orange">$265.00</strong>
+                        <span className="text-[8.5px] text-gray-700 block uppercase font-mono font-bold">Book Direct Rate</span>
+                        <strong className="text-lg font-serif font-bold italic text-[#B84200]">$265.00</strong>
                       </div>
                       <button 
                         onClick={() => {
@@ -1806,7 +1912,7 @@ body {
                           setWidgetCategory('transport');
                           handleSectionScroll('core-calculators');
                         }}
-                        className="text-[9px] font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-brand-orange transition"
+                        className="min-h-[44px] inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-[#B84200] transition py-2 px-1 cursor-pointer"
                       >
                         Select & Plan Combo →
                       </button>
@@ -1818,28 +1924,28 @@ body {
               {/* Right Side: Bento Visual Asset / Image with Real Slogan overlay */}
               <div className="lg:col-span-4 bg-zinc-900 border border-zinc-950 p-6 sm:p-8 text-white flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  <span className="text-[8px] font-mono tracking-widest font-extrabold uppercase bg-brand-orange/20 text-brand-orange border border-brand-orange/40 px-2 py-1 inline-block">
+                  <span className="text-[8.5px] font-mono tracking-widest font-extrabold uppercase bg-[#B84200]/20 text-[#B84200] border border-[#B84200]/40 px-2 py-1 inline-block">
                     PROMO DISCOUNTS ACTIVE
                   </span>
                   <h3 className="text-2xl font-serif font-bold italic leading-tight text-white">
                     Unlock Guaranteed Lowest Rates
                   </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-zinc-300 leading-relaxed">
                     By checking checkout links directly linked with API registries, we bypass global booking search conglomerates. Our readers enjoy verified, reliable direct savings of 15% to 40% across connectivity and car rentals.
                   </p>
                 </div>
 
                 <div className="space-y-3 pt-6 border-t border-zinc-800">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-zinc-500">Average eSIM Saving:</span>
+                    <span className="text-zinc-400">Average eSIM Saving:</span>
                     <span className="text-emerald-400 font-bold">12% off standard roaming</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-zinc-500">Car Deposit Obligation:</span>
+                    <span className="text-zinc-400">Car Deposit Obligation:</span>
                     <span className="text-emerald-400 font-bold">Down to $0 with Localrent</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-zinc-500">Air Delay Payouts:</span>
+                    <span className="text-zinc-400">Air Delay Payouts:</span>
                     <span className="text-emerald-400 font-bold">Up to €600 via AirHelp</span>
                   </div>
                 </div>
@@ -1847,7 +1953,7 @@ body {
                 <div className="pt-4 text-center">
                   <button 
                     onClick={() => handleSectionScroll('destinations')}
-                    className="w-full bg-brand-orange hover:bg-white hover:text-brand-orange text-white text-[10px] font-mono font-bold uppercase py-3 transition-colors"
+                    className="w-full min-h-[44px] flex items-center justify-center bg-[#B84200] hover:bg-white hover:text-[#B84200] text-white text-[10.5px] font-mono font-bold uppercase py-3 transition-colors cursor-pointer"
                   >
                     Compare Direct Carriers Now
                   </button>
@@ -1866,13 +1972,13 @@ body {
               {/* Controls Column */}
               <div className="lg:col-span-5 bg-white border border-[#E5E5E1] p-6 sm:p-8 space-y-6 shadow-sm flex flex-col justify-between">
                 <div className="space-y-2">
-                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-brand-orange">
+                  <span className="text-[10px] tracking-widest uppercase font-mono font-bold text-[#B84200]">
                     Interactive SEO Controller Desk
                   </span>
-                  <h3 className="text-xl font-serif font-bold italic text-gray-900 leading-tight">
+                  <h2 className="text-2xl font-serif font-bold italic text-gray-900 leading-tight">
                     Meta Tags & SEO Optimizer
-                  </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">
+                  </h2>
+                  <p className="text-xs text-gray-700 leading-relaxed">
                     Select any virtual page view or individual travel article to generate and customize its crawlable Google indexing headers live.
                   </p>
                 </div>
@@ -1880,7 +1986,7 @@ body {
                 <div className="space-y-4">
                   {/* Select controller */}
                   <div className="space-y-1">
-                    <label htmlFor="seo-target-selector" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-600 block">
+                    <label htmlFor="seo-target-selector" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-700 block">
                       Target Page / Article view
                     </label>
                     <select
@@ -1898,7 +2004,7 @@ body {
                           setActiveTab(val as ActiveTab);
                         }
                       }}
-                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-bold text-[#1A1A1A] focus:outline-none focus:border-brand-orange cursor-pointer"
+                      className="w-full min-h-[44px] bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-bold text-[#1A1A1A] focus:outline-none focus:border-[#B84200] cursor-pointer"
                     >
                       <optgroup label="Silo Page Views">
                         <option value="overview">Home & Core Deal Hub Summary</option>
@@ -1921,10 +2027,10 @@ body {
                   {/* Input 1: Meta Title */}
                   <div className="space-y-1">
                     <div className="flex justify-between items-baseline">
-                      <label htmlFor="input-meta-title" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-600 block">
+                      <label htmlFor="input-meta-title" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-700 block">
                         Meta Title (Google Link)
                       </label>
-                      <span className={`text-[10px] font-mono ${editingMetadata.title.length > 60 ? 'text-amber-600 font-bold animate-pulse' : 'text-gray-500'}`}>
+                      <span className={`text-[10px] font-mono ${editingMetadata.title.length > 60 ? 'text-amber-700 font-bold animate-pulse' : 'text-gray-650 font-medium'}`}>
                         {editingMetadata.title.length}/60 chars
                       </span>
                     </div>
@@ -1933,17 +2039,17 @@ body {
                       id="input-meta-title"
                       value={editingMetadata.title}
                       onChange={(e) => setEditingMetadata({ ...editingMetadata, title: e.target.value })}
-                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange font-bold"
+                      className="w-full min-h-[44px] bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-[#B84200] font-bold"
                     />
                   </div>
 
                   {/* Input 2: Meta Description */}
                   <div className="space-y-1">
                     <div className="flex justify-between items-baseline">
-                      <label htmlFor="input-meta-desc" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-600 block">
+                      <label htmlFor="input-meta-desc" className="text-[10px] uppercase tracking-widest font-mono font-extrabold text-gray-700 block">
                         Meta Description (Google Snippet)
                       </label>
-                      <span className={`text-[10px] font-mono ${editingMetadata.desc.length > 160 ? 'text-amber-600 font-bold animate-pulse' : 'text-gray-500'}`}>
+                      <span className={`text-[10px] font-mono ${editingMetadata.desc.length > 160 ? 'text-amber-700 font-bold animate-pulse' : 'text-gray-650 font-medium'}`}>
                         {editingMetadata.desc.length}/160 chars
                       </span>
                     </div>
@@ -1952,7 +2058,7 @@ body {
                       rows={3}
                       value={editingMetadata.desc}
                       onChange={(e) => setEditingMetadata({ ...editingMetadata, desc: e.target.value })}
-                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-brand-orange font-bold"
+                      className="w-full bg-[#FAF9F6] border border-[#E5E5E1] p-2.5 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-[#B84200] font-bold"
                     />
                   </div>
 
@@ -1962,7 +2068,7 @@ body {
                       setMetaIsSaved(true);
                       setTimeout(() => setMetaIsSaved(false), 3000);
                     }}
-                    className="w-full bg-brand-orange hover:bg-[#1A1A1A] text-white text-[10px] font-mono font-bold uppercase py-3 px-4 transition-colors flex items-center justify-center gap-2"
+                    className="w-full min-h-[44px] bg-[#B84200] hover:bg-[#1A1A1A] text-white text-[10px] font-mono font-bold uppercase py-3 px-4 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {metaIsSaved ? (
                       <>
@@ -1980,14 +2086,14 @@ body {
               <div className="lg:col-span-7 bg-[#1E1E1C] text-[#EBEBE8] p-6 sm:p-8 border border-[#2D2D2A] flex flex-col justify-between">
                 <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
                   <div>
-                    <span className="text-[9px] font-mono font-bold tracking-widest text-[#E55B13] uppercase block">
+                    <span className="text-[9px] font-mono font-bold tracking-widest text-[#B84200] uppercase block">
                       Snippet Emulator
                     </span>
                     <h3 className="text-base font-bold text-white mt-0.5">
                       2026 Live Search Engine Result Page
                     </h3>
                   </div>
-                  <span className="text-[9px] bg-zinc-800 border border-zinc-700 font-mono text-zinc-400 px-2.5 py-0.5 uppercase tracking-widest">
+                  <span className="text-[9px] bg-zinc-800 border border-zinc-700 font-mono text-zinc-300 px-2.5 py-0.5 uppercase tracking-widest font-semibold">
                     Google Crawler-Safe
                   </span>
                 </div>
@@ -1995,7 +2101,7 @@ body {
                 {/* Google Snippet Live Card */}
                 <div className="bg-white text-[#202124] p-5 border border-[#dadce0] rounded-lg my-6 max-w-xl mx-auto w-full shadow-sm text-left font-sans">
                   <div className="text-xs text-[#202124] flex items-center gap-1.5 leading-tight mb-1 truncate font-sans">
-                    <div className="w-4 h-4 bg-[#FAF9F6] rounded-full border border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0 text-[10px] font-bold text-brand-orange">
+                    <div className="w-4 h-4 bg-[#FAF9F6] rounded-full border border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0 text-[10px] font-bold text-[#B84200]">
                       B
                     </div>
                     <div>
@@ -2016,22 +2122,22 @@ body {
                 </div>
 
                 <div className="space-y-4 pt-4 border-t border-zinc-800">
-                  <h5 className="text-[9px] font-mono font-bold tracking-wider text-zinc-500 uppercase block">
+                  <h5 className="text-[9px] font-mono font-bold tracking-wider text-zinc-400 uppercase block">
                     SEO Analytics & Warnings logs
                   </h5>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[10px] font-mono leading-relaxed">
-                    <div className="bg-zinc-900 p-3 border border-zinc-850 space-y-1 text-zinc-400">
-                      <span className="text-[8px] font-bold uppercase text-zinc-500 block">Link Integrity</span>
+                    <div className="bg-zinc-900 p-3 border border-zinc-850 space-y-1 text-zinc-300">
+                      <span className="text-[8.5px] font-bold uppercase text-zinc-400 block">Link Integrity</span>
                       <div className="text-emerald-400 font-bold flex items-center gap-1">
                         <CheckCircle className="w-3.5 h-3.5" /> 100% Crawlable Links
                       </div>
-                      <p className="text-[9px] text-zinc-500 leading-tight">All active booking URLs utilize direct-host links, bypassing redirects completely.</p>
+                      <p className="text-[9px] text-zinc-400 leading-tight">All active booking URLs utilize direct-host links, bypassing redirects completely.</p>
                     </div>
 
-                    <div className="bg-zinc-900 p-3 border border-zinc-850 space-y-1 text-zinc-400">
-                      <span className="text-[8px] font-bold uppercase text-zinc-500 block">CTR Quality check</span>
+                    <div className="bg-zinc-900 p-3 border border-zinc-850 space-y-1 text-zinc-300">
+                      <span className="text-[8.5px] font-bold uppercase text-zinc-400 block">CTR Quality check</span>
                       {editingMetadata.title.length > 60 || editingMetadata.desc.length > 160 ? (
-                        <div className="text-amber-500 font-bold animate-pulse">
+                        <div className="text-amber-400 font-bold animate-pulse">
                           ⚠️ LENGTH CRITICAL LIMITS
                         </div>
                       ) : (
@@ -2039,7 +2145,7 @@ body {
                           <CheckCircle className="w-3.5 h-3.5" /> Perfect CTR Density
                         </div>
                       )}
-                      <p className="text-[9px] text-zinc-500 leading-tight">Keep titles &lt; 60 and descriptions &lt; 160 to avoid ellipses truncation on mobile indexes.</p>
+                      <p className="text-[9px] text-zinc-400 leading-tight">Keep titles &lt; 60 and descriptions &lt; 160 to avoid ellipses truncation on mobile indexes.</p>
                     </div>
                   </div>
                 </div>
@@ -2055,9 +2161,9 @@ body {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center max-w-xl mx-auto space-y-2 mb-8">
-              <span className="text-[10px] tracking-widest uppercase text-gray-400 font-bold font-mono">Affiliate Toolbox Cabinet</span>
+              <span className="text-[10px] tracking-widest uppercase text-gray-700 font-bold font-mono">Affiliate Toolbox Cabinet</span>
               <h2 className="text-2xl font-serif font-bold italic text-gray-900">Unified Logistics Cab</h2>
-              <p className="text-xs text-gray-550 font-sans leading-relaxed">Responsive estimators to check direct travel costs and secure local conversion codes.</p>
+              <p className="text-xs text-gray-700 font-sans leading-relaxed">Responsive estimators to check direct travel costs and secure local conversion codes.</p>
             </div>
 
             <div className="flex justify-center border-b border-[#E5E5E1] mb-6 overflow-x-auto whitespace-nowrap">
@@ -2074,10 +2180,10 @@ body {
                 <button
                   key={it.tab}
                   onClick={() => setActiveTab(it.tab as ActiveTab)}
-                  className={`px-4 sm:px-6 py-2.5 text-[9px] uppercase tracking-widest font-mono font-bold border-b-2 transition-all cursor-pointer select-none ${
+                  className={`min-h-[44px] flex items-center justify-center px-4 sm:px-6 py-2.5 text-[9.5px] uppercase tracking-widest font-mono font-bold border-b-2 transition-all cursor-pointer select-none ${
                     activeTab === it.tab 
-                      ? 'border-brand-orange text-brand-orange animate-pulse' 
-                      : 'border-transparent text-gray-400 hover:text-gray-950 hover:border-gray-300'
+                      ? 'border-[#B84200] text-[#B84200] font-extrabold' 
+                      : 'border-transparent text-gray-700 hover:text-gray-950 hover:border-gray-300'
                   }`}
                 >
                   {it.label}
@@ -2104,11 +2210,11 @@ body {
         {/* --- REGULATORY SHIELD MANDATES SECTION --- */}
         <section id="compliance-desk" className="py-14 bg-white">
           <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
-            <span className="inline-flex items-center gap-1.5 text-[9px] text-gray-400 font-mono font-bold uppercase tracking-widest border border-gray-300 px-2.5 py-1">
-              <Shield className="w-3.5 h-3.5 text-brand-orange" /> Legal Disclosures & Compliance Desk
+            <span className="inline-flex items-center gap-1.5 text-[9px] text-gray-700 font-mono font-bold uppercase tracking-widest border border-gray-300 px-2.5 py-1">
+              <Shield className="w-3.5 h-3.5 text-[#B84200]" /> Legal Disclosures & Compliance Desk
             </span>
             <h2 className="text-xl font-serif font-bold italic text-gray-900">Official Regulatory Declarations</h2>
-            <p className="text-xs text-gray-500 font-sans leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs text-gray-700 font-sans leading-relaxed max-w-2xl mx-auto">
               BookMeThat operates in full transparency with FTC affiliate directories under publisher code 685596. We integrate direct checkout hyperlinks to verified carrier networks, charging zero additional middleman markups.
             </p>
             
@@ -2129,32 +2235,32 @@ body {
               <span className="font-serif font-bold text-lg text-[#1A1A1A] tracking-tight">
                 BOOKMETHAT.
               </span>
-              <p className="text-xs text-gray-500 leading-relaxed max-w-sm">
+              <p className="text-xs text-gray-700 leading-relaxed max-w-sm">
                 Clean Jamstack travel affiliate template built with native Intersection hydrations and zero-latency CSS layouts to serve perfect Vercel deployment speeds globally.
               </p>
             </div>
 
             <div className="md:col-span-3 space-y-2">
-              <h4 className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">AdSense & SEO Silos</h4>
-              <ul className="space-y-1.5 text-xs text-gray-600 font-sans">
-                <li><a href="/esim" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('guides'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">eSIM & Connection Directories</a></li>
-                <li><a href="/car-rental" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('calculators'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none">Car Rentals Cost Comparers</a></li>
-                <li><a href="/" onClick={(e) => { e.preventDefault(); handleSectionScroll('hero'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none font-bold">Launch Carrier Router</a></li>
+              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">AdSense & SEO Silos</h3>
+              <ul className="flex flex-col gap-1 text-xs text-gray-700 font-sans list-none p-0 m-0">
+                <li><a href="/esim" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('guides'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">eSIM & Connection Directories</a></li>
+                <li><a href="/car-rental" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('calculators'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Car Rentals Cost Comparers</a></li>
+                <li><a href="/" onClick={(e) => { e.preventDefault(); handleSectionScroll('hero'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-bold">Launch Carrier Router</a></li>
               </ul>
             </div>
 
             <div className="md:col-span-3 space-y-2">
-              <h4 className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">Compliance Links</h4>
-              <ul className="space-y-1.5 text-xs text-gray-600 font-sans">
-                <li><a href="/about" onClick={(e) => { e.preventDefault(); setLegalTab('disclosure'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block font-bold select-none text-gray-600">FTC Affiliate Disclosures</a></li>
-                <li><a href="/privacy" onClick={(e) => { e.preventDefault(); setLegalTab('privacy'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none text-gray-600">GDPR Cookie Consent</a></li>
-                <li><a href="/terms" onClick={(e) => { e.preventDefault(); setLegalTab('terms'); handleSectionScroll('compliance-desk'); }} className="hover:text-brand-orange transition cursor-pointer text-left block select-none text-gray-600">Terms and Services of Use</a></li>
+              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">Compliance Links</h3>
+              <ul className="flex flex-col gap-1 text-xs text-gray-700 font-sans list-none p-0 m-0">
+                <li><a href="/about" onClick={(e) => { e.preventDefault(); setLegalTab('disclosure'); handleSectionScroll('compliance-desk'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left font-bold select-none">FTC Affiliate Disclosures</a></li>
+                <li><a href="/privacy" onClick={(e) => { e.preventDefault(); setLegalTab('privacy'); handleSectionScroll('compliance-desk'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">GDPR Cookie Consent</a></li>
+                <li><a href="/terms" onClick={(e) => { e.preventDefault(); setLegalTab('terms'); handleSectionScroll('compliance-desk'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Terms and Services of Use</a></li>
               </ul>
             </div>
 
             <div className="md:col-span-2 space-y-2">
-              <h4 className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">Technical Node</h4>
-              <ul className="space-y-1 text-[10px] text-slate-500 font-mono list-none p-0 m-0">
+              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">Technical Node</h3>
+              <ul className="space-y-1 text-[10px] text-gray-700 font-mono list-none p-0 m-0">
                 <li>Host: High-Speed Vercel Node</li>
                 <li>DNS: Cloudflare Edge DNS</li>
                 <li>HMR Check: Off</li>
@@ -2163,17 +2269,17 @@ body {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-sans">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600 font-sans">
             <p className="flex items-center flex-wrap gap-1">
               <span>&copy; {new Date().getFullYear()} BookMeThat Ltd. Core Web Vitals Guaranteed Layout.</span>
-              <span className="text-gray-300">|</span>
-              <a href="https://saasskul.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand-orange font-medium underline decoration-brand-orange decoration-2">
+              <span className="text-gray-400">|</span>
+              <a href="https://saasskul.com" target="_blank" rel="noopener noreferrer" className="min-h-[44px] inline-flex items-center py-1 text-gray-700 hover:text-[#B84200] font-medium underline decoration-[#B84200] decoration-2">
                 Product of SAASSKUL
               </a>
             </p>
             <div className="flex items-center gap-1.5 text-[11px] font-mono">
-              <span>Primary Host Registered on:</span>
-              <strong className="text-gray-650">bookmethat.com</strong>
+              <span className="text-gray-700">Primary Host Registered on:</span>
+              <strong className="text-gray-900">bookmethat.com</strong>
             </div>
           </div>
 

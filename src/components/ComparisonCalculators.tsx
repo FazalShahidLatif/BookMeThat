@@ -12,12 +12,16 @@ export default function ComparisonCalculators() {
   const [distanceKm, setDistanceKm] = useState<number>(50);
   const [rentalDays, setRentalDays] = useState<number>(4);
 
-  // eSIM Estimates logic based on actual travel rates
+  // eSIM Estimates logic based on actual travel rates with active promo codes
   const getSimEstimates = () => {
-    // Saily Nord Security: very cheap entry tiers
-    const sailyPrice = Math.min(4.5 + dataGbs * 1.5, 39);
-    // Airalo: solid regional plans, mid-range
-    const airaloPrice = Math.min(5.0 + dataGbs * 1.8, 48);
+    // Saily Nord Security: 15% off with coupon TEE15
+    const baseSailyPrice = Math.min(4.5 + dataGbs * 1.5, 39);
+    const sailyDiscounted = baseSailyPrice * 0.85; // 15% OFF promo
+    
+    // Airalo: 15% off first order with NEWTOAIRALO15
+    const baseAiraloPrice = Math.min(5.0 + dataGbs * 1.8, 48);
+    const airaloDiscounted = baseAiraloPrice * 0.85; // 15% OFF promo
+    
     // Yesim: slightly higher starting but includes unlimited deals, great for heavy users
     const yesimPrice = Math.min(6.0 + dataGbs * 2.1, 55);
 
@@ -25,28 +29,34 @@ export default function ComparisonCalculators() {
       {
         id: 'saily',
         name: 'Saily Nord eSIM',
-        price: sailyPrice,
-        perGb: sailyPrice / dataGbs,
+        originalPrice: baseSailyPrice,
+        price: sailyDiscounted,
+        perGb: sailyDiscounted / dataGbs,
         badge: 'Lowest Budget Price',
-        bgColor: 'border-teal-400 bg-teal-50/20',
+        promoCode: 'TEE15',
+        promoLabel: '15% Promo Code Applied',
         url: '/go/saily'
       },
       {
         id: 'airalo',
         name: 'Airalo Global',
-        price: airaloPrice,
-        perGb: airaloPrice / dataGbs,
+        originalPrice: baseAiraloPrice,
+        price: airaloDiscounted,
+        perGb: airaloDiscounted / dataGbs,
         badge: 'Recommended Traveler Pick',
-        bgColor: 'border-indigo-400 bg-indigo-50/20',
+        promoCode: 'NEWTOAIRALO15',
+        promoLabel: '15% New User Voucher',
         url: '/go/airalo'
       },
       {
         id: 'yesim',
         name: 'Yesim Unlimited',
+        originalPrice: yesimPrice,
         price: yesimPrice,
         perGb: yesimPrice / dataGbs,
-        badge: 'Heavy Data / Unlimited Options',
-        bgColor: 'border-slate-300 bg-slate-50/40',
+        badge: 'Heavy Data / Unlimited Plans',
+        promoCode: 'YESIMDEAL',
+        promoLabel: 'Direct Partner Rate',
         url: '/go/yesim'
       }
     ];
@@ -166,34 +176,50 @@ export default function ComparisonCalculators() {
             {simEstimates.map((s) => (
               <div 
                 key={s.id} 
-                className="rounded-none border border-[#E5E5E1] p-5 bg-white flex flex-col justify-between transition group hover:bg-[#F8F7F2]"
+                className="rounded-none border-2 border-[#E5E5E1] p-5 bg-white flex flex-col justify-between transition group hover:border-[#B84200] hover:shadow-md"
                 id={`sim-compare-${s.id}`}
               >
                 <div>
-                  <span className="text-[9px] font-mono tracking-widest uppercase font-bold text-brand-orange bg-brand-orange/5 px-2 py-0.5 border border-brand-orange/20">
-                    {s.badge}
-                  </span>
-                  <h5 className="font-serif font-bold italic text-base text-[#1A1A1A] mt-3 mb-1">{s.name}</h5>
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="text-[8.5px] font-mono tracking-widest uppercase font-bold text-[#B84200] bg-[#B84200]/10 px-2 py-0.5 border border-[#B84200]/30">
+                      {s.badge}
+                    </span>
+                  </div>
+                  <h5 className="font-serif font-bold italic text-base text-[#1A1A1A] mt-1 mb-1">{s.name}</h5>
+                  <div className="text-[9px] font-mono text-emerald-800 font-bold flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                    {s.promoLabel}
+                  </div>
                   <hr className="border-[#E5E5E1] my-3" />
                   
-                  <div className="my-3">
-                    <span className="text-3xl font-serif font-bold text-[#1A1A1A]">${s.price.toFixed(2)}</span>
-                    <span className="text-[10px] text-gray-400 font-mono block mt-0.5 uppercase tracking-wider">est. pack price</span>
+                  <div className="my-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-serif font-bold text-[#1A1A1A]">${s.price.toFixed(2)}</span>
+                      {s.originalPrice > s.price && (
+                        <span className="text-xs font-mono line-through text-gray-500">${s.originalPrice.toFixed(2)}</span>
+                      )}
+                    </div>
+                    <span className="text-[10px] text-gray-500 font-mono block mt-0.5 uppercase tracking-wider">discounted total</span>
+                  </div>
+
+                  <div className="bg-[#FAF9F6] border border-[#E5E5E1] p-1.5 px-2.5 my-2 flex items-center justify-between text-[9px] font-mono">
+                    <span className="text-gray-600 uppercase">CODE:</span>
+                    <strong className="text-[#1A1A1A] font-bold tracking-wider">{s.promoCode}</strong>
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-3 border-t border-[#E5E5E1]">
-                  <div className="flex justify-between text-[11px] text-gray-500 font-mono">
+                <div className="space-y-3 pt-3 border-t border-[#E5E5E1]">
+                  <div className="flex justify-between text-[11px] text-gray-600 font-mono">
                     <span>Rate per GB:</span>
                     <span className="font-bold text-[#1A1A1A]">${s.perGb.toFixed(2)}</span>
                   </div>
                   
                   <AffiliateLink 
                     href={s.url}
-                    className="w-full py-2.5 px-3 bg-[#1A1A1A] hover:bg-brand-orange text-white rounded-none text-[10px] uppercase font-bold tracking-widest text-center flex items-center justify-center gap-1 transition-all"
+                    className="w-full min-h-[44px] py-2.5 px-3 bg-[#1A1A1A] hover:bg-[#B84200] text-white rounded-none text-[10px] uppercase font-bold tracking-widest text-center flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]"
                   >
                     <span>Activate Plan</span>
-                    <ExternalLink className="w-2.5 h-2.5" />
+                    <ExternalLink className="w-3 h-3" />
                   </AffiliateLink>
                 </div>
               </div>
@@ -314,17 +340,17 @@ export default function ComparisonCalculators() {
                 <div className="grid grid-cols-2 gap-2">
                   <AffiliateLink 
                     href="https://localrent.tpk.lu/YI6tdTTl"
-                    className="py-2.5 px-3 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1 transition"
+                    className="min-h-[44px] py-2.5 px-3 bg-[#B84200] hover:bg-[#8F3300] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1 transition shadow-sm"
                   >
-                    <span>Localrent Hire</span>
-                    <ExternalLink className="w-2.5 h-2.5" />
+                    <span>Localrent ($0 Dep)</span>
+                    <ExternalLink className="w-3 h-3" />
                   </AffiliateLink>
                   <AffiliateLink 
                     href="https://qeeq.tpk.lu/nAGGDc6e"
-                    className="py-2.5 px-2 bg-[#1A1A1A] hover:bg-brand-orange text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1 transition-all"
+                    className="min-h-[44px] py-2.5 px-2 bg-[#1A1A1A] hover:bg-[#B84200] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1 transition-all shadow-sm"
                   >
-                    <span>Global QEEQ</span>
-                    <ExternalLink className="w-2.5 h-2.5" />
+                    <span>QEEQ (Code IG2026)</span>
+                    <ExternalLink className="w-3 h-3" />
                   </AffiliateLink>
                 </div>
               </div>
@@ -337,7 +363,7 @@ export default function ComparisonCalculators() {
                   Option B
                 </span>
                 <h5 className="font-serif font-bold text-[#1A1A1A] text-base mb-1">{transportEstimates.transfer.label}</h5>
-                <p className="text-xs text-gray-500 leading-relaxed mb-4 font-sans">
+                <p className="text-xs text-gray-700 leading-relaxed mb-4 font-sans">
                   {transportEstimates.transfer.sub}
                 </p>
 
@@ -350,7 +376,11 @@ export default function ComparisonCalculators() {
                     <span>Mileage Rate ($1.05/km):</span>
                     <span>${(distanceKm * 1.05).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-xs text-brand-orange font-bold font-mono uppercase tracking-wider text-[10px]">
+                  <div className="flex justify-between text-xs text-[#B84200] font-bold font-mono uppercase tracking-wider text-[10px]">
+                    <span>Promo Applied (GETTRANSFER10):</span>
+                    <span>-10% Discount</span>
+                  </div>
+                  <div className="flex justify-between text-xs text-emerald-800 font-bold font-mono uppercase tracking-wider text-[10px]">
                     <span>Airport Delay Greeting:</span>
                     <span>Included (60m)</span>
                   </div>
@@ -359,15 +389,15 @@ export default function ComparisonCalculators() {
 
               <div>
                 <div className="flex items-baseline justify-between mb-4">
-                  <span className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Flat Bidding Price:</span>
-                  <span className="text-2xl font-serif font-bold text-brand-orange">${transportEstimates.transfer.total.toFixed(2)}</span>
+                  <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Flat Bidding Price:</span>
+                  <span className="text-2xl font-serif font-bold text-[#B84200]">${(transportEstimates.transfer.total * 0.9).toFixed(2)}</span>
                 </div>
 
                 <AffiliateLink 
                   href="https://gettransfer.tpk.lu/zUalOSms"
-                  className="w-full py-2.5 px-4 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1.5 transition"
+                  className="w-full min-h-[44px] py-2.5 px-4 bg-[#B84200] hover:bg-[#8F3300] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1.5 transition shadow-sm"
                 >
-                  <span>Submit bidding call to GetTransfer</span>
+                  <span>Submit Bidding Call (Code GETTRANSFER10)</span>
                   <ExternalLink className="w-3 h-3" />
                 </AffiliateLink>
               </div>
