@@ -37,6 +37,8 @@
 The full text and in-depth analyses of all travel articles are indexable via [llms-full.txt](https://www.bookmethat.com/llms-full.txt).
 
 ### 📱 eSIM & Connectivity Guides
+- [Best eSIM for Japan 2026](https://www.bookmethat.com/best-esim-japan) - NTT Docomo & SoftBank 5G speed test on Shinkansen bullet trains.
+- [Best Travel eSIM for USA 2026](https://www.bookmethat.com/best-esim-usa) - T-Mobile vs. AT&T coverage, unlimited data, and National Park performance.
 - [Best eSIM for Italy 2026](https://www.bookmethat.com/best-esim-italy) - Hands-on Saily vs. Airalo speed test and price-per-GB breakdown.
 - [Travel Connectivity Blueprint](https://www.bookmethat.com/ultimate-global-travel-connectivity-blueprint) - Comprehensive guide on dual-SIM setups and keeping home OTP SMS active abroad.
 - [Saily vs Airalo Speed Test](https://www.bookmethat.com/saily-vs-airalo-esim-speed-performance-test) - Live benchmark results across Europe and Southeast Asia.
@@ -49,6 +51,8 @@ The full text and in-depth analyses of all travel articles are indexable via [ll
 - [Travelpayouts eSIM Growth Loop](https://www.bookmethat.com/travelpayouts-esim-growth-loop) - Affiliate ecosystem loop for connectivity tools.
 
 ### 🚗 Ground Logistics & Rentals
+- [Car Rental Insurance Excess Explained](https://www.bookmethat.com/car-rental-insurance-excess-counter-hacks) - How to avoid rental desk scams and €3,000 credit card deposit holds.
+- [DiscoverCars vs Localrent vs EconomyBookings](https://www.bookmethat.com/discovercars-vs-localrent-vs-economybookings) - Safest car rental brokers, cancellation rules, and cash deposit options.
 - [International Ground Logistics](https://www.bookmethat.com/international-ground-logistics-car-rental-transfers) - Comparing ridesharing, airport private transfers, and self-drive options.
 - [Localrent No Deposit Review](https://www.bookmethat.com/localrent-cars-review-no-credit-card-deposits) - Renting without credit card holds.
 - [GetTransfer Chauffeurs Bidding](https://www.bookmethat.com/gettransfer-airport-chauffeurs-bidding-guide) - How to get low-cost airport transfer bids.
@@ -59,6 +63,9 @@ The full text and in-depth analyses of all travel articles are indexable via [ll
 - [Road Trip Budget Vehicles](https://www.bookmethat.com/road-trip-budget-car-scooter-rental-comparison) - Car vs scooter vs campervan cost breakdowns.
 
 ### ✈️ Air Travel Rights & Savings
+- [Japan Rail Pass 2026: Is It Worth It?](https://www.bookmethat.com/japan-rail-pass-2026-worth-it-calculator) - Math breakdown: JR Pass vs. individual Shinkansen on Klook vs. IC cards.
+- [Viator vs GetYourGuide vs Klook](https://www.bookmethat.com/viator-vs-getyourguide-vs-klook) - Tour pricing, cancellation terms, and Go City skip-the-line passes.
+- [Flight Delay & Cancellation Claim Guide](https://www.bookmethat.com/flight-delay-cancellation-refund-chargeback-guide) - Step-by-step statutory enforcement for up to €600 cash compensation.
 - [Jetsetter Booking & Compensation Playbook](https://www.bookmethat.com/smart-jetsetter-booking-savings-compensation-playbook) - Strategic framework for low-cost flight booking and claiming.
 - [AirHelp EU261 Guide](https://www.bookmethat.com/airhelp-flight-delay-compensation-eu261-guide) - Passenger rights under EU261 regulation.
 - [Expedia Vacation Bundles](https://www.bookmethat.com/expedia-vacation-bundle-deals-and-hacks) - Hack flight + hotel dynamic cart pricing.
@@ -71,6 +78,7 @@ The full text and in-depth analyses of all travel articles are indexable via [ll
 - [US DOT vs EU261 Claims](https://www.bookmethat.com/claiming-flight-reimbursement-us-dot-vs-eu261) - Differences between US cash refunds and EU statutory payouts.
 
 ### 🛡️ Digital Nomad Security & Banking
+- [SafetyWing vs World Nomads vs Heymondo](https://www.bookmethat.com/safetywing-vs-world-nomads-heymondo) - Honest comparison of deductibles, hospital claims, and gear coverage.
 - [Digital Nomad Armor](https://www.bookmethat.com/digital-nomad-armor-banking-vpn-insurance-blueprint) - Comprehensive guide to security, VPNs, banking, and health insurance.
 - [Wise Borderless Card Review](https://www.bookmethat.com/wise-borderless-debit-card-review-forex-savings) - Save on foreign exchange fees and mid-market rate transfers.
 - [NordVPN Travel Security](https://www.bookmethat.com/nordvpn-travel-security-airport-wifi-geo-arbitrage) - Encrypting airport Wi-Fi and geo-arbitrage flight deal hacks.
