@@ -9,6 +9,8 @@
 // Mapping of Article ID to precise Unsplash Photo IDs matching the article descriptions
 const ARTICLE_PHOTO_IDS: Record<string, string> = {
   // SILO 1: CELLULAR CONNECTIVITY & eSIMS
+  'best-esim-japan': 'photo-1503899036084-c55cdd92da26', // Tokyo neon cityscape & bullet train connectivity
+  'best-esim-usa': 'photo-1485738422979-f5c462d49f74', // New York skyline & USA 5G data
   'best-esim-italy': 'photo-1516483638261-f4dbaf036963', // Beautiful view of Venice/Italy
   'best-travel-esims-pillar': 'photo-1488646953014-85cb44e25828', // Travel map with smartphone
   'saily-vs-airalo-esim-speed': 'photo-1562408590-e32931084e23', // Clean high-tech cellular interface
@@ -20,6 +22,8 @@ const ARTICLE_PHOTO_IDS: Record<string, string> = {
   'best-regional-esim-southeast-asia-saily': 'photo-1525625293386-3f8f99389edd', // Singapore skyline sunset
 
   // SILO 2: GROUND TRANSPORT & CAR RENTALS
+  'car-rental-insurance-excess-counter-hacks': 'photo-1449965408869-eaa3f722e40d', // Car keys and inspection clipboard at airport desk
+  'discovercars-vs-localrent-vs-economybookings': 'photo-1549399542-7e3f8b79c341', // Modern rental car fleet parked at scenic coastal road
   'ground-logistics-master-pillar': 'photo-1533473359331-0135ef1b58bf', // Rental car traveling down scenic mountain road
   'localrent-cars-deposit-secrets': 'photo-1568605117036-5fe5e7bab0b7', // Clean keys and vehicle front
   'gettransfer-driver-bidding': 'photo-1449965408869-eaa3f722e40d', // Hands of a driver on high-quality steering wheel
@@ -30,6 +34,9 @@ const ARTICLE_PHOTO_IDS: Record<string, string> = {
   'localrent-georgia-tbilisi-car-rental-reviews-model': 'photo-1514362545857-3bc16c4c7d1b', // Medieval Tbilisi church valley Caucasus
 
   // SILO 3: PASSENGER RIGHTS, FLIGHT DELAYS & STAY BOOKINGS
+  'japan-rail-pass-2026-worth-it-calculator': 'photo-1538688525198-9b88f6f53126', // Japanese Shinkansen bullet train Mount Fuji
+  'viator-vs-getyourguide-vs-klook': 'photo-1502602898657-3e91760cbb34', // Paris Louvre & Colosseum skip-the-line tour tickets
+  'flight-delay-cancellation-refund-chargeback-guide': 'photo-1512753360435-329c4535a9a7', // Airport departure delay schedule board
   'passenger-restitution-hotel-pillar': 'photo-1436491865332-7a61a109cc05', // Passenger flight terminal runways golden sunrise
   'airhelp-delayed-flight-eu261': 'photo-1474487548417-781cb71495f3', // High-definition airport delayed flights board
   'expedia-bundle-deals-hacks': 'photo-1507525428034-b723cf961d3e', // Resort beachfront vacation booking vibes
@@ -41,6 +48,7 @@ const ARTICLE_PHOTO_IDS: Record<string, string> = {
   'expedia-discount-dynamic-bundling-algorithm-hacks': 'photo-1522202176988-66273c2fd55f', // Collaborative booking tech screen
 
   // SILO 4: NOMAD BANKING, SECURITY & MULTI-CURRENCY CHECKS
+  'safetywing-vs-world-nomads-heymondo': 'photo-1501504905252-473c47e087f8', // Digital nomad with laptop, passport, and medical travel insurance
   'nomad-security-finance-pillar': 'photo-1527685216984-a1a47deb0020', // Nomad workspace overlooking palm shorelines
   'wise-borderless-saving-forex': 'photo-1580519542036-c47de6196ba5', // Wise multi-currency wallet credit card and cash
   'nordvpn-travel-threat-defence': 'photo-1563968743331-244a8a12c8ad', // Secure laptops with VPN server locks active

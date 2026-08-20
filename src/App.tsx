@@ -1436,7 +1436,7 @@ body {
 })();`;
 
   return (
-    <div className={`min-h-screen bg-[#FAF9F6] flex flex-col font-sans text-[#1A1A1A] selection:bg-brand-orange/10 selection:text-brand-orange leading-normal ${isScrolling ? 'scrolling-active pointer-events-none' : ''}`} id="global-layout-root">
+    <div className={`min-h-screen bg-[#FAF9F6] flex flex-col font-sans text-[#1A1A1A] selection:bg-brand-orange/10 selection:text-brand-orange leading-normal w-full max-w-full overflow-x-hidden ${isScrolling ? 'scrolling-active pointer-events-none' : ''}`} id="global-layout-root">
       
       {/* Accessibility Skip Link */}
       <a 
@@ -1524,18 +1524,18 @@ body {
       <main id="main-content" className="flex-grow">
         
         {/* HERO INTRO */}
-        <section id="hero" className="relative overflow-hidden py-14 lg:py-20 border-b border-[#E5E5E1]">
+        <section id="hero" className="relative overflow-hidden py-10 sm:py-14 lg:py-20 border-b border-[#E5E5E1]">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#E5E5E1_1px,transparent_1px),linear-gradient(to_bottom,#E5E5E1_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-35" />
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
-              <div className="lg:col-span-7 space-y-6">
+              <div className="lg:col-span-7 space-y-5 sm:space-y-6">
                 <span className="inline-flex items-center gap-1.5 text-[9px] text-[#B84200] font-mono font-bold bg-[#B84200]/10 px-2.5 py-1 border border-[#B84200]/30 uppercase tracking-widest">
                   <Flame className="w-3.5 h-3.5 animate-pulse text-[#B84200]" /> Save Up to 40% globally with Direct contracts
                 </span>
                 
-                <h1 className="text-5xl lg:text-[62px] leading-[0.95] font-serif italic tracking-tight text-[#1A1A1A]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] leading-[1.08] sm:leading-[1.02] font-serif italic tracking-tight text-[#1A1A1A]">
                   Direct Travel Deals & <span className="not-italic font-bold block mt-2 text-[#B84200]">Promo Code Vault.</span>
                 </h1>
                 
@@ -2393,11 +2393,45 @@ body {
         </div>
       )}
 
+      {/* STICKY HIGH-INTENT TRANSACTIONAL CONVERSION BAR */}
+      <aside 
+        aria-label="Exclusive Direct Travel Partner Deals"
+        className="fixed bottom-0 left-0 right-0 z-30 bg-[#1A1A1A] text-white border-t border-[#333] py-2.5 px-3 sm:px-6 shadow-2xl backdrop-blur-md bg-opacity-95"
+      >
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-4">
+          <div className="flex items-center gap-2 text-left">
+            <span className="flex h-2 w-2 relative shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B84200] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B84200]"></span>
+            </span>
+            <p className="text-[11px] sm:text-xs font-sans text-stone-200">
+              <strong className="text-white font-bold">Exclusive Deal:</strong> Get 5% OFF 5G Travel eSIMs with code <span className="bg-[#B84200]/30 text-[#FF8542] px-1.5 py-0.5 font-mono font-bold border border-[#B84200]/50 select-all">SPECIAL5</span> or Book Localrent with zero card deposit.
+            </p>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <AffiliateLink
+              href="https://saily.top/3Yv4T8x"
+              aria-label="Claim Saily 5% Discount Code"
+              className="bg-[#B84200] hover:bg-[#a03800] text-white text-[10px] sm:text-xs font-mono font-bold uppercase py-1.5 px-3 rounded-none transition flex items-center gap-1 shadow-sm"
+            >
+              Get eSIM Deal &rarr;
+            </AffiliateLink>
+            <AffiliateLink
+              href="https://localrent.tp.st/P9K5Y1f7"
+              aria-label="Browse No Deposit Car Rentals on Localrent"
+              className="bg-stone-800 hover:bg-stone-700 text-stone-100 text-[10px] sm:text-xs font-mono font-bold uppercase py-1.5 px-3 rounded-none border border-stone-600 transition flex items-center gap-1"
+            >
+              Zero-Deposit Cars &rarr;
+            </AffiliateLink>
+          </div>
+        </div>
+      </aside>
+
       {/* FLOATING SCROLL TO TOP BUTTON */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-40 p-3.5 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-full shadow-[0_10px_25px_-5px_rgba(229,91,19,0.5)] transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/30 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 flex items-center justify-center group cursor-pointer animate-in fade-in zoom-in-75 duration-200"
+          className="fixed bottom-14 right-6 z-40 p-3.5 bg-brand-orange hover:bg-[#c94d0e] text-white rounded-full shadow-[0_10px_25px_-5px_rgba(229,91,19,0.5)] transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/30 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 flex items-center justify-center group cursor-pointer animate-in fade-in zoom-in-75 duration-200"
           aria-label="Scroll to top"
           title="Scroll to top"
         >

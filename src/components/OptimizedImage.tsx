@@ -18,6 +18,8 @@ interface OptimizedImageProps {
   height?: number;
   /** Optional custom alt text to override automatic sanitization */
   customAlt?: string;
+  /** Priority flag for LCP hero images */
+  priority?: boolean;
 }
 
 /**
@@ -48,6 +50,7 @@ export function sanitizeToAltText(rawText: string, fallbackBranding: string = "B
  * 
  * Intercepts raw description strings passed directly to <img> tags, resolving rendering breaks.
  * Employs clean aspect-ratio wrapping to guarantee zero Cumulative Layout Shift (CLS).
+ * Complies with Google Image Search indexing best practices and Schema.org ImageObject microdata.
  */
 export default function OptimizedImage({
   src,
@@ -57,7 +60,8 @@ export default function OptimizedImage({
   className = 'w-full h-full object-cover',
   width = 800,
   height = 450,
-  customAlt
+  customAlt,
+  priority = false
 }: OptimizedImageProps) {
   const [resolvedSrc, setResolvedSrc] = useState<string>('');
   const [hasError, setHasError] = useState<boolean>(false);
@@ -80,7 +84,7 @@ export default function OptimizedImage({
     }
   }, [src, articleId, silo, width, height]);
 
-  // Clean raw prompts or source text for screen readers
+  // Clean raw prompts or source text for screen readers and Google Image indexers
   const finalAltText = customAlt || sanitizeToAltText(
     promptDescription || (isPromptFallback ? src : '') || articleId || silo
   );
@@ -94,29 +98,48 @@ export default function OptimizedImage({
     }
   };
 
+  // Generate responsive srcSet for Unsplash assets to maximize mobile and desktop page-speed scores
+  const isUnsplash = resolvedSrc.includes('images.unsplash.com');
+  const srcSet = isUnsplash 
+    ? `${resolvedSrc.replace(`w=${width}`, 'w=400').replace(`h=${height}`, `h=${Math.round(height * 0.5)}`)} 400w, ${resolvedSrc} 800w, ${resolvedSrc.replace(`w=${width}`, 'w=1200').replace(`h=${height}`, `h=${Math.round(height * 1.5)}`)} 1200w`
+    : undefined;
+
   return (
-    <div 
-      className="relative w-full h-full overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200"
+    <figure 
+      className="relative w-full h-full overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200 m-0"
       style={{ aspectRatio: `${width} / ${height}` }}
+      itemScope
+      itemType="https://schema.org/ImageObject"
     >
       {resolvedSrc ? (
-        <img
-          src={resolvedSrc}
-          alt={finalAltText}
-          loading="lazy"
-          onLoad={() => {}}
-          onError={handleError}
-          referrerPolicy="no-referrer"
-          className={`transition-all duration-500 ease-in-out ${className}`}
-          width={width}
-          height={height}
-        />
+        <>
+          <img
+            src={resolvedSrc}
+            srcSet={srcSet}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
+            alt={finalAltText}
+            title={finalAltText}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+            fetchPriority={priority ? 'high' : 'auto'}
+            onError={handleError}
+            referrerPolicy="no-referrer"
+            className={`transition-all duration-500 ease-in-out ${className}`}
+            width={width}
+            height={height}
+            itemProp="contentUrl"
+          />
+          <meta itemProp="name" content={finalAltText} />
+          <meta itemProp="description" content={finalAltText} />
+          <meta itemProp="width" content={width.toString()} />
+          <meta itemProp="height" content={height.toString()} />
+        </>
       ) : (
         // Soft fallback layout skeleton during resolution state
         <div className="absolute inset-0 flex items-center justify-center bg-stone-100 animate-pulse">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-[#E55B13]/30">BookMeThat Stream...</span>
+          <span className="text-[10px] uppercase font-mono tracking-widest text-[#B84200]/40 font-bold">BookMeThat Engine Loading...</span>
         </div>
       )}
-    </div>
+    </figure>
   );
 }

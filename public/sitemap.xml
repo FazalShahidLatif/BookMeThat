@@ -1,419 +1,686 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Main Platform Entrypoint -->
   <url>
     <loc>https://www.bookmethat.com/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>BookMeThat Direct Travel Deals &amp; Promo Code Vault</image:title>
+      <image:caption>Wholesale-direct travel eSIMs, verified car rentals, flight delay compensation, and promo codes.</image:caption>
+    </image:image>
   </url>
 
   <!-- Interactive Nomad Planner -->
   <url>
     <loc>https://www.bookmethat.com/planner</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1527685216984-a1a47deb0020?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Interactive Travel &amp; Flight Route Planner</image:title>
+      <image:caption>AI-powered multi-destination itinerary, eSIM data calculator, and cost estimator.</image:caption>
+    </image:image>
   </url>
 
   <!-- Car & Scooter Cost Estimator -->
   <url>
     <loc>https://www.bookmethat.com/car-rental</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Car Rental Deposit &amp; Insurance Calculator</image:title>
+      <image:caption>Compare car rental brokers, local no-deposit suppliers, and full excess insurance coverage.</image:caption>
+    </image:image>
   </url>
 
   <!-- Travel eSIM Deals Hub -->
   <url>
     <loc>https://www.bookmethat.com/esim</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Global Travel eSIM Comparison Matrix</image:title>
+      <image:caption>Compare Saily, Airalo, Yesim, and Drimsim prices per GB across 190+ countries.</image:caption>
+    </image:image>
   </url>
 
   <!-- Flight Delay Compensation Portal -->
   <url>
     <loc>https://www.bookmethat.com/flights</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Flight Delay &amp; Cancellation Compensation Portal</image:title>
+      <image:caption>Calculate EU261, UK261, and US DOT passenger cash refunds up to 600 Euros per passenger.</image:caption>
+    </image:image>
   </url>
 
   <!-- AI Keyword Potential Heatmap -->
   <url>
     <loc>https://www.bookmethat.com/heatmap</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- AdSense & UTM Tracker -->
   <url>
     <loc>https://www.bookmethat.com/utm</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- Travel FAQ Helpdesk -->
   <url>
     <loc>https://www.bookmethat.com/faq</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- Nomad IQ Challenge -->
   <url>
     <loc>https://www.bookmethat.com/challenge</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
 
   <!-- About / FTC Compliance -->
   <url>
     <loc>https://www.bookmethat.com/about</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
 
   <!-- Privacy Policy -->
   <url>
     <loc>https://www.bookmethat.com/privacy</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
 
   <!-- Terms of Service -->
   <url>
     <loc>https://www.bookmethat.com/terms</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
 
   <!-- AI SEO Ecosystem Matrix Policy -->
   <url>
     <loc>https://www.bookmethat.com/ai-seo</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
 
   <!-- Contact & Impressum Desk -->
   <url>
     <loc>https://www.bookmethat.com/contact</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.60</priority>
   </url>
 
   <!-- ==========================================
        SILO 1: CELLULAR CONNECTIVITY & eSIMS
        ========================================== -->
   <url>
-    <loc>https://www.bookmethat.com/best-esim-italy</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://www.bookmethat.com/best-esim-japan</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Best eSIM for Japan 2026 - Tokyo &amp; Shinkansen 5G</image:title>
+      <image:caption>Field speed test comparing NTT Docomo and SoftBank 5G networks for travelers in Japan.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/best-esim-usa</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Best Travel eSIM for USA 2026 - T-Mobile &amp; AT&amp;T</image:title>
+      <image:caption>USA travel eSIM network benchmark with unlimited 5G data plans and National Park coverage.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/best-esim-italy</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Best eSIM for Italy 2026 - TIM &amp; Vodafone Speed Test</image:title>
+      <image:caption>Price per GB comparison for Rome, Florence, Venice, and Amalfi Coast travel.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/ultimate-global-travel-connectivity-blueprint</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Ultimate Global Travel Connectivity Blueprint</image:title>
+      <image:caption>Master guide on dual-SIM configurations, backup calling, and local data switching.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/saily-vs-airalo-esim-speed-performance-test</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Saily vs Airalo eSIM Speed &amp; Latency Test</image:title>
+      <image:caption>Real-world 5G speed benchmarks across Tokyo, London, Bangkok, and Berlin.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/yesim-mobile-deep-dive-review-unlimited-data</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Yesim Mobile Review - Unlimited Data Plans</image:title>
+      <image:caption>Analysis of Yesim non-expiring pay-as-you-go international data and VPN integration.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/keep-home-number-active-abroad-otp-sms-guide</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Keep Home Number Active Abroad for Bank 2FA SMS</image:title>
+      <image:caption>How to receive verification texts overseas without incurring daily roaming fees.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/step-by-step-esim-installation-manual</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Step-by-Step eSIM Installation Manual for iPhone &amp; Android</image:title>
+      <image:caption>Easy setup walkthrough with QR code and direct app installation steps.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/cheap-regional-esim-southeat-asia-europe</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Cheap Regional eSIMs for Southeast Asia &amp; Europe</image:title>
+      <image:caption>Multi-country roaming packages for backpacking and cross-border travel.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/drimsim-vs-airalo-saily-esim-roaming</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Drimsim Pay-As-You-Go eSIM Comparison</image:title>
+      <image:caption>Per-megabyte global billing vs pre-purchased gigabyte data bundles.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/best-regional-esim-southeast-asia-saily-tour</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Southeast Asia Regional eSIM Tour Guide</image:title>
+      <image:caption>Seamless mobile coverage across Thailand, Vietnam, Indonesia, and Malaysia.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/travelpayouts-esim-growth-loop</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Travelpayouts eSIM Growth Loop Architecture</image:title>
+      <image:caption>Affiliate monetization strategies for international travel connectivity.</image:caption>
+    </image:image>
   </url>
 
   <!-- ==========================================
        SILO 2: GROUND TRANSPORT & CAR RENTALS
        ========================================== -->
   <url>
-    <loc>https://www.bookmethat.com/international-ground-logistics-car-rental-transfers</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://www.bookmethat.com/car-rental-insurance-excess-counter-hacks</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Car Rental Insurance Excess &amp; Counter Hacks</image:title>
+      <image:caption>How to avoid aggressive rental counter sales tactics and credit card deposit holds.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/discovercars-vs-localrent-vs-economybookings</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>DiscoverCars vs Localrent vs EconomyBookings Comparison</image:title>
+      <image:caption>Comprehensive broker safety comparison, cancellation terms, and cash deposit options.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/international-ground-logistics-car-rental-transfers</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>International Ground Logistics &amp; Airport Transfers</image:title>
+      <image:caption>Strategic comparison between chauffeur auctions, car hire, and local rideshare.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/localrent-cars-review-no-credit-card-deposits</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Localrent Car Hire Review - No Credit Card Deposits</image:title>
+      <image:caption>Rent verified vehicles across Montenegro, Georgia, UAE, and Turkey with zero credit holds.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/gettransfer-airport-chauffeurs-bidding-guide</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>GetTransfer Chauffeur Bidding Secrets</image:title>
+      <image:caption>How to obtain low-cost airport transfer bids from certified private drivers.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/qeeq-car-rental-price-drop-protection-secrets</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>QEEQ Price Drop Protection Guide</image:title>
+      <image:caption>Automated re-booking algorithms to capture car rental price drops before pickup.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/renting-cars-montenegro-greece-georgia-safety</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Renting Cars in Montenegro, Greece &amp; Georgia</image:title>
+      <image:caption>Mountain road safety tips, cross-border permits, and local insurance rules.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/localrent-car-hire-secrets-balkans-georgia</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Localrent Secrets for the Balkans &amp; Georgia</image:title>
+      <image:caption>Finding exact car model guarantees and low-cost insurance without credit card holds.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/localrent-georgia-tbilisi-car-rental-reviews-model</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Localrent Georgia &amp; Tbilisi Car Rental Review</image:title>
+      <image:caption>4x4 SUV rental options for Kazbegi, Svaneti, and Kakheti wine country road trips.</image:caption>
+    </image:image>
   </url>
 
   <!-- ==========================================
        SILO 3: DEALS & PASSENGER RESTITUTION
        ========================================== -->
   <url>
-    <loc>https://www.bookmethat.com/smart-jetsetter-booking-savings-compensation-playbook</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://www.bookmethat.com/japan-rail-pass-2026-worth-it-calculator</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Japan Rail Pass 2026 - Worth It Calculator</image:title>
+      <image:caption>Cost math comparing 7, 14, 21-day JR Passes vs individual Shinkansen tickets on Klook.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/viator-vs-getyourguide-vs-klook</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Viator vs GetYourGuide vs Klook 2026 Comparison</image:title>
+      <image:caption>Tour booking platform comparison for pricing, cancellation policies, and skip-the-line tickets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/flight-delay-cancellation-refund-chargeback-guide</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512753360435-329c4535a9a7?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Flight Delayed or Canceled Refund &amp; Chargeback Guide</image:title>
+      <image:caption>Step-by-step statutory enforcement under EU261, UK261, and US DOT rules for cash compensation.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/smart-jetsetter-booking-savings-compensation-playbook</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Smart Jetsetter Booking &amp; Compensation Playbook</image:title>
+      <image:caption>Strategic flight booking algorithms and automatic passenger compensation workflows.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/airhelp-flight-delay-compensation-eu261-guide</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>AirHelp Flight Delay Compensation EU261 Guide</image:title>
+      <image:caption>Claiming up to 600 Euros per passenger for flight delays, cancellations, and missed connections.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/expedia-vacation-bundle-deals-and-hacks</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Expedia Vacation Bundle Deals &amp; Cart Savings</image:title>
+      <image:caption>How to unlock hidden discounted hotel room rates by pairing flights with accommodation.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/flight-canceled-terminal-emergency-action-plan</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1530521951415-324156efddc7?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Flight Canceled Terminal Emergency Action Plan</image:title>
+      <image:caption>Immediate steps at the gate for food vouchers, hotel lodging, and priority rebooking.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/passenger-rights-north-america-asia-pacific-flights</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517059224940-d4af9eec41b7?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Passenger Rights for North America &amp; Asia-Pacific Flights</image:title>
+      <image:caption>Comparing Canadian CTA, US DOT, and Asian aviation passenger rights frameworks.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/expedia-hotel-flight-cart-bundling-hacks</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Expedia Hotel &amp; Flight Cart Bundling Secrets</image:title>
+      <image:caption>How opaque pricing algorithms discount 4-star and 5-star hotel rooms in package carts.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/expedia-discount-dynamic-bundling-algorithm-hacks</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Expedia Dynamic Bundling Algorithm Secrets</image:title>
+      <image:caption>Mastering dynamic packaging systems to secure cheap flight and hotel bundles.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/save-sightseeing-klook-gocity-passes</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1513635269975-59663e0ca1ad?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Save on Sightseeing with Klook &amp; Go City Passes</image:title>
+      <image:caption>Discount multi-attraction passes for theme parks, museums, and panoramic observation decks.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/flight-delay-compensation-compensair-airhelp</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Compensair vs AirHelp Flight Compensation Comparison</image:title>
+      <image:caption>Commission rates, processing speed, and court litigation win rates compared.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/claiming-flight-reimbursement-us-dot-vs-eu261</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>US DOT vs EU261 Flight Reimbursement Comparison</image:title>
+      <image:caption>Differences between US mandatory cash refunds and European statutory delay payouts.</image:caption>
+    </image:image>
   </url>
 
   <!-- ==========================================
        SILO 4: UTILITY, BANKING & SECURITY
        ========================================== -->
   <url>
-    <loc>https://www.bookmethat.com/digital-nomad-armor-banking-vpn-insurance-blueprint</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://www.bookmethat.com/safetywing-vs-world-nomads-heymondo</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>SafetyWing vs World Nomads vs Heymondo 2026 Comparison</image:title>
+      <image:caption>Nomad travel medical insurance comparison: deductibles, direct billing, and gear coverage.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.bookmethat.com/digital-nomad-armor-banking-vpn-insurance-blueprint</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1527685216984-a1a47deb0020?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Digital Nomad Armor - Banking, VPN &amp; Insurance</image:title>
+      <image:caption>Comprehensive security blueprint for international remote work and nomad finance.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/wise-borderless-debit-card-review-forex-savings</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Wise Multi-Currency Borderless Debit Card Review</image:title>
+      <image:caption>Save hundreds on currency conversion fees with mid-market foreign exchange rates.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/nordvpn-travel-security-airport-wifi-geo-arbitrage</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563968743331-244a8a12c8ad?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>NordVPN Travel Security &amp; Geo-Arbitrage Deals</image:title>
+      <image:caption>Protect banking data on public airport Wi-Fi and unlock regional flight price discounts.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/world-nomads-adventure-travel-insurance-unbiased-review</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>World Nomads Adventure Travel Insurance Review</image:title>
+      <image:caption>Coverage for 200+ adventure activities, high-altitude trekking, scuba, and gear loss.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/freelance-business-global-banking-while-traveling</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Freelance Global Business Banking While Traveling</image:title>
+      <image:caption>International multi-currency accounts and business invoicing for borderless freelancers.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/road-trip-budget-car-scooter-rental-comparison</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1532974297617-c0f05fe48bff?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Road Trip Budget - Car vs Scooter vs Campervan</image:title>
+      <image:caption>Fuel consumption, toll fees, and rental cost breakdowns for European road trips.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/luggage-storage-radical-storage-guide</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Radical Storage Luggage Freedom Guide</image:title>
+      <image:caption>Secure bag storage near train stations, airports, and city centers with fixed daily rates.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/wise-vs-revolut-multi-currency-travel-card-fees</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Wise vs Revolut Travel Card Fee Comparison</image:title>
+      <image:caption>Weekend exchange markups, ATM withdrawal limits, and multi-currency holding accounts compared.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/how-to-withdraw-foreign-currency-cash-with-zero-fees</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>How to Withdraw Foreign Cash with Zero Fees Abroad</image:title>
+      <image:caption>Decline Dynamic Currency Conversion (DCC) to avoid 6-14 percent hidden ATM markups.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/travelpayouts-rpm-masterclass</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Travelpayouts RPM Monetization Masterclass</image:title>
+      <image:caption>Maximizing revenue per mille across high-intent travel niches and direct partner funnels.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/travelpayouts-operational-blueprint</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Travelpayouts Operational Affiliate Blueprint</image:title>
+      <image:caption>Scaling performance marketing and affiliate conversions across travel portals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/travelpayouts-destination-guide</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Travelpayouts Destination Marketing Guide</image:title>
+      <image:caption>Creating high-converting travel guides with localized affiliate integrations.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.bookmethat.com/travelpayouts-tech-automation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/best-esim-japan</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/best-esim-usa</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/safetywing-vs-world-nomads-heymondo</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/car-rental-insurance-excess-counter-hacks</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/japan-rail-pass-2026-worth-it-calculator</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/discovercars-vs-localrent-vs-economybookings</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/viator-vs-getyourguide-vs-klook</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.bookmethat.com/flight-delay-cancellation-refund-chargeback-guide</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1552202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Travelpayouts Tech &amp; API Automation Blueprint</image:title>
+      <image:caption>Automating dynamic flight, hotel, and eSIM rates via travel APIs.</image:caption>
+    </image:image>
   </url>
 </urlset>

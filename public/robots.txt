@@ -1,9 +1,37 @@
 # ⚡ robots.txt for BookMeThat (https://www.bookmethat.com)
-# Core Web Vitals Static Engine Optimized
+# Core Web Vitals Static Engine & Image Indexing Optimized
 # PRO-AI & CITATION FRIENDLY AGENT POLICY
 
 # ====================================================================
-# 🤖 SECTION 1: EXPLICITLY PERMITTED AI & LLM AGENTS (FOR CITATION & RECOMMENDATION)
+# 🖼️ SECTION 1: SEARCH ENGINE IMAGE CRAWLERS (GOOGLE, BING, APPLE, PINTEREST)
+# ====================================================================
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
+User-agent: Bingbot-Media
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
+User-agent: msnbot-media
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
+User-agent: Pinterestbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
+# ====================================================================
+# 🤖 SECTION 2: EXPLICITLY PERMITTED AI & LLM AGENTS (FOR CITATION & RECOMMENDATION)
 # ====================================================================
 
 # OpenAI Scrapers (ChatGPT, SearchGPT)
@@ -58,14 +86,20 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /go/
 
-# Apple Artificial Intelligence Agent Extensions
+# Apple Search & Apple Intelligence
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /go/
 
-# Facebook & Meta AI
+# Meta / Facebook AI Crawlers
 User-agent: FacebookBot
 Allow: /
 Disallow: /api/
@@ -78,92 +112,32 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /go/
 
-User-agent: Meta-ExternalFetcher
+# Cohere AI
+User-agent: cohere-ai
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /go/
 
-# ByteDance, TikTok Scrapers
-User-agent: BytesSpider
+# DuckDuckGo & Privacy Spiders
+User-agent: DuckDuckBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /go/
 
-# Cohere Intelligence Agents
-User-agent: Cohere-ai
+# DeepL & Translation Crawlers
+User-agent: DeepL-Bot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /go/
-
-# Common Crawl AI Training Platform
-User-agent: CCBot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /go/
-
-# Other Known AI, LLM, or Content Scrape Agents
-User-agent: Diffbot
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-User-agent: Omegabot
-Allow: /
-
-User-agent: ImagesiftBot
-Allow: /
-
-User-agent: Meltwater
-Allow: /
-
-User-agent: Webz.io
-Allow: /
-
-User-agent: iaskspider/2.0
-Allow: /
-
-User-agent: SeekportBot
-Allow: /
-
-User-agent: SemanticScholarBot
-Allow: /
-
-User-agent: Swiftbot
-Allow: /
-
-User-agent: PetalBot
-Allow: /
 
 # ====================================================================
-# 🔍 SECTION 2: EXPLICITLY PERMITTED RELEVANT SEARCH ENGINES
+# 🔍 SECTION 3: STANDARD WEB SEARCH ENGINES
 # ====================================================================
 
-# Allow Microsoft Bing indexing
-User-agent: Bingbot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /go/
-
-User-agent: Adidxpublisher
-Allow: /
-
-# Allow Apple Search indexing
-User-agent: Applebot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /go/
-
-# Allow standard Googlebot for primary visibility
+# Google Core Web Search
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
@@ -173,8 +147,32 @@ Disallow: /go/
 User-agent: Mediapartners-Google
 Allow: /
 
+# Microsoft Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
+User-agent: Adidxpublisher
+Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /go/
+
 # ====================================================================
-# 🌐 SECTION 3: OTHER GENERIC SEARCH ENGINES & LIMITS
+# 🌐 SECTION 4: DEFAULT CRAWLER POLICY
 # ====================================================================
 
 User-agent: *
@@ -183,10 +181,9 @@ Disallow: /admin/
 Disallow: /go/
 Allow: /
 
-# Sitemaps Location Link
+# Sitemaps Location
 Sitemap: https://www.bookmethat.com/sitemap.xml
 
-# LLM Crawler Pointers
-# For more info on the llms.txt standard, see https://llmstxt.org/
+# LLM Direct Indexing Standards (llmstxt.org)
 # LLM-txt: https://www.bookmethat.com/llms.txt
 # LLM-full-txt: https://www.bookmethat.com/llms-full.txt

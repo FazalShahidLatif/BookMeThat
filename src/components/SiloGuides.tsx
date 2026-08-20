@@ -395,7 +395,8 @@ export default function SiloGuides({
             <AffiliateLink 
               key={p.id}
               href={p.url}
-              className="bg-white hover:bg-brand-orange/5 border border-[#E5E5E1] hover:border-[#B84200] p-3.5 min-h-[64px] rounded-none text-center transition group flex flex-col justify-center items-center"
+              aria-label={`${p.name} (${p.category}) - Official Partner Portal`}
+              className="bg-white hover:bg-brand-orange/5 border border-[#E5E5E1] hover:border-[#B84200] p-3.5 min-h-[64px] rounded-none text-center transition group flex flex-col justify-center items-center select-none"
             >
               <span className="text-[8.5px] font-mono text-gray-700 uppercase tracking-widest block mb-0.5 font-bold group-hover:text-[#B84200]">{p.category}</span>
               <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-[#B84200] block my-1">{p.name} →</span>
