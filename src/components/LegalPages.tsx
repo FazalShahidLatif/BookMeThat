@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Lock, FileText, BadgeCheck, Mail, Send, Check, Sparkles } from 'lucide-react';
+import { Shield, Lock, FileText, BadgeCheck, Mail, Send, Check, Cpu } from 'lucide-react';
 
 interface LegalPagesProps {
   defaultTab?: 'disclosure' | 'privacy' | 'terms' | 'ai_seo' | 'impressum';
@@ -46,7 +46,7 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
           { id: 'disclosure', label: 'Commercial Affiliate Disclosure', icon: <BadgeCheck className="w-3.5 h-3.5" /> },
           { id: 'privacy', label: 'GDPR Privacy & Cookie Consent', icon: <Lock className="w-3.5 h-3.5" /> },
           { id: 'terms', label: 'User Terms and Conditions', icon: <FileText className="w-3.5 h-3.5" /> },
-          { id: 'ai_seo', label: 'Modern AI SEO (GEO / AIO / EEAT)', icon: <Sparkles className="w-3.5 h-3.5" /> },
+          { id: 'ai_seo', label: 'Modern AI SEO (GEO / AIO / EEAT)', icon: <Cpu className="w-3.5 h-3.5" /> },
           { id: 'impressum', label: 'Impressum & Direct Support', icon: <Mail className="w-3.5 h-3.5" /> }
         ].map(tab => (
           <button

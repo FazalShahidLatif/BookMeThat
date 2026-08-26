@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Sparkles, ShieldCheck, HelpCircle, ArrowRight, RefreshCw, CheckCircle2, AlertCircle, Copy, Trophy, Target, Award, PlayCircle
+  ShieldCheck, HelpCircle, ArrowRight, RefreshCw, CheckCircle2, AlertCircle, Copy, Trophy, Target, Award, PlayCircle
 } from 'lucide-react';
 
 interface Question {

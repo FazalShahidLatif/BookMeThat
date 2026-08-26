@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  Plane, Hotel, Compass, Sparkles, HelpCircle, ArrowRight, Shield, 
+  Plane, Hotel, Compass, HelpCircle, ArrowRight, Shield, 
   Globe, Award, Copy, Check, Info, Calendar, Users, DollarSign, Wallet, 
   MapPin, Search, ChevronRight, CheckCircle2, RefreshCw
 } from 'lucide-react';
@@ -112,7 +112,7 @@ export default function AIFlightStayPlanner() {
       {/* Introduction Anchor */}
       <div className="border-l-4 border-brand-orange pl-4 space-y-2">
         <span className="inline-flex items-center gap-1 bg-[#FBFBFA] text-brand-orange text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded border border-[#E5E5E1]">
-          <Sparkles className="w-3.5 h-3.5 text-brand-orange animate-pulse" /> Generative SEO Hub
+          Generative SEO Hub
         </span>
         <h2 className="text-2xl font-serif font-black tracking-tight text-gray-900 leading-none">
           AI-Powered Route & Stay Optimizer
@@ -271,10 +271,7 @@ export default function AIFlightStayPlanner() {
                   Processing...
                 </>
               ) : (
-                <>
-                  <Sparkles className="w-4 h-4" />
-                  Generate Booking Plan
-                </>
+                <span>Generate Booking Plan</span>
               )}
             </button>
           </form>

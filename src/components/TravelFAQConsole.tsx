@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  HelpCircle, Search, Layers, Clipboard, Check, Code, ExternalLink, Globe, Sparkles, Filter, ShieldCheck, CheckCircle
+  HelpCircle, Search, Layers, Clipboard, Check, Code, ExternalLink, Globe, Filter, ShieldCheck, CheckCircle
 } from 'lucide-react';
 import { AffiliateLink } from './AffiliateLink';
 

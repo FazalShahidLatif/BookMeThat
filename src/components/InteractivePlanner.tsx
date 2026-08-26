@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   MapPin, Calendar, DollarSign, Smartphone, Car, Shield, 
-  Coins, Sparkles, ExternalLink, CheckCircle2, ArrowRight, Lock, Info 
+  Coins, ExternalLink, CheckCircle2, ArrowRight, Lock, Info 
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
 import { PlanningInput } from '../types';
@@ -152,7 +152,6 @@ export default function InteractivePlanner() {
     <div className="bg-white rounded-none border border-[#E5E5E1] shadow-none overflow-hidden" id="interactive-planner">
       <div className="bg-[#F8F7F2] p-6 md:p-8 text-[#1A1A1A] border-b border-[#E5E5E1]">
         <div className="flex items-center gap-3 mb-2">
-          <Sparkles className="w-4 h-4 text-brand-orange" />
           <span className="text-[9px] font-mono uppercase tracking-widest text-brand-orange font-bold bg-brand-orange/5 px-2.5 py-0.5 border border-brand-orange/20">
             AI Optimizer Setup
           </span>

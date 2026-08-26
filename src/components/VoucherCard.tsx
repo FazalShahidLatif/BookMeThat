@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, ExternalLink, Check, Sparkles } from 'lucide-react';
+import { Copy, ExternalLink, Check } from 'lucide-react';
 
 interface Voucher {
   id: string;
@@ -58,8 +58,7 @@ export default function VoucherCard({ voucher }: VoucherCardProps) {
               {voucher.category}
             </span>
           )}
-          <div className="flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5 text-[#B84200]" />
+          <div className="flex items-center">
             <span className="text-[10px] font-mono font-extrabold tracking-widest text-[#B84200] block uppercase">
               {voucher.discount}
             </span>

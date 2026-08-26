@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, ExternalLink, Check, Sparkles } from 'lucide-react';
+import { Copy, ExternalLink, Check } from 'lucide-react';
 
 interface CopyAndRedirectCardProps {
   partnerName: string;
@@ -61,8 +61,7 @@ export default function CopyAndRedirectCard({
 
       <div className="space-y-4">
         {/* Discount Accent Header */}
-        <div className="flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
+        <div className="flex items-center">
           <span className="text-[10px] font-mono font-bold tracking-widest text-brand-orange block uppercase">
             {discountText}
           </span>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, BarChart2, DollarSign, TrendingUp, HelpCircle, ShieldAlert, CheckCircle, RefreshCw, Layers } from 'lucide-react';
+import { BarChart2, DollarSign, TrendingUp, HelpCircle, ShieldAlert, CheckCircle, RefreshCw, Layers } from 'lucide-react';
 
 interface KeywordCluster {
   keyword: string;
@@ -98,7 +98,6 @@ export default function SEOHeatmapConsole() {
       <div className="border border-[#E5E5E1] bg-[#FAF9F6] p-6 space-y-4 rounded-none">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-brand-orange animate-pulse" />
             <h3 className="text-normal font-mono font-bold tracking-widest text-[#1A1A1A] uppercase">
               Specialist Taskforce Action Policy
             </h3>

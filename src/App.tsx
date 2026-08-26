@@ -3,7 +3,7 @@ import {
   Compass, Smartphone, Car, Shield, BadgePercent, BookOpen, 
   Settings, ExternalLink, Menu, X, ArrowRight, Zap, CheckCircle,
   Code, Copy, Eye, Star, Users, Flame, Clock, Terminal, Check,
-  Cpu, Activity, Gauge, Globe, Sparkles, RefreshCw, Layers, Sliders, Send, Database,
+  Cpu, Activity, Gauge, Globe, RefreshCw, Layers, Sliders, Send, Database,
   ChevronUp
 } from 'lucide-react';
 import { AFFILIATES, KEYWORD_CLUSTERS } from './data/affiliates';
@@ -1657,7 +1657,7 @@ body {
           {/* Action Core CTAs */}
           <div className="flex items-center gap-2">
             <div className="hidden lg:flex items-center gap-1.5 text-[9px] font-mono font-bold text-[#B84200] bg-[#B84200]/10 px-2 py-1 border border-[#B84200]/30 select-none">
-              <Sparkles className="w-3 h-3 animate-pulse text-[#B84200]" /> Direct Bargains Active
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B84200] animate-pulse"></span> Direct Bargains Active
             </div>
 
             {/* Mobile Navigation Trigger */}
@@ -2705,7 +2705,7 @@ body {
             {/* Glowing Icon Base */}
             <div className="w-16 h-16 rounded-full bg-[#FAF9F6] border border-[#E5E5E1] flex items-center justify-center relative shadow-[0_4px_12px_rgba(0,0,0,0.03)] group">
               <div className="absolute inset-0 rounded-full border border-brand-orange animate-ping opacity-25"></div>
-              <Sparkles className="w-7 h-7 text-[#E55B13] animate-pulse" />
+              <BrandIcon className="w-8 h-8" />
             </div>
 
             {/* Dynamic Status Display */}
