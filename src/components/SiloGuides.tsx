@@ -3,7 +3,7 @@ import { ARTICLES } from '../data/articles';
 import { Article } from '../types';
 import { 
   Search, Smartphone, Car, Shield, Coins, ArrowRight, 
-  ExternalLink, Calendar, BookOpen, Volume2, Trophy, Eye 
+  ExternalLink, Calendar, BookOpen, Volume2, Trophy, Eye, Compass 
 } from 'lucide-react';
 import { AFFILIATES } from '../data/affiliates';
 import { getOptimizedArticleImage } from '../utils/imageOptimizer';
@@ -188,6 +188,39 @@ export default function SiloGuides({
               </span>
             </div>
 
+            {/* Semantic Breadcrumbs for Search Engines & Users */}
+            <nav aria-label="Breadcrumb" className="text-[10.5px] font-mono text-gray-500 flex items-center gap-1.5 flex-wrap">
+              <a 
+                href="/" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setViewedArticle(null);
+                  window.dispatchEvent(new CustomEvent('bookmethatNav', { detail: { tab: 'overview' } }));
+                  window.history.pushState(null, '', '/');
+                }}
+                className="text-gray-700 hover:text-brand-orange underline font-semibold"
+              >
+                Home
+              </a>
+              <span className="text-gray-400">/</span>
+              <a 
+                href={viewedArticle.silo === 'connectivity' ? '/esim' : viewedArticle.silo === 'transport' ? '/car-rental' : viewedArticle.silo === 'booking' ? '/flights' : '/about'} 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setViewedArticle(null);
+                  setSelectedSilo(viewedArticle.silo);
+                  window.history.pushState(null, '', '/esim');
+                }}
+                className="text-gray-700 hover:text-brand-orange underline font-semibold"
+              >
+                {getSiloLabel(viewedArticle.silo)}
+              </a>
+              <span className="text-gray-400">/</span>
+              <span className="text-gray-900 font-bold truncate max-w-[280px] sm:max-w-md" aria-current="page">
+                {viewedArticle.title}
+              </span>
+            </nav>
+
             <h1 className="text-2xl md:text-3.5xl font-serif font-bold tracking-tight text-[#1A1A1A] leading-tight italic">
               {viewedArticle.title}
             </h1>
@@ -243,18 +276,85 @@ export default function SiloGuides({
               <BookOpen className="w-4 h-4 text-brand-orange" /> Recommended Cross-Silo Travel Logistics & Tools
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
-              <a href="/esim" className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block">
+              <a 
+                href="/esim" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setViewedArticle(null);
+                  setSelectedSilo('connectivity');
+                  window.history.pushState(null, '', '/esim');
+                }}
+                className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block"
+              >
                 <span className="text-[10px] font-mono text-brand-orange uppercase font-bold block mb-1">📶 Mobile Data</span>
                 <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange leading-tight block">Compare Saily, Airalo & Yesim 5G eSIM Deals →</span>
               </a>
-              <a href="/car-rental" className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block">
+              <a 
+                href="/car-rental" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setViewedArticle(null);
+                  setSelectedSilo('transport');
+                  window.history.pushState(null, '', '/car-rental');
+                }}
+                className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block"
+              >
                 <span className="text-[10px] font-mono text-brand-orange uppercase font-bold block mb-1">🚗 Ground Transport</span>
                 <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange leading-tight block">Rent Local Cars with Zero Credit Card Deposit →</span>
               </a>
-              <a href="/flights" className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block">
+              <a 
+                href="/flights" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setViewedArticle(null);
+                  setSelectedSilo('booking');
+                  window.history.pushState(null, '', '/flights');
+                }}
+                className="bg-white border border-[#E5E5E1] p-3 hover:border-brand-orange transition group block"
+              >
                 <span className="text-[10px] font-mono text-brand-orange uppercase font-bold block mb-1">✈️ Flight Restitution</span>
                 <span className="text-xs font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange leading-tight block">Claim up to €600 EU261 Delay Compensation →</span>
               </a>
+            </div>
+          </div>
+
+          {/* Related Articles in this Same Topic Silo (Internal Link Mesh for Deep Crawling) */}
+          <div className="border border-[#E5E5E1] p-5 md:p-6 bg-white space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E5E5E1] pb-3">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-2">
+                <Compass className="w-4 h-4 text-brand-orange" /> More In-Depth Guides in {getSiloLabel(viewedArticle.silo)}
+              </h4>
+              <span className="text-[9.5px] font-mono text-gray-500 uppercase">Related Silo Cluster</span>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-1">
+              {ARTICLES.filter(a => a.silo === viewedArticle.silo && a.id !== viewedArticle.id).slice(0, 3).map(rel => (
+                <a
+                  key={rel.id}
+                  href={`/${rel.slug}`}
+                  onClick={(e) => {
+                    if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                      e.preventDefault();
+                      setViewedArticle(rel);
+                      window.history.pushState(null, '', `/${rel.slug}`);
+                      window.scrollTo({ top: document.getElementById('silo-guides-hub')?.offsetTop || 0, behavior: 'smooth' });
+                    }
+                  }}
+                  className="bg-[#FAF9F6] border border-[#E5E5E1] hover:border-brand-orange p-3.5 transition group flex flex-col justify-between"
+                >
+                  <div className="space-y-2">
+                    <span className="text-[8.5px] font-mono text-[#E55B13] font-bold uppercase tracking-wider block">
+                      {rel.searchVolume} Searches
+                    </span>
+                    <h5 className="text-xs font-serif font-bold text-gray-900 group-hover:text-brand-orange leading-snug line-clamp-2">
+                      {rel.title}
+                    </h5>
+                  </div>
+                  <span className="text-[9.5px] font-mono text-brand-orange font-bold mt-2 flex items-center gap-1">
+                    Read Guide &rarr;
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -305,30 +405,47 @@ export default function SiloGuides({
 
           {/* Footer Navigation */}
           <div className="border-t border-[#E5E5E1] pt-6 flex justify-between items-center">
-            <button
-              onClick={() => setViewedArticle(null)}
+            <a
+              href="/esim"
+              onClick={(e) => {
+                e.preventDefault();
+                setViewedArticle(null);
+                window.history.pushState(null, '', '/esim');
+              }}
               className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-brand-orange cursor-pointer"
             >
               ← Back to all Guides
-            </button>
+            </a>
             <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest italic">Book Me That Affiliate Partner Hub</span>
           </div>
 
         </article>
       ) : (
-        /* SILO ARTICLES GRID */
+        /* SILO ARTICLES GRID WITH CRAWLABLE HTML ANCHOR TAGS */
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 view-enter">
           {filteredArticles.length > 0 ? (
             filteredArticles.map(art => (
-              <div 
+              <article 
                 key={art.id} 
                 className="group bg-white rounded-none border border-[#E5E5E1] overflow-hidden shadow-none hover:bg-[#FAF9F6] transition flex flex-col justify-between"
                 id={`article-card-${art.id}`}
               >
                 <div>
                   
-                   {/* Card Thumbnail */}
-                  <div className="relative aspect-video w-full overflow-hidden bg-white border-b border-[#E5E5E1]">
+                   {/* Card Thumbnail Wrapped in Crawlable Anchor */}
+                  <a 
+                    href={`/${art.slug}`}
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                        e.preventDefault();
+                        setViewedArticle(art);
+                        window.history.pushState(null, '', `/${art.slug}`);
+                        window.scrollTo({ top: document.getElementById('silo-guides-hub')?.offsetTop || 0, behavior: 'smooth' });
+                      }
+                    }}
+                    className="block relative aspect-video w-full overflow-hidden bg-white border-b border-[#E5E5E1] cursor-pointer"
+                    aria-label={`Read guide: ${art.title}`}
+                  >
                     <OptimizedImage 
                       src={art.hero} 
                       silo={art.silo}
@@ -341,7 +458,7 @@ export default function SiloGuides({
                     <div className="absolute top-3 left-3 bg-[#E55B13] text-white font-mono text-[9px] px-2 py-0.5 rounded-none uppercase font-semibold tracking-wider">
                       {art.searchVolume} Searches
                     </div>
-                  </div>
+                  </a>
 
                   <div className="p-5 space-y-3">
                     <span className="flex items-center gap-1.5 text-[9px] font-mono font-bold uppercase tracking-wider text-[#E55B13]">
@@ -349,9 +466,22 @@ export default function SiloGuides({
                       {getSiloLabel(art.silo)}
                     </span>
                     
-                    <h3 className="text-base font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange transition leading-snug">
-                      {art.title}
-                    </h3>
+                    <a
+                      href={`/${art.slug}`}
+                      onClick={(e) => {
+                        if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                          e.preventDefault();
+                          setViewedArticle(art);
+                          window.history.pushState(null, '', `/${art.slug}`);
+                          window.scrollTo({ top: document.getElementById('silo-guides-hub')?.offsetTop || 0, behavior: 'smooth' });
+                        }
+                      }}
+                      className="block group-hover:text-brand-orange transition"
+                    >
+                      <h3 className="text-base font-serif font-bold text-[#1A1A1A] group-hover:text-brand-orange transition leading-snug">
+                        {art.title}
+                      </h3>
+                    </a>
                     
                     <p className="text-xs text-gray-650 leading-relaxed line-clamp-2">
                       {art.summary}
@@ -361,15 +491,24 @@ export default function SiloGuides({
 
                 <div className="p-5 pt-0 flex items-center justify-between border-t border-[#E5E5E1] mt-3 bg-white group-hover:bg-[#FAF9F6]">
                   <span className="text-[9.5px] font-mono text-gray-700 font-medium">Readability Score: {art.readabilityScore}/100</span>
-                  <button
-                    onClick={() => setViewedArticle(art)}
+                  <a
+                    href={`/${art.slug}`}
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                        e.preventDefault();
+                        setViewedArticle(art);
+                        window.history.pushState(null, '', `/${art.slug}`);
+                        window.scrollTo({ top: document.getElementById('silo-guides-hub')?.offsetTop || 0, behavior: 'smooth' });
+                      }
+                    }}
                     className="min-h-[44px] text-[10.5px] font-mono font-extrabold uppercase tracking-widest text-[#B84200] hover:text-[#8C3200] flex items-center gap-1.5 cursor-pointer py-2 px-1"
+                    aria-label={`Read guide: ${art.title}`}
                   >
                     <span>Read Guide</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
-              </div>
+              </article>
             ))
           ) : (
             <div className="md:col-span-2 text-center py-12 bg-white rounded-none border border-[#E5E5E1] p-6">
