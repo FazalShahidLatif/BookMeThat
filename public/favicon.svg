@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Brand Gradients matching the terracotta / burnt orange and charcoal theme -->
+    <linearGradient id="brand-orange-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#993300" />
+      <stop offset="45%" stop-color="#B84200" />
+      <stop offset="100%" stop-color="#E55B13" />
+    </linearGradient>
+    <linearGradient id="brand-dark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D1810" />
+      <stop offset="100%" stop-color="#1A1A1A" />
+    </linearGradient>
+    <linearGradient id="brand-accent-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E55B13" />
+      <stop offset="100%" stop-color="#FF7A30" />
+    </linearGradient>
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background Squircle Badge for crisp favicon recognition -->
+  <rect x="2" y="2" width="96" height="96" rx="22" ry="22" fill="#FAF9F6" stroke="#E5E5E1" stroke-width="2" />
+
+  <!-- The MB / Book / Arrow Monogram Emblem -->
+  <g transform="translate(6, 6) scale(0.88)" filter="url(#subtle-shadow)">
+    <!-- Left Stem of M / Spine (Deep Warm Charcoal) -->
+    <path 
+      d="M 16 86 L 16 26 L 31 26 L 31 71 L 16 86 Z" 
+      fill="url(#brand-dark-grad)" 
+    />
+
+    <!-- Top Left Wing / Open Book Left Page -->
+    <path 
+      d="M 23 35 C 33 27, 43 27, 50 34 C 44 24, 32 24, 23 30 Z" 
+      fill="url(#brand-orange-grad)" 
+      opacity="0.9"
+    />
+
+    <!-- Top Right Wing / Open Book Right Page -->
+    <path 
+      d="M 50 34 C 57 27, 67 27, 77 35 C 68 30, 56 24, 50 34 Z" 
+      fill="url(#brand-accent-glow)" 
+      opacity="0.95"
+    />
+
+    <!-- Dynamic Ascending Central Arrow (forming center of M and pointing up-right) -->
+    <path 
+      d="M 31 71 L 50 42 L 67 25 L 61 22 L 86 16 L 80 41 L 74 35 L 50 56 L 31 71 Z" 
+      fill="url(#brand-orange-grad)" 
+    />
+
+    <!-- Arrow Head Inner Accents for 3D Wing Dynamic -->
+    <polygon 
+      points="86,16 67,25 74,35" 
+      fill="#FF7A30" 
+    />
+    <polygon 
+      points="86,16 61,22 67,25" 
+      fill="#993300" 
+    />
+
+    <!-- Bottom B-Curve / Base Foundation Loop -->
+    <path 
+      d="M 31 71 C 45 84, 76 86, 76 66 C 76 53, 62 49, 52 50 L 52 61 C 60 61, 65 63, 65 67 C 65 72, 48 72, 31 71 Z" 
+      fill="url(#brand-dark-grad)" 
+    />
+  </g>
+</svg>

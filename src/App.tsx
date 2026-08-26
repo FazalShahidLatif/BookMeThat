@@ -19,6 +19,7 @@ import TravelQuizWidget from './components/TravelQuizWidget';
 import VoucherCard from './components/VoucherCard';
 import AIFlightStayPlanner from './components/AIFlightStayPlanner';
 import { AffiliateLink } from './components/AffiliateLink';
+import BrandLogo, { BrandIcon } from './components/BrandLogo';
 
 type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz' | 'flightsRooms';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
@@ -1598,11 +1599,12 @@ body {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
           <button 
             onClick={() => handleSectionScroll('hero')} 
-            className="flex items-center gap-2 cursor-pointer focus:outline-none"
+            className="flex items-center gap-2 cursor-pointer focus:outline-none group text-left"
+            title="BookMeThat Direct Travel Deals"
           >
-            <span className="text-2xl font-bold tracking-tighter text-brand-orange">BOOKMETHAT.</span>
-            <span className="text-[9px] uppercase tracking-widest font-semibold border border-brand-orange px-1.5 py-0.5 text-brand-orange hidden sm:inline-block">
-              Premium Deal Hub 2026
+            <BrandLogo variant="header" withTagline={true} />
+            <span className="text-[9px] uppercase tracking-widest font-semibold border border-brand-orange/40 px-1.5 py-0.5 text-brand-orange hidden lg:inline-block rounded-xs bg-[#B84200]/5 ml-1">
+              Direct Travel Deals
             </span>
           </button>
 
@@ -1672,15 +1674,19 @@ body {
 
         {/* Mobile Navigation Drawer for React Container with Crawlable Anchors */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#FAF9F6] border-b border-[#E5E5E1] p-4 space-y-1 text-xs font-semibold view-enter">
-            <a href="#coupon-vault" onClick={(e) => { e.preventDefault(); handleSectionScroll('coupon-vault'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Promo Coupon Vault</a>
-            <a href="#hot-packages" onClick={(e) => { e.preventDefault(); handleSectionScroll('hot-packages'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Holiday Packs Showcases</a>
-            <a href="#destinations" onClick={(e) => { e.preventDefault(); handleSectionScroll('destinations'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Hotel eSIM / Cars Cards</a>
-            <a href="/planner" onClick={(e) => { e.preventDefault(); setActiveTab('planner'); handleSectionScroll('core-calculators'); setMobileMenuOpen(false); window.history.pushState(null, '', '/planner'); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Nomad Cost Planner</a>
-            <a href="/esim" onClick={(e) => { e.preventDefault(); setActiveTab('guides'); handleSectionScroll('core-calculators'); setMobileMenuOpen(false); window.history.pushState(null, '', '/esim'); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Travel Guides & Silos</a>
-            <a href="#compliance-desk" onClick={(e) => { e.preventDefault(); handleSectionScroll('compliance-desk'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition">Compliance Disclosure</a>
-            <div className="border-t border-[#E5E5E1] pt-3 text-[10px] font-mono text-[#B84200] font-bold px-4">
-              Verified Referral Savings Active
+          <div className="md:hidden bg-[#FAF9F6] border-b border-[#E5E5E1] p-4 space-y-1 text-xs font-semibold view-enter shadow-lg">
+            <div className="pb-3 mb-2 border-b border-[#E5E5E1] px-2 flex items-center justify-between">
+              <BrandLogo variant="header" withTagline={true} />
+            </div>
+            <a href="#coupon-vault" onClick={(e) => { e.preventDefault(); handleSectionScroll('coupon-vault'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition rounded-lg">Promo Coupon Vault</a>
+            <a href="#hot-packages" onClick={(e) => { e.preventDefault(); handleSectionScroll('hot-packages'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition rounded-lg">Holiday Packs Showcases</a>
+            <a href="#destinations" onClick={(e) => { e.preventDefault(); handleSectionScroll('destinations'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition rounded-lg">Hotel eSIM / Cars Cards</a>
+            <a href="/planner" onClick={(e) => { e.preventDefault(); setActiveTab('planner'); handleSectionScroll('core-calculators'); setMobileMenuOpen(false); window.history.pushState(null, '', '/planner'); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition rounded-lg">Nomad Cost Planner</a>
+            <a href="/esim" onClick={(e) => { e.preventDefault(); setActiveTab('guides'); handleSectionScroll('core-calculators'); setMobileMenuOpen(false); window.history.pushState(null, '', '/esim'); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition rounded-lg">Travel Guides & Silos</a>
+            <a href="#compliance-desk" onClick={(e) => { e.preventDefault(); handleSectionScroll('compliance-desk'); setMobileMenuOpen(false); }} className="w-full min-h-[44px] flex items-center text-left px-4 py-2.5 text-gray-800 hover:bg-[#F8F7F2] hover:text-[#B84200] transition rounded-lg">Compliance Disclosure</a>
+            <div className="border-t border-[#E5E5E1] pt-3 text-[10px] font-mono text-[#B84200] font-bold px-4 flex items-center justify-between">
+              <span>Verified Referral Savings</span>
+              <span className="bg-emerald-100 text-emerald-800 text-[9px] font-mono px-2 py-0.5 rounded">Active</span>
             </div>
           </div>
         )}
@@ -2285,12 +2291,12 @@ body {
 
                 {/* Google Snippet Live Card */}
                 <div className="bg-white text-[#202124] p-5 border border-[#dadce0] rounded-lg my-6 max-w-xl mx-auto w-full shadow-sm text-left font-sans">
-                  <div className="text-xs text-[#202124] flex items-center gap-1.5 leading-tight mb-1 truncate font-sans">
-                    <div className="w-4 h-4 bg-[#FAF9F6] rounded-full border border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0 text-[10px] font-bold text-[#B84200]">
-                      B
+                  <div className="text-xs text-[#202124] flex items-center gap-2 leading-tight mb-1.5 truncate font-sans">
+                    <div className="w-5 h-5 bg-[#FAF9F6] rounded-md border border-gray-200 flex items-center justify-center p-0.5 overflow-hidden flex-shrink-0 shadow-2xs">
+                      <BrandIcon className="w-full h-full" />
                     </div>
                     <div>
-                      <span className="text-[12px] text-[#202124]">https://bookmethat.com</span>
+                      <span className="text-[12px] font-medium text-[#202124]">https://bookmethat.com</span>
                       <span className="text-[11px] text-[#70757a] ml-1">
                         {activeArticle ? ` › articles › ${activeArticle.slug}` : ` › ${activeTab}`}
                       </span>
@@ -2591,11 +2597,9 @@ body {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 border-b border-[#E5E5E1] pb-10">
             <div className="md:col-span-4 space-y-3">
-              <span className="font-serif font-bold text-lg text-[#1A1A1A] tracking-tight">
-                BOOKMETHAT.
-              </span>
+              <BrandLogo variant="full" withTagline={true} />
               <p className="text-xs text-gray-700 leading-relaxed max-w-sm">
-                Clean Jamstack travel affiliate template built with native Intersection hydrations and zero-latency CSS layouts to serve perfect Vercel deployment speeds globally.
+                Independent travel technology and connection aggregator. Direct access to 190+ regional eSIM networks, local deposit-free car rentals, and flight delay compensation portals.
               </p>
             </div>
 
