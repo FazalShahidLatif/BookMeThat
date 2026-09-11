@@ -1,0 +1,20 @@
+{
+  "name": "BookMeThat - Direct Carrier Travel & Wholesale Booking",
+  "short_name": "BookMeThat",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#D35400",
+  "background_color": "#FAF9F6",
+  "display": "standalone",
+  "start_url": "/"
+}

@@ -21,6 +21,16 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Intercept malformed URIs (e.g. %80 or invalid decoding) immediately to prevent 400 Bad Request errors on mobile or bot crawlers
+  app.use((req, res, next) => {
+    try {
+      decodeURI(req.url);
+    } catch {
+      return res.redirect(301, "/");
+    }
+    next();
+  });
+
   // Support JSON request parsing
   app.use(express.json());
 
@@ -51,6 +61,33 @@ async function startServer() {
   if (fs.existsSync(publicPath)) {
     app.use(express.static(publicPath));
   }
+
+  // Explicit static asset handlers to eliminate 404s
+  app.get("/favicon.ico", (req, res) => {
+    const icoPath = path.join(process.cwd(), "public", "favicon.ico");
+    const pngPath = path.join(process.cwd(), "public", "favicon.png");
+    if (fs.existsSync(icoPath)) {
+      res.setHeader("Content-Type", "image/x-icon");
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.sendFile(icoPath);
+    }
+    if (fs.existsSync(pngPath)) {
+      res.setHeader("Content-Type", "image/png");
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.sendFile(pngPath);
+    }
+    res.status(204).end();
+  });
+
+  app.get("/ads.txt", (req, res) => {
+    res.setHeader("Content-Type", "text/plain");
+    res.send("# BookMeThat Ad Network Authorization\n");
+  });
+
+  // Client telemetry beacon handler - returns 204 No Content immediately to prevent client 404 errors
+  app.all("/api/v1/pixel", (req, res) => {
+    res.status(204).end();
+  });
 
   // AI-Powered SEO Flight Booking & Accommodation Reservation Generator
   app.post("/api/generate-route", async (req, res) => {
@@ -90,14 +127,14 @@ async function startServer() {
             class: isLux ? "Business Class" : "Standard Economy",
             estimatedPrice: flightAvg,
             savingsHack: "Airlines limit stand-alone ticket markdowns. Bundle your ticket inside Expedia's package system to hide individual pricing and trigger up to 20% discount.",
-            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
+            bookingUrl: "/go/expedia"
           },
           {
             carrier: "Global Trans-Connect",
             class: "Premium Cabin",
             estimatedPrice: Math.round(flightAvg * 1.3),
             savingsHack: "Search for connecting flights via nearby smaller regional airports or trace routes on Expedia using a premium VPN to find localized currency pricing.",
-            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
+            bookingUrl: "/go/expedia"
           }
         ],
         accommodationReservations: [
@@ -107,7 +144,7 @@ async function startServer() {
             type: budgetTier.toUpperCase() + " Comfort Standard",
             estimatedPricePerNight: stayAvg,
             conversionHook: "Redeem free member rewards on Expedia to lock down complimentary breakfast upgrades and free stay extensions.",
-            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
+            bookingUrl: "/go/expedia"
           },
           {
             hotelName: isBud ? "Nomad Hive Co-Living Spaces" : isLux ? "Vanguard Luxury Boutique Hotel" : "Metropole Plaza & Suites",
@@ -115,7 +152,7 @@ async function startServer() {
             type: "Lifestyle Traveler Concept",
             estimatedPricePerNight: Math.round(stayAvg * 1.25),
             conversionHook: "Direct checkout coupon active. Combine flights + staying units in a single click-through cart to secure wholesale rates.",
-            bookingUrl: "https://tp.media/r?marker=685596&p=3813"
+            bookingUrl: "/go/expedia"
           }
         ],
         seoStrategyNotes: [
@@ -158,12 +195,17 @@ async function startServer() {
       - Budget Profile: ${budgetTier} (budget, midrange, luxury)
       - Traveling Party: ${occupants}
 
-      Create highly valuable, SEO-focused generative content targeting local conversion for flight and lodging searches. Specifically recommend using Expedia packages (URL: https://tp.media/r?marker=685596&p=3813) for flight & hotel bundling hacks. Align recommendations with other premium partners such as Saily/Airalo/Yesim eSIM, AirHelp/Compensair for delayed flight redress, and Localrent/QEEQ for ground car rentals.
+      Create highly valuable, SEO-focused generative content targeting local conversion for flight and lodging searches. Specifically recommend using Expedia packages (URL: /go/expedia) for flight & hotel bundling hacks. Align recommendations with other premium partners such as Saily/Airalo/Yesim eSIM, AirHelp/Compensair for delayed flight redress, and Localrent/QEEQ for ground car rentals.
 
       Keep metadata titles strictly under 55 characters with high-CTR formulas focusing on savings and simple tricks. Keep meta descriptions strictly under 150 characters. Maintain human traveler style and avoid banned programmatic terms (Algorithm, Silo, Portal, Metrics, System, Optimized, Methodology, Dynamic Bundling).`;
 
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+      // 8-second execution timeout race to strictly eliminate 504 Gateway Timeout errors
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error("AI generation timeout threshold reached")), 8000)
+      );
+
+      const aiCallPromise = ai.models.generateContent({
+        model: "gemini-2.5-flash",
         contents: prompt,
         config: {
           responseMimeType: "application/json",
@@ -254,6 +296,8 @@ async function startServer() {
         }
       });
 
+      const response: any = await Promise.race([aiCallPromise, timeoutPromise]);
+
       const responseText = response.text || "";
       const parsedData = JSON.parse(responseText.trim());
       res.json(parsedData);
@@ -283,17 +327,17 @@ async function startServer() {
       bikesbooking: 'https://bikesbooking.tpk.lu/m68zE4eF',
       searadar: 'https://searadar.tpk.lu/Xr7qE7op',
       kiwitaxi: 'https://kiwitaxi.tpk.lu/xkQ7lIEQ',
-      expedia: 'https://tp.media/r?marker=685596&p=3813',
+      expedia: 'https://www.expedia.com/?affcid=network.travelpayouts.685596',
       airhelp: 'https://airhelp.tpk.lu/DhUcIRcD',
-      klook: 'https://tp.media/r?marker=685596&p=3297',
+      klook: 'https://www.klook.com/?aid=685596',
       compensair: 'https://compensair.tpk.lu/NgywpzQL',
       ticketnetwork: 'https://ticketnetwork.tpk.lu/fUb74KNr',
       wegotrip: 'https://wegotrip.tpk.lu/V5RH9CtE',
       gocity: 'https://gocity.tpk.lu/u1mHhjxd',
       travelpayouts: 'https://tpk.lu/K4OAGrAh',
-      nordvpn: 'https://tp.media/r?marker=685596&p=5328',
-      worldnomads: 'https://tp.media/r?marker=685596&p=2377',
-      wise: 'https://tp.media/r?marker=685596&p=3697',
+      nordvpn: 'https://nordvpn.com/?aff_id=685596',
+      worldnomads: 'https://www.worldnomads.com/?affiliate=685596',
+      wise: 'https://wise.com/?source=bookmethat',
       radicalstorage: 'https://radicalstorage.tpk.lu/Qm4b7jm0',
       ektatraveling: 'https://ektatraveling.tpk.lu/2dmZqZZg'
     };
@@ -570,6 +614,7 @@ async function startServer() {
 
       // Update primary meta tags in the document head before sending
       html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi, `<link rel="canonical" href="${canonicalUrl}" />`);
+      html = html.replace(/<link\s+rel="alternate"\s+hreflang="([^"]*)"\s+href="[^"]*"\s*\/?>/gi, `<link rel="alternate" hreflang="$1" href="${canonicalUrl}" />`);
       html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="description" content="${description}" />`);
       html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:title" content="${title}" />`);
       html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:description" content="${description}" />`);
@@ -585,6 +630,18 @@ async function startServer() {
       }
       next(e);
     }
+  });
+
+  // Global uncaught error and malformed URI handler to prevent 400/504 error leaks
+  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    if (res.headersSent) {
+      return next(err);
+    }
+    if (err instanceof URIError || (err && (err.status === 400 || err.statusCode === 400))) {
+      return res.redirect(301, "/");
+    }
+    console.error("Express caught unhandled error:", err);
+    res.redirect(301, "/");
   });
 
   app.listen(PORT, "0.0.0.0", () => {

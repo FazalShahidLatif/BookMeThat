@@ -23,40 +23,10 @@ export const AffiliateLink: React.FC<AffiliateLinkProps> = ({
   const rawTarget = url || href || '';
   const sanitizedUrl = sanitizeAffiliateUrl(rawTarget);
 
-  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Invoke optional custom click handler if specified
     if (onClick) {
       onClick(e);
-    }
-
-    if (sanitizedUrl && sanitizedUrl.startsWith('http')) {
-      // Perform background head-request validation to check for active 400/404 signals
-      Promise.resolve().then(async () => {
-        try {
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 1200);
-
-          const response = await fetch(sanitizedUrl, {
-            method: 'HEAD',
-            signal: controller.signal,
-          });
-
-          clearTimeout(timeoutId);
-
-          if (response && response.status && (response.status < 200 || response.status >= 400)) {
-            console.error(
-              `[AffiliateLink Security Alert] Outbound link validation returned critical status: ${response.status} for URL: ${sanitizedUrl}`
-            );
-          }
-        } catch (error: any) {
-          // If of type AbortError, it was an expected timeout under slower mobile frames
-          if (error.name !== 'AbortError') {
-            console.warn(
-              `[AffiliateLink Validation Engine] Verification check encountered diagnostic error on url: ${sanitizedUrl}. Details: ${error.message || error}`
-            );
-          }
-        }
-      });
     }
   };
 

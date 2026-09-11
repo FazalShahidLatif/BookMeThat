@@ -628,6 +628,12 @@ export default function App() {
     }
     link.setAttribute('href', canonicalUrl);
 
+    // Keep all regional hreflang alternates aligned with the active canonical URL
+    const hreflangLinks = document.querySelectorAll("link[rel='alternate'][hreflang]");
+    hreflangLinks.forEach(elem => {
+      elem.setAttribute('href', canonicalUrl);
+    });
+
     // Keep Open Graph and Twitter URL properties aligned with canonical to prevent trailing slash mismatch
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {

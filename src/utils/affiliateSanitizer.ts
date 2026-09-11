@@ -31,6 +31,11 @@ export function sanitizeAffiliateUrl(
 
   if (!rawUrl) return '';
 
+  // If it is already an internal redirect tunnel, return directly
+  if (rawUrl.startsWith('/go/')) {
+    return rawUrl;
+  }
+
   // 1. Strip away any literal UI string text contamination (like 'bookingTicket Network →')
   // We locate the actual HTTP/HTTPS address inside the contaminated wrapper
   const urlRegex = /(https?:\/\/[^\s"'`〉>]+)/i;
@@ -54,14 +59,37 @@ export function sanitizeAffiliateUrl(
     const urlObj = new URL(rawUrl);
     const hostname = urlObj.hostname.toLowerCase();
 
+    // Map known broken tp.media promo paths to verified working tpk.lu shortlinks or go tunnels
+    if (rawUrl.includes('p=3801') || rawUrl.includes('gocity.com')) {
+      return 'https://gocity.tpk.lu/u1mHhjxd';
+    }
+    if (rawUrl.includes('p=3641') || rawUrl.includes('radicalstorage')) {
+      return 'https://radicalstorage.tpk.lu/Qm4b7jm0';
+    }
+    if (rawUrl.includes('p=3585') || rawUrl.includes('ektatraveling')) {
+      return 'https://ektatraveling.tpk.lu/2dmZqZZg';
+    }
+    if (rawUrl.includes('p=3813') || rawUrl.includes('promo_id=3813')) {
+      return '/go/expedia';
+    }
+    if (rawUrl.includes('p=3297') || rawUrl.includes('promo_id=3297')) {
+      return '/go/klook';
+    }
+    if (rawUrl.includes('p=5328') || rawUrl.includes('promo_id=5328')) {
+      return '/go/nordvpn';
+    }
+    if (rawUrl.includes('p=2377') || rawUrl.includes('promo_id=2377')) {
+      return '/go/worldnomads';
+    }
+    if (rawUrl.includes('p=3697') || rawUrl.includes('promo_id=3697')) {
+      return '/go/wise';
+    }
+
     // 2. Reconstruct Travelpayouts 'tp.media' structures to eliminate 400/404 response codes.
-    // Standardizing parameters avoids unexpected keys that cause API gateway rejection.
+    // Preserves campaign_id, u, trs, and destination parameters required by CloudFront/Travelpayouts.
     if (hostname.includes('tp.media')) {
       const marker = urlObj.searchParams.get('marker') || urlObj.searchParams.get('shmarker') || '685596';
-      const programId = urlObj.searchParams.get('p') || urlObj.searchParams.get('promo_id');
       const subid = urlObj.searchParams.get('subid') || urlObj.searchParams.get('sub_id');
-
-      const cleanParams = new URLSearchParams();
 
       // Enforce the explicit dotted notation tracking structure: marker=MARKER_ID.SUBID
       let finalMarker = marker;
@@ -69,21 +97,21 @@ export function sanitizeAffiliateUrl(
         finalMarker = `${marker}.${subid}`;
       }
 
-      const isPromoClick = urlObj.pathname.includes('/click');
-
-      if (isPromoClick) {
-        cleanParams.set('shmarker', finalMarker);
-        if (programId) cleanParams.set('promo_id', programId);
-        cleanParams.set('source_type', 'link');
-        cleanParams.set('type', 'click');
-        urlObj.pathname = '/click';
+      if (urlObj.searchParams.has('shmarker')) {
+        urlObj.searchParams.set('shmarker', finalMarker);
       } else {
-        cleanParams.set('marker', finalMarker);
-        if (programId) cleanParams.set('p', programId);
-        urlObj.pathname = '/r';
+        urlObj.searchParams.set('marker', finalMarker);
       }
 
-      urlObj.search = cleanParams.toString();
+      // Ensure default TRS if not present
+      if (!urlObj.searchParams.has('trs')) {
+        urlObj.searchParams.set('trs', '474841');
+      }
+
+      // Clean up redundant sub_id
+      if (urlObj.searchParams.has('sub_id')) {
+        urlObj.searchParams.delete('sub_id');
+      }
     }
     // 3. Clean up the 'tpk.lu' links and eliminate unnecessary hops or wrong keys
     else if (hostname.includes('tpk.lu')) {
@@ -122,31 +150,36 @@ export function generateValidAffiliateUrl(
 
   switch (String(programId).toLowerCase()) {
     case 'nordvpn':
-      // Corrected direct structural path format for TP Media network (solving template typo `{cleanMarker}` -> `/r?marker=${cleanMarker}`)
-      return `https://tp.media/r?marker=${cleanMarker}&p=5328&subid=${cleanSubId}&campaign_id=121`;
+      return `/go/nordvpn`;
       
     case 'worldnomads':
-      return `https://tp.media/r?marker=${cleanMarker}&p=2377&subid=${cleanSubId}&campaign_id=89`;
+      return `/go/worldnomads`;
       
     case 'wise':
-      return `https://tp.media/r?marker=${cleanMarker}&p=3697&subid=${cleanSubId}&campaign_id=164`;
+      return `/go/wise`;
+
+    case 'expedia':
+      return `/go/expedia`;
+
+    case 'klook':
+      return `/go/klook`;
 
     case 'gocity':
     case 'go city':
-      return `https://tp.media/r?marker=${cleanMarker}&p=3801&subid=${cleanSubId}`;
+      return `https://gocity.tpk.lu/u1mHhjxd`;
 
     case 'radicalstorage':
     case 'radical storage':
-      return `https://tp.media/r?marker=${cleanMarker}&p=3641&subid=${cleanSubId}`;
+      return `https://radicalstorage.tpk.lu/Qm4b7jm0`;
 
     case 'ekta':
     case 'ektatraveling':
     case 'ekta traveling':
-      return `https://tp.media/r?marker=${cleanMarker}&p=3585&subid=${cleanSubId}`;
+      return `https://ektatraveling.tpk.lu/2dmZqZZg`;
 
     default:
       // Fallback network safety route
-      return `https://travelpayouts.com/?marker=${cleanMarker}`;
+      return `/go/${encodeURIComponent(String(programId || '').toLowerCase())}`;
   }
 }
 

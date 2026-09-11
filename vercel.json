@@ -23,11 +23,19 @@
     { "source": "/disclosure", "destination": "/about", "statusCode": 301 },
     { "source": "/impressum", "destination": "/contact", "statusCode": 301 },
     { "source": "/support", "destination": "/contact", "statusCode": 301 },
-    { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 301 }
+    { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 301 },
+    { "source": "/go/expedia", "destination": "https://www.expedia.com/?affcid=network.travelpayouts.685596", "statusCode": 301 },
+    { "source": "/go/klook", "destination": "https://www.klook.com/?aid=685596", "statusCode": 301 },
+    { "source": "/go/nordvpn", "destination": "https://nordvpn.com/?aff_id=685596", "statusCode": 301 },
+    { "source": "/go/worldnomads", "destination": "https://www.worldnomads.com/?affiliate=685596", "statusCode": 301 },
+    { "source": "/go/wise", "destination": "https://wise.com/?source=bookmethat", "statusCode": 301 },
+    { "source": "/go/gocity", "destination": "https://gocity.tpk.lu/u1mHhjxd", "statusCode": 301 },
+    { "source": "/go/radicalstorage", "destination": "https://radicalstorage.tpk.lu/Qm4b7jm0", "statusCode": 301 },
+    { "source": "/go/ektatraveling", "destination": "https://ektatraveling.tpk.lu/2dmZqZZg", "statusCode": 301 }
   ],
   "rewrites": [
     {
-      "source": "/(favicon.png|sitemap.xml|sitemap.xsl|robots.txt|llms.txt|llms-full.txt)",
+      "source": "/(favicon.ico|favicon.png|apple-touch-icon.png|apple-touch-icon-precomposed.png|site.webmanifest|manifest.json|ads.txt|sitemap.xml|sitemap.xsl|robots.txt|llms.txt|llms-full.txt)",
       "destination": "/$1"
     },
     {
@@ -37,7 +45,7 @@
   ],
   "headers": [
     {
-      "source": "/(favicon.png|sitemap.xml|sitemap.xsl|robots.txt|llms.txt|llms-full.txt)",
+      "source": "/(favicon.ico|favicon.png|apple-touch-icon.png|apple-touch-icon-precomposed.png|site.webmanifest|manifest.json|ads.txt|sitemap.xml|sitemap.xsl|robots.txt|llms.txt|llms-full.txt)",
       "headers": [
         {
           "key": "Cache-Control",
