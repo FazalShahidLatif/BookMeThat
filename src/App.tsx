@@ -326,8 +326,8 @@ export default function App() {
     } else {
       switch (activeTab) {
         case 'overview':
-          finalTitle = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
-          finalDesc = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
+          finalTitle = "BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation & More (2026)";
+          finalDesc = "Compare and book direct eSIM data, budget car rentals, and claim flight delay compensation up to €600. Verified deals from Saily, Airalo, Localrent, Expedia & more.";
           break;
         case 'flightsRooms':
           finalTitle = "AI Flight Booker & Hotel Reservations | BookMeThat";
@@ -366,8 +366,8 @@ export default function App() {
           finalDesc = "Test your digital traveler wisdom. Solve connectivity, car rental, and flight delay restitution answers under pressure.";
           break;
         default:
-          finalTitle = "BookMeThat™ | Best Travel eSIM, Car Rental & Flight Deals";
-          finalDesc = "Compare verified travel eSIM cards, local direct car rentals, and secure delayed flight compensations with zero broker markups.";
+          finalTitle = "BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation & More (2026)";
+          finalDesc = "Compare and book direct eSIM data, budget car rentals, and claim flight delay compensation up to €600. Verified deals from Saily, Airalo, Localrent, Expedia & more.";
       }
     }
 
@@ -1664,7 +1664,6 @@ body {
               </select>
             </div>
           </nav>
-          </nav>
 
           {/* Action Core CTAs */}
           <div className="flex items-center gap-2">
@@ -1673,11 +1672,10 @@ body {
             </div>
 
             {/* Mobile Navigation Trigger */}
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-gray-800 hover:text-[#B84200] transition focus:outline-none cursor-pointer"
               title="Toggle Menu"
-              aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

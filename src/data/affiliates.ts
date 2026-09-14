@@ -246,7 +246,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     name: 'Go City Passes',
     category: 'booking',
     url: 'https://gocity.tpk.lu/u1mHhjxd',
-    description: 'The ultimate sightseeing pass card. Save up to 50% on top attractions, tours, and activities across the world's major destination hub cities.',
+    description: 'The ultimate sightseeing pass card. Save up to 50% on top attractions, tours, and activities across the world\'s major destination hub cities.',
     benefits: ['Massive discounts (up to 50% off)', 'Flexible pass options (All-Inclusive/Explorer)', 'Everything on a single mobile app'],
     searchKeywords: ['Go City discount code', 'best sightseeing attraction card', 'how to save on city entry fees'],
     features: ['Covers top activities and hidden gems', 'Valid for up to 2 years from purchase', 'Free mobile guidebook and planning tool']
@@ -286,7 +286,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     name: 'Wise Borderless',
     category: 'utility',
     url: '/go/wise',
-    description: 'Send, spend, and receive funds international with the world's most transparent borderless multi-currency account using the true mid-market rate.',
+    description: 'Send, spend, and receive funds international with the world\'s most transparent borderless multi-currency account using the true mid-market rate.',
     benefits: ['No hidden exchange rate commissions', 'Multi-currency debit card works in 170+ countries', 'Hold and switch 40+ currencies instantly'],
     searchKeywords: ['borderless travel bank card', 'how to avoid high ATM fees abroad', 'Wise multi currency transfer'],
     features: ['True mid-market interbank exchange rate', 'Two free ATM withdrawals globally per month', 'Instant card lock & notifications via mobile']
