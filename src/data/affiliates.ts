@@ -6,7 +6,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     name: 'Airalo eSIM',
     category: 'connectivity',
     url: 'https://airalo.tpk.lu/X5knsFOB',
-    description: 'Keep connected globally with local data packs in over 200 countries. Skip roaming fees entirely with the world’s first eSIM marketplace.',
+    description: 'Keep connected globally with local data packs in over 200 countries. Skip roaming fees entirely with the world\'s first eSIM marketplace.',
     benefits: ['Coverage in 200+ countries', 'Local, regional & global plans', 'Instant over-the-air activation'],
     searchKeywords: ['best travel eSIM', 'how to buy eSIM online', 'global internet for tourists'],
     features: ['Instant activation', 'Top-up from your phone', 'No physical SIM required']
@@ -52,11 +52,51 @@ export const AFFILIATES: AffiliatePartner[] = [
     features: ['Exact car booking (no placeholder categories)', 'Exceptional customer care rating', 'Cash deposit allowed on-site']
   },
   {
+    id: 'discovercars',
+    name: 'DiscoverCars',
+    category: 'transport',
+    url: 'https://www.discovercars.com/affiliate/bookmethat',
+    description: 'Award-winning car rental comparison with 30-70% commission. Compare deals from 2,000+ local suppliers worldwide.',
+    benefits: ['30-70% commission rate', '2,000+ local suppliers worldwide', 'Price match guarantee'],
+    searchKeywords: ['best car rental deals', 'cheap rental cars worldwide', 'DiscoverCars review'],
+    features: ['30-70% commission', 'Price match guarantee', 'City buying guides']
+  },
+  {
+    id: 'getyourguide',
+    name: 'GetYourGuide',
+    category: 'booking',
+    url: 'https://www.getyourguide.com/affiliate/bookmethat',
+    description: 'Best tours and activities platform. Book skip-the-line tickets, guided tours, and experiences in 40,000+ destinations worldwide.',
+    benefits: ['Up to 10% commission', '40,000+ experiences worldwide', 'High conversion rate'],
+    searchKeywords: ['best tour booking site', 'skip the line tickets', 'city tours and activities'],
+    features: ['Instant confirmation', 'Free cancellation on most tours', '24/7 customer support']
+  },
+  {
+    id: 'safetywing',
+    name: 'SafetyWing Nomad Insurance',
+    category: 'utility',
+    url: 'https://www.safetywing.com/affiliate/bookmethat',
+    description: 'Affordable travel medical insurance for digital nomads and long-term travelers. Only $45/month with flexible subscription.',
+    benefits: ['Low monthly cost ($45/month)', 'Covers remote workers and nomads', 'Easy online claims'],
+    searchKeywords: ['nomad health insurance', 'cheap travel insurance digital nomad', 'SafetyWing review'],
+    features: ['Pay-as-you-go monthly subscription', 'Covers 180+ countries', 'No age limit']
+  },
+  {
+    id: 'travelpayouts-affiliate',
+    name: 'Join Travelpayouts (Affiliate)',
+    category: 'booking',
+    url: 'https://www.travelpayouts.com/?marker=685596',
+    description: 'Become a Travelpayouts affiliate and earn commissions by promoting travel deals. BookMeThat referral — get started with the same program we use.',
+    benefits: ['Earn commissions on travel bookings', 'Access to 20+ affiliate programs', 'Same network BookMeThat uses'],
+    searchKeywords: ['become travel affiliate', 'travel affiliate program signup', 'earn travel commissions'],
+    features: ['Free to join', 'Up to $600 per referral reward', 'Instant approval for most programs']
+  },
+  {
     id: 'gettransfer',
     name: 'GetTransfer Chauffeurs',
     category: 'transport',
     url: 'https://gettransfer.tpk.lu/zUalOSms',
-    description: 'Europe and Asia’s leading private airport transfer, taxi bidding platform, and luxury long-distance driver hiring service.',
+    description: 'Europe and Asia\'s leading private airport transfer, taxi bidding platform, and luxury long-distance driver hiring service.',
     benefits: ['Bidding system guarantees lowest fares', 'Professional background-vetted drivers', 'Free waiting time included at airports'],
     searchKeywords: ['private airport transfer booking', 'cheap long distance taxi', 'private driver hire Europe'],
     features: ['Best price bidding transparency', 'All vehicle classes (Economy to Luxury)', 'Flight delay tracking integration']
@@ -156,7 +196,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     name: 'AirHelp Compensation',
     category: 'booking',
     url: 'https://airhelp.tpk.lu/DhUcIRcD',
-    description: 'The world’s premiere air passenger rights advocate. Check and claim up to €600 for delayed, canceled, or overbooked flights dynamically.',
+    description: 'The world\'s premiere air passenger rights advocate. Check and claim up to €600 for delayed, canceled, or overbooked flights dynamically.',
     benefits: ['No win, no fee legal process', 'Check backdated claims up to 3 years', 'Covered under strict EU and UK air rights'],
     searchKeywords: ['how to claim flight compensation', 'EU261 delayed flight refund', 'cancelled flight money back'],
     features: ['Automated flight schedule analyzer', 'Dedicated legal support teams', 'Claim processing takes less than 3 minutes']
@@ -165,8 +205,8 @@ export const AFFILIATES: AffiliatePartner[] = [
     id: 'klook',
     name: 'Klook Experience Pass',
     category: 'booking',
-    url: '/go/klook',
-    description: 'Massive travel platform offering discount passes to the world’s best theme parks, regional attractions, cultural tours, and high-speed rail lines.',
+    url: 'https://tp.media/r?marker=685596&p=3297',
+    description: 'Massive travel platform offering discount passes to the world\'s best theme parks, regional attractions, cultural tours, and high-speed rail lines.',
     benefits: ['Exclusive discount vouchers', 'Instant contactless digital passes', 'Access to global top attractions'],
     searchKeywords: ['cheap attraction tickets', 'Klook promo discount pass', 'book tours online'],
     features: ['Best price guarantee', 'Skip-the-line privileges', 'Instant confirmation app']
@@ -206,7 +246,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     name: 'Go City Passes',
     category: 'booking',
     url: 'https://gocity.tpk.lu/u1mHhjxd',
-    description: 'The ultimate sightseeing pass card. Save up to 50% on top attractions, tours, and activities across the world’s major destination hub cities.',
+    description: 'The ultimate sightseeing pass card. Save up to 50% on top attractions, tours, and activities across the world's major destination hub cities.',
     benefits: ['Massive discounts (up to 50% off)', 'Flexible pass options (All-Inclusive/Explorer)', 'Everything on a single mobile app'],
     searchKeywords: ['Go City discount code', 'best sightseeing attraction card', 'how to save on city entry fees'],
     features: ['Covers top activities and hidden gems', 'Valid for up to 2 years from purchase', 'Free mobile guidebook and planning tool']
@@ -246,7 +286,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     name: 'Wise Borderless',
     category: 'utility',
     url: '/go/wise',
-    description: 'Send, spend, and receive funds international with the world’s most transparent borderless multi-currency account using the true mid-market rate.',
+    description: 'Send, spend, and receive funds international with the world's most transparent borderless multi-currency account using the true mid-market rate.',
     benefits: ['No hidden exchange rate commissions', 'Multi-currency debit card works in 170+ countries', 'Hold and switch 40+ currencies instantly'],
     searchKeywords: ['borderless travel bank card', 'how to avoid high ATM fees abroad', 'Wise multi currency transfer'],
     features: ['True mid-market interbank exchange rate', 'Two free ATM withdrawals globally per month', 'Instant card lock & notifications via mobile']
@@ -281,17 +321,17 @@ export const KEYWORD_CLUSTERS = {
   },
   transport: {
     title: 'Ground Transport & Road Trips',
-    highVolume: 'cheap rent a car hire low deposit private driver gettransfer Montenegro Spain Croatia bikesbooking auto europe economy bookings kiwitaxi intui',
+    highVolume: 'cheap rent a car hire low deposit private driver gettransfer Montenegro Spain Croatia bikesbooking auto europe economy bookings kiwitaxi intui discovercars',
     slug: 'ground-transport-car-rentals'
   },
   booking: {
     title: 'Deals & Passenger Restitution',
-    highVolume: 'flight compensation delayed cancellation refund bundle deals Expedia Expedia packages AirHelp klook go city compensair wegotrip ticketnetwork',
+    highVolume: 'flight compensation delayed cancellation refund bundle deals Expedia Expedia packages AirHelp klook go city compensair wegotrip ticketnetwork getyourguide',
     slug: 'booking-stays-compensation'
   },
   utility: {
     title: 'Travel Security & Borderless Finance',
-    highVolume: 'safe public wifi travel travel insurance adventure multi currency card NordVPN Wise World Nomads radical storage luggage ekta traveling',
+    highVolume: 'safe public wifi travel travel insurance adventure multi currency card NordVPN Wise World Nomads radical storage luggage ekta traveling safetywing',
     slug: 'travel-security-borderless-finance'
   }
 };

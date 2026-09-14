@@ -23,9 +23,11 @@ import BrandLogo, { BrandIcon } from './components/BrandLogo';
 
 type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz' | 'flightsRooms';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
+type AppLanguage = 'en' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ja' | 'ko' | 'th' | 'vi' | 'id' | 'da' | 'sv' | 'no' | 'fi' | 'pl' | 'nl' | 'ru' | 'zh' | 'ar';
 
 export default function App() {
   const [activeTab, setActiveTab ] = useState<ActiveTab>('overview');
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('en');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showCookieBanner, setShowCookieBanner] = useState(false);
 
@@ -644,7 +646,18 @@ export default function App() {
       twUrl.setAttribute('content', canonicalUrl);
     }
 
-    // Dynamic route-level JSON-LD Schema injection for search bots (Breadcrumbs, Articles, Services, FAQ)
+    // Dynamic Organizational Level and Service JSON-LD Schema injection for search bots
+    // Also handles noindex for non-commercial internal pages (travelpayouts-*)
+    const pagePath = window.location.pathname.toLowerCase();
+    const shouldNoIndex = pagePath.startsWith('/travelpayouts-') || pagePath.includes('travelpayouts-operational') || pagePath.includes('travelpayouts-dashboard');
+    const existingRobots = document.querySelector('meta[name="robots"]');
+    if (existingRobots) {
+      if (shouldNoIndex) {
+        existingRobots.setAttribute('content', 'noindex, nofollow, noarchive');
+      } else {
+        existingRobots.setAttribute('content', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+      }
+    }
     const existingSchema = document.getElementById('bookmethat-dynamic-routing-schema');
     if (existingSchema) {
       existingSchema.remove();
@@ -1614,50 +1627,43 @@ body {
             </span>
           </button>
 
-          {/* Semantic Nav links with crawlable anchor tags */}
-          <nav className="hidden md:flex items-center gap-1 text-[9.5px] uppercase tracking-widest font-bold">
-            <a 
-              href="#coupon-vault" 
-              onClick={(e) => { e.preventDefault(); handleSectionScroll('coupon-vault'); }} 
-              className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none"
-            >
-              Promo Coupon Vault
-            </a>
-            <a 
-              href="#hot-packages" 
-              onClick={(e) => { e.preventDefault(); handleSectionScroll('hot-packages'); }} 
-              className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none"
-            >
-              Holiday Packs
-            </a>
-            <a 
-              href="#destinations" 
-              onClick={(e) => { e.preventDefault(); handleSectionScroll('destinations'); }} 
-              className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none"
-            >
-              Deal Cards Grid
-            </a>
-            <a 
-              href="/planner" 
-              onClick={(e) => { e.preventDefault(); setActiveTab('planner'); handleSectionScroll('core-calculators'); window.history.pushState(null, '', '/planner'); }} 
-              className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none"
-            >
-              Nomad Planner
-            </a>
-            <a 
-              href="/esim" 
-              onClick={(e) => { e.preventDefault(); setActiveTab('guides'); handleSectionScroll('core-calculators'); window.history.pushState(null, '', '/esim'); }} 
-              className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none"
-            >
-              Travel Guides & Silos
-            </a>
-            <a 
-              href="#compliance-desk" 
-              onClick={(e) => { e.preventDefault(); handleSectionScroll('compliance-desk'); }} 
-              className="min-h-[44px] inline-flex items-center px-3 py-2 text-gray-700 hover:text-[#B84200] transition cursor-pointer select-none"
-            >
-              Compliance Desk
-            </a>
+          {/* Semantic Nav links */}
+          <nav className="hidden md:flex items-center gap-1 text-[9px] uppercase tracking-widest font-bold">
+            <button onClick={() => handleSectionScroll('coupon-vault')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Promo Coupon Vault</button>
+            <button onClick={() => handleSectionScroll('hot-packages')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Holiday Packs</button>
+            <button onClick={() => handleSectionScroll('destinations')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Deal Cards Grid</button>
+            <button onClick={() => handleSectionScroll('core-calculators')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Nomad Planner</button>
+            <button onClick={() => handleSectionScroll('compliance-desk')} className="px-3 py-2 text-gray-500 hover:text-brand-orange transition cursor-pointer select-none">Compliance Desk</button>
+
+            {/* Language Switcher */}
+            <div className="ml-2 flex items-center gap-1">
+              <Globe className="w-3 h-3 text-gray-500" />
+              <select
+                value={appLanguage}
+                onChange={(e) => setAppLanguage(e.target.value as AppLanguage)}
+                className="min-h-[44px] inline-flex items-center px-2 py-1.5 text-[9px] font-mono font-bold bg-white border border-[#E5E5E1] rounded text-gray-600 hover:border-brand-orange transition cursor-pointer focus:outline-none"
+                aria-label="Select language"
+              >
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+                <option value="fr">FR</option>
+                <option value="de">DE</option>
+                <option value="it">IT</option>
+                <option value="pt">PT</option>
+                <option value="ja">JA</option>
+                <option value="ko">KO</option>
+                <option value="th">TH</option>
+                <option value="vi">VI</option>
+                <option value="id">ID</option>
+                <option value="da">DA</option>
+                <option value="nl">NL</option>
+                <option value="pl">PL</option>
+                <option value="ru">RU</option>
+                <option value="zh">ZH</option>
+                <option value="ar">AR</option>
+              </select>
+            </div>
+          </nav>
           </nav>
 
           {/* Action Core CTAs */}
