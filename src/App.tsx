@@ -330,12 +330,12 @@ export default function App() {
           finalDesc = "Compare and book direct eSIM data, budget car rentals, and claim flight delay compensation up to €600. Verified deals from Saily, Airalo, Localrent, Expedia & more.";
           break;
         case 'flightsRooms':
-          finalTitle = "AI Flight Booker & Hotel Reservations | BookMeThat";
-          finalDesc = "Instantly plan your domestic and international routes with dynamic AI optimizations. Compare wholesale flight options and Expedia hotel room stays.";
+          finalTitle = "Flight Tickets & Hotel Reservations | BookMeThat";
+          finalDesc = "Search and compare flight deals and hotel stays, and plan your trip in one place.";
           break;
         case 'planner':
-          finalTitle = "Travel Budget Planner & Vacation Estimator | BookMeThat";
-          finalDesc = "Design a custom travel itinerary and calculate real-time savings on regional cellular data, car rentals, and airport transfers.";
+          finalTitle = "Travel Planner & Budget Calculator | BookMeThat";
+          finalDesc = "Work out your trip costs and plan your itinerary — flights, hotels, car rentals, and more.";
           break;
         case 'calculators':
           finalTitle = "Travel eSIM & Rental Car Price Comparison | BookMeThat";
@@ -346,24 +346,24 @@ export default function App() {
           finalDesc = "Browse expert destination guides and coupon vouchers for travel eSIM connections, cheap car rentals, and flight delay compensation.";
           break;
         case 'legal':
-          finalTitle = "Regulatory Compliance & GDPR Terms of Service | BookMeThat";
-          finalDesc = "Publisher terms, GDPR-compliant cookie agreements, FTC affiliate disclosures, and privacy policies for BookMeThat services.";
+          finalTitle = "About, Privacy & Terms | BookMeThat";
+          finalDesc = "Find out who runs BookMeThat, how we handle your data, and the rules for using this site.";
           break;
         case 'heatmap':
-          finalTitle = "SEO Keyword Mapping & Search Volume Insights | BookMeThat";
-          finalDesc = "Analyze commercial search query volumes, clustering trends, and CPC payout margins for top-tier travel and connectivity topics.";
+          finalTitle = "Travel Deal Ideas & Popular Searches | BookMeThat";
+          finalDesc = "See what travelers are searching for and discover new deal ideas across eSIM, car rental, and flights.";
           break;
         case 'utm':
-          finalTitle = "Compliance UTM Generator & AdSense Audit | BookMeThat";
-          finalDesc = "Parse inbound queries, audit AdSense compliance states, and construct safe outbound travel affiliate links using rel properties.";
+          finalTitle = "Smart Links & Safe Booking Tools | BookMeThat";
+          finalDesc = "Use our link tools to safely share travel deals and check that every booking link works correctly.";
           break;
         case 'faq':
-          finalTitle = "eSIM hotspot guides & EU261 Delay Comp FAQ | BookMeThat";
-          finalDesc = "Verified answers to highly searched travel questions, dynamic regional cellular rates, and cardless rental deposits.";
+          finalTitle = "Travel Questions Answered | BookMeThat";
+          finalDesc = "Find quick answers to common questions about eSIMs, car rentals, flight delays, and travel money.";
           break;
         case 'quiz':
-          finalTitle = "Nomad Speed Quiz Challenge & Travel Trivia | BookMeThat";
-          finalDesc = "Test your digital traveler wisdom. Solve connectivity, car rental, and flight delay restitution answers under pressure.";
+          finalTitle = "Travel Quiz — Test Your Trip Knowledge | BookMeThat";
+          finalDesc = "Play our quick travel quiz and see how much you really know about saving money on trips.";
           break;
         default:
           finalTitle = "BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation & More (2026)";
@@ -874,7 +874,7 @@ export default function App() {
           breadcrumbList.itemListElement.push({
             "@type": "ListItem",
             "position": 2,
-            "name": "AI Nomad Planner",
+            "name": "Travel Planner",
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
@@ -882,7 +882,7 @@ export default function App() {
           breadcrumbList.itemListElement.push({
             "@type": "ListItem",
             "position": 2,
-            "name": "Car Rentals",
+            "name": "Car Rental Comparison",
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
@@ -891,13 +891,13 @@ export default function App() {
           schemas.push({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Local Direct Car Rental Engine",
+            "name": "Compare Car Rentals Directly",
             "serviceType": "Car Rental Comparison",
             "provider": {
               "@id": `${canonicalBase}/#organization`
             },
             "areaServed": "Worldwide",
-            "description": "Direct vehicle supplier rates with cash deposit filters and zero broker markups."
+            "description": "Find local car rental deals and book directly — no broker markups, with cash deposit options."
           });
         } else if (activeTab === 'guides') {
           breadcrumbList.itemListElement.push({
@@ -912,13 +912,13 @@ export default function App() {
           schemas.push({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Travel eSIM Connectivity Comparison",
-            "serviceType": "Cellular Data Comparison",
+            "name": "Compare Travel eSIMs",
+            "serviceType": "Travel eSIM Comparison",
             "provider": {
               "@id": `${canonicalBase}/#organization`
             },
             "areaServed": "Worldwide",
-            "description": "Verified cellular data eSIM comparisons for 190+ countries featuring Saily, Airalo, and Yesim."
+            "description": "Compare eSIM data plans from Saily, Airalo, and Yesim — reliable mobile data for 190+ countries."
           });
         } else if (activeTab === 'flightsRooms') {
           breadcrumbList.itemListElement.push({
