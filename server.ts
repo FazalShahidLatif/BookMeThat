@@ -84,6 +84,57 @@ async function startServer() {
     res.send("# BookMeThat Ad Network Authorization\n");
   });
 
+  // RSS Feed routes — generated at build time by generate-rss-feeds.ts
+  app.get("/feed.xml", (req, res) => {
+    const feedPath = path.join(process.cwd(), "dist", "feed.xml");
+    if (fs.existsSync(feedPath)) {
+      res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=3600");
+      return res.sendFile(feedPath);
+    }
+    res.status(404).type("text/plain").send("Feed not generated");
+  });
+
+  app.get("/feed/connectivity.xml", (req, res) => {
+    const feedPath = path.join(process.cwd(), "dist", "feed", "connectivity.xml");
+    if (fs.existsSync(feedPath)) {
+      res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=3600");
+      return res.sendFile(feedPath);
+    }
+    res.status(404).type("text/plain").send("Feed not generated");
+  });
+
+  app.get("/feed/transport.xml", (req, res) => {
+    const feedPath = path.join(process.cwd(), "dist", "feed", "transport.xml");
+    if (fs.existsSync(feedPath)) {
+      res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=3600");
+      return res.sendFile(feedPath);
+    }
+    res.status(404).type("text/plain").send("Feed not generated");
+  });
+
+  app.get("/feed/booking.xml", (req, res) => {
+    const feedPath = path.join(process.cwd(), "dist", "feed", "booking.xml");
+    if (fs.existsSync(feedPath)) {
+      res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=3600");
+      return res.sendFile(feedPath);
+    }
+    res.status(404).type("text/plain").send("Feed not generated");
+  });
+
+  app.get("/feed/utility.xml", (req, res) => {
+    const feedPath = path.join(process.cwd(), "dist", "feed", "utility.xml");
+    if (fs.existsSync(feedPath)) {
+      res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=3600");
+      return res.sendFile(feedPath);
+    }
+    res.status(404).type("text/plain").send("Feed not generated");
+  });
+
   // Client telemetry beacon handler - returns 204 No Content immediately to prevent client 404 errors
   app.all("/api/v1/pixel", (req, res) => {
     res.status(204).end();
