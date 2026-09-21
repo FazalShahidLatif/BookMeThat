@@ -550,7 +550,7 @@ async function startServer() {
       const normalizedPath = req.path === "/" ? "" : req.path.replace(/\/+$/, "");
       const canonicalUrl = `https://www.bookmethat.com${normalizedPath}`;
 
-      let title = "BookMeThat™ | Travel eSIM, Local Car Rental & Flight Delay Deals";
+      let title = "BookMeThat — Travel eSIM, Local Car Rental & Flight Delay Deals";
       let description = "Compare verified 5G travel eSIMs, direct local car rentals with zero credit card deposits, and claim up to €600 EU261 flight delay compensation with zero broker markups.";
 
       let schemaMarkup = "";

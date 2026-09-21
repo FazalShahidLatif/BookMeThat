@@ -29,7 +29,8 @@ Fill in one row per day. Keep it simple — a few numbers and one note. The poin
 | 15 Sep 2026 | — | — | — | — | — | Day 2 (late): GA4 tag added to site (placeholder — needs real Measurement ID), OG + Twitter card titles simplified, organization description simplified. |
 | 16 Sep 2026 | 0 | — | 0 | 0 | $0 | Day 3: sitemap lastmod dates updated to 2026-09-15 (62 URLs). Sitemap submitted-ready for GSC. GSC verification is a manual step (HTML tag or DNS). |
 | 16 Sep 2026 | 0 | — | 0 | 0 | $0 | Day 4: Beehiiv-ready RSS feed system added — main feed (feed.xml, 49 items) + 4 category feeds. Feed generator script wired into build. Feed routes added to server. Beehiiv connection is a manual step (connect feed.xml URL in Beehiiv dashboard). |
-| 16 Sep 2026 | 0 | — | 0 | 0 | $0 | Day 5: Zapier auto-posting setup document written (bbook/zapier-setup.md). RSS feeds verified working — main feed + 4 category feeds. Unused @vercel/og and sitemap packages removed. Build verified passing. Zapier connections are manual steps (connect X, LinkedIn, Facebook accounts and create 3 Zaps). |
+|| 16 Sep 2026 | 0 | — | 0 | 0 | $0 | Day 5: Zapier auto-posting setup document written (bbook/zapier-setup.md). RSS feeds verified working — main feed + 4 category feeds. Unused @vercel/og and sitemap packages removed. Build verified passing. Zapier connections are manual steps (connect X, LinkedIn, Facebook accounts and create 3 Zaps). |
+| 17 Sep 2026 | 0 | — | 0 | 0 | $0 | Day 6: SEO optimization applied. Italy eSIM article (top GSC page, ~253 impressions, pos 84) enhanced with direct answer paragraph and internal links to 2 related articles. Homepage hreflang tags fixed — 6 English variants (en, en-US, en-GB, en-CA, en-AU, en-IE, en-NZ). Top 30 GSC queries + 16 worst pages analyzed; priority fixes applied to homepage and Italy eSIM article. |
 
 ---
 

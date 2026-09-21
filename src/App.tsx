@@ -96,7 +96,7 @@ export default function App() {
 
   // Dynamic Metadata state
   const [editingMetadata, setEditingMetadata] = useState<{ title: string; desc: string }>({
-    title: "BookMeThat™: Best Travel Deals, Exclusive Promo Codes & Vacation Packages (2026)",
+    title: "BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation & More (2026)",
     desc: "Compare and book direct eSIM mobile data, budget scooter & car rentals, and luxury sightseeing passes with verified discount vouchers. Save up to 40% on holiday activities."
   });
 
@@ -2314,7 +2314,7 @@ body {
                   </div>
                   
                   <h4 className="text-[19px] text-[#1a0dab] font-sans hover:underline cursor-pointer leading-snug font-medium mb-1 truncate block">
-                    {editingMetadata.title || "BookMeThat™: Direct Travel Deals & Verified Active Promo Codes"}
+                    {editingMetadata.title || "BookMeThat — Direct Travel Deals & Verified Active Promo Codes"}
                   </h4>
 
                   {/* Rich Snippet: Review Stars, Ratings & Price Range */}
