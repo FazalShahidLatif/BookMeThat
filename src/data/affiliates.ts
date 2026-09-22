@@ -310,6 +310,16 @@ export const AFFILIATES: AffiliatePartner[] = [
     benefits: ['Full medical & baggage coverage safety', 'COVID-19 and illness coverage included', 'Instant digital certificate for visa centers'],
     searchKeywords: ['cheap travel medical insurance', 'Ekta policy visa verification', 'affordable health cover abroad'],
     features: ['Accepted by all global embassies', 'Baggage delay and loss reimbursement', 'Fast claim resolution procedures']
+  },
+  {
+    id: 'callhippo',
+    name: 'CallHiPPO Business Line',
+    category: 'utility',
+    url: 'https://join.callhippo.com/9ug76tv8mxqb',
+    description: 'Get a local, toll-free, or mobile business phone number in over 150 countries. Handle calls, SMS, and AI voice agents from one simple dashboard — good for travelers who run a business from anywhere.',
+    benefits: ['Local, toll-free, and mobile numbers in 150+ countries', 'AI voice agent handles calls 24/7 in 35+ languages', 'One platform for calls, SMS, and team messaging'],
+    searchKeywords: ['business phone number for travelers', 'AI call answering service', 'virtual number for small business'],
+    features: ['AI Voice Agent — 24/7 Call Handling', 'Virtual Numbers for global reach', 'Omnichannel communication from one place']
   }
 ];
 
