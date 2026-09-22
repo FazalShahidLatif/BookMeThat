@@ -53,14 +53,81 @@ async function startServer() {
   } else {
     // Serve static files from the build output directory
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath, { index: false }));
+    app.use(express.static(distPath, { index: false, dotfiles: "allow" }));
   }
 
   // Serve static files from public directory as fallback (sitemaps, robots.txt, etc.)
   const publicPath = path.join(process.cwd(), "public");
   if (fs.existsSync(publicPath)) {
-    app.use(express.static(publicPath));
+    app.use(express.static(publicPath, { dotfiles: "allow" }));
   }
+
+  // Explicit ARD (Agentic Resource Discovery) AI Catalog routes for autonomous AI agents & registries
+  const serveAiCatalog = (req: express.Request, res: express.Response) => {
+    const candidates = [
+      path.join(process.cwd(), "public", ".well-known", "ai-catalog.json"),
+      path.join(process.cwd(), "public", "ai-catalog.json"),
+      path.join(process.cwd(), "dist", ".well-known", "ai-catalog.json"),
+      path.join(process.cwd(), "dist", "ai-catalog.json"),
+    ];
+    let catalogFile: string | null = null;
+    for (const c of candidates) {
+      if (fs.existsSync(c)) {
+        catalogFile = c;
+        break;
+      }
+    }
+
+    if (catalogFile) {
+      try {
+        const raw = fs.readFileSync(catalogFile, "utf-8");
+        // Validate JSON integrity before transmission
+        JSON.parse(raw);
+        const accept = req.headers.accept || "";
+        const contentType = accept.includes("application/ai-catalog+json")
+          ? "application/ai-catalog+json; charset=utf-8"
+          : "application/json; charset=utf-8";
+
+        res.setHeader("Content-Type", contentType);
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
+        res.setHeader("Cache-Control", "public, max-age=3600");
+        return res.status(200).send(raw);
+      } catch (err) {
+        console.error("Error reading or parsing ai-catalog.json:", err);
+      }
+    }
+
+    res.status(404).setHeader("Content-Type", "application/json; charset=utf-8").json({
+      error: "ai-catalog.json not found",
+      status: 404
+    });
+  };
+
+  const aiCatalogRoutes = [
+    "/ai-catalog.json",
+    "/ai-catalog.json/",
+    "/.well-known/ai-catalog.json",
+    "/.well-known/ai-catalog.json/",
+    "/.well-known/ard.json",
+    "/.well-known/ard.json/",
+    "/ard.json",
+    "/ard.json/",
+  ];
+
+  app.all(aiCatalogRoutes, (req, res, next) => {
+    if (req.method === "OPTIONS") {
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+      res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
+      return res.status(204).end();
+    }
+    if (req.method === "GET" || req.method === "HEAD") {
+      return serveAiCatalog(req, res);
+    }
+    next();
+  });
 
   // Explicit static asset handlers to eliminate 404s
   app.get("/favicon.ico", (req, res) => {

@@ -108,4 +108,19 @@ for (const page of pages) {
   fs.writeFileSync(path.join(pageDir, 'index.html'), html, 'utf-8');
 }
 
+// Ensure ai-catalog.json and .well-known files are present in dist
+const publicCatalogPath = path.resolve(process.cwd(), 'public', 'ai-catalog.json');
+if (fs.existsSync(publicCatalogPath)) {
+  const distWellKnown = path.join(distPath, '.well-known');
+  if (!fs.existsSync(distWellKnown)) {
+    fs.mkdirSync(distWellKnown, { recursive: true });
+  }
+  const catalogData = fs.readFileSync(publicCatalogPath, 'utf-8');
+  fs.writeFileSync(path.join(distPath, 'ai-catalog.json'), catalogData, 'utf-8');
+  fs.writeFileSync(path.join(distPath, 'ard.json'), catalogData, 'utf-8');
+  fs.writeFileSync(path.join(distWellKnown, 'ai-catalog.json'), catalogData, 'utf-8');
+  fs.writeFileSync(path.join(distWellKnown, 'ard.json'), catalogData, 'utf-8');
+  console.log('Successfully mirrored ai-catalog.json and .well-known manifests to dist directory.');
+}
+
 console.log(`Successfully generated static HTML pages for ${pages.length} routes.`);

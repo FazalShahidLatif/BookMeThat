@@ -187,3 +187,7 @@ Sitemap: https://www.bookmethat.com/sitemap.xml
 # LLM Direct Indexing Standards (llmstxt.org)
 # LLM-txt: https://www.bookmethat.com/llms.txt
 # LLM-full-txt: https://www.bookmethat.com/llms-full.txt
+
+# Autonomous AI Agent Resource Discovery (ARD Specification)
+# AI-Catalog: https://www.bookmethat.com/.well-known/ai-catalog.json
+# AI-Catalog-Root: https://www.bookmethat.com/ai-catalog.json

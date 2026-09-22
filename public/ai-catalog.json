@@ -1,0 +1,143 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "BookMeThat",
+    "identifier": "did:web:bookmethat.com",
+    "documentationUrl": "https://www.bookmethat.com/about",
+    "logoUrl": "https://www.bookmethat.com/logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:bookmethat.com:services:esim-data-finder",
+      "displayName": "BookMeThat Travel eSIM Comparator",
+      "type": "application/json",
+      "url": "https://www.bookmethat.com/esim",
+      "description": "Compare verified 5G and LTE prepaid travel eSIM cards across 190+ countries with live rates and coupon codes from Saily, Airalo, and Yesim.",
+      "tags": [
+        "travel",
+        "esim",
+        "mobile-data",
+        "roaming",
+        "connectivity",
+        "telecom"
+      ],
+      "capabilities": [
+        "EsimRateComparison",
+        "DestinationCoverageLookup",
+        "PromoCodeVerification"
+      ],
+      "representativeQueries": [
+        "best travel esim for japan",
+        "cheap europe esim data",
+        "saily vs airalo esim"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-22T04:50:00Z"
+    },
+    {
+      "identifier": "urn:air:bookmethat.com:services:car-rental-comparator",
+      "displayName": "BookMeThat Direct Car Rental Comparator",
+      "type": "application/json",
+      "url": "https://www.bookmethat.com/car-rental",
+      "description": "Compare direct local vehicle rentals, car hire with zero credit card deposit, and airport transfers without broker markups.",
+      "tags": [
+        "travel",
+        "car-rental",
+        "transport",
+        "scooter-hire",
+        "airport-transfers"
+      ],
+      "capabilities": [
+        "VehicleRateComparison",
+        "DepositPolicyFilter",
+        "LocalSupplierDiscovery"
+      ],
+      "representativeQueries": [
+        "rent car without credit card deposit",
+        "cheap car rental in montenegro",
+        "localrent vs discovercars comparison"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-22T04:50:00Z"
+    },
+    {
+      "identifier": "urn:air:bookmethat.com:services:flight-delay-compensation",
+      "displayName": "BookMeThat Flight Delay & Cancellation Compensation Guide",
+      "type": "application/json",
+      "url": "https://www.bookmethat.com/flights",
+      "description": "Check passenger rights eligibility and claim up to €600 ($650) for delayed, cancelled, or overbooked flights under EU261 and UK regulations.",
+      "tags": [
+        "travel",
+        "flights",
+        "flight-delay",
+        "compensation",
+        "passenger-rights",
+        "eu261"
+      ],
+      "capabilities": [
+        "FlightDelayEligibilityCheck",
+        "EU261CompensationCalculator",
+        "ClaimFilingSupport"
+      ],
+      "representativeQueries": [
+        "claim compensation for 3 hour flight delay",
+        "eu261 flight cancellation refund",
+        "airhelp vs compensair review"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-22T04:50:00Z"
+    },
+    {
+      "identifier": "urn:air:bookmethat.com:services:travel-budget-planner",
+      "displayName": "BookMeThat AI Travel Budget Planner & Vacation Estimator",
+      "type": "application/json",
+      "url": "https://www.bookmethat.com/planner",
+      "description": "Plan multi-city travel itineraries with real-time budget forecasting across flights, hotel stays, local car rentals, and mobile connectivity.",
+      "tags": [
+        "travel",
+        "itinerary-planner",
+        "budget-calculator",
+        "digital-nomad",
+        "travel-deals"
+      ],
+      "capabilities": [
+        "ItineraryCostEstimation",
+        "MultiCityBudgetCalculation",
+        "TravelArbitrageOptimization"
+      ],
+      "representativeQueries": [
+        "digital nomad travel budget planner",
+        "cost of 2 weeks in italy itinerary",
+        "travel cost calculator for flights and hotels"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-22T04:50:00Z"
+    },
+    {
+      "identifier": "urn:air:bookmethat.com:services:nomad-insurance-comparator",
+      "displayName": "BookMeThat Nomad Travel Insurance & Security Comparison",
+      "type": "application/json",
+      "url": "https://www.bookmethat.com/safetywing-vs-world-nomads-heymondo",
+      "description": "Compare flexible nomad medical travel insurance and cyber security protection for remote workers across 180+ countries.",
+      "tags": [
+        "travel",
+        "travel-insurance",
+        "digital-nomad",
+        "medical-insurance",
+        "cyber-security"
+      ],
+      "capabilities": [
+        "InsurancePolicyComparison",
+        "AdventureSportsCoverageCheck",
+        "NomadSubscriptionRates"
+      ],
+      "representativeQueries": [
+        "safetywing vs world nomads insurance",
+        "best travel insurance for digital nomads",
+        "cheap nomad medical coverage"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-22T04:50:00Z"
+    }
+  ]
+}
