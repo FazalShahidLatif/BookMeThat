@@ -330,10 +330,12 @@ export const ARTICLES: Article[] = [
       <h2>How Easy Is It to Set Up</h2>
       <p>Both apps let you install an eSIM with a single tap on iPhones (iOS 17.4 or newer) and modern Android phones (Android 14 or newer). With Saily, you keep one eSIM profile and just top it up when you travel to a new country. Airalo sometimes asks you to install a separate card for each region.</p>
 
-      <h2>Current Discount Codes (Verified 2026)</h2>
+      <h2>Current Discount Codes (Verified September 2026)</h2>
       <ul>
         <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TEE15</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
-        <li><strong>Airalo:</strong> Use voucher code <strong class="font-mono text-[#B84200]">NEWTOAIRALO15</strong> for 15% OFF your first order → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+        <li><strong>Airalo eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">JETSET10</strong> for 10% OFF your next eSIM → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+        <li><strong>Airalo eSIM (first order):</strong> New customers get 15% OFF their first eSIM with code <strong class="font-mono text-[#B84200]">HELLO15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+        <li><strong>Airalo APAC destinations:</strong> Get 15% OFF eSIMs in Asia-Pacific (up to $7 off) with code <strong class="font-mono text-[#B84200]">APAC15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
       </ul>
     `
   },
@@ -1890,7 +1892,7 @@ export const ARTICLES: Article[] = [
         <h3 class="text-sm font-mono font-bold uppercase text-[#B84200] tracking-wider mb-2">⚡ Quick 2026 Verdict: Which Japan eSIM to Pick</h3>
         <ul class="text-xs space-y-2 text-gray-800">
           <li><strong>Best Overall & Speed:</strong> <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Saily eSIM</a> (5GB for ~$13.50 with code <strong>TEE15</strong>) — Connects seamlessly to NTT Docomo and SoftBank with lowest latency.</li>
-          <li><strong>Best for Light Trips:</strong> <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Airalo "Moshi Moshi"</a> (3GB for ~$8.50 with code <strong>NEWTOAIRALO15</strong>) — Ideal for 7-day city itineraries.</li>
+          <li><strong>Best for Light Trips:</strong> <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Airalo "Moshi Moshi"</a> (3GB for ~$8.50 with code <strong>JETSET10</strong>) — Ideal for 7-day city itineraries.</li>
           <li><strong>Best for Heavy Video/Tethering:</strong> <a href="https://yesim.tpk.lu/G4BRVuDa" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Yesim Japan Unlimited</a> — Zero throttling on daily video calls and hotspot laptop work.</li>
         </ul>
       </div>
@@ -1949,6 +1951,14 @@ export const ARTICLES: Article[] = [
       <p>When you land in Tokyo, your phone might show 4 bars of signal but no data. This is 100% normal—simply go to <em>Settings > Cellular > Saily/Airalo eSIM > Cellular Data Network</em> and ensure <strong>Data Roaming</strong> is switched <strong>ON</strong>. Japanese telecom regulations route tourist eSIM traffic through encrypted roaming nodes.</p>
 
       <p>👉 <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Get Saily Japan eSIM with 15% discount code TEE15 →</a></p>
+
+      <h2>Current Discount Codes (Verified September 2026)</h2>
+      <ul>
+        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TEE15</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
+        <li><strong>Airalo eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">JETSET10</strong> for 10% OFF your next eSIM → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+        <li><strong>Airalo eSIM (first order):</strong> New customers get 15% OFF their first eSIM with code <strong class="font-mono text-[#B84200]">HELLO15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+        <li><strong>Airalo APAC destinations:</strong> Get 15% OFF eSIMs in Asia-Pacific (up to $7 off) with code <strong class="font-mono text-[#B84200]">APAC15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+      </ul>
 
       <h2>Frequently Asked Questions</h2>
       <div class="my-6 space-y-4">
@@ -2040,6 +2050,14 @@ export const ARTICLES: Article[] = [
       <p>💡 <em>Pro Tip: Download offline Google Maps areas for all national parks before entering the gates!</em></p>
 
       <p>👉 <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily USA eSIM with coupon TEE15 (15% OFF) →</a></p>
+
+      <h2>Current Discount Codes (Verified September 2026)</h2>
+      <ul>
+        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TEE15</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
+        <li><strong>Airalo eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">JETSET10</strong> for 10% OFF your next eSIM → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+        <li><strong>Airalo eSIM (first order):</strong> New customers get 15% OFF their first eSIM with code <strong class="font-mono text-[#B84200]">HELLO15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+        <li><strong>Airalo APAC destinations:</strong> Get 15% OFF eSIMs in Asia-Pacific (up to $7 off) with code <strong class="font-mono text-[#B84200]">APAC15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
+      </ul>
 
       <h2>Frequently Asked Questions</h2>
       <div class="my-6 space-y-4">
