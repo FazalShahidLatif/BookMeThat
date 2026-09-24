@@ -1167,7 +1167,7 @@ export default function App() {
       <nav class="navigation-menu" aria-label="Main Navigation">
         <ul class="nav-links">
           <li><a href="#hero">Caches</a></li>
-          <li><a href="#destinations">Deals Grid</a></li>
+          <li><a href="#destinations" class="deal-nav-link" data-affiliate="saily">Deals Grid</a></li>
           <li><a href="#reviews">Safe Proof</a></li>
         </ul>
       </nav>
@@ -1177,7 +1177,9 @@ export default function App() {
           <span class="burger-line"></span>
           <span class="burger-line"></span>
         </button>
-        <a href="#destinations" class="cta-direct">Direct Bids</a>
+        <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="cta-direct deal-cta-btn">
+          <span class="deal-cta-text">Get 15% Off eSIM →</span>
+        </a>
       </div>
     </div>
   </header>
@@ -1241,7 +1243,7 @@ export default function App() {
         <div class="deal-cards-grid">
           
           <!-- MODEL CARD 1 -->
-          <article class="deal-card" data-category="connectivity">
+          <article class="deal-card" data-category="connectivity" onclick="window.open('https://saily.tpk.lu/9KzgxKRI','_blank','noopener,noreferrer')" style="cursor:pointer">
             <div class="deal-img-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80" 
@@ -1258,15 +1260,14 @@ export default function App() {
               <h3>Tokyo High Speed eSIM</h3>
               <p>Direct LTE/5G local profile routing on local cellular towers. Skip active premium roaming taxes entirely.</p>
               
-              <!-- HIGH CONTRAST PULSING BUTTON -->
-              <AffiliateLink href="https://saily.tpk.lu/9KzgxKRI" className="book-now-cta-pulsing">
-                Book Now & Save Direct <span className="arrow-shape">→</span>
-              </AffiliateLink>
+              <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
+                Book Now & Save Direct <span class="arrow-shape">→</span>
+              </a>
             </div>
           </article>
 
           <!-- MODEL CARD 2 -->
-          <article class="deal-card" data-category="transport">
+          <article class="deal-card" data-category="transport" onclick="window.open('https://localrent.tpk.lu/YI6tdTTl','_blank','noopener,noreferrer')" style="cursor:pointer">
             <div class="deal-img-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80" 
@@ -1283,9 +1284,9 @@ export default function App() {
               <h3>Costa Brava Hatchback</h3>
               <p>Rent exact model visually. Cash deposit acceptable directly at selected local airport terminals.</p>
               
-              <AffiliateLink href="https://localrent.tpk.lu/YI6tdTTl" className="book-now-cta-pulsing">
-                Book Now & Save Direct <span className="arrow-shape">→</span>
-              </AffiliateLink>
+              <a href="https://localrent.tpk.lu/YI6tdTTl" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
+                Book Now & Save Direct <span class="arrow-shape">→</span>
+              </a>
             </div>
           </article>
 
