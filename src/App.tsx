@@ -2778,19 +2778,19 @@ body {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B84200]"></span>
             </span>
             <p className="text-[11px] sm:text-xs font-sans text-stone-200">
-              <strong className="text-white font-bold">Exclusive Deal:</strong> Get 5% OFF 5G Travel eSIMs with code <span className="bg-[#B84200]/30 text-[#FF8542] px-1.5 py-0.5 font-mono font-bold border border-[#B84200]/50 select-all">SPECIAL5</span> or Book Localrent with zero card deposit.
+              <strong className="text-white font-bold">Exclusive Deal:</strong> Get 15% OFF 5G Travel eSIMs with code <span className="bg-[#B84200]/30 text-[#FF8542] px-1.5 py-0.5 font-mono font-bold border border-[#B84200]/50 select-all">TEE15</span> or Book Localrent with zero card deposit.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <AffiliateLink
-              href="https://saily.top/3Yv4T8x"
-              aria-label="Claim Saily 5% Discount Code"
+              href="https://saily.tpk.lu/9KzgxKRI"
+              aria-label="Claim Saily 15% Discount Code"
               className="bg-[#B84200] hover:bg-[#a03800] text-white text-[10px] sm:text-xs font-mono font-bold uppercase py-1.5 px-3 rounded-none transition flex items-center gap-1 shadow-sm"
             >
               Get eSIM Deal &rarr;
             </AffiliateLink>
             <AffiliateLink
-              href="https://localrent.tp.st/P9K5Y1f7"
+              href="https://localrent.tpk.lu/YI6tdTTl"
               aria-label="Browse No Deposit Car Rentals on Localrent"
               className="bg-stone-800 hover:bg-stone-700 text-stone-100 text-[10px] sm:text-xs font-mono font-bold uppercase py-1.5 px-3 rounded-none border border-stone-600 transition flex items-center gap-1"
             >
