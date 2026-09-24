@@ -1,5 +1,48 @@
 import { AffiliatePartner } from '../types';
 
+export interface DealCard {
+  id: string;
+  affiliateId: string;
+  category: 'connectivity' | 'transport' | 'booking' | 'utility';
+  dealTitle: string;
+  dealDescription: string;
+  dealPrice: string;
+  imageUrl: string;
+  imageAlt: string;
+  badge: string;
+  buttonText: string;
+  featured: boolean;
+}
+
+export const DEAL_CARDS: DealCard[] = [
+  {
+    id: 'saily-esim-deal',
+    affiliateId: 'saily',
+    category: 'connectivity',
+    dealTitle: 'Tokyo High Speed eSIM',
+    dealDescription: 'Direct LTE/5G local profile routing on local cellular towers. Skip active premium roaming taxes entirely.',
+    dealPrice: 'From $4.50',
+    imageUrl: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80',
+    imageAlt: 'Tokyo Digital Connectivity Hub',
+    badge: 'Saily Global Cellular',
+    buttonText: 'Book Now & Save Direct \u2192',
+    featured: true
+  },
+  {
+    id: 'localrent-car-deal',
+    affiliateId: 'localrent',
+    category: 'transport',
+    dealTitle: 'Costa Brava Hatchback',
+    dealDescription: 'Rent exact model visually. Cash deposit acceptable directly at selected local airport terminals.',
+    dealPrice: '$0 Deposit',
+    imageUrl: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80',
+    imageAlt: 'European coastal car transit',
+    badge: 'Localrent Motor',
+    buttonText: 'Book Now & Save Direct \u2192',
+    featured: true
+  }
+];
+
 export const AFFILIATES: AffiliatePartner[] = [
   {
     id: 'airalo',

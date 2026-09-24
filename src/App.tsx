@@ -6,7 +6,7 @@ import {
   Cpu, Activity, Gauge, Globe, RefreshCw, Layers, Sliders, Send, Database,
   ChevronUp
 } from 'lucide-react';
-import { AFFILIATES, KEYWORD_CLUSTERS } from './data/affiliates';
+import { AFFILIATES, KEYWORD_CLUSTERS, DEAL_CARDS } from './data/affiliates';
 import { ARTICLES } from './data/articles';
 import InteractivePlanner from './components/InteractivePlanner';
 import ComparisonCalculators from './components/ComparisonCalculators';
@@ -1241,55 +1241,33 @@ export default function App() {
         <p class="section-sub text-center">Featuring hardware-accelerated cubic-bezier hover transitions and 3s pulsing conversion anchors.</p>
         
         <div class="deal-cards-grid">
-          
-          <!-- MODEL CARD 1 -->
-          <article class="deal-card" data-category="connectivity" onclick="window.open('https://saily.tpk.lu/9KzgxKRI','_blank','noopener,noreferrer')" style="cursor:pointer">
-            <div class="deal-img-wrapper">
-              <img 
-                src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80" 
-                decoding="async"
-                loading="lazy"
-                alt="Tokyo Digital Connectivity Hub"
-                class="deal-thumb"
-                referrerpolicy="no-referrer"
-              >
-              <div class="deal-cost-bubble">From $4.50</div>
-            </div>
-            <div class="deal-details">
-              <span class="badge">Saily Global Cellular</span>
-              <h3>Tokyo High Speed eSIM</h3>
-              <p>Direct LTE/5G local profile routing on local cellular towers. Skip active premium roaming taxes entirely.</p>
-              
-              <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
-                Book Now & Save Direct <span class="arrow-shape">→</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- MODEL CARD 2 -->
-          <article class="deal-card" data-category="transport" onclick="window.open('https://localrent.tpk.lu/YI6tdTTl','_blank','noopener,noreferrer')" style="cursor:pointer">
-            <div class="deal-img-wrapper">
-              <img 
-                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80" 
-                decoding="async"
-                loading="lazy"
-                alt="European coastal car transit"
-                class="deal-thumb"
-                referrerpolicy="no-referrer"
-              >
-              <div class="deal-cost-bubble">$0 Deposit</div>
-            </div>
-            <div class="deal-details">
-              <span class="badge">Localrent Motor</span>
-              <h3>Costa Brava Hatchback</h3>
-              <p>Rent exact model visually. Cash deposit acceptable directly at selected local airport terminals.</p>
-              
-              <a href="https://localrent.tpk.lu/YI6tdTTl" target="_blank" rel="noopener noreferrer" class="book-now-cta-pulsing">
-                Book Now & Save Direct <span class="arrow-shape">→</span>
-              </a>
-            </div>
-          </article>
-
+          {DEAL_CARDS.map(card => {
+            const partner = AFFILIATES.find(a => a.id === card.affiliateId);
+            const href = partner ? partner.url : '#';
+            return (
+              <article key={card.id} className="deal-card" data-category={card.category} onClick={() => window.open(href, '_blank', 'noopener,noreferrer')} style={{ cursor: 'pointer' }}>
+                <div className="deal-img-wrapper">
+                  <img
+                    src={card.imageUrl}
+                    decoding="async"
+                    loading="lazy"
+                    alt={card.imageAlt}
+                    className="deal-thumb"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="deal-cost-bubble">{card.dealPrice}</div>
+                </div>
+                <div className="deal-details">
+                  <span className="badge">{card.badge}</span>
+                  <h3>{card.dealTitle}</h3>
+                  <p>{card.dealDescription}</p>
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="book-now-cta-pulsing">
+                    {card.buttonText} <span className="arrow-shape">→</span>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
