@@ -1167,7 +1167,7 @@ export default function App() {
       <nav class="navigation-menu" aria-label="Main Navigation">
         <ul class="nav-links">
           <li><a href="#hero">Caches</a></li>
-          <li><a href="#destinations" class="deal-nav-link" data-affiliate="saily">Deals Grid</a></li>
+          <li><a href="https://gocity.tpk.lu/9LBYGNmk" target="_blank" rel="noopener noreferrer" class="deal-nav-link" data-affiliate="gocity">Deals Grid</a></li>
           <li><a href="#reviews">Safe Proof</a></li>
         </ul>
       </nav>

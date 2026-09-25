@@ -40,6 +40,19 @@ export const DEAL_CARDS: DealCard[] = [
     badge: 'Localrent Motor',
     buttonText: 'Book Now & Save Direct \u2192',
     featured: true
+  },
+  {
+    id: 'gocity-deal',
+    affiliateId: 'gocity',
+    category: 'booking',
+    dealTitle: 'Go City All-Inclusive Pass',
+    dealDescription: '10% off All-Inclusive passes at selected destinations. Save big on top attractions, tours, and activities across 20+ major cities worldwide.',
+    dealPrice: '10% OFF',
+    imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80',
+    imageAlt: 'City sightseeing attractions and landmark skyline',
+    badge: 'Go City Passes',
+    buttonText: 'Claim 10% Off Pass \u2192',
+    featured: true
   }
 ];
 
@@ -288,7 +301,7 @@ export const AFFILIATES: AffiliatePartner[] = [
     id: 'gocity',
     name: 'Go City Passes',
     category: 'booking',
-    url: 'https://gocity.tpk.lu/u1mHhjxd',
+    url: 'https://gocity.tpk.lu/9LBYGNmk',
     description: 'The ultimate sightseeing pass card. Save up to 50% on top attractions, tours, and activities across the world\'s major destination hub cities.',
     benefits: ['Massive discounts (up to 50% off)', 'Flexible pass options (All-Inclusive/Explorer)', 'Everything on a single mobile app'],
     searchKeywords: ['Go City discount code', 'best sightseeing attraction card', 'how to save on city entry fees'],
