@@ -20,18 +20,18 @@ const pages: Array<{ path: string; title: string; description: string }> = [
   },
   {
     path: 'car-rental',
-    title: 'Direct Local Car Rentals & Scooter Deals (No Deposit) | BookMeThat',
-    description: 'Compare Localrent, QEEQ, Auto Europe, and GetTransfer car hires. Guarantee exact vehicle models with zero credit card deposits.'
+    title: 'Car Rental With No Deposit 2026: Compare Zero-Hold Companies | BookMeThat',
+    description: 'Avoid the €3,000 card hold. Compare Localrent, QEEQ and Auto Europe car hire and find rentals with no credit card deposit at all.'
   },
   {
     path: 'esim',
-    title: 'Best Travel eSIM Card Deals 2026 (Saily, Airalo & Yesim) | BookMeThat',
-    description: 'Compare Saily, Airalo, Holafly, and Yesim data rates. Get instant 5G activation and verified discount vouchers across 150+ countries.'
+    title: 'Cheap Travel eSIM Deals 2026: Compare Saily, Airalo & Yesim | BookMeThat',
+    description: 'Compare cheap eSIM data plans for your destination. Real prices, real speeds and working discount codes for 150+ countries — updated every month.'
   },
   {
     path: 'flights',
-    title: 'EU261 Flight Delay Compensation & Claim Calculator | BookMeThat',
-    description: 'Claim up to €600 ($650) for delayed, overbooked, or canceled flights under EU261 & US DOT laws with AirHelp and Compensair.'
+    title: 'Flight Delay Compensation 2026: Claim Up To €600 Free | BookMeThat',
+    description: 'Claim up to €600 for a delayed or canceled flight. Check your eligibility in 30 seconds and learn how to claim free under EU261, UK261 and US DOT rules.'
   },
   {
     path: 'about',

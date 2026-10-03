@@ -326,24 +326,24 @@ export default function App() {
     } else {
       switch (activeTab) {
         case 'overview':
-          finalTitle = "BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation & More (2026)";
-          finalDesc = "Compare and book direct eSIM data, budget car rentals, and claim flight delay compensation up to €600. Verified deals from Saily, Airalo, Localrent, Expedia & more.";
+          finalTitle = "Cheap Travel eSIM, Car Rental & Flight Deals | Save Up To 60%";
+          finalDesc = "Compare cheap eSIM data, zero-deposit car rentals and flight deals in seconds. No broker markups, no hidden fees - deals verified this month.";
           break;
         case 'flightsRooms':
-          finalTitle = "Flight Tickets & Hotel Reservations | BookMeThat";
-          finalDesc = "Search and compare flight deals and hotel stays, and plan your trip in one place.";
+          finalTitle = "Cheap Flights & Hotels Compared in Seconds | BookMeThat";
+          finalDesc = "Compare flight and hotel prices side by side before you book. Find cheaper routes and room rates for your exact travel dates.";
           break;
         case 'planner':
           finalTitle = "Travel Planner & Budget Calculator | BookMeThat";
           finalDesc = "Work out your trip costs and plan your itinerary — flights, hotels, car rentals, and more.";
           break;
         case 'calculators':
-          finalTitle = "Travel eSIM & Rental Car Price Comparison | BookMeThat";
-          finalDesc = "Compare Saily, Airalo, and Yesim eSIM rates alongside Localrent, QEEQ, and Auto Europe car hires. Save on real-world travel costs.";
+          finalTitle = "eSIM & Car Rental Price Comparison | Which Is Cheaper?";
+                finalDesc = "Compare Saily, Airalo and Yesim data plans with Localrent, QEEQ and Auto Europe car hire — side by side, so you see the real cost.";
           break;
         case 'guides':
-          finalTitle = "Travel eSIM Guides, Rental Hacks & Coupons | BookMeThat";
-          finalDesc = "Browse expert destination guides and coupon vouchers for travel eSIM connections, cheap car rentals, and flight delay compensation.";
+          finalTitle = "Cheap eSIM Guides & Travel Coupons | Save On Data | BookMeThat";
+                finalDesc = "Compare eSIM data plans, find working promo codes and learn which travel connection is cheapest for your destination. Updated monthly.";
           break;
         case 'legal':
           finalTitle = "About, Privacy & Terms | BookMeThat";
@@ -366,8 +366,8 @@ export default function App() {
           finalDesc = "Play our quick travel quiz and see how much you really know about saving money on trips.";
           break;
         default:
-          finalTitle = "BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation & More (2026)";
-          finalDesc = "Compare and book direct eSIM data, budget car rentals, and claim flight delay compensation up to €600. Verified deals from Saily, Airalo, Localrent, Expedia & more.";
+          finalTitle = "Cheap Travel eSIM, Car Rental & Flight Deals | Save Up To 60%";
+          finalDesc = "Compare cheap eSIM data, zero-deposit car rentals and flight deals in seconds. No broker markups, no hidden fees - deals verified this month.";
       }
     }
 
@@ -1142,8 +1142,8 @@ export default function App() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edge-Optimized Travel Deals | BookMeThat</title>
-  <meta name="description" content="Direct-carrier eSIM cellular connections, local rental cars, and flight delayed compensations. No commission markups.">
+  <title>Cheap Travel eSIM, Car Rental & Flight Deals | Save Up To 60%</title>
+    <meta name="description" content="Compare cheap eSIM data, zero-deposit car rentals and flight deals in seconds. No broker markups, no hidden fees — deals verified this month.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2611,13 +2611,17 @@ body {
             </div>
 
             <div className="md:col-span-2 space-y-2">
-              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">Technical Node</h3>
-              <ul className="space-y-1 text-[10px] text-gray-700 font-mono list-none p-0 m-0">
-                <li>Host: High-Speed Vercel Node</li>
-                <li>DNS: Cloudflare Edge DNS</li>
-                <li>HMR Check: Off</li>
-                <li>Tracking Key: 685596</li>
-              </ul>
+              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">For Travel Creators</h3>
+              <p className="text-xs text-gray-600">
+                This site is monetized through the{' '}
+                <a href="https://www.travelpayouts.com/?marker=685596" target="_blank" rel="noopener noreferrer" className="text-[#B84200] hover:underline font-medium">
+                  Travelpayouts Affiliate Network
+                </a>{' '}
+                — 90+ travel brands (flights, hotels, car rentals, eSIMs, tours, insurance) in one dashboard with a single combined payout. If you run a travel blog, website, or page and want to monetize travel traffic the same way, here is the referral link to join.
+              </p>
+              <a href="https://www.travelpayouts.com/?marker=685596" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-[#B84200] hover:underline w-fit">
+                Join Travelpayouts via BookMeThat →
+              </a>
             </div>
           </div>
 
