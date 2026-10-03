@@ -1312,12 +1312,45 @@ export const ARTICLES: Article[] = [
     altTextMap: {
       hero: 'Happy traveler walking down a scenic city sidewalk with only a lightweight backpack, completely baggage-free.'
     },
-    metaTitle: "Radical Storage: Where to Leave Bags Safely — $5/Day, 500+ Cities (Discount Codes Inside)",
-    metaDescription: "Need to store luggage? Radical Storage lets you drop bags at local shops and hotels for a flat $5.90/day — no size limits, fully insured. Find how it works, real reviews, and active discount codes.",
+    metaTitle: "Radical Storage Review 2026: Is It Safe, and What Are the Bag Size Limits?",
+    metaDescription: "Is Radical Storage safe? What are the real bag size limits? We cover the $5 flat rate, the $500 guarantee, hotel storage alternatives, and the 10% discount code that works.",
     content: `
+      <h2>Is Radical Storage Safe? The 30-Second Answer</h2>
+      <p><strong>Yes.</strong> Radical Storage works with vetted local businesses — cafes, hotels, and shops they call "Angels" — that agree to watch a bag for the day. You pick the location on a map, pay online, and get a QR code. Every bag is covered by a <strong>$500 security guarantee</strong>, so if a bag goes missing you are compensated rather than simply losing it.</p>
+      <p>It is not a locked locker. It is your bag behind a shop counter with someone responsible for it. That is why thousands of reviews describe it as reliable, and why it has grown to over 500 cities.</p>
+
+      <h2>How Much Does Radical Storage Cost?</h2>
+      <p><strong>About $5 / €5 per bag, per day</strong> — a flat rate regardless of whether your bag is a backpack or a 30kg suitcase. There is no size surcharge, no weight fee, and no surprise charge at drop-off, because you pay when you book and the price is locked.</p>
+      <p>Use code <strong>BLOG10</strong> at checkout for 10% off your first booking.</p>
+
+      <h2>Radical Storage Bag Size Limits — Read This Before You Go</h2>
+      <p>This is the single thing that catches people out, and it is the question we get asked most. The $5 flat rate is genuinely flat, but there are practical limits:</p>
+      <ul>
+        <li><strong>Standard:</strong> one normal suitcase, backpack or holdall per booking.</li>
+        <li><strong>Oversized items:</strong> bikes, surfboards, skis and pushchairs are usually fine, but check the specific location — some shopfronts simply do not have room.</li>
+        <li><strong>Two bags?</strong> Book two slots rather than trying to pass one booking as two bags, or the Angel may refuse at drop-off.</li>
+        <li><strong>Fragile or valuable items:</strong> leave them with you. The $500 guarantee covers ordinary luggage, not passports, jewellery or electronics.</li>
+        <li><strong>Airport and station locations:</strong> usually the busiest and the first to sell out. Book ahead rather than turning up.</li>
+      </ul>
+
+      <h2>Radical Storage vs Storing With Your Hotel</h2>
+      <p>Worth knowing before you pay anything:</p>
+      <ul>
+        <li><strong>Free with your hotel:</strong> most hotels will hold bags before check-in or after check-out at no cost. It costs nothing to ask at reception — do this first.</li>
+        <li><strong>Radical Storage wins when:</strong> you have already checked out, your hotel is far from where you actually want to spend the day, or you need storage in a city you are only passing through.</li>
+        <li><strong>Station lockers:</strong> still exist in some cities but are disappearing, and are usually more expensive than Radical Storage when you do find one.</li>
+      </ul>
+
+      <h2>How It Works — Three Steps</h2>
+      <ol>
+        <li>Search your city, station or airport on the <a href="https://radicalstorage.tpk.lu/Qm4b7jm0" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Radical Storage map</a>.</li>
+        <li>Book and pay online. You get the exact address of the shop or hotel holding your bag, plus a QR code.</li>
+        <li>Drop off with a quick QR scan — under 30 seconds — and collect the same way later in the day.</li>
+      </ol>
+
       <h2>The Check-out Gap: Solving the Luggage Limbo</h2>
       <p>We have all faced the final-day travel dilemma: check-out at 10:00 AM, but our flight home doesn't take off until late evening. Drifting through crowded galleries, museums, or local cafes while pulling a 20kg rolling suitcase is exhausting, and many historic points of interest completely ban large bags from entering.</p>
-      
+
       <h2>Secure Storage at Flat Rates: Radical Storage</h2>
       <p>Traditional coin-operated train station lockers are quickly vanishing due to security upgrades, and the remaining options are often full or extremely expensive. In contrast, modern collaborative luggage models make storage incredibly simple:</p>
       <ul>
@@ -1325,12 +1358,13 @@ export const ARTICLES: Article[] = [
         <li><strong><a href="https://ektatraveling.tpk.lu/2dmZqZZg" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Ekta Traveling Insurance</a>:</strong> Keeping your physical luggage secure is vital, but securing your medical health and baggage loss protection is just as critical. Ekta Traveling offers hyper-affordable international health policies starting from under $1/day, providing immediate Embassies-compliant PDFs for visa centers.</li>
       </ul>
 
-      <h2>The Baggage Drop Protocol</h2>
-      <ol>
-        <li>Search your current location or train hub terminal on the <a href="https://radicalstorage.tpk.lu/Qm4b7jm0" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Radical Storage Map</a>.</li>
-        <li>Book and pay online to secure the private address of your local Angel and download the check-in QR code.</li>
-        <li>Drop your bags off quickly. Collect them later in the day with a simple scan of your smartphone.</li>
-      </ol>
+      <h2>Other Ways to Save on a Trip With Bags in Tow</h2>
+      <p>Storing a bag is one of several things that quietly cost travelers money on the last day. These are the others worth knowing about:</p>
+      <ul>
+        <li><a href="/car-rental-insurance-excess-counter-hacks">Avoid the €3,000 car rental deposit hold</a> — often the largest single surprise on a trip.</li>
+        <li><a href="/flight-delay-cancellation-refund-chargeback-guide">Claim up to €600 if your flight was delayed or cancelled</a> — free money if you did not know to ask.</li>
+        <li><a href="/best-esim-usa">Compare eSIM data plans before you fly</a> — airport SIM kiosks regularly charge $60 for 5GB.</li>
+      </ul>
 
       <h2>Frequently Asked Questions</h2>
       <div class="my-6 space-y-4">
@@ -1349,6 +1383,14 @@ export const ARTICLES: Article[] = [
         <details class="bg-white border border-[#E5E5E1] rounded-lg p-4 cursor-pointer group">
           <summary class="font-bold text-sm text-gray-900 group-open:text-[#B84200] list-none">How do I find a Radical Storage location near me?</summary>
           <p class="mt-2 text-sm text-gray-700">Go to the Radical Storage map, enter your current location or the name of your train station, airport, or hotel. The map shows all nearby Angels with their addresses, opening hours, photos, and reviews. You can book and pay directly from the map — no phone call needed.</p>
+        </details>
+        <details class="bg-white border border-[#E5E5E1] rounded-lg p-4 cursor-pointer group">
+          <summary class="font-bold text-sm text-gray-900 group-open:text-[#B84200] list-none">Are there any Radical Storage bag size limits?</summary>
+          <p class="mt-2 text-sm text-gray-700">The daily price is flat — roughly $5/€5 whether it is a backpack or a large suitcase, with no weight surcharge. Practical limits do exist: oversized items like bikes or surfboards are usually accepted but depend on the individual shop having space, and you should book one slot per bag rather than trying to pass two bags as one booking. Leave passports, jewellery and electronics with you — the $500 guarantee covers ordinary luggage, not valuables.</p>
+        </details>
+        <details class="bg-white border border-[#E5E5E1] rounded-lg p-4 cursor-pointer group">
+          <summary class="font-bold text-sm text-gray-900 group-open:text-[#B84200] list-none">Is Radical Storage cheaper than a station locker?</summary>
+          <p class="mt-2 text-sm text-gray-700">Usually, yes. Station lockers have become scarce after security upgrades and are often priced higher when you do find one. Radical Storage's flat rate is set at roughly $5/€5 per bag per day regardless of size. Before paying, ask your hotel — most will store bags free before check-in and after check-out.</p>
         </details>
       </div>
     `
