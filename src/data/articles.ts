@@ -31,7 +31,7 @@ export const ARTICLES: Article[] = [
 
       <p>Below is the full breakdown of what each provider actually costs, how fast the data is in real use, and which one fits different kinds of trips — city breaks, long stays, train travel, and rural areas like Tuscany or the Amalfi coast.</p>
 
-      <p style="margin-bottom:0.5rem;"><strong>Related:</strong> If you also need help keeping your home phone number active for bank SMS while using a travel eSIM, see our <a href="/home-phone-number-active-abroad-free-2fa-bank-sms" class="text-brand-orange hover:underline font-medium">step-by-step dual-SIM guide</a>. If you want a broader comparison across more countries, see <a href="/cheap-regional-esim-southeat-asia-europe" class="text-brand-orange hover:underline font-medium">cheap regional eSIMs in Southeast Asia and Europe</a>.</p>
+      <p style="margin-bottom:0.5rem;"><strong>Related:</strong> If you also need help keeping your home phone number active for bank SMS while using a travel eSIM, see our <a href="/keep-home-number-active-abroad-otp-sms-guide" class="text-brand-orange hover:underline font-medium">step-by-step dual-SIM guide</a>. If you want a broader comparison across more countries, see <a href="/best-regional-esim-southeast-asia-saily-tour" class="text-brand-orange hover:underline font-medium">cheap regional eSIMs in Southeast Asia and Europe</a>.</p>
 
       <p>Quick answer: <strong>Saily wins</strong> for most travelers (best price + flexible plans), <strong>Airalo wins</strong> for short trips (cleanest app), and <strong>Holafly is the pick</strong> if you want unlimited data. All three are available through our partner links below — booking through them supports our travel research at no extra cost to you.</p>
 
@@ -2095,6 +2095,16 @@ export const ARTICLES: Article[] = [
           <p class="mt-2 text-sm text-gray-700">Yes. Set your home SIM as the default for calls and SMS, and your USA eSIM as the default for cellular data. This way you keep receiving your bank 2FA texts and can still be reached by phone, while all your data uses the cheaper USA eSIM. See our guide on keeping your home phone number active abroad for free for the step-by-step setup.</p>
         </details>
       </div>
+
+      <h2>More Ways to Save on Your Trip</h2>
+      <p>The eSIM is usually the biggest easy saving — but it is not the only one. These are the other places travelers overpay most often:</p>
+      <ul>
+        <li><a href="/best-esim-japan">Compare eSIMs for Japan</a> if you are heading to Asia — pricing and coverage are very different from the USA.</li>
+        <li><a href="/saily-vs-airalo-esim-speed-performance-test">Saily vs Airalo speed tested</a> — see which one is actually faster before you pay.</li>
+        <li><a href="/car-rental-insurance-excess-counter-hacks">Stop the €3,000 car rental deposit hold</a> — most people lose far more money here than on data.</li>
+        <li><a href="/flight-delay-cancellation-refund-chargeback-guide">Claim up to €600 if your flight was delayed</a> — free money if you did not know to ask.</li>
+        <li><a href="/luggage-storage-radical-storage-guide">Luggage storage reviewed properly</a> — including the bag size limits that catch people out.</li>
+      </ul>
     `
   },
   {
@@ -2475,6 +2485,19 @@ export const ARTICLES: Article[] = [
       <p>Airlines routinely send automated rejection emails claiming "extraordinary circumstances" or "air traffic control restrictions." When you use specialized enforcement legal services like <a href="https://airhelp.tpk.lu/O7W8mEaB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">AirHelp</a> or <a href="https://compensair.tpk.lu/77zG0qTq" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Compensair</a>, their legal algorithms cross-reference exact meteorological airport radar logs and enforce payouts under a strictly <strong>No Win, No Fee</strong> policy.</p>
 
       <p>👉 <a href="https://airhelp.tpk.lu/O7W8mEaB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Check your flight delay in 2 minutes on AirHelp (Code FLIGHTREDRESS) →</a></p>
+
+      <h2>Where to Claim — and Where to Read More</h2>
+      <p>Claim with the airline first (free), then escalate to your national aviation authority if they refuse. These pages cover the specifics:</p>
+      <ul>
+        <li><a href="/claiming-flight-reimbursement-us-dot-vs-eu261">US DOT vs EU261 — which law applies to your flight</a>, including flights departing from the US to Europe.</li>
+        <li><a href="/flight-delay-compensation-compensair-airhelp">Compensair vs AirHelp compared</a> — when a paid service is worth it and when it is not.</li>
+        <li><a href="/airhelp-flight-delay-compensation-eu261-guide">The full AirHelp claim walkthrough</a>, step by step.</li>
+        <li><a href="/flight-canceled-terminal-emergency-action-plan">Flight cancelled at the terminal — what to do in the first hour</a>, including hotel vouchers and food.</li>
+        <li><a href="/passenger-rights-north-america-asia-pacific-flights">Passenger rights outside the EU and UK</a>, for North America, Asia and Australia routes.</li>
+      </ul>
+
+      <h2>Claim on Time</h2>
+      <p>This matters as much as the claim itself — most travelers never file at all, and delays only build the case if you document them while they happen. Keep your booking confirmation and any delay messages, and note the time you actually landed.</p>
     `
   }
 ];

@@ -76,14 +76,6 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- AdSense & UTM Tracker -->
-  <url>
-    <loc>https://www.bookmethat.com/utm</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
   <!-- Travel FAQ Helpdesk -->
   <url>
     <loc>https://www.bookmethat.com/faq</loc>

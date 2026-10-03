@@ -12,7 +12,7 @@ if (!fs.existsSync(templatePath)) {
 
 const template = fs.readFileSync(templatePath, 'utf-8');
 
-const pages: Array<{ path: string; title: string; description: string }> = [
+const pages: Array<{ path: string; title: string; description: string; noindex?: boolean }> = [
   {
     path: 'planner',
     title: 'Travel Budget Planner & Vacation Estimator 2026 | BookMeThat',
@@ -56,17 +56,20 @@ const pages: Array<{ path: string; title: string; description: string }> = [
   {
     path: 'ai-seo',
     title: 'AI Travel Route Planner & SEO Engine | BookMeThat',
-    description: 'AI-assisted travel itinerary builder for flights, accommodations, and transit hubs with real-time saving hacks.'
+    description: 'AI-assisted travel itinerary builder for flights, accommodations, and transit hubs with real-time saving hacks.',
+    noindex: true
   },
   {
     path: 'heatmap',
     title: 'Global Travel Intelligence & Deal Heatmap | BookMeThat',
-    description: 'Real-time interactive matrix comparing regional eSIM speeds, rental car deposit rules, and flight compensation win-rates.'
+    description: 'Real-time interactive matrix comparing regional eSIM speeds, rental car deposit rules, and flight compensation win-rates.',
+    noindex: true
   },
   {
     path: 'challenge',
     title: 'Interactive Travel IQ Quiz & Safety Checklist | BookMeThat',
-    description: 'Test your knowledge on flight passenger compensation rights, eSIM coverage, and rental car deposit secrets.'
+    description: 'Test your knowledge on flight passenger compensation rights, eSIM coverage, and rental car deposit secrets.',
+    noindex: true
   },
   {
     path: 'faq',
@@ -75,12 +78,22 @@ const pages: Array<{ path: string; title: string; description: string }> = [
   }
 ];
 
+// Pages that must never appear in search results. The client-side check in
+// App.tsx is invisible to crawlers, so it has to be stamped here too — these
+// pages were ranking on page 1 for our own commercial keywords and pulling
+// visitors away from pages that actually sell something.
+const NOINDEX_PREFIXES = ['travelpayouts-', 'utm', 'ai-seo', 'heatmap', 'challenge'];
+const isNoIndex = (path: string) =>
+  NOINDEX_PREFIXES.some((p) => path === p || path.startsWith(p));
+
 // Add all articles
 for (const art of ARTICLES) {
+  const slug = art.slug.toLowerCase();
   pages.push({
-    path: art.slug.toLowerCase(),
+    path: slug,
     title: art.metaTitle || `${art.title} | BookMeThat`,
-    description: art.metaDescription || art.summary || 'Comprehensive travel analysis and insider booking advice from BookMeThat.'
+    description: art.metaDescription || art.summary || 'Comprehensive travel analysis and insider booking advice from BookMeThat.',
+    noindex: isNoIndex(slug)
   });
 }
 
@@ -104,6 +117,13 @@ for (const page of pages) {
   html = html.replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:title" content="${page.title}" />`);
   html = html.replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:description" content="${page.description}" />`);
   html = html.replace(/<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:url" content="${canonicalUrl}" />`);
+
+  if (page.noindex) {
+    html = html.replace(
+      /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/gi,
+      '<meta name="robots" content="noindex, nofollow, noarchive" />'
+    );
+  }
 
   fs.writeFileSync(path.join(pageDir, 'index.html'), html, 'utf-8');
 }
