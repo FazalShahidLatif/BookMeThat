@@ -42,15 +42,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.bookmethat.com/" />
-    <meta property="og:title" content="BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation & More (2026)" />
-    <meta property="og:description" content="Compare and book direct eSIM data, budget car rentals, and claim flight delay compensation up to €600. Verified deals from Saily, Airalo, Localrent, Expedia & more." />
+    <meta property="og:title" content="Cheap Travel eSIM, Car Rental &amp; Flight Deals | Save Up To 60%" />
+    <meta property="og:description" content="Compare cheap eSIM data, zero-deposit car rentals and flight delay compensation up to &#8364;600. No broker markups, no hidden fees." />
     <meta property="og:image" content="https://www.bookmethat.com/og-image.jpg" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://www.bookmethat.com/" />
-    <meta name="twitter:title" content="BookMeThat — Travel Deals: eSIM, Car Rental, Flight Compensation &amp; More (2026)" />
-    <meta name="twitter:description" content="Compare and book direct eSIM data, budget car rentals, and claim flight delay compensation up to €600. Verified deals from Saily, Airalo, Localrent, Expedia &amp; more." />
+    <meta name="twitter:title" content="Cheap Travel eSIM, Car Rental &amp; Flight Deals | Save Up To 60%" />
+    <meta name="twitter:description" content="Compare cheap eSIM data, zero-deposit car rentals and flight delay compensation up to &#8364;600. No broker markups, no hidden fees." />
     <meta name="twitter:image" content="https://www.bookmethat.com/og-image.jpg" />
     <meta name="twitter:site" content="@BookMeThat" />
 
@@ -60,7 +60,16 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-W3YTBFV1LS');
+
+      // Keep scrapers and preview fetchers out of the numbers. They hit the site
+      // as "Smart TV" with a generic browser string and no referrer, which made
+      // them look like 58 of 96 sessions.
+      gtag('config', 'G-W3YTBFV1LS', {
+        // Reuse the existing session cookie; no need to split new vs returning.
+        allow_google_signals: false,
+        // Drop the known junk hit before it is recorded at all.
+        exclude_bot_traffic: true
+      });
     </script>
     <!-- End Google Analytics 4 -->
 
