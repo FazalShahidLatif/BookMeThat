@@ -9,6 +9,7 @@ import { AFFILIATES } from '../data/affiliates';
 import { getOptimizedArticleImage } from '../utils/imageOptimizer';
 import OptimizedImage, { sanitizeToAltText } from './OptimizedImage';
 import { AffiliateLink } from './AffiliateLink';
+import AdsterraAd from './AdsterraAd';
 
 export function cleanAffiliateContentLinks(html: string): string {
   if (!html) return html;
@@ -263,6 +264,11 @@ export default function SiloGuides({
               <span className="font-extrabold text-brand-orange">SEO ALT TEXT:</span> {sanitizeToAltText(viewedArticle?.altTextMap?.hero || viewedArticle?.title)}
             </div>
           </div>
+
+          {/* Ad: leaderboard sits below the hero so the headline and opening
+              paragraph stay above the fold. Crowding ads above the fold is
+              what hurts rankings, not ads as such. */}
+          <AdsterraAd zone="leaderboard" slotId="ad-slot-article-top" className="my-6" />
 
           {/* HTML Long Form SEO Content */}
           <div 

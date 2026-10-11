@@ -11,9 +11,9 @@ import { ARTICLES } from './data/articles';
 import InteractivePlanner from './components/InteractivePlanner';
 import ComparisonCalculators from './components/ComparisonCalculators';
 import SiloGuides from './components/SiloGuides';
+import AdsterraAd from './components/AdsterraAd';
 import LegalPages from './components/LegalPages';
 import SEOHeatmapConsole from './components/SEOHeatmapConsole';
-import UtmAdsenseConsole from './components/UtmAdsenseConsole';
 import TravelFAQConsole from './components/TravelFAQConsole';
 import TravelQuizWidget from './components/TravelQuizWidget';
 import VoucherCard from './components/VoucherCard';
@@ -21,7 +21,7 @@ import AIFlightStayPlanner from './components/AIFlightStayPlanner';
 import { AffiliateLink } from './components/AffiliateLink';
 import BrandLogo, { BrandIcon } from './components/BrandLogo';
 
-type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'utm' | 'faq' | 'quiz' | 'flightsRooms';
+type ActiveTab = 'overview' | 'planner' | 'calculators' | 'guides' | 'legal' | 'heatmap' | 'faq' | 'quiz' | 'flightsRooms';
 type EdgeNode = 'fra' | 'nrt' | 'sfo' | 'sin' | 'lhr';
 type AppLanguage = 'en' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ja' | 'ko' | 'th' | 'vi' | 'id' | 'da' | 'sv' | 'no' | 'fi' | 'pl' | 'nl' | 'ru' | 'zh' | 'ar';
 
@@ -49,6 +49,8 @@ export default function App() {
     try {
       const updatedConsent = { necessary: true, analytics: true, marketing: true };
       localStorage.setItem('gdpr_consent_status', JSON.stringify(updatedConsent));
+      // Let ad slots start loading immediately rather than waiting for their poll.
+      window.dispatchEvent(new Event('bookmethat:consent'));
       
       // Simulate Google Consent Mode v2 registration
       if (typeof window !== 'undefined') {
@@ -353,10 +355,6 @@ export default function App() {
           finalTitle = "Travel Deal Ideas & Popular Searches | BookMeThat";
           finalDesc = "See what travelers are searching for and discover new deal ideas across eSIM, car rental, and flights.";
           break;
-        case 'utm':
-          finalTitle = "Smart Links & Safe Booking Tools | BookMeThat";
-          finalDesc = "Use our link tools to safely share travel deals and check that every booking link works correctly.";
-          break;
         case 'faq':
           finalTitle = "Travel Questions Answered | BookMeThat";
           finalDesc = "Find quick answers to common questions about eSIMs, car rentals, flight delays, and travel money.";
@@ -435,7 +433,7 @@ export default function App() {
 
       // Check standard tabs in query params
       if (tabQuery) {
-        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'utm', 'faq', 'quiz', 'flightsRooms'];
+        const allowedTabs: ActiveTab[] = ['overview', 'planner', 'calculators', 'guides', 'legal', 'heatmap', 'faq', 'quiz', 'flightsRooms'];
         if (allowedTabs.includes(tabQuery as ActiveTab)) {
           setActiveTab(tabQuery as ActiveTab);
           setActiveArticle(null);
@@ -495,10 +493,6 @@ export default function App() {
         targetTab = 'heatmap';
         canonicalTarget = '/heatmap';
         if (path !== '/heatmap') wasRedirected = true;
-      } else if (path.includes('utm')) {
-        targetTab = 'utm';
-        canonicalTarget = '/utm';
-        if (path !== '/utm') wasRedirected = true;
       } else if (path.includes('faq') || path.includes('help')) {
         targetTab = 'faq';
         canonicalTarget = '/faq';
@@ -597,9 +591,6 @@ export default function App() {
           break;
         case 'heatmap':
           path = '/heatmap';
-          break;
-        case 'utm':
-          path = '/utm';
           break;
         case 'faq':
           path = '/faq';
@@ -945,14 +936,6 @@ export default function App() {
             "@type": "ListItem",
             "position": 2,
             "name": "SEO Heatmap",
-            "item": canonicalUrl
-          });
-          schemas.push(breadcrumbList);
-        } else if (activeTab === 'utm') {
-          breadcrumbList.itemListElement.push({
-            "@type": "ListItem",
-            "position": 2,
-            "name": "UTM Console",
             "item": canonicalUrl
           });
           schemas.push(breadcrumbList);
@@ -2381,7 +2364,6 @@ body {
                 { tab: 'calculators', label: 'Car & eSIM Cost Estimator', path: '/car-rental' },
                 { tab: 'guides', label: 'Topical SEO Silos', path: '/esim' },
                 { tab: 'heatmap', label: 'AI Keyword Potential Heatmap', path: '/heatmap' },
-                { tab: 'utm', label: 'AdSense & UTM Tracker', path: '/utm' },
                 { tab: 'faq', label: 'FAQ Intelligence', path: '/faq' },
                 { tab: 'quiz', label: 'Nomad IQ Challenge (60s)', path: '/challenge' }
               ].map((it) => (
@@ -2414,7 +2396,6 @@ body {
                 <SiloGuides onViewArticle={(art) => setActiveArticle(art)} initialArticle={activeArticle} />
               )}
               {activeTab === 'heatmap' && <SEOHeatmapConsole />}
-              {activeTab === 'utm' && <UtmAdsenseConsole />}
               {activeTab === 'faq' && <TravelFAQConsole />}
               {activeTab === 'quiz' && <TravelQuizWidget />}
             </div>
@@ -2440,6 +2421,13 @@ body {
         </section>
 
       </main>
+
+      {/* Ad: site-wide footer leaderboard. Every page gets one, but it sits
+          after the content and before the footer so it never pushes the
+          article down or interrupts a booking decision. */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <AdsterraAd zone="leaderboard" slotId="ad-slot-footer" />
+      </div>
 
       {/* FOOTER */}
       <footer className="bg-white border-t border-[#E5E5E1] mt-auto" id="site-footer">
