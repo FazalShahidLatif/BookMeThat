@@ -26,12 +26,12 @@ import React, { useEffect, useRef, useState } from 'react';
 type Zone = 'leaderboard' | 'rectangle' | 'skyscraper';
 
 const ZONES: Record<Zone, { key: string; width: number; height: number }> = {
-  leaderboard: { key: '51cd458a7327856abfbff5e0cc4c1f48', width: 728, height: 90 },
-  rectangle: { key: '88444f4484ca606988ee4f54bb7db44b', width: 300, height: 250 },
-  skyscraper: { key: 'b0f6c2e26dccbefa938e07e7f6f38f69', width: 160, height: 600 },
+  leaderboard: { key: '7329c4e64bae7da3d58f530f76605126', width: 728, height: 90 },
+  rectangle: { key: 'c24c5fa0ca416b18e274984483fd14be', width: 300, height: 250 },
+  skyscraper: { key: '3222e3d2386f6549c6d7142fae656294', width: 160, height: 600 },
 };
 
-const INVOKE_HOST = 'https://www.highrevenueformat.com';
+const INVOKE_HOST = 'https://ballisticcomainvitation.com';
 const CONSENT_KEY = 'gdpr_consent_status';
 
 /** True only when the visitor has explicitly accepted marketing cookies. */
