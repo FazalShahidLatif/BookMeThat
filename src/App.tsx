@@ -2427,6 +2427,12 @@ body {
           article down or interrupts a booking decision. */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <AdsterraAd zone="leaderboard" slotId="ad-slot-footer" />
+        {/* Ad: 160x600 skyscraper, wide screens only. A 160px-wide unit cannot
+            live in a single-column mobile flow without looking like a mistake,
+            and squashing it into a phone column is a layout accident. */}
+        <div className="hidden xl:flex justify-center mt-6">
+          <AdsterraAd zone="skyscraper" slotId="ad-slot-footer-tall" />
+        </div>
       </div>
 
       {/* FOOTER */}

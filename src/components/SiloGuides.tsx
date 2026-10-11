@@ -270,6 +270,11 @@ export default function SiloGuides({
               what hurts rankings, not ads as such. */}
           <AdsterraAd zone="leaderboard" slotId="ad-slot-article-top" className="my-6" />
 
+          {/* Ad: 300x250 rectangle in the flow of the article. This page is a
+              single column with no sidebar, so a mid-content rectangle is the
+              honest home for this size rather than forcing a column in. */}
+          <AdsterraAd zone="rectangle" slotId="ad-slot-article-mid" className="my-6" />
+
           {/* HTML Long Form SEO Content */}
           <div 
             className="prose prose-slate max-w-none prose-sm leading-relaxed text-gray-700 space-y-5"
