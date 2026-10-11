@@ -13,25 +13,196 @@
       "destination": "https://www.bookmethat.com/$1",
       "statusCode": 301
     },
-    { "source": "/esims", "destination": "/esim", "statusCode": 301 },
-    { "source": "/eSIM", "destination": "/esim", "statusCode": 301 },
-    { "source": "/connectivity", "destination": "/esim", "statusCode": 301 },
-    { "source": "/car-rentals", "destination": "/car-rental", "statusCode": 301 },
-    { "source": "/cars", "destination": "/car-rental", "statusCode": 301 },
-    { "source": "/flight", "destination": "/flights", "statusCode": 301 },
-    { "source": "/about-us", "destination": "/about", "statusCode": 301 },
-    { "source": "/disclosure", "destination": "/about", "statusCode": 301 },
-    { "source": "/impressum", "destination": "/contact", "statusCode": 301 },
-    { "source": "/support", "destination": "/contact", "statusCode": 301 },
-    { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 301 },
-    { "source": "/go/expedia", "destination": "https://www.expedia.com/?affcid=network.travelpayouts.685596", "statusCode": 301 },
-    { "source": "/go/klook", "destination": "https://www.klook.com/?aid=685596", "statusCode": 301 },
-    { "source": "/go/nordvpn", "destination": "https://nordvpn.com/?aff_id=685596", "statusCode": 301 },
-    { "source": "/go/worldnomads", "destination": "https://www.worldnomads.com/?affiliate=685596", "statusCode": 301 },
-    { "source": "/go/wise", "destination": "https://wise.com/?source=bookmethat", "statusCode": 301 },
-    { "source": "/go/gocity", "destination": "https://gocity.tpk.lu/u1mHhjxd", "statusCode": 301 },
-    { "source": "/go/radicalstorage", "destination": "https://radicalstorage.tpk.lu/Qm4b7jm0", "statusCode": 301 },
-    { "source": "/go/ektatraveling", "destination": "https://ektatraveling.tpk.lu/2dmZqZZg", "statusCode": 301 }
+    {
+      "source": "/esims",
+      "destination": "/esim",
+      "statusCode": 301
+    },
+    {
+      "source": "/eSIM",
+      "destination": "/esim",
+      "statusCode": 301
+    },
+    {
+      "source": "/connectivity",
+      "destination": "/esim",
+      "statusCode": 301
+    },
+    {
+      "source": "/car-rentals",
+      "destination": "/car-rental",
+      "statusCode": 301
+    },
+    {
+      "source": "/cars",
+      "destination": "/car-rental",
+      "statusCode": 301
+    },
+    {
+      "source": "/flight",
+      "destination": "/flights",
+      "statusCode": 301
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/disclosure",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/impressum",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/support",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/expedia",
+      "destination": "https://www.expedia.com/?affcid=network.travelpayouts.685596",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/klook",
+      "destination": "https://www.klook.com/?aid=685596",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/nordvpn",
+      "destination": "https://nordvpn.com/?aff_id=685596",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/worldnomads",
+      "destination": "https://www.worldnomads.com/?affiliate=685596",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/wise",
+      "destination": "https://wise.com/?source=bookmethat",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/gocity",
+      "destination": "https://gocity.tpk.lu/u1mHhjxd",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/radicalstorage",
+      "destination": "https://radicalstorage.tpk.lu/Qm4b7jm0",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/ektatraveling",
+      "destination": "https://ektatraveling.tpk.lu/2dmZqZZg",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/airalo",
+      "destination": "https://airalo.tpk.lu/X5knsFOB",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/airhelp",
+      "destination": "https://airhelp.tpk.lu/DhUcIRcD",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/autoeurope",
+      "destination": "https://autoeurope.tpk.lu/W4ORKTUt",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/bikesbooking",
+      "destination": "https://bikesbooking.tpk.lu/m68zE4eF",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/compensair",
+      "destination": "https://compensair.tpk.lu/NgywpzQL",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/drimsim",
+      "destination": "https://drimsim.tpk.lu/Nytg5OEC",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/economybookings",
+      "destination": "https://economybookings.tpk.lu/koWZfRVI",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/getrentacar",
+      "destination": "https://getrentacar.tpk.lu/3igontje",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/gettransfer",
+      "destination": "https://gettransfer.tpk.lu/zUalOSms",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/intui",
+      "destination": "https://intui.tpk.lu/Yt63BlfQ",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/kiwitaxi",
+      "destination": "https://kiwitaxi.tpk.lu/xkQ7lIEQ",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/localrent",
+      "destination": "https://localrent.tpk.lu/YI6tdTTl",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/qeeq",
+      "destination": "https://qeeq.tpk.lu/nAGGDc6e",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/saily",
+      "destination": "https://saily.tpk.lu/9KzgxKRI",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/searadar",
+      "destination": "https://searadar.tpk.lu/Xr7qE7op",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/ticketnetwork",
+      "destination": "https://ticketnetwork.tpk.lu/fUb74KNr",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/travelpayouts",
+      "destination": "https://tpk.lu/K4OAGrAh",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/wegotrip",
+      "destination": "https://wegotrip.tpk.lu/V5RH9CtE",
+      "statusCode": 301
+    },
+    {
+      "source": "/go/yesim",
+      "destination": "https://yesim.tpk.lu/G4BRVuDa",
+      "statusCode": 301
+    }
   ],
   "rewrites": [
     {
