@@ -62,18 +62,20 @@ const AdsterraAd: React.FC<AdsterraAdProps> = ({ zone, slotId, className = '' })
   const [allowed, setAllowed] = useState(false);
   const [inView, setInView] = useState(false);
   const [filled, setFilled] = useState(false);
+  // Guards against a slot firing twice. Without this, any re-render that
+  // re-runs the effect re-issues the ad request, and Adsterra counts each one
+  // as an impression even though only one is ever shown to the visitor.
+  const loadedRef = useRef(false);
 
-  // Re-check consent on mount and whenever it changes.
+  // Check consent once on mount, then only when it actually changes.
   useEffect(() => {
     const sync = () => setAllowed(hasAdConsent());
     sync();
     window.addEventListener('storage', sync);
     window.addEventListener('bookmethat:consent', sync);
-    const poll = window.setInterval(sync, 2000);
     return () => {
       window.removeEventListener('storage', sync);
       window.removeEventListener('bookmethat:consent', sync);
-      window.clearInterval(poll);
     };
   }, []);
 
@@ -102,7 +104,8 @@ const AdsterraAd: React.FC<AdsterraAdProps> = ({ zone, slotId, className = '' })
 
   // Build the slot's private document once it is in view.
   useEffect(() => {
-    if (!allowed || !inView) return;
+    if (!allowed || !inView || loadedRef.current) return;
+    loadedRef.current = true;
     const el = containerRef.current;
     if (!el) return;
     const cfg = ZONES[zone];
