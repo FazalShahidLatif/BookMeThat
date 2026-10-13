@@ -1097,8 +1097,8 @@ export const ARTICLES: Article[] = [
     altTextMap: {
       hero: 'Airport departure status monitor displaying multiple boarding gates alongside travel suitcases.'
     },
-    metaTitle: "Flight Delay Rights: US DOT Cash Refunds vs EU261 €600 Compensation",
-    metaDescription: "Understand the legal differences between US DOT automatic flight refund rules and EU261 statutory delay compensation. Maximize your airline claims.",
+    metaTitle: "Flight Delayed? Claim Up to €600 (EU261 vs US DOT)",
+    metaDescription: "Delayed 3+ hours or canceled? You may be owed €250–€600. Compare US DOT refund rules vs EU261, check eligibility free, and file in minutes.",
     content: `
       <h2>The Truth Behind Airline Disclaimers While Delayed</h2>
       <p>Airlines systematically take advantage of passenger fatigue at arrival gates, handing out cheap meal vouchers or boarding points to avoid paying actual legal cash disbursements. However, passenger rights laws are clear and enforce direct cash compensation when flights are delayed or canceled due to airline operations.</p>
@@ -2254,8 +2254,8 @@ export const ARTICLES: Article[] = [
     altTextMap: {
       hero: 'Car rental keys being handed over at an airport desk with rental contract and inspection checklist.'
     },
-    metaTitle: "Car Rental Insurance Excess Explained: Avoid €3,000 Deposit Scams (2026)",
-    metaDescription: "Stop paying €30/day at rental desks. How CDW excess insurance works, credit card coverage limits, and how to use Localrent for €0 deposit holds.",
+    metaTitle: "Car Rental Excess: How to Avoid the €3,000 Deposit Hold",
+    metaDescription: "Rental desk wants €35/day for insurance or a €3,000 card hold. Learn how CDW excess works, which credit cards cover it, and how to book with zero deposit.",
     content: `
       <p>You find a rental car online for $18/day. You arrive at the airport desk after a 6-hour flight, only for the clerk to announce: <em>"You must buy our Super CDW policy for €35/day, or we will hold a €3,000 security deposit on your credit card."</em></p>
 
