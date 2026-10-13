@@ -188,7 +188,7 @@ funnel with almost no water in it.
 | 2 | **No head-term ranking** | Top query has 5 impressions. Demand exists; the site does not rank for it. Needs authority. |
 | 3 | **`ads.txt` is a placeholder** | Two comment lines, no network entries. Adsterra supplies no `ads.txt` requirement, so impact is likely zero — but it is unfinished work. |
 | 4 | **Travelpayouts `emrldtp.cc` throws CORS errors** | Their own script's config fetch fails. Cannot fix a third-party script. May cost attribution. |
-| 5 | **GA4 counts bots as users** | 59 of 112 sessions are "Smart TV" scrapers. Filtered in reporting, but the raw dashboard is misleading. |
+| 5 | **GA4 counts bots as users** | 59 of 112 sessions are "Smart TV" scrapers. Excluded at the source via `exclude_bot_traffic: true` in the GA4 tag config in `index.html` — verified present. The raw GA4 dashboard still shows them, so any read taken directly from the dashboard will be wrong by ~2x. |
 
 ---
 
