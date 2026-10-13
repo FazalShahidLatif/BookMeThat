@@ -69,11 +69,11 @@ export default function TravelQuizWidget() {
     },
     {
       id: 5,
-      category: "AdSense link ethics",
+      category: "Affiliate link ethics",
       question: "What rel attribute must outbound affiliate referral links contain to satisfy strict search search engines guides?",
       options: [
         { key: "A", text: "rel='stylesheet stylesheet-manifest'", description: "Incorrect. The stylesheet rel identifies style resources, not web anchor references." },
-        { key: "B", text: "rel='noopener noreferrer nofollow sponsored'", description: "Correct! This configuration complies with Google AdSense rules and informs crawlers that it is a safe commercial link structure." },
+        { key: "B", text: "rel='noopener noreferrer nofollow sponsored'", description: "Correct! This configuration complies with search engine guidelines and tells crawlers it is a safe commercial link structure." },
         { key: "C", text: "rel='author-credentials-live'", description: "Incorrect. Author tags identify content creator profiles, not sponsored outbound channels." }
       ],
       correctAnswer: "B"

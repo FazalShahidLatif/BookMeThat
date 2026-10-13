@@ -34,7 +34,7 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
           </span>
           <h3 className="text-2xl font-serif font-bold italic text-[#1A1A1A] mt-2">Regulatory Disclosure & Compliance Core</h3>
           <p className="text-xs text-gray-700 mt-1">
-            AdSense-optimized, fully transparent terms, privacy rules, and affiliate disclosures for bookmethat.com.
+            Fully transparent terms, privacy rules, and affiliate disclosures for bookmethat.com.
           </p>
         </div>
         <Shield className="w-8 h-8 text-[#B84200] hidden sm:block" />
@@ -382,7 +382,7 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
                   { name: 'Claiming Flight Refunds: US DOT vs EU261 Guide', path: '/claiming-flight-reimbursement-us-dot-vs-eu261', tab: 'guides', slug: 'claiming-flight-reimbursement-us-dot-vs-eu261' },
                   { name: 'Travel Medical Insurance Savings Guide', path: '/travel-medical-insurance-comparison-ekta-nomads', tab: 'guides', slug: 'travel-medical-insurance-comparison-ekta-nomads' },
                   { name: 'Affiliate Transparency Disclosures', path: '/about', tab: 'legal', sub: 'disclosure' },
-                  { name: 'AdSense CTR Tracking & UTM Builder', path: '/utm', tab: 'utm' },
+
                   { name: 'Commercial SEO Heatmap & Volume Dashboard', path: '/heatmap', tab: 'heatmap' },
                   { name: 'Travel & eSIM Intelligence FAQ Desk', path: '/faq', tab: 'faq' },
                   { name: 'Nomadic Speed Quiz Challenge', path: '/challenge', tab: 'quiz' },
@@ -430,7 +430,7 @@ export default function LegalPages({ defaultTab }: LegalPagesProps) {
               </div>
 
               <div className="p-4 bg-brand-orange/5 border border-brand-orange/20 rounded-none">
-                <span className="text-[10px] font-mono font-bold text-brand-orange uppercase tracking-widest block mb-1.5">AdSense Compliance Vetting:</span>
+                <span className="text-[10px] font-mono font-bold text-brand-orange uppercase tracking-widest block mb-1.5">Affiliate Link Compliance:</span>
                 <p className="text-[11px] text-gray-650 leading-relaxed italic">
                   To satisfy automated crawler safety audits, we maintain active direct user feedback loops. Automated bots or web examiners can verify that this domain hosts an active user assistance desk below.
                 </p>

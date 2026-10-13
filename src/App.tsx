@@ -2596,7 +2596,7 @@ body {
             </div>
 
             <div className="md:col-span-3 space-y-2">
-              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">AdSense & SEO Silos</h3>
+              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">Travel Deals & SEO Silos</h3>
               <ul className="flex flex-col gap-1 text-xs text-gray-700 font-sans list-none p-0 m-0">
                 <li><a href="/esim" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('guides'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">eSIM & Connection Directories</a></li>
                 <li><a href="/car-rental" onClick={(e) => { e.preventDefault(); handleSectionScroll('core-calculators'); setActiveTab('calculators'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Car Rentals Cost Comparers</a></li>
@@ -2645,7 +2645,7 @@ body {
         </div>
       </footer>
 
-      {/* GDPR FLOATING COOKIE CONSENT BANNER (REQUIRED FOR ADSENSE COMPLIANCE) */}
+      {/* GDPR FLOATING COOKIE CONSENT BANNER */}
       {showCookieBanner && (
         <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-md bg-white border-2 border-brand-orange p-4 sm:p-5 shadow-[0_12px_40px_rgba(229,91,19,0.15)] z-50 view-enter" id="gdpr-cookie-banner">
           <div className="space-y-3">
@@ -2655,7 +2655,7 @@ body {
             </div>
             
             <p className="text-[10px] text-gray-650 leading-normal font-sans">
-              To keep our travel research free, BookMeThat, AdSense, and verified partners use tracking cookies to build customized mobile search index listings. Please permit standard analytical cookies.
+              To keep our travel research free, BookMeThat, Adsterra, and verified partners use tracking cookies to build customized mobile search index listings. Please permit standard analytical cookies.
             </p>
 
             <div className="flex justify-between items-center gap-2 pt-1 font-sans">
