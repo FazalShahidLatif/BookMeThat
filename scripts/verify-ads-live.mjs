@@ -53,7 +53,7 @@ let slotsSeen = 0;
 for (const p of paths) {
   const url = site.replace(/\/$/, "") + p;
   const page = await browser.newPage();
-  await page.setViewport({ width: 1440, height: 1000 });
+  await page.setViewport({ width: 1600, height: 1200 });  // xl so the skyscraper is eligible
   await page.setUserAgent(REAL_UA);
 
   const creatives = [];

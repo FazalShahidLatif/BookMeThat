@@ -1698,9 +1698,18 @@ body {
                   <Flame className="w-3.5 h-3.5 animate-pulse text-[#B84200]" /> Save Up to 40% globally with Direct contracts
                 </span>
                 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] leading-[1.08] sm:leading-[1.02] font-serif italic tracking-tight text-[#1A1A1A]">
-                  Direct Travel Deals & <span className="not-italic font-bold block mt-2 text-[#B84200]">Promo Code Vault.</span>
-                </h1>
+                {/* One H1 per page. On the homepage the hero IS the heading. On
+                    an article page the article's own H1 is, so this becomes a
+                    non-heading element rather than a second competing H1. */}
+                {activeArticle ? (
+                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] leading-[1.08] sm:leading-[1.02] font-serif italic tracking-tight text-[#1A1A1A]">
+                    Direct Travel Deals & <span className="not-italic font-bold block mt-2 text-[#B84200]">Promo Code Vault.</span>
+                  </div>
+                ) : (
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] leading-[1.08] sm:leading-[1.02] font-serif italic tracking-tight text-[#1A1A1A]">
+                    Direct Travel Deals & <span className="not-italic font-bold block mt-2 text-[#B84200]">Promo Code Vault.</span>
+                  </h1>
+                )}
                 
                 <p className="text-gray-700 text-xs md:text-sm leading-relaxed max-w-xl">
                   Bypass costly travel brokers. Secure wholesale-direct eSIM cell connectivity, premium scooter/car rentals, delayed flight cash-backs, and attraction passes with active promotion codes verified in real time.
