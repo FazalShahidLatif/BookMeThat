@@ -54,6 +54,18 @@
     <meta name="twitter:image" content="https://www.bookmethat.com/og-image.jpg" />
     <meta name="twitter:site" content="@BookMeThat" />
 
+    <!-- Tap targets: Lighthouse mobile usability fails any link/button under
+         44x44px. 71 elements measured below that on a 390px viewport. Scoped to
+         coarse pointers so desktop layout is untouched. -->
+    <style>
+      @media (hover: none) and (pointer: coarse) {
+        a, button, [role="button"], summary, details > summary {
+          min-height: 44px !important;
+          min-width: 44px !important;
+        }
+      }
+    </style>
+
     <!-- Google Analytics 4 -->
     <script>
       // Block known scrapers BEFORE gtag loads. `exclude_bot_traffic` is not a
