@@ -1715,6 +1715,24 @@ body {
                   Bypass costly travel brokers. Secure wholesale-direct eSIM cell connectivity, premium scooter/car rentals, delayed flight cash-backs, and attraction passes with active promotion codes verified in real time.
                 </p>
 
+                {/* Internal link equity: this page is the site's largest
+                    impression earner (331 impr) but sat at position 76 with no
+                    prominent inbound link. A link here puts it on every route. */}
+                <a
+                  href="/best-esim-usa"
+                  onClick={(e) => {
+                    if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                      e.preventDefault();
+                      setActiveArticle(ARTICLES.find(a => a.slug === 'best-esim-usa'));
+                      setActiveTab('guides');
+                      window.history.pushState(null, '', '/best-esim-usa');
+                    }
+                  }}
+                  className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-[#B84200] hover:underline mt-1"
+                >
+                  <Smartphone className="w-3.5 h-3.5" /> Featured: Best eSIM for USA 2026 — T-Mobile vs AT&T
+                </a>
+
                 {/* 60-Second Challenge Callout Banner for Enhanced Engagement */}
                 <div className="bg-white border-l-4 border-[#B84200] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm border-y border-r border-[#E5E5E1]">
                   <div className="space-y-1">
