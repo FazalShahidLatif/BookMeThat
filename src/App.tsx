@@ -4,7 +4,7 @@ import {
   Settings, ExternalLink, Menu, X, ArrowRight, Zap, CheckCircle,
   Code, Copy, Eye, Star, Users, Flame, Clock, Terminal, Check,
   Cpu, Activity, Gauge, Globe, RefreshCw, Layers, Sliders, Send, Database,
-  ChevronUp
+  ChevronUp, Plane
 } from 'lucide-react';
 import { AFFILIATES, KEYWORD_CLUSTERS, DEAL_CARDS } from './data/affiliates';
 import { ARTICLES } from './data/articles';
@@ -1732,6 +1732,55 @@ body {
                 >
                   <Smartphone className="w-3.5 h-3.5" /> Featured: Best eSIM for USA 2026 — T-Mobile vs AT&T
                 </a>
+
+                {/* Highest-value routes on the site. Flight compensation converts at
+                    €50-180 per claim and car rental at $5-20 per booking - both far
+                    more than an eSIM sale - and both rank on page one. They had no
+                    prominent inbound link, so they are surfaced here, on every
+                    route, where the most traffic actually is. */}
+                <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[11px] font-mono font-bold">
+                  <a
+                    href="/flights"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                        e.preventDefault();
+                        setActiveTab('flightsRooms');
+                        window.history.pushState(null, '', '/flights');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1.5 text-[#B84200] hover:underline"
+                  >
+                    <Plane className="w-3.5 h-3.5" /> Claim up to €600 for a delayed flight
+                  </a>
+                  <a
+                    href="/discovercars-vs-localrent-vs-economybookings"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                        e.preventDefault();
+                        setActiveArticle(ARTICLES.find(a => a.slug === 'discovercars-vs-localrent-vs-economybookings'));
+                        setActiveTab('guides');
+                        window.history.pushState(null, '', '/discovercars-vs-localrent-vs-economybookings');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1.5 text-[#B84200] hover:underline"
+                  >
+                    <Car className="w-3.5 h-3.5" /> Compare car rentals with zero deposit
+                  </a>
+                  <a
+                    href="/localrent-georgia-tbilisi-car-rental-reviews-model"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                        e.preventDefault();
+                        setActiveArticle(ARTICLES.find(a => a.slug === 'localrent-georgia-tbilisi-car-rental-reviews-model'));
+                        setActiveTab('guides');
+                        window.history.pushState(null, '', '/localrent-georgia-tbilisi-car-rental-reviews-model');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1.5 text-[#B84200] hover:underline"
+                  >
+                    <Car className="w-3.5 h-3.5" /> Localrent Georgia review (192 impressions)
+                  </a>
+                </div>
 
                 {/* 60-Second Challenge Callout Banner for Enhanced Engagement */}
                 <div className="bg-white border-l-4 border-[#B84200] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm border-y border-r border-[#E5E5E1]">

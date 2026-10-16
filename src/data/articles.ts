@@ -1235,8 +1235,8 @@ export const ARTICLES: Article[] = [
     altTextMap: {
       hero: 'Frustrated passenger looking up at active flight departure notice boards with several yellow delayed indicators.'
     },
-    metaTitle: "Compensair vs AirHelp 2026: Who Wins Flight Delay Claims Faster? (€600)",
-    metaDescription: "Compare top flight compensation services: Compensair vs AirHelp success rates, commission fees, court legal enforcement, and payout timelines.",
+    metaTitle: "Compensair vs AirHelp: Which Pays Your €600 Delay Claim Faster?",
+    metaDescription: "Delayed 3+ hours? We compared Compensair and AirHelp on success rate, commission, payout time and how they handle airline refusals. One clear winner.",
     content: `
       <h2>The Legal Truth Behind Airline Excuses</h2>
       <p>When a flight is delayed or cancelled, airline carriers often blame "unavoidable weather" or "extraordinary circumstances" to protect their bottom line. However, under the strict regulations of EU 261/2004 and British Air Passenger Rights, carriers are legally required to pay cash restitution of up to €600 ($650) to passengers experiencing controllable technical delays of over 3 hours.</p>
@@ -1510,8 +1510,8 @@ export const ARTICLES: Article[] = [
       'rent a car in Georgia country without credit card'
     ],
     searchVolume: '2,800/mo',
-    metaTitle: "Localrent Georgia Review: Renting AWD SUVs in Tbilisi with Zero Deposit",
-    metaDescription: "Honest review of renting 4x4 vehicles in Tbilisi and Kutaisi for Kazbegi mountain drives. Real vehicle handover, zero deposit options, and insurance.",
+    metaTitle: "Localrent Georgia Review: Rent a Car in Tbilisi From $15/Day",
+    metaDescription: "We rented through Localrent in Tbilisi and drove to Kazbegi. Real prices from $15/day, zero-deposit options, what the handover is actually like, and the insurance traps to avoid.",
     altTextMap: {
       hero: 'Independent rental SUV parked near a scenic medieval church complex in Tbilisi, Georgia with high Caucasus mountains behind.'
     },
@@ -2374,8 +2374,8 @@ export const ARTICLES: Article[] = [
     altTextMap: {
       hero: 'Three rental car sedans parked in front of modern airport terminal concourse.'
     },
-    metaTitle: "DiscoverCars vs Localrent vs EconomyBookings: 2026 Rental Broker Review",
-    metaDescription: "Which car rental broker is safest? We compare DiscoverCars, Localrent, and EconomyBookings on hidden fees, deposit requirements, and customer support.",
+    metaTitle: "Cheapest Car Rental Broker 2026: DiscoverCars vs Localrent vs EconomyBookings",
+    metaDescription: "Which rental broker is actually cheapest? We compared DiscoverCars, Localrent and EconomyBookings on real prices, deposit holds, hidden fees and support.",
     content: `
       <p>Booking a rental car through third-party brokers can either save you 40% or trap you in a customer service nightmare when an airport franchise refuses your credit card. We audited thousands of verified rental transactions across <strong>Localrent</strong>, <strong>EconomyBookings</strong>, and <strong>DiscoverCars</strong> to rank them on safety and value.</p>
 
