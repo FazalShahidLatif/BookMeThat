@@ -2664,6 +2664,19 @@ body {
                   try {
                     localStorage.setItem('gdpr_consent_status', JSON.stringify({ necessary: true, analytics: false, marketing: false }));
                   } catch (e) {}
+                  // Tell GA4 the refusal actually happened. Without this the
+                  // banner only wrote localStorage and GA4 kept collecting.
+                  try {
+                    if (typeof window !== 'undefined') {
+                      (window as any).gtag?.('consent', 'update', {
+                        'analytics_storage': 'denied',
+                        'ad_storage': 'denied',
+                        'ad_user_data': 'denied',
+                        'ad_personalization': 'denied'
+                      });
+                      window.dispatchEvent(new Event('bookmethat:consent'));
+                    }
+                  } catch (e) {}
                   setShowCookieBanner(false);
                 }}
                 className="text-[9px] font-mono font-bold text-gray-450 hover:text-gray-800 underline uppercase tracking-wider cursor-pointer bg-transparent border-0"

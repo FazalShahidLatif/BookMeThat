@@ -85,6 +85,18 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      // Consent Mode v2. Default is DENIED: GA4 must not record anything until
+      // the visitor actively accepts. Without this, every page view was sent
+      // before consent - a GDPR failure, and the reason the analytics numbers
+      // included people who never agreed.
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+
       gtag('config', 'G-W3YTBFV1LS', {
         allow_google_signals: false
       });
@@ -291,17 +303,6 @@
     </script>
 
     <!-- End Google Analytics 4 -->
-
-    <!-- Travelpayouts Acceleration Script -->
-    <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
-      (function () {
-          var script = document.createElement("script");
-          script.async = 1;
-          script.setAttribute("data-cmp-ab","2");
-          script.src = 'https://emrldtp.cc/NDc0ODQx.js?t=474841';
-          document.head.appendChild(script);
-      })();
-    </script>
 
   </head>
   <body>
