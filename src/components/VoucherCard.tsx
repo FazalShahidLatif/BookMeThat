@@ -47,7 +47,7 @@ export default function VoucherCard({ voucher }: VoucherCardProps) {
       {/* Active trust tag */}
       <div className="absolute top-4 right-4 bg-emerald-50 text-emerald-800 text-[8.5px] font-bold px-2.5 py-1 uppercase tracking-widest font-mono border border-emerald-300 flex items-center gap-1">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-        {voucher.validThrough || 'Verified Active 2026'}
+        {voucher.validThrough || 'Checked Jul 2026 2026'}
       </div>
       
       <div className="space-y-3">

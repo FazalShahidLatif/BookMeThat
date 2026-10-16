@@ -2352,7 +2352,7 @@ body {
                   </div>
                   
                   <h4 className="text-[19px] text-[#1a0dab] font-sans hover:underline cursor-pointer leading-snug font-medium mb-1 truncate block">
-                    {editingMetadata.title || "BookMeThat — Direct Travel Deals & Verified Active Promo Codes"}
+                    {editingMetadata.title || "BookMeThat — Direct Travel Deals & Active Promo Codes"}
                   </h4>
 
                   {/* Rich Snippet: Review Stars, Ratings & Price Range */}

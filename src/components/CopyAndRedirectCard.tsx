@@ -56,7 +56,7 @@ export default function CopyAndRedirectCard({
       {/* Visual active badge */}
       <div className="absolute top-4 right-4 bg-emerald-50 text-emerald-700 text-[8px] font-bold px-2.5 py-1 uppercase tracking-widest font-mono border border-emerald-300 flex items-center gap-1">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        Verified Active
+        Checked Jul 2026
       </div>
 
       <div className="space-y-4">
