@@ -14,11 +14,11 @@ export default function ComparisonCalculators() {
 
   // eSIM Estimates logic based on actual travel rates with active promo codes
   const getSimEstimates = () => {
-    // Saily Nord Security: 15% off with coupon TEE15
+    // Saily Nord Security: 15% off with coupon TECH
     const baseSailyPrice = Math.min(4.5 + dataGbs * 1.5, 39);
     const sailyDiscounted = baseSailyPrice * 0.85; // 15% OFF promo
     
-    // Airalo: 15% off first order with NEWTOAIRALO15
+    // Airalo: 15% off first order with APAC15
     const baseAiraloPrice = Math.min(5.0 + dataGbs * 1.8, 48);
     const airaloDiscounted = baseAiraloPrice * 0.85; // 15% OFF promo
     
@@ -33,7 +33,7 @@ export default function ComparisonCalculators() {
         price: sailyDiscounted,
         perGb: sailyDiscounted / dataGbs,
         badge: 'Lowest Budget Price',
-        promoCode: 'TEE15',
+        promoCode: 'TECH',
         promoLabel: '15% Promo Code Applied',
         url: '/go/saily'
       },
@@ -44,7 +44,7 @@ export default function ComparisonCalculators() {
         price: airaloDiscounted,
         perGb: airaloDiscounted / dataGbs,
         badge: 'Recommended Traveler Pick',
-        promoCode: 'NEWTOAIRALO15',
+        promoCode: 'APAC15',
         promoLabel: '15% New User Voucher',
         url: '/go/airalo'
       },
@@ -377,7 +377,7 @@ export default function ComparisonCalculators() {
                     <span>${(distanceKm * 1.05).toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-xs text-[#B84200] font-bold font-mono uppercase tracking-wider text-[10px]">
-                    <span>Promo Applied (GETTRANSFER10):</span>
+                    <span>Promo Applied (WELCOME15):</span>
                     <span>-10% Discount</span>
                   </div>
                   <div className="flex justify-between text-xs text-emerald-800 font-bold font-mono uppercase tracking-wider text-[10px]">
@@ -397,7 +397,7 @@ export default function ComparisonCalculators() {
                   href="https://gettransfer.tpk.lu/zUalOSms"
                   className="w-full min-h-[44px] py-2.5 px-4 bg-[#B84200] hover:bg-[#8F3300] text-white rounded-none text-[10px] font-bold uppercase tracking-widest text-center flex items-center justify-center gap-1.5 transition shadow-sm"
                 >
-                  <span>Submit Bidding Call (Code GETTRANSFER10)</span>
+                  <span>Submit Bidding Call (Code WELCOME15)</span>
                   <ExternalLink className="w-3 h-3" />
                 </AffiliateLink>
               </div>

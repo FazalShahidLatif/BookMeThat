@@ -335,7 +335,7 @@ export const ARTICLES: Article[] = [
 
       <h2>Current Discount Codes (Verified September 2026)</h2>
       <ul>
-        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TEE15</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
+        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TECH</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
         <li><strong>Airalo eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">JETSET10</strong> for 10% OFF your next eSIM → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
         <li><strong>Airalo eSIM (first order):</strong> New customers get 15% OFF their first eSIM with code <strong class="font-mono text-[#B84200]">HELLO15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
         <li><strong>Airalo APAC destinations:</strong> Get 15% OFF eSIMs in Asia-Pacific (up to $7 off) with code <strong class="font-mono text-[#B84200]">APAC15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
@@ -1207,7 +1207,7 @@ export const ARTICLES: Article[] = [
       <p>To maximize your itinerary savings, choose a ticket platform aligned with your travel goals:</p>
       <ul>
         <li><strong><a href="https://gocity.tpk.lu/u1mHhjxd" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Go City Passes</a>:</strong> Perfect for high-density sightseeing in metro hubs like Rome, London, New York, or Paris. Buying their All-Inclusive or Explorer Pass simplifies budgeting, capping entry costs and saving up to 50% off standard admission. Use code <strong>GOCITY10</strong> at checkout to unlock an extra 10% discount on any major city pass.</li>
-        <li><strong><a href="https://tp.media/r?marker=685596&p=3297" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Klook Experience Pass</a>:</strong> The undisputed champion for travel across Asia and major theme parks worldwide (such as Disneyland or Universal Studios). Klook bundles high-speed train tickets like Japan's Shinkansen, local pocket Wi-Fi, and unique day tours into super flexible formats. New users can redeem coupon code <strong>NEWKLOOK5</strong> for an instant 5% off their first booking.</li>
+        <li><strong><a href="https://tp.media/r?marker=685596&p=3297" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Klook Experience Pass</a>:</strong> The undisputed champion for travel across Asia and major theme parks worldwide (such as Disneyland or Universal Studios). Klook bundles high-speed train tickets like Japan's Shinkansen, local pocket Wi-Fi, and unique day tours into super flexible formats. New users can redeem coupon code <strong>PT24HIGO</strong> for an instant 5% off their first booking.</li>
         <li><strong><a href="https://wegotrip.tpk.lu/V5RH9CtE" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">WeGoTrip Audio Guides</a>:</strong> Ready to dig deeper? WeGoTrip bundles skip-the-line museum tickets with native, self-paced audio guides narrated by expert curators. Perfect for exploring places like the Louvre, Vatican, or Uffizi Gallery without paying expensive tour guides.</li>
       </ul>
 
@@ -1321,7 +1321,7 @@ export const ARTICLES: Article[] = [
 
       <h2>How Much Does Radical Storage Cost?</h2>
       <p><strong>About $5 / €5 per bag, per day</strong> — a flat rate regardless of whether your bag is a backpack or a 30kg suitcase. There is no size surcharge, no weight fee, and no surprise charge at drop-off, because you pay when you book and the price is locked.</p>
-      <p>Use code <strong>BLOG10</strong> at checkout for 10% off your first booking.</p>
+      <p>Use code <strong>TRAVEL10</strong> at checkout for 10% off your first booking.</p>
 
       <h2>Radical Storage Bag Size Limits — Read This Before You Go</h2>
       <p>This is the single thing that catches people out, and it is the question we get asked most. The $5 flat rate is genuinely flat, but there are practical limits:</p>
@@ -1378,7 +1378,7 @@ export const ARTICLES: Article[] = [
         </details>
         <details class="bg-white border border-[#E5E5E1] rounded-lg p-4 cursor-pointer group">
           <summary class="font-bold text-sm text-gray-900 group-open:text-[#B84200] list-none">Can I get a discount code for Radical Storage?</summary>
-          <p class="mt-2 text-sm text-gray-700">Yes — use the code <strong>BLOG10</strong> at checkout for 10% off your first storage booking. The code is active and verified as of 2026. You can also find seasonal promotions on the Radical Storage website.</p>
+          <p class="mt-2 text-sm text-gray-700">Yes — use the code <strong>TRAVEL10</strong> at checkout for 10% off your first storage booking. The code is active and verified as of 2026. You can also find seasonal promotions on the Radical Storage website.</p>
         </details>
         <details class="bg-white border border-[#E5E5E1] rounded-lg p-4 cursor-pointer group">
           <summary class="font-bold text-sm text-gray-900 group-open:text-[#B84200] list-none">How do I find a Radical Storage location near me?</summary>
@@ -1422,8 +1422,8 @@ export const ARTICLES: Article[] = [
       <p>Let's look at the best ways to keep your phone active while skipping premium carrier roaming tariffs:</p>
       <ul>
         <li><strong><a href="https://drimsim.tpk.lu/Nytg5OEC" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Drimsim Universal SIM</a>:</strong> A unique travel card operating on a pure per-kilobyte billing system. There are no monthly subscription fees, and your balance never expires. Working across 190+ countries on over 400 operators, Drimsim charges the exact wholesale local connection rates, often costing under a single euro-cent per megabyte. Perfect for multi-country travel where you only need occasional data for secure text confirmations and map routing.</li>
-        <li><strong><a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Saily eSIM</a>:</strong> The best choice for fast, heavy-data packages built on top of Nord Security infrastructure. Download their single profile and reload regional packages as needed. Redeem coupon code <strong>SAILY5</strong> for a 5% discount on checkout.</li>
-        <li><strong><a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Airalo Marketplace</a>:</strong> The most expansive selection of regional networks. Use discount code <strong>NEWTOAIRALO15</strong> to take 15% off your first eSIM purchase.</li>
+        <li><strong><a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Saily eSIM</a>:</strong> The best choice for fast, heavy-data packages built on top of Nord Security infrastructure. Download their single profile and reload regional packages as needed. Redeem coupon code <strong>TECH</strong> for a 5% discount on checkout.</li>
+        <li><strong><a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">Airalo Marketplace</a>:</strong> The most expansive selection of regional networks. Use discount code <strong>APAC15</strong> to take 15% off your first eSIM purchase.</li>
       </ul>
 
       <h2>Choosing Your Connection Style</h2>
@@ -1936,7 +1936,7 @@ export const ARTICLES: Article[] = [
       <div class="bg-[#F8F7F2] border-2 border-[#E5E5E1] p-5 my-6">
         <h3 class="text-sm font-mono font-bold uppercase text-[#B84200] tracking-wider mb-2">⚡ Quick 2026 Verdict: Which Japan eSIM to Pick</h3>
         <ul class="text-xs space-y-2 text-gray-800">
-          <li><strong>Best Overall & Speed:</strong> <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Saily eSIM</a> (5GB for ~$13.50 with code <strong>TEE15</strong>) — Connects seamlessly to NTT Docomo and SoftBank with lowest latency.</li>
+          <li><strong>Best Overall & Speed:</strong> <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Saily eSIM</a> (5GB for ~$13.50 with code <strong>TECH</strong>) — Connects seamlessly to NTT Docomo and SoftBank with lowest latency.</li>
           <li><strong>Best for Light Trips:</strong> <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Airalo "Moshi Moshi"</a> (3GB for ~$8.50 with code <strong>JETSET10</strong>) — Ideal for 7-day city itineraries.</li>
           <li><strong>Best for Heavy Video/Tethering:</strong> <a href="https://yesim.tpk.lu/G4BRVuDa" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Yesim Japan Unlimited</a> — Zero throttling on daily video calls and hotspot laptop work.</li>
         </ul>
@@ -1962,7 +1962,7 @@ export const ARTICLES: Article[] = [
               <td class="p-3 font-bold text-emerald-800">$13.50</td>
               <td class="p-3">38 ms (Fast)</td>
               <td class="p-3">✅ Yes (Unlimited)</td>
-              <td class="p-3 font-mono font-bold text-[#B84200]">TEE15 (15% OFF)</td>
+              <td class="p-3 font-mono font-bold text-[#B84200]">TECH (15% OFF)</td>
             </tr>
             <tr>
               <td class="p-3 font-bold"><a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Airalo (Moshi Moshi)</a></td>
@@ -1970,7 +1970,7 @@ export const ARTICLES: Article[] = [
               <td class="p-3 font-bold">$16.00</td>
               <td class="p-3">48 ms</td>
               <td class="p-3">✅ Yes</td>
-              <td class="p-3 font-mono font-bold text-[#B84200]">NEWTOAIRALO15 (15% OFF)</td>
+              <td class="p-3 font-mono font-bold text-[#B84200]">APAC15 (15% OFF)</td>
             </tr>
             <tr>
               <td class="p-3 font-bold"><a href="https://yesim.tpk.lu/G4BRVuDa" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Yesim</a></td>
@@ -1995,11 +1995,11 @@ export const ARTICLES: Article[] = [
       <h2>Crucial Japan Setup Step: Japanese APN Configuration</h2>
       <p>When you land in Tokyo, your phone might show 4 bars of signal but no data. This is 100% normal—simply go to <em>Settings > Cellular > Saily/Airalo eSIM > Cellular Data Network</em> and ensure <strong>Data Roaming</strong> is switched <strong>ON</strong>. Japanese telecom regulations route tourist eSIM traffic through encrypted roaming nodes.</p>
 
-      <p>👉 <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Get Saily Japan eSIM with 15% discount code TEE15 →</a></p>
+      <p>👉 <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Get Saily Japan eSIM with 15% discount code TECH →</a></p>
 
       <h2>Current Discount Codes (Verified September 2026)</h2>
       <ul>
-        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TEE15</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
+        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TECH</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
         <li><strong>Airalo eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">JETSET10</strong> for 10% OFF your next eSIM → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
         <li><strong>Airalo eSIM (first order):</strong> New customers get 15% OFF their first eSIM with code <strong class="font-mono text-[#B84200]">HELLO15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
         <li><strong>Airalo APAC destinations:</strong> Get 15% OFF eSIMs in Asia-Pacific (up to $7 off) with code <strong class="font-mono text-[#B84200]">APAC15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
@@ -2108,11 +2108,11 @@ export const ARTICLES: Article[] = [
 
       <p>💡 <em>Pro Tip: Download offline Google Maps areas for all national parks before entering the gates!</em></p>
 
-      <p>👉 <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily USA eSIM with coupon TEE15 (15% OFF) →</a></p>
+      <p>👉 <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily USA eSIM with coupon TECH (15% OFF) →</a></p>
 
       <h2>Current Discount Codes (Verified September 2026)</h2>
       <ul>
-        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TEE15</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
+        <li><strong>Saily eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">TECH</strong> for 15% OFF any data package → <a href="https://saily.tpk.lu/9KzgxKRI" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Saily Deal</a></li>
         <li><strong>Airalo eSIM:</strong> Use code <strong class="font-mono text-[#B84200]">JETSET10</strong> for 10% OFF your next eSIM → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
         <li><strong>Airalo eSIM (first order):</strong> New customers get 15% OFF their first eSIM with code <strong class="font-mono text-[#B84200]">HELLO15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
         <li><strong>Airalo APAC destinations:</strong> Get 15% OFF eSIMs in Asia-Pacific (up to $7 off) with code <strong class="font-mono text-[#B84200]">APAC15</strong> → <a href="https://airalo.tpk.lu/X5knsFOB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Activate Airalo Deal</a></li>
@@ -2353,7 +2353,7 @@ export const ARTICLES: Article[] = [
         <li><strong>QR Code Station Pickup:</strong> Scan your digital voucher at any JR station vending machine in 15 seconds.</li>
       </ul>
 
-      <p>👉 <a href="https://tp.media/r?marker=685596&p=3297" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Book Individual Japan Shinkansen Bullet Train Tickets on Klook (Use code THATMUMTRAVEL5KLOOK) →</a></p>
+      <p>👉 <a href="https://tp.media/r?marker=685596&p=3297" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Book Individual Japan Shinkansen Bullet Train Tickets on Klook (Use code PT24HIGO) →</a></p>
     `
   },
   {
@@ -2526,7 +2526,7 @@ export const ARTICLES: Article[] = [
       <h2>Why Airlines Reject Initial Direct Claims</h2>
       <p>Airlines routinely send automated rejection emails claiming "extraordinary circumstances" or "air traffic control restrictions." When you use specialized enforcement legal services like <a href="https://airhelp.tpk.lu/O7W8mEaB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">AirHelp</a> or <a href="https://compensair.tpk.lu/77zG0qTq" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Compensair</a>, their legal algorithms cross-reference exact meteorological airport radar logs and enforce payouts under a strictly <strong>No Win, No Fee</strong> policy.</p>
 
-      <p>👉 <a href="https://airhelp.tpk.lu/O7W8mEaB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Check your flight delay in 2 minutes on AirHelp (Code FLIGHTREDRESS) →</a></p>
+      <p>👉 <a href="https://airhelp.tpk.lu/O7W8mEaB" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Check your flight delay in 2 minutes on AirHelp (Code AHTPO9) →</a></p>
 
       <h2>Where to Claim — and Where to Read More</h2>
       <p>Claim with the airline first (free), then escalate to your national aviation authority if they refuse. These pages cover the specifics:</p>

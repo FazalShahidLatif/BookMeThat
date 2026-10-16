@@ -1946,21 +1946,21 @@ body {
                   id: 'saily', 
                   brand: 'Saily eSIM Global Data', 
                   category: 'eSIM & Data',
-                  code: 'TEE15', 
+                  code: 'TECH', 
                   discount: '15% OFF GLOBAL DATA', 
                   desc: 'Bypass expensive roaming across 150+ countries. Powered by Nord Security with instant activation and ultra-fast 5G speeds.', 
                   link: 'https://saily.tpk.lu/9KzgxKRI',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'airalo', 
                   brand: 'Airalo Regional eSIMs', 
                   category: 'eSIM & Data',
-                  code: 'NEWTOAIRALO15', 
+                  code: 'APAC15', 
                   discount: '15% OFF FIRST ORDER', 
                   desc: 'Save up to 85% on roaming across 200+ countries with local tier networks. Returning users can apply AIRALOESIM10 for 10% off.', 
                   link: 'https://airalo.tpk.lu/X5knsFOB',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'localrent', 
@@ -1970,7 +1970,7 @@ body {
                   discount: 'UP TO 25% OFF DEALS', 
                   desc: 'Direct car rentals from vetted local suppliers in Montenegro, Greece, Spain, Georgia & Turkey. $0 cash deposits available on-site.', 
                   link: 'https://localrent.tpk.lu/G4vT6NUE',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'gocity', 
@@ -1980,17 +1980,17 @@ body {
                   discount: 'UP TO 25% OFF PASSES', 
                   desc: 'Unlock wholesale multi-attraction Explorer & All-Inclusive passes in London, Paris, Rome, New York, Tokyo, and Barcelona.', 
                   link: 'https://tp.media/r?marker=685596&p=3801',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'klook', 
                   brand: 'Klook Tours & Rail', 
                   category: 'Passes & Tours',
-                  code: 'THATMUMTRAVEL5KLOOK', 
+                  code: 'PT24HIGO', 
                   discount: 'UP TO 10% OFF TOURS', 
                   desc: 'Skip-the-line tickets for bullet trains (Shinkansen), Disneyland, Universal Studios, and curated local day excursions.', 
                   link: 'https://tp.media/r?marker=685596&p=3297',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'qeeq', 
@@ -2000,7 +2000,7 @@ body {
                   discount: '8% OFF + $30 BUNDLE', 
                   desc: 'Global car rentals with automated Price Drop Protection refund algorithm and free cancellation up to 48 hours before pickup.', 
                   link: 'https://qeeq.tpk.lu/D7nSxEBA',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'economy', 
@@ -2010,27 +2010,27 @@ body {
                   discount: '5% TO 30% OFF FLEET', 
                   desc: 'Access discounted wholesale fleets across 800+ international airport hubs and railway stations with transparent insurance.', 
                   link: 'https://economybookings.tpk.lu/koWZfRVI',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'gettransfer', 
                   brand: 'GetTransfer Chauffeurs', 
                   category: 'Car Hire & Transfers',
-                  code: 'GETTRANSFER10', 
+                  code: 'WELCOME15', 
                   discount: '10% OFF AIRPORT RIDES', 
                   desc: 'Private airport transfers and intercity chauffeur trips via transparent driver bidding. Pay 30% less than taxi rank meters.', 
                   link: 'https://gettransfer.tpk.lu/F5Vb9NEC',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'radicalstorage', 
                   brand: 'Radical Storage Network', 
                   category: 'Security & Luggage',
-                  code: 'blog10', 
+                  code: 'TRAVEL10', 
                   discount: '10% OFF LUGGAGE DROP', 
                   desc: 'Store luggage safely in 1,000+ global cities from just $4.90/£5 per day with £3,000 security guarantee and zero weight limits.', 
                   link: 'https://radicalstorage.tpk.lu/6nK4jW4c',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'nordvpn', 
@@ -2040,7 +2040,7 @@ body {
                   discount: 'UP TO 68% OFF + 3 MO', 
                   desc: 'Defend credit cards and banking on airport and hotel Wi-Fi networks. Switch IP locations to unlock regional flight discounts.', 
                   link: 'https://tp.media/r?marker=685596&p=5328',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'autoeurope', 
@@ -2050,17 +2050,17 @@ body {
                   discount: 'UP TO 25% OFF EUROPE', 
                   desc: 'Compare Avis, Hertz, Europcar & Sixt at wholesale rates with 48h free cancellation and dedicated 24/7 multilingual support.', 
                   link: 'https://autoeurope.tpk.lu/C5j78W4C',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 },
                 { 
                   id: 'airhelp', 
                   brand: 'AirHelp Delay Recovery', 
                   category: 'Security & Luggage',
-                  code: 'FLIGHTREDRESS', 
+                  code: 'AHTPO9', 
                   discount: 'UP TO €600 CLAIM PAYOUT', 
                   desc: 'Check delayed, cancelled, or overbooked flights in 2 minutes under EU261 & UK261 law. No win, no fee legal claims enforcement.', 
                   link: 'https://airhelp.tpk.lu/O7W8mEaB',
-                  validThrough: 'Verified Active 2026'
+                  validThrough: 'Checked Jul 2026'
                 }
               ]
                 .filter(voucher => {
@@ -2844,7 +2844,7 @@ body {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B84200]"></span>
             </span>
             <p className="text-[11px] sm:text-xs font-sans text-stone-200">
-              <strong className="text-white font-bold">Exclusive Deal:</strong> Get 15% OFF 5G Travel eSIMs with code <span className="bg-[#B84200]/30 text-[#FF8542] px-1.5 py-0.5 font-mono font-bold border border-[#B84200]/50 select-all">TEE15</span> or Book Localrent with zero card deposit.
+              <strong className="text-white font-bold">Exclusive Deal:</strong> Get 15% OFF 5G Travel eSIMs with code <span className="bg-[#B84200]/30 text-[#FF8542] px-1.5 py-0.5 font-mono font-bold border border-[#B84200]/50 select-all">TECH</span> or Book Localrent with zero card deposit.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
