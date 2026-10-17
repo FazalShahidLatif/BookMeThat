@@ -67,18 +67,7 @@
     </style>
 
     <!-- Google Analytics 4 -->
-    <script>
-      // Block known scrapers BEFORE gtag loads. `exclude_bot_traffic` is not a
-      // real gtag option and silently did nothing, so 59 "Smart TV" sessions a
-      // month were still being recorded. The supported mechanism is the
-      // ga-disable-<MEASUREMENT_ID> flag, which makes the property ignore the
-      // hit entirely.
-      (function () {
-        var ua = navigator.userAgent || '';
-        var bot = /smart[-_ ]?tv|smarttv|hbbtv|bravia|viera|netcast|webos|tizen|roku|crkey|keyaki|aquos|viera|googletv|android tv|large screen/i.test(ua);
-        if (bot) window['ga-disable-G-W3YTBFV1LS'] = true;
-      })();
-    </script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3YTBFV1LS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
