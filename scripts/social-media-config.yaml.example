@@ -1,0 +1,56 @@
+# BookMeThat — Social Media Configuration
+
+## Purpose
+Configuration for the social media posting automation (Facebook, Instagram,
+LinkedIn, X). Place your API tokens here — never commit real tokens.
+
+## Free Tiers Only
+- Instagram: Official Meta Graph API — free, no paid plans
+- Facebook: Official Meta Graph API — free
+- LinkedIn: Free tier available (no paid plan required)
+- X: Official X API — free tier available
+
+## Quick Start
+1. Create the file: `cp social-media-config.yaml.example social-media-config.yaml`
+2. Fill in your tokens (see setup skills below)
+3. Run: `python scripts/social-media-posting.py --generate`
+4. Review and publish: `python scripts/social-media-posting.py --publish`
+
+## Token Setup
+
+### Instagram / Facebook (Meta Graph API)
+- Skill: `skills/instagram-automation` (README.md)
+- Skill: `skills/facebook-api-setup` (SKILL.md)
+- Required: `IG_ACCESS_TOKEN`, `IG_USER_ID`, `PAGE_ACCESS_TOKEN`
+- Save to: `~/.hermes/social-media-config.yaml` → `tokens:`
+
+### LinkedIn (Official API or Apollo)
+- Skill: `skills/linkedin-automation` (SKILL.md)
+- Required: `LINKEDIN_TOKEN` (Shopify / OAuth token)
+- Free tier only — no paid plan required
+
+### X (Twitter) — Official API
+- Skill: `skills/xurl` (SKILL.md)
+- Required: `X_ACCESS_TOKEN` (from ~/.xurl)
+- Setup: `xurl auth oauth2 --app my-app`
+
+## Config Structure
+```yaml
+tokens:
+  IG_ACCESS_TOKEN: "your_instagram_token"
+  IG_USER_ID: "your_instagram_user_id"
+  PAGE_ACCESS_TOKEN: "your_facebook_page_token"
+  LINKEDIN_TOKEN: "your_linkedin_token"
+  X_ACCESS_TOKEN: "your_x_token"
+
+platforms:
+  - instagram
+  - facebook
+  - linkedin
+  - x
+```
+
+## Important
+- Never commit tokens to git
+- Rotate tokens every ~55 days (before 60-day expiry)
+- Store in `~/.hermes/social-media-config.yaml`
