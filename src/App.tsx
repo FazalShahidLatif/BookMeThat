@@ -344,8 +344,8 @@ export default function App() {
                 finalDesc = "Compare Saily, Airalo and Yesim data plans with Localrent, QEEQ and Auto Europe car hire — side by side, so you see the real cost.";
           break;
         case 'guides':
-          finalTitle = "Cheap eSIM Guides & Travel Coupons | Save On Data | BookMeThat";
-                finalDesc = "Compare eSIM data plans, find working promo codes and learn which travel connection is cheapest for your destination. Updated monthly.";
+          finalTitle = "Cheap eSIM Data Compared & Coupons | Save Up To 60% | BookMeThat";
+          finalDesc = "Compare eSIM data plans, find working promo codes and learn which travel connection is cheapest for your destination. Updated monthly.";
           break;
         case 'legal':
           finalTitle = "About, Privacy & Terms | BookMeThat";
