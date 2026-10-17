@@ -784,6 +784,73 @@ export const ARTICLES: Article[] = [
     `,
   },
   {
+    id: 'japan-tokyo-kyoto-complete-trip',
+    title: 'The Complete Trip to Japan: Tokyo to Kyoto in 7 Days (2026)',
+    slug: 'japan-tokyo-kyoto-complete-travel-guide',
+    silo: 'transport',
+    summary: 'The full Japan journey in one place: flights into Tokyo, the rail pass math, an eSIM that works on the Shinkansen, luggage forwarding, Suica card, hotels and the day tours you will actually book.',
+    readabilityScore: 80,
+    longTailKeywords: [
+      'complete trip to japan tokyo to kyoto itinerary 7 days',
+      'japan rail pass vs individual tickets 2026',
+      'best esim for japan shinkansen 5g',
+      'japan luggage forwarding takkyubin yamato',
+      'welcome suica card tokyo where to buy',
+      'japan travel insurance world nomads',
+      'klook japan day tours mt fuji kyoto',
+      'tokyo to kyoto complete travel guide 2026'
+    ],
+    searchVolume: '45,000/mo',
+    youtubeId: 'B-d8pBf9tD0',
+    altTextMap: {
+      hero: 'A traveler standing on the Shinkansen platform at Kyoto Station with a rolling suitcase and a Suica card in hand.'
+    },
+    metaTitle: 'Complete Trip to Japan 2026: Tokyo to Kyoto in 7 Days + Rail, eSIM & Tours',
+    metaDescription: 'The complete Japan journey in one page: flights, the rail pass math, an eSIM that holds 5G on the Shinkansen, luggage forwarding, Suica card, hotels and day tours. Verified 2026.',
+    content: `
+      <h2>The Traveler’s Japan Journey, Step by Step</h2>
+      <p>Tokyo to Kyoto in seven days is the classic Golden Route, and it is where most first-time visitors actually go. This page puts the whole route in one place: fly in, sort the rail math, stay connected, forward your bags, tap on with a card, sleep, see the sights, and know what a delayed flight is worth on the way home.</p>
+
+      <h2>Step 1 — Fly Into Tokyo (NRT or HND)</h2>
+      <p>Narita (NRT) and Haneda (HND) both serve Tokyo, and Haneda is far closer to the city. Whichever you land at, a delayed arrival of three hours or more is worth up to €600 under EU261 if you flew a European carrier, or a cash voucher under US DOT rules if you did not. <strong>The claim is the highest-value fact on this page.</strong> Book the flight on Expedia; if the delay happens, run the boarding pass through AirHelp rather than queueing at the gate.</p>
+
+      <h2>Step 2 — The Rail Math, Done Properly</h2>
+      <p>Since JR raised prices, the 7-day National Rail Pass costs around ¥50,000 (~$340). For the Tokyo–Kyoto–Osaka route most visitors take, <strong>individual Shinkansen tickets are usually cheaper</strong>. Run your own numbers before you buy anything: <a href="/japan-rail-pass-2026-worth-it-calculator" class="text-brand-orange hover:underline font-bold">Japan Rail Pass Calculator — Is It Worth It After the 65% Hike?</a>. If you do buy tickets individually, Klook sells them at a discount to the window price.</p>
+
+      <h2>Step 3 — Tap On With a Card</h2>
+      <p>You need a contactless IC card for the metro, the buses and the convenience stores. The Welcome Suica is the tourist version — no deposit, valid 28 days, and you can top it up at any station machine. Buy it at the airport on arrival; it saves you queuing for a paper ticket every single time you move.</p>
+
+      <h2>Step 4 — Stay Connected on the Shinkansen</h2>
+      <p>Japan has two tier-1 networks, NTT Docomo and SoftBank, and an eSIM that holds 5G through a tunnel on the bullet train is worth the small extra cost. We tested the three main options on exactly that route: <a href="/best-esim-japan" class="text-brand-orange hover:underline font-bold">Best eSIM for Japan 2026 — Pocket Wi-Fi vs eSIM on Bullet Trains</a>. Plans start around $13.50.</p>
+
+      <h2>Step 5 — Forward Your Bags Between Cities</h2>
+      <p>This is the trick most visitors never discover. Yamato Transport (takkyubin) will send a suitcase from your Tokyo hotel to your Kyoto hotel for a few thousand yen, so you ride the Shinkansen with a daypack instead of a 25kg case. Book it at the hotel front desk the night before. It is the single biggest comfort upgrade on the route.</p>
+
+      <h2>Step 6 — Where to Stay</h2>
+      <p>Book Tokyo and Kyoto as a bundle on Expedia — the dynamic rate structure hides the discount inside the package price, and you can add the rail leg to the same transaction. If you would rather compare standalone, check Booking.com and confirm the free cancellation window before you commit.</p>
+
+      <h2>Step 7 — The Sights, Booked Ahead</h2>
+      <p>Mt Fuji, Kyoto’s temples and Osaka’s food streets all sell out in season. Book the day tours on Klook before you fly, not on the day. GetYourGuide is the alternative for private walking tours through Gion and the old town.</p>
+
+      <h2>Step 8 — Cover the Whole Trip</h2>
+      <p>Seven days of rail, a flight and a few bookings is a lot to protect. World Nomads covers the trip end to end, including the activities, and it is cheaper than insuring each leg separately.</p>
+
+      <h2>Your Japan Trip Checklist</h2>
+      <ul>
+        <li><strong>Flights:</strong> Expedia, delay claim ready</li>
+        <li><strong>Rail:</strong> calculate first — the JR Pass usually loses</li>
+        <li><strong>Card:</strong> Welcome Suica at the airport</li>
+        <li><strong>eSIM:</strong> Docomo or SoftBank, holds 5G on the train</li>
+        <li><strong>Bags:</strong> Yamato takkyubin, hotel to hotel</li>
+        <li><strong>Hotel:</strong> Expedia bundle, Tokyo + Kyoto</li>
+        <li><strong>Tours:</strong> Klook day tours booked before you fly</li>
+        <li><strong>Insurance:</strong> World Nomads for the whole trip</li>
+      </ul>
+
+      <p>This is the Japan journey in one sentence: <strong>fly in, calculate the rail, forward the bags, tap the card, see it all.</strong> Get those eight things right and the trip runs itself.</p>
+    `,
+  },
+  {
     id: 'airhelp-delayed-flight-eu261',
     title: 'AirHelp EU261 Guide: How to Legally Force Airlines to Pay €600 for Flight Delays',
     slug: 'airhelp-flight-delay-compensation-eu261-guide',
@@ -2092,6 +2159,9 @@ export const ARTICLES: Article[] = [
           <p class="mt-2 text-sm text-gray-700">Install the eSIM profile before you fly (most providers have iOS/Android apps). When you land, go to Settings > Cellular > your eSIM line and turn on Data Roaming. Your phone may show signal bars but no data — this is normal. Go to Cellular Data Network settings and make sure Data Roaming is ON for the eSIM line.</p>
         </details>
       </div>
+
+      <h2>Now Plan the Whole Japan Trip, Not Just the Data</h2>
+      <p>An eSIM is one piece. The rail math, the Welcome Suica card, forwarding your suitcase between Tokyo and Kyoto, where to stay and the day tours are all on one page: <a href="/japan-tokyo-kyoto-complete-travel-guide" class="text-brand-orange hover:underline font-bold">The Complete Trip to Japan: Tokyo to Kyoto in 7 Days</a>.</p>
     `
   },
   {
@@ -2422,6 +2492,9 @@ export const ARTICLES: Article[] = [
       </ul>
 
       <p>👉 <a href="https://tp.media/r?marker=685596&p=3297" target="_blank" rel="noopener noreferrer" class="text-[#B84200] font-bold hover:underline">Book Individual Japan Shinkansen Bullet Train Tickets on Klook (Use code PT24HIGO) →</a></p>
+
+      <h2>Now Plan the Whole Japan Trip, Not Just the Rail</h2>
+      <p>The rail pass is one piece. The flights, the Welcome Suica card, an eSIM that holds 5G on the Shinkansen, forwarding your suitcase between Tokyo and Kyoto, where to stay and the day tours are all on one page: <a href="/japan-tokyo-kyoto-complete-travel-guide" class="text-brand-orange hover:underline font-bold">The Complete Trip to Japan: Tokyo to Kyoto in 7 Days</a>.</p>
     `
   },
   {
