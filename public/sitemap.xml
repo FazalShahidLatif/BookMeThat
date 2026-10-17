@@ -372,6 +372,21 @@
   </url>
 
   <!-- ==========================================
+       JOURNEY PAGES: Complete Trip Ecosystem
+       ========================================== -->
+  <url>
+    <loc>https://www.bookmethat.com/georgia-tbilisi-complete-travel-guide</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
+      <image:title>Complete Trip to Georgia: Tbilisi in 5 Days</image:title>
+      <image:caption>The full traveler journey - flights, car hire, eSIM, luggage storage, hotel, tours and the EU261 delay claim.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ==========================================
        SILO 3: DEALS & PASSENGER RESTITUTION
        ========================================== -->
   <url>

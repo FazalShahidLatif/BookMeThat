@@ -1740,6 +1740,20 @@ body {
                     route, where the most traffic actually is. */}
                 <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[11px] font-mono font-bold">
                   <a
+                    href="/georgia-tbilisi-complete-travel-guide"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                        e.preventDefault();
+                        setActiveArticle(ARTICLES.find(a => a.slug === 'georgia-tbilisi-complete-travel-guide'));
+                        setActiveTab('guides');
+                        window.history.pushState(null, '', '/georgia-tbilisi-complete-travel-guide');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1.5 text-[#B84200] hover:underline"
+                  >
+                    <Compass className="w-3.5 h-3.5" /> Plan the whole trip (Georgia)
+                  </a>
+                  <a
                     href="/flights"
                     onClick={(e) => {
                       if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {

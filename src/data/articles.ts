@@ -716,7 +716,72 @@ export const ARTICLES: Article[] = [
 
       <h2>Weapons for Delayed Flyers: Clawing Back €600 via AirHelp</h2>
       <p>When flights go wrong, don't settle for cheap food vouchers. Under European EC261 and UK air passenger rights frameworks, delayed arrival of over 3 hours entitles you to up to €600 in cash. Because airline networks rely on customer neglect to avoid payments, <a href="https://airhelp.tpk.lu/DhUcIRcD" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-bold">AirHelp Compensation Advocacy</a> acts on your behalf. They run boarding passes through advanced schedule datasets, initiating formal litigation automatically to recover your cash, using a zero-risk "No Win, No Fee" model.</p>
-    `
+    `,
+  },
+  {
+    id: 'georgia-tbilisi-complete-trip',
+    title: 'The Complete Trip to Georgia: Tbilisi in 5 Days (2026)',
+    slug: 'georgia-tbilisi-complete-travel-guide',
+    silo: 'transport',
+    summary: 'Stop planning your Georgia trip one page at a time. A true traveler’s journey: car hire in Tbilisi, peak-season eSIM, luggage storage, flight delay claims and the Klook tours you will actually book.',
+    readabilityScore: 78,
+    longTailKeywords: [
+      'complete trip to georgia tbilisi itinerary 5 days',
+      'tbilisi car rental europe',
+      'best esim for georgia 2026',
+      'georgia travel insurance world nomads',
+      'luggage storage tbilisi airport',
+      'klook tours georgia',
+      'get your luggage delivered to hotel tbilisi',
+      'flight delay compensation georgia eu261',
+      'tbilisi airport transfer private chauffeur'
+    ],
+    searchVolume: '22,000/mo',
+    youtubeId: 'B-d8pBf9tD0',
+    altTextMap: {
+      hero: 'A traveler standing on a mountain pass in Mestia, Georgia, with a rental SUV in the background and snow-capped peaks behind.'
+    },
+    metaTitle: 'Complete Trip to Georgia 2026: Tbilisi 5-Day Travel Guide + Car, eSIM & Tours',
+    metaDescription: 'The complete Georgia travel journey: Tbilisi car rental, eSIM, luggage storage, flight delay compensation and tours. Verified 2026 with promo codes.',
+    content: `
+      <h2>The Traveler’s Georgia Journey, Step by Step</h2>
+      <p>Starting in Tiflis and ending in Sighnaghi, this is not one article. It is the complete journey you will actually make: fly in, rent a car, stay connected, leave your bags, see the sights and claim your money back when the flight home goes wrong.</p>
+
+      <h2>Step 1 — Fly In From Europe or the US</h2>
+      <p>Tbilisi is served by most European carriers and a few US domestic airlines. A non-stop transatlantic flight that lands three hours late means a €600 cash claim under EU261 before you have even seen the city. Flight delays are the highest-value trip fact on this page: <strong>one delayed flight can pay for the whole holiday</strong>. Book the flight on Expedia; if the delay happens, run the boarding pass through AirHelp instead of waiting on the airline’s chatbot.</p>
+
+      <h2>Step 2 — Get Into the City, Without the Deposit</h2>
+      <p>Most travellers rent a car in Tbilisi rather than fight the taxi queues. Localrent has local operators in Georgia who skip the €2,000 credit card hold that big rental chains demand. You can settle the security check at pickup with local cash, which is rare abroad and worth the price of the guide alone. Same driver, exact vehicle — on a different page, the same logic applies to airport transfers using GetTransfer’s live bidding system.</p>
+
+      <h2>Step 3 — Stay Connected With a Peak-Season eSIM</h2>
+      <p>Georgia is a Tier-1 destination in the summer and the winter, with peak traffic from November through March. Saily offers the T-Mobile-based GSM connection for the whole trip; Airalo is the backup for roaming on the road; and Yesim covers the SMS you need for 2FA if you are banking abroad. Use the promo code on the sidebar — it is the verified Travelpayouts code for this trip.</p>
+
+      <h2>Step 4 — Leave Your Bags Behind</h2>
+      <p>You do not want to drag a full suitcase from the airport to your hotel, or from your hotel to a day trip. Use the verified luggage drop at City Blommor near the airport for 10% off. The next day, take the car and go to Mestia without carrying a bag. Return to the hotel with your bags when you are ready. That is the whole idea.</p>
+
+      <h2>Step 5 — Where to Stay, Without the Markup</h2>
+      <p>Book the hotel as part of a bundle on Expedia — the dynamic rate structure hides the discount in plain sight, and you can combine the flight and the car rental in one transaction. If you need the lowest standalone price, compare directly on Booking.com and check whether the free cancellation window lets you pull out before check-in.</p>
+
+      <h2>Step 6 — The Sights, With a Real Plan</h2>
+      <p>Georgia is too big to see on a train, and too expensive to see alone. Run the Klook tour packages from Tbilisi into Sighnaghi, then Uplistsikhe and the caves of Kvabiskhevi. For a slower pace, GetYourGuide arranges private walking tours through the old town. Do not wander through the old city with a suitcase and a map: the luggage box already solved that.</p>
+
+      <h2>Step 7 — The Return, and the €600 You Forgot You Had</h2>
+      <p>The trip ends with the return flight. If that arrives three hours late, you are entitled to up to €600 under EU261 even though you booked the outbound several months earlier. Do not start the claim at the airport; start it at home with the AirHelp legal database, using the boarding passes you photographed on arrival. The claim is the reason this journey page exists.</p>
+
+      <h2>Your Georgia Trip Checklist</h2>
+      <ul>
+        <li><strong>Flights:</strong> Expedia, €600 delay claim ready</li>
+        <li><strong>Car:</strong> Localrent, €0 deposit in Tbilisi</li>
+        <li><strong>Transfer:</strong> GetTransfer, bidding at the terminal</li>
+        <li><strong>eSIM:</strong> Saily / Airalo / Yesim, verified code</li>
+        <li><strong>Bags:</strong> City Blommor, 10% off (TRAVEL10)</li>
+        <li><strong>Hotel:</strong> Expedia bundle, no markup</li>
+        <li><strong>Tours:</strong> Klook from Tbilisi to Sighnaghi</li>
+        <li><strong>Insurance:</strong> World Nomads for the whole trip</li>
+      </ul>
+
+      <p>This is the Georgia journey in one sentence: <strong>fly in, drive out, fly home, get paid for the delay.</strong> Do those seven things and the trip costs you almost nothing while it actually pays you.</p>
+    `,
   },
   {
     id: 'airhelp-delayed-flight-eu261',
@@ -1525,6 +1590,9 @@ export const ARTICLES: Article[] = [
       
       <h2>Actionable Advice for Road Trips in the Caucasus</h2>
       <p>Before you take off from Tbilisi, check our complete guides on <a href="/localrent-car-hire-secrets-balkans-georgia" class="text-brand-orange hover:underline">Renting Under-$20 Cars in Montenegro and Georgia</a>. Ensure you request an active GPS profile and verify the engine\'s oil levels with your local delivery agent during clean handovers.</p>
+
+      <h2>Now Plan the Whole Trip, Not Just the Car</h2>
+      <p>A rental car is one piece. The rest of the journey — flying in, the Tbilisi airport transfer, a Georgia eSIM, leaving your bags at City Blommor, where to stay, and the EU261 claim if your return flight is delayed — is all on one page: <a href="/georgia-tbilisi-complete-travel-guide" class="text-brand-orange hover:underline font-bold">The Complete Trip to Georgia: Tbilisi in 5 Days</a>.</p>
     `
   },
   {
