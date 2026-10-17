@@ -11,3 +11,6 @@ SERP-RANKING-REPORT.csv
 serp_history.json
 SERP-RANKING-DIGEST.md
 SERP-RANKING-DIGEST-*.md
+
+# Temporary local verification assets (not part of the website)
+scripts/branding-assets/
