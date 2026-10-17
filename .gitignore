@@ -9,3 +9,5 @@ coverage/
 # SerpAPI rank tracking output (regenerated each run)
 SERP-RANKING-REPORT.csv
 serp_history.json
+SERP-RANKING-DIGEST.md
+SERP-RANKING-DIGEST-*.md
