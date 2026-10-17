@@ -1,0 +1,31 @@
+{
+  "api_key": "33682ad8a8743f1c2b8ed9bebacf4f9650c85f22faf8f942274632d04f313e64",
+  "keywords": [
+    "best esim",
+    "best travel esim",
+    "best esim for travel",
+    "american esim travel",
+    "affordable esim",
+    "cheap esim",
+    "best esim deals",
+    "affordable travel esim",
+    "airalo vs saily",
+    "best esim for japan"
+  ],
+  "sites": [
+    {"name": "bookmethat", "domain": "bookmethat.com"},
+    {"name": "ukltdregistration", "domain": "ukltdregistration.com"},
+    {"name": "Calcoo", "domain": "calcoo.com"},
+    {"name": "saasskul.com", "domain": "saasskul.com"},
+    {"name": "US LLC", "domain": "usllc.com"},
+    {"name": "blueoceanhub", "domain": "blueoceanhub.info"},
+    {"name": "saasskul.online", "domain": "saasskul.online"},
+    {"name": "taleem360", "domain": "taleem360.online"},
+    {"name": "saasskul.xyz", "domain": "saasskul.xyz"},
+    {"name": "APIVEX", "domain": "apivex.com"},
+    {"name": "saasskul.shop", "domain": "saasskul.shop"},
+    {"name": "pdff", "domain": "pdff.online"}
+  ],
+  "geo": {"hl": "en", "gl": "us"},
+  "output": "scripts/serp_history.json"
+}

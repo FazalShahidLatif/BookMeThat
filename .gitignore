@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+# SerpAPI rank tracking output (regenerated each run)
+SERP-RANKING-REPORT.csv
+serp_history.json
