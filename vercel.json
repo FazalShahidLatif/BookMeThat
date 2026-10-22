@@ -3,14 +3,8 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "bookmethat.com"
-        }
-      ],
-      "destination": "https://www.bookmethat.com/$1",
+      "source": "/([^?]*)",
+      "destination": "https://www.bookmethat.com/",
       "statusCode": 301
     },
     {

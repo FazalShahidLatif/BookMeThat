@@ -473,7 +473,7 @@ export default function App() {
         targetSubTab = 'impressum';
         canonicalTarget = '/contact';
         if (path !== '/contact') wasRedirected = true;
-      } else if (path.includes('connectivity') || path.includes('esim') || path.includes('sim') || path.includes('airalo') || path.includes('saily')) {
+      } else if (path === '/esim') {
         targetTab = 'guides';
         canonicalTarget = '/esim';
         if (path !== '/esim') wasRedirected = true;
