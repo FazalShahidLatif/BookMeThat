@@ -1195,24 +1195,44 @@ export default function App() {
       <div class="hero-grid">
         <div class="hero-text-col">
           <span class="eyebrow"><span class="badge-icon">⚡</span> Server-Side Edge Cache Direct</span>
-          <h1 id="hero-title">Zero Broker Markup. Buy Direct and Save.</h1>
-          <p class="hero-sub">Direct link cellular eSIMs, localized car rentals, and backed flight indemnities directly from direct manufacturers. Pure Jamstack fast speed.</p>
+          <h1 id="hero-title">Find & book cheap travel deals — eSIMs, cars, tours, insurance</h1>
+          <p class="hero-sub">Save up to 60% on eSIM data, car rentals, flight compensation, and sightseeing passes. Compare direct prices from 500+ partners and book without broker fees.</p>
+          <div class="hero-actions">
+            <a href="/esim" class="btn-primary">Search Deals <span class="arrow-shape">→</span></a>
+            <a href="/flights" class="btn-secondary">Compare Flights <span class="arrow-shape">→</span></a>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-badge">★★★★★ 4.9/5 from 512 verified reviews</span>
+            <span class="trust-badge">Save up to 60%</span>
+            <span class="trust-badge">100% transparent prices</span>
+          </div>
         </div>
         
         <div class="hero-img-col">
-          <!-- Highly optimized image with async decoding and responsive srcset to never block layout passes -->
           <img 
             src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" 
             srcset="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=480&q=80 480w,
                     https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80 800w,
                     https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80 1200w"
             sizes="(max-width: 768px) 100vw, 50vw"
-            alt="Sunny static coastal beach transit layout" 
+            alt="Traveler comparing flight deals on laptop" 
             class="hero-optimized-image"
             decoding="async" 
             loading="eager"
             referrerpolicy="no-referrer"
           >
+          <div class="hero-quick-search">
+            <form id="quick-search-form" class="quick-search-form" onsubmit="event.preventDefault(); handleSectionScroll('destinations');">
+              <input type="text" placeholder="Where to? (e.g. Georgia, Japan, USA)" class="search-input" />
+              <select class="search-select">
+                <option value="connectivity">eSIM Data</option>
+                <option value="transport">Car Rental</option>
+                <option value="booking">Flights & Tours</option>
+                <option value="utility">Insurance & Luggage</option>
+              </select>
+              <button type="submit" class="search-button">Search <span class="arrow-shape">→</span></button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -1450,6 +1470,205 @@ body {
 .destinations-section {
   content-visibility: auto;
   contain-intrinsic-size: 0 600px;
+}
+
+/* HERO SECTION (homepage) */
+.hero-section {
+  padding: 50px 20px 40px;
+  background: linear-gradient(135deg, #FAF9F6 0%, #F5F3EF 50%, #F8F7F2 100%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-section {
+    padding: 30px 16px 30px;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-orange);
+  background: rgba(229, 91, 19, 0.1);
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 14px;
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 28px;
+  }
+}
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-dark);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-orange);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-dark);
+  border: 2px solid var(--color-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--color-dark);
+  color: #fff;
+}
+
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: 12px;
+  color: #666;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-quick-search {
+  margin-top: 16px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+}
+
+.quick-search-form {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .quick-search-form {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .search-input,
+  .search-select {
+    width: 100%;
+  }
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: 14px;
+  color: var(--color-dark);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 2px rgba(229, 91, 19, 0.15);
+}
+
+.search-select {
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: 14px;
+  color: var(--color-dark);
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-select:focus {
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 2px rgba(229, 91, 19, 0.15);
+}
+
+.search-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--color-dark);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-button:hover {
+  background: var(--color-orange);
 }`;
 
   const templateJS = `/* 
