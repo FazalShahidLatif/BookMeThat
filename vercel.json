@@ -64,6 +64,11 @@
       "statusCode": 301
     },
     {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "statusCode": 301
+    },
+    {
       "source": "/support",
       "destination": "/contact",
       "statusCode": 301
