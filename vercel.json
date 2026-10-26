@@ -8,7 +8,7 @@
       "statusCode": 301
     },
     {
-      "source": "/__vercel_reload",
+      "source": "/__reload_vercel",
       "destination": "/",
       "statusCode": 200
     },
