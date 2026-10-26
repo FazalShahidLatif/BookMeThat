@@ -3,11 +3,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/([^?]*)",
-      "destination": "https://www.bookmethat.com/",
-      "statusCode": 301
-    },
-    {
       "source": "/utm",
       "destination": "/",
       "statusCode": 301
