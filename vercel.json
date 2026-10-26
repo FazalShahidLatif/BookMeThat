@@ -8,6 +8,11 @@
       "statusCode": 301
     },
     {
+      "source": "/__vercel_reload",
+      "destination": "/",
+      "statusCode": 200
+    },
+    {
       "source": "/esims",
       "destination": "/esim",
       "statusCode": 301
