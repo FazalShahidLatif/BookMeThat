@@ -853,6 +853,130 @@ export const ARTICLES: Article[] = [
     `,
   },
   {
+    id: 'italy-rome-florence-complete-trip',
+    title: 'The Complete Trip to Italy: Rome to Florence in 7 Days (2026)',
+    slug: 'italy-rome-florence-complete-travel-guide',
+    silo: 'transport',
+    summary: 'Stop planning your Italy trip one page at a time. The complete journey: flights into Rome, Trenitalia trains, eSIM that works on high-speed rail, luggage storage, Vatican tours and the EU261 claim if your flight home is delayed.',
+    readabilityScore: 80,
+    longTailKeywords: [
+      'complete trip to italy rome florence itinerary 7 days',
+      'italy travel guide 2026',
+      'best esim for italy',
+      'trenitalia train tickets',
+      'rome florence travel itinerary',
+      'italy luggage storage',
+      'vatican tours klook',
+      'eu261 flight delay italy'
+    ],
+    searchVolume: '28,000/mo',
+    altTextMap: {
+      hero: 'Colosseum in Rome at golden hour with a traveler holding a smartphone showing an active eSIM connection.'
+    },
+    metaTitle: 'Complete Trip to Italy 2026: Rome to Florence 7-Day Guide + eSIM, Trains & Tours',
+    metaDescription: 'The complete Italy journey in one page: Rome to Florence by train, eSIM, luggage storage, Vatican tours, and EU261 flight delay claims. Verified 2026 with promo codes.',
+    content: `
+      <h2>The Traveler's Italy Journey, Step by Step</h2>
+      <p>Starting in Rome and ending in Florence, this is not one article. It is the complete journey you will actually make: fly in, get connected, ride the train, leave your bags, see the sights and claim your money back when the flight home goes wrong.</p>
+
+      <h2>Step 1 — Fly Into Rome</h2>
+      <p>Rome Fiumicino (FCO) and Ciampino (CIA) are both well-served by European and transatlantic carriers. A non-stop transatlantic flight that lands three hours late means a €600 cash claim under EU261. Book the flight on Expedia; if the delay happens, run the boarding pass through AirHelp instead of waiting on the airline's chatbot. Flight delays are the highest-value trip fact on this page.</p>
+
+      <h2>Step 2 — Get Connected Before You Leave the Airport</h2>
+      <p>Italy has excellent 5G coverage on TIM and Vodafone networks. Saily offers the best value — 5GB for about $14 across all of Italy. Airalo is the backup for short trips. Holafly is the pick for unlimited data on longer stays. Activate before you leave the airport; do not wait until you are on the train.</p>
+
+      <h2>Step 3 — Ride the Train: Rome to Florence</h2>
+      <p>Trenitalia's Frecciarossa high-speed train takes 1 hour 30 minutes from Roma Termini to Firenze Santa Maria Novella. Book in advance on Trenitalia's website for the best prices. The train has Wi-Fi but it is unreliable — your eSIM will be faster. Keep your phone charged; the train has power outlets at every seat.</p>
+
+      <h2>Step 4 — Leave Your Bags Behind</h2>
+      <p>You do not want to drag a full suitcase from the train station to your hotel, or from your hotel to a day trip. Use Radical Storage for luggage drop-off at shops and hotels near major stations. Use code TRAVEL10 for 10% off. Store your bags, explore the city hands-free, and pick them up when you are ready.</p>
+
+      <h2>Step 5 — The Sights, With a Real Plan</h2>
+      <p>Rome: Colosseum, Vatican, Trevi Fountain, Pantheon. Florence: Uffizi, Duomo, Ponte Vecchio, Accademia. Book skip-the-line tickets on Klook or GetYourGuide — the queue at the Vatican can be 2-3 hours without a pre-booked ticket. Do not waste your trip standing in line.</p>
+
+      <h2>Step 6 — Where to Stay, Without the Markup</h2>
+      <p>Book hotels as part of a bundle on Expedia — the dynamic rate structure hides the discount. If you need the lowest standalone price, compare directly on Booking.com. In Rome, stay near Termini for train access. In Florence, stay near Santa Maria Novella for walking access to everything.</p>
+
+      <h2>Step 7 — The Return, and the €600 You Forgot You Had</h2>
+      <p>The trip ends with the return flight. If that arrives three hours late, you are entitled to up to €600 under EU261. Do not start the claim at the airport; start it at home with AirHelp, using the boarding passes you photographed on arrival. The claim is the reason this journey page exists.</p>
+
+      <h2>Your Italy Trip Checklist</h2>
+      <ul>
+        <li><strong>Flights:</strong> Expedia, €600 delay claim ready</li>
+        <li><strong>Train:</strong> Trenitalia Frecciarossa, book in advance</li>
+        <li><strong>eSIM:</strong> Saily / Airalo / Holafly, verified code TECH</li>
+        <li><strong>Bags:</strong> Radical Storage, 10% off (TRAVEL10)</li>
+        <li><strong>Hotel:</strong> Expedia bundle, no markup</li>
+        <li><strong>Tours:</strong> Klook skip-the-line Vatican & Colosseum</li>
+        <li><strong>Insurance:</strong> World Nomads for the whole trip</li>
+      </ul>
+
+      <p>This is the Italy journey in one sentence: <strong>fly in, ride the train, see it all, get paid for the delay.</strong> Get those seven things right and the trip runs itself.</p>
+    `
+  },
+  {
+    id: 'thailand-bangkok-phuket-complete-trip',
+    title: 'The Complete Trip to Thailand: Bangkok to Phuket in 10 Days (2026)',
+    slug: 'thailand-bangkok-phuket-complete-travel-guide',
+    silo: 'transport',
+    summary: 'Stop planning your Thailand trip one page at a time. The complete journey: flights into Bangkok, domestic transfer, eSIM that works across Thailand, luggage storage, island tours and travel insurance.',
+    readabilityScore: 79,
+    longTailKeywords: [
+      'complete trip to thailand bangkok phuket itinerary 10 days',
+      'thailand travel guide 2026',
+      'best esim for thailand',
+      'bangkok to phuket travel',
+      'thailand luggage storage',
+      'phuket tours klook',
+      'thailand travel insurance',
+      'bangkok airport transfer'
+    ],
+    searchVolume: '32,000/mo',
+    altTextMap: {
+      hero: 'Longtail boat on turquoise water in Phuket with limestone cliffs in the background and a smartphone showing active eSIM connection.'
+    },
+    metaTitle: 'Complete Trip to Thailand 2026: Bangkok to Phuket 10-Day Guide + eSIM, Tours & Insurance',
+    metaDescription: 'The complete Thailand journey in one page: Bangkok to Phuket, eSIM, luggage storage, island tours, and travel insurance. Verified 2026 with promo codes.',
+    content: `
+      <h2>The Traveler's Thailand Journey, Step by Step</h2>
+      <p>Starting in Bangkok and ending in Phuket, this is not one article. It is the complete journey you will actually make: fly in, get connected, transfer between cities, leave your bags, see the islands and stay insured the whole way.</p>
+
+      <h2>Step 1 — Fly Into Bangkok</h2>
+      <p>Bangkok Suvarnabhumi (BKK) and Don Mueang (DMK) are both major hubs. Suvarnabhumi handles most international flights. Book on Expedia for the best bundle deals — combine your flight with a hotel for extra savings. If your flight is delayed by 3+ hours on an EU carrier, you may be eligible for EU261 compensation up to €600.</p>
+
+      <h2>Step 2 — Get Connected Before You Leave the Airport</h2>
+      <p>Thailand has excellent 4G/5G coverage on AIS and TrueMove networks. Saily's Southeast Asia regional eSIM covers Thailand, Vietnam, Cambodia, Malaysia, Indonesia, Philippines, and Singapore — one plan for your whole trip. Airalo is the backup for country-specific plans. Use code TECH for a discount.</p>
+
+      <h2>Step 3 — Bangkok to Phuket: Transfer or Fly</h2>
+      <p>Option A: Fly — Bangkok to Phuket takes 1 hour 20 minutes on budget airlines (AirAsia, Nok Air, Thai Lion Air). Book on Expedia or directly. Option B: Bus — 12-14 hours overnight, cheapest option. Option C: Private transfer — GetTransfer offers bidding-based private cars for groups. For solo travelers, flying is usually cheaper and faster.</p>
+
+      <h2>Step 4 — Leave Your Bags Behind</h2>
+      <p>You do not want to drag a full suitcase from the airport to your hotel, or from your hotel to an island tour. Use Radical Storage for luggage drop-off at shops and hotels in Bangkok and Phuket. Use code TRAVEL10 for 10% off. Store your bags, explore the city hands-free.</p>
+
+      <h2>Step 5 — The Sights, With a Real Plan</h2>
+      <p>Bangkok: Grand Palace, Wat Pho, Chatuchak Market, floating markets. Phuket: Phi Phi Islands, James Bond Island, Big Buddha, Patong Beach. Book skip-the-line tickets and island tours on Klook — they offer the best prices for Thailand activities. GetYourGuide is the backup for private tours.</p>
+
+      <h2>Step 6 — Where to Stay, Without the Markup</h2>
+      <p>Book hotels as part of a bundle on Expedia. In Bangkok, stay near BTS Skytrain for easy transport. In Phuket, stay in Patong for nightlife or Kata/Karon for quieter beaches. Check Booking.com for free cancellation options.</p>
+
+      <h2>Step 7 — Stay Insured the Whole Way</h2>
+      <p>Thailand requires travel insurance for some visa types. World Nomads covers adventure activities (diving, motorbike rental, trekking). Ekta Traveling covers medical expenses and evacuation. Do not skip insurance — hospital bills in Thailand can be expensive for foreigners.</p>
+
+      <h2>Your Thailand Trip Checklist</h2>
+      <ul>
+        <li><strong>Flights:</strong> Expedia, bundle with hotel</li>
+        <li><strong>Transfer:</strong> Bangkok to Phuket (fly or private transfer)</li>
+        <li><strong>eSIM:</strong> Saily regional SEA plan (code TECH)</li>
+        <li><strong>Bags:</strong> Radical Storage, 10% off (TRAVEL10)</li>
+        <li><strong>Hotel:</strong> Expedia bundle, no markup</li>
+        <li><strong>Tours:</strong> Klook island tours from Phuket</li>
+        <li><strong>Insurance:</strong> World Nomads or Ekta Traveling</li>
+      </ul>
+
+      <p>This is the Thailand journey in one sentence: <strong>fly in, get connected, island-hop, stay insured.</strong> Get those seven things right and the trip runs itself.</p>
+    `
+  },
+  {
     id: 'airhelp-delayed-flight-eu261',
     title: 'AirHelp EU261 Guide: How to Legally Force Airlines to Pay €600 for Flight Delays',
     slug: 'airhelp-flight-delay-compensation-eu261-guide',
