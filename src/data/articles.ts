@@ -22,9 +22,18 @@ export const ARTICLES: Article[] = [
     altTextMap: {
       hero: 'Panoramic view of Santa Maria del Fiore in Florence with a travelers hand holding a smartphone showing an active eSIM roaming connection screen.'
     },
-    metaTitle: "Best eSIM for Italy 2026: Tested on Trenitalia & Tim (From $1.80/GB)",
-    metaDescription: "Traveling to Italy? We tested Saily, Airalo & Yesim on high-speed trains & Amalfi coast. Compare 5G speeds, prices from $1.80/GB & grab verified coupon codes.",
+    metaTitle: 'Best eSIM for Italy 2026: Compare Saily, Airalo & Holafly (From $1.80/GB)',
+    metaDescription: 'Traveling to Italy? We tested Saily, Airalo & Yesim on high-speed trains & Amalfi coast. 5G plans from $1.80/GB, real prices, verified coupon codes (TECH).',
     content: `
+      <p><strong>What is the best eSIM for Italy in 2026?</strong> For most travelers, <strong>Saily</strong> is the best overall pick — its 5GB plan costs about $14 and works across Italy on TIM and Vodafone networks. <strong>Airalo</strong> is better for short trips (1–3 days) because its app is the simplest and plans start at $4.50 for 1GB. <strong>Holafly</strong> is the right choice if you need truly unlimited data for a longer stay (7+ days). All three activate in under 2 minutes before you land.</p>
+
+      <p>Planning an Italy trip and don't want to pay roaming fees or hunt for a SIM at the airport? An eSIM is the fastest way to get data the moment you land. You can set it up before you travel, activate it on arrival, and skip the queue at the airport shop entirely.</p>
+
+      <p><strong>The short answer:</strong> For most travelers to Italy in 2026, Saily is the best overall pick — its 5GB plan costs about $14 and works across the country. Airalo is better for short trips of a few days because its app is simple and its plans are easy to size. Holafly is the right choice if you need truly unlimited data for a longer stay.</p>
+
+      <p>Below is the full breakdown of what each provider actually costs, how fast the data is in real use, and which one fits different kinds of trips — city breaks, long stays, train travel, and rural areas like Tuscany or the Amalfi coast.</p>
+
+      <p>Quick answer: <strong>Saily wins</strong> for most travelers (best price + flexible plans), <strong>Airalo wins</strong> for short trips (cleanest app), and <strong>Holafly is the pick</strong> if you want unlimited data. All three are available through our partner links below — booking through them supports our travel research at no extra cost to you.</p>
       <p><strong>What is the best eSIM for Italy in 2026?</strong> For most travelers, <strong>Saily</strong> is the best overall pick — its 5GB plan costs about $14 and works across Italy on TIM and Vodafone networks. <strong>Airalo</strong> is better for short trips (1–3 days) because its app is the simplest and plans start at $4.50 for 1GB. <strong>Holafly</strong> is the right choice if you need truly unlimited data for a longer stay (7+ days). All three activate in under 2 minutes before you land.</p>
 
       <p>Planning an Italy trip and don't want to pay roaming fees or hunt for a SIM at the airport? An eSIM is the fastest way to get data the moment you land. You can set it up before you travel, activate it on arrival, and skip the queue at the airport shop entirely.</p>
@@ -328,6 +337,45 @@ export const ARTICLES: Article[] = [
           </tbody>
         </table>
       </div>
+
+      <h2>Price &amp; Plan Comparison (2026)</h2>
+      <div class="overflow-x-auto my-4 border border-[#E5E5E1]">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-[#F8F7F2] border-b border-[#E5E5E1] text-[11px] font-mono uppercase tracking-wider text-gray-700">
+              <th class="p-3">Provider</th>
+              <th class="p-3">Europe 5GB</th>
+              <th class="p-3">Asia 5GB</th>
+              <th class="p-3">USA 10GB</th>
+              <th class="p-3">Unlimited Option</th>
+              <th class="p-3">Best Code</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#E5E5E1] text-xs">
+            <tr>
+              <td class="p-3 font-bold">Saily</td>
+              <td class="p-3">$14</td>
+              <td class="p-3">$16</td>
+              <td class="p-3">$18</td>
+              <td class="p-3">No (daily FUP applies)</td>
+              <td class="p-3">TECH</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">Airalo</td>
+              <td class="p-3">$15</td>
+              <td class="p-3">$14</td>
+              <td class="p-3">$20</td>
+              <td class="p-3">Yes (14+ day plans)</td>
+              <td class="p-3">APAC15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Which One Should You Choose?</h2>
+      <p><strong>Choose Saily if:</strong> You want lower ping (more responsive), the fastest 5G speeds in Europe, and the lowest price-per-GB for European travel. Saily's T-Mobile network in the US is the strongest asset.</p>
+      <p><strong>Choose Airalo if:</strong> You prioritize coverage (200+ countries), need an unlimited plan, and want to use a code like <strong>APAC15</strong> to save 15% on your first purchase. Airalo is also better for short trips (1–3 days) because its plans are simpler to size.</p>
+      <p><strong>Neither is universally better</strong> — they serve different travel patterns. Saily wins on raw speed and ping in most metro areas; Airalo wins on plan flexibility and coverage breadth. Compare your specific destination and data needs above before deciding.</p>
 
       <h2>Why Saily is Faster Than Airalo</h2>
       <p>In our tests, Saily was consistently quicker than Airalo. Because Saily uses Nord Security's efficient server network, your data travels through fewer international connections before reaching local servers. That means phone calls, WhatsApp video, and Google Maps load noticeably faster.</p>
