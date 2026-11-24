@@ -143,19 +143,30 @@ const pages: Array<{ path: string; title: string; description: string; noindex?:
     noindex: true
 
   },
-
   {
 
+    path: 'cookie-policy',
+    title: 'Cookie Policy & Tracking Technologies | BookMeThat',
+    description: 'Comprehensive overview of cookies, tracking technologies, GDPR/CCPA compliance, and user data controls on BookMeThat.'
+  },
+  {
+    path: 'disclosure',
+    title: 'Affiliate Disclosure & Commercial Transparency | BookMeThat',
+    description: 'FTC and EU-compliant disclosure of affiliate relationships, advertising partnerships, and commercial terms.'
+  },
+  {
+    path: 'imprint',
+    title: 'Impressum & Contact Information | BookMeThat',
+    description: 'Legal registration details, corporate information, contact channels, and data protection officer contact for BookMeThat.'
+  },
+  {
     path: 'faq',
 
     title: 'Frequently Asked Questions & Travel Guide | BookMeThat',
 
     description: 'Answers to common questions about buying direct eSIMs, rental car zero deposit policies, and claiming flight delay compensation.'
-
-  }
-
+  },
 ];
-
 
 
 // Pages that must never appear in search results. The client-side check in
@@ -210,7 +221,7 @@ for (const page of pages) {
 
 
 
-  const canonicalUrl = `https://www.bookmethat.com/${page.path}`;
+  const canonicalUrl = `https://bookmethat.com/${page.path}`;
 
   let html = template;
 
@@ -313,10 +324,10 @@ if (fs.existsSync(SITEMAP_PATH)) {
 // The homepage is not part of `pages` (it is the Vite entrypoint), so it is
 // emitted explicitly and kept first.
 const today = new Date().toISOString().slice(0, 10);
-const homeImg = imageByUrl['https://www.bookmethat.com/'];
+const homeImg = imageByUrl['https://bookmethat.com/'];
 const homeEntry = [
   '  <url>',
-  '    <loc>https://www.bookmethat.com/</loc>',
+  '    <loc>https://bookmethat.com/</loc>',
   `    <lastmod>${today}</lastmod>`,
   '    <changefreq>daily</changefreq>',
   '    <priority>1.0</priority>',
@@ -329,7 +340,7 @@ const sitemapEntries = [
   ...pages
     .filter((pg) => !pg.noindex)
     .map((pg) => {
-      const loc = `https://www.bookmethat.com/${pg.path}`;
+      const loc = `https://bookmethat.com/${pg.path}`;
       const img = imageByUrl[loc];
       return [
         '  <url>',

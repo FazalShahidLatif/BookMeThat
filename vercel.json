@@ -49,12 +49,22 @@
     },
     {
       "source": "/disclosure",
-      "destination": "/about",
+      "destination": "/disclosure",
+      "statusCode": 301
+    },
+    {
+      "source": "/imprint",
+      "destination": "/impressum",
       "statusCode": 301
     },
     {
       "source": "/impressum",
-      "destination": "/contact",
+      "destination": "/impressum",
+      "statusCode": 301
+    },
+    {
+      "source": "/disclosure",
+      "destination": "/disclosure",
       "statusCode": 301
     },
     {

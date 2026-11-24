@@ -468,11 +468,37 @@ export default function App() {
         targetSubTab = 'ai_seo';
         canonicalTarget = '/ai-seo';
         if (path !== '/ai-seo') wasRedirected = true;
-      } else if (path.includes('contact') || path.includes('impressum') || path.includes('support')) {
+      } else if (path.includes('ai-seo') || path === '/ai-seo') {
+        targetTab = 'legal';
+        targetSubTab = 'ai_seo';
+        canonicalTarget = '/ai-seo';
+        if (path !== '/ai-seo') wasRedirected = true;
+      } else if (path === '/privacy-policy' || path === '/privacy') {
+        targetTab = 'legal';
+        targetSubTab = 'privacy';
+        canonicalTarget = '/privacy';
+        if (path !== '/privacy') wasRedirected = true;
+      } else if (path === '/cookie-policy') {
+        targetTab = 'legal';
+        targetSubTab = 'cookie_policy';
+        canonicalTarget = '/cookie-policy';
+        if (path !== '/cookie-policy') wasRedirected = true;
+      } else if (path === '/terms' || path === '/terms-of-service') {
+        targetTab = 'legal';
+        targetSubTab = 'terms';
+        canonicalTarget = '/terms';
+        if (path !== '/terms') wasRedirected = true;
+      } else if (path === '/disclosure') {
+        targetTab = 'legal';
+        targetSubTab = 'disclosure';
+        canonicalTarget = '/disclosure';
+        if (path !== '/disclosure') wasRedirected = true;
+      } else if (path === '/imprint' || path === '/impressum' || path === '/impressum-page') {
         targetTab = 'legal';
         targetSubTab = 'impressum';
-        canonicalTarget = '/contact';
-        if (path !== '/contact') wasRedirected = true;
+        canonicalTarget = '/impressum';
+        if (path !== '/impressum') wasRedirected = true;
+      } else if (path.includes('contact') || path.includes('support')) {
       } else if (path === '/esim') {
         targetTab = 'guides';
         canonicalTarget = '/esim';
@@ -586,7 +612,9 @@ export default function App() {
           if (legalTab === 'privacy') path = '/privacy';
           else if (legalTab === 'terms') path = '/terms';
           else if (legalTab === 'ai_seo') path = '/ai-seo';
-          else if (legalTab === 'impressum') path = '/contact';
+          else if (legalTab === 'impressum') path = '/impressum';
+          else if (legalTab === 'cookie_policy') path = '/cookie-policy';
+          else if (legalTab === 'disclosure') path = '/disclosure';
           else path = '/about';
           break;
         case 'heatmap':
@@ -2972,11 +3000,14 @@ body {
             </div>
 
             <div className="md:col-span-3 space-y-2">
-              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">Compliance Links</h3>
+              <h3 className="text-[10px] font-mono font-bold text-gray-800 uppercase tracking-widest">Legal Pages</h3>
               <ul className="flex flex-col gap-1 text-xs text-gray-700 font-sans list-none p-0 m-0">
-                <li><a href="/about" onClick={(e) => { e.preventDefault(); setLegalTab('disclosure'); handleSectionScroll('compliance-desk'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left font-bold select-none">FTC Affiliate Disclosures</a></li>
-                <li><a href="/privacy" onClick={(e) => { e.preventDefault(); setLegalTab('privacy'); handleSectionScroll('compliance-desk'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">GDPR Cookie Consent</a></li>
-                <li><a href="/terms" onClick={(e) => { e.preventDefault(); setLegalTab('terms'); handleSectionScroll('compliance-desk'); }} className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Terms and Services of Use</a></li>
+                <li><a href="/imprint" className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Impressum &amp; Contact</a></li>
+                <li><a href="/privacy" className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Privacy Policy</a></li>
+                <li><a href="/terms" className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Terms of Service</a></li>
+                <li><a href="/ai-seo" className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">AI SEO Policy</a></li>
+                <li><a href="/cookie-policy" className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Cookie Policy</a></li>
+                <li><a href="/disclosure" className="min-h-[44px] inline-flex items-center py-2 px-1 text-gray-800 hover:text-[#B84200] transition cursor-pointer text-left select-none font-medium">Affiliate Disclosure</a></li>
               </ul>
             </div>
 

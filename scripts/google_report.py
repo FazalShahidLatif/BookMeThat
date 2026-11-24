@@ -18,7 +18,7 @@ from google.auth.transport.requests import AuthorizedSession, Request
 from google.oauth2.credentials import Credentials
 
 TOKEN = r"C:\Users\accts\AppData\Local\hermes\google_token.json"
-SITE = "https://www.bookmethat.com/"
+SITE = "https://bookmethat.com/"
 
 
 def session():

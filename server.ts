@@ -561,11 +561,11 @@ async function startServer() {
     if (pathname === "flight") {
       return res.redirect(301, "/flights");
     }
-    if (pathname === "legal" || pathname === "compliance" || pathname === "disclosure" || pathname === "about-us") {
+    if (pathname === "legal" || pathname === "compliance" || pathname === "about-us") {
       return res.redirect(301, "/about");
     }
-    if (pathname === "impressum" || pathname === "support") {
-      return res.redirect(301, "/contact");
+    if (pathname === "disclosure") {
+      return res.redirect(301, "/disclosure");
     }
     if (pathname === "quiz") {
       return res.redirect(301, "/challenge");
