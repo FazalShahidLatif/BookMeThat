@@ -609,8 +609,8 @@ export default function App() {
       window.history.pushState(null, '', path);
     }
 
-    // Dynamic Canonical tag updater with absolute www.bookmethat.com address pairing
-    const canonicalBase = 'https://www.bookmethat.com';
+    // Dynamic Canonical tag updater with absolute bookmethat.com address pairing
+    const canonicalBase = 'https://bookmethat.com';
     const canonicalUrl = canonicalBase + (path === '/' ? '' : path);
     
     let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
@@ -1200,6 +1200,7 @@ export default function App() {
           <div class="hero-actions">
             <a href="/esim" class="btn-primary">Search Deals <span class="arrow-shape">→</span></a>
             <a href="/flights" class="btn-secondary">Compare Flights <span class="arrow-shape">→</span></a>
+            <a href="/best-esim-usa" class="btn-secondary btn-small">Compare USA eSIMs <span class="arrow-shape">→</span></a>
           </div>
           <div class="hero-trust">
             <span class="trust-badge">★★★★★ 4.9/5 from 512 verified reviews</span>
@@ -1278,7 +1279,59 @@ export default function App() {
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 BookMeThat. Optimized for Static Pagespeed Core Web Vitals: ID-685596.</p>
+    <div className="border-t border-[#E5E5E1] pt-6 md:pt-8 pb-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="md:col-span-1">
+          <div className="flex items-center gap-2 mb-3">
+            <img src="/favicon.svg" alt="BookMeThat" className="w-8 h-8" />
+            <span className="font-serif font-bold text-[#1A1A1A] text-base italic">BookMeThat</span>
+          </div>
+          <p className="text-[11px] text-gray-500 leading-relaxed">
+            Easy scheduling &amp; bookings for global travelers. Compare eSIMs, car rentals, flights, tours, and insurance — all in one place.
+          </p>
+        </div>
+        <div>
+          <h4 className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#B84200] mb-3">Company</h4>
+          <ul className="space-y-2 text-[11px] text-gray-600">
+            <li><a href="/about" className="hover:text-brand-orange transition">About Us</a></li>
+            <li><a href="/contact" className="hover:text-brand-orange transition">Contact</a></li>
+            <li><a href="/heatmap" className="hover:text-brand-orange transition">Deal Heatmap</a></li>
+            <li><a href="/faq" className="hover:text-brand-orange transition">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#B84200] mb-3">Legal</h4>
+          <ul className="space-y-2 text-[11px] text-gray-600">
+            <li><a href="/privacy" className="hover:text-brand-orange transition">Privacy Policy</a></li>
+            <li><a href="/terms" className="hover:text-brand-orange transition">Terms of Service</a></li>
+            <li><a href="/ai-seo" className="hover:text-brand-orange transition">AI SEO Policy</a></li>
+            <li><a href="/impressum" className="hover:text-brand-orange transition">Impressum &amp; Contact</a></li>
+            <li><a href="/cookie-policy" className="hover:text-brand-orange transition">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#B84200] mb-3">Resources</h4>
+          <ul className="space-y-2 text-[11px] text-gray-600">
+            <li><a href="/best-esim-usa" className="hover:text-brand-orange transition">Best USA eSIM 2026</a></li>
+            <li><a href="/best-esim-japan" className="hover:text-brand-orange transition">Best eSIM Japan 2026</a></li>
+            <li><a href="/best-esim-europe" className="hover:text-brand-orange transition">Best eSIM Europe 2026</a></li>
+            <li><a href="/localrent-georgia-tbilisi-car-rental-reviews-model" className="hover:text-brand-orange transition">Car Rental Guide</a></li>
+            <li><a href="/luggage-storage-radical-storage-guide" className="hover:text-brand-orange transition">Luggage Storage</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-[#E5E5E1] mt-6 pt-4 flex flex-wrap justify-between items-center gap-3">
+        <p className="text-[9px] font-mono uppercase tracking-widest text-gray-400">
+          &copy; {new Date().getFullYear()} BookMeThat. All rights reserved. Publisher ID: 685596.
+        </p>
+        <div className="flex gap-4">
+          <a href="https://x.com/bookmethat" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono hover:text-brand-orange transition">X</a>
+          <a href="https://facebook.com/bookmethat" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono hover:text-brand-orange transition">FB</a>
+          <a href="https://instagram.com/bookmethat" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono hover:text-brand-orange transition">IG</a>
+          <a href="https://linkedin.com/company/bookmethat" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono hover:text-brand-orange transition">LI</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="app.js" async></script>
